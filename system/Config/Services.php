@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -151,34 +151,6 @@ class Services extends BaseService
 	//--------------------------------------------------------------------
 
 	/**
-	 * The Email class allows you to send email via mail, sendmail, SMTP.
-	 *
-	 * @param null    $config
-	 * @param boolean $getShared
-	 *
-	 * @return \CodeIgniter\Email\Email|mixed
-	 */
-	public static function email($config = null, bool $getShared = true)
-	{
-		if ($getShared)
-		{
-			return static::getSharedInstance('email', $config);
-		}
-
-		if (empty($config))
-		{
-			$config = new \Config\Email();
-		}
-
-		$email = new \CodeIgniter\Email\Email($config);
-		$email->setLogger(static::logger(true));
-
-		return $email;
-	}
-
-	//--------------------------------------------------------------------
-
-	/**
 	 * The Exceptions class holds the methods that handle:
 	 *
 	 *  - set_exception_handler
@@ -248,6 +220,32 @@ class Services extends BaseService
 		}
 
 		return new \CodeIgniter\Filters\Filters($config, static::request(), static::response());
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * The Honeypot provides a secret input on forms that bots should NOT
+	 * fill in, providing an additional safeguard when accepting user input.
+	 *
+	 * @param \CodeIgniter\Config\BaseConfig|null $config
+	 * @param boolean                             $getShared
+	 *
+	 * @return \CodeIgniter\Honeypot\Honeypot|mixed
+	 */
+	public static function honeypot(BaseConfig $config = null, $getShared = true)
+	{
+		if ($getShared)
+		{
+			return static::getSharedInstance('honeypot', $config);
+		}
+
+		if (is_null($config))
+		{
+			$config = new \Config\Honeypot();
+		}
+
+		return new \CodeIgniter\Honeypot\Honeypot($config);
 	}
 
 	//--------------------------------------------------------------------
@@ -736,7 +734,7 @@ class Services extends BaseService
 
 		if (! is_object($config))
 		{
-			$config = config(\Config\Toolbar::class);
+			$config = config('Toolbar');
 		}
 
 		return new \CodeIgniter\Debug\Toolbar($config);

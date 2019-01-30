@@ -1,4 +1,4 @@
-<?php
+<?php namespace CodeIgniter\Filters;
 
 /**
  * CodeIgniter
@@ -30,61 +30,45 @@
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
- * @license    https://opensource.org/licenses/MIT    MIT License
+ * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
  * @filesource
  */
 
+use CodeIgniter\Filters\FilterInterface;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
 
-if (! function_exists('sanitize_filename'))
+class DebugToolbar implements FilterInterface
 {
 	/**
-	 * @param string $filename
+	 * We don't need to do anything here.
 	 *
-	 * @return string
+	 * @param RequestInterface|\CodeIgniter\HTTP\IncomingRequest $request
+	 *
+	 * @return mixed
 	 */
-	function sanitize_filename(string $filename)
+	public function before(RequestInterface $request)
 	{
-		return Services::security()->sanitizeFilename($filename);
 	}
-}
 
-//--------------------------------------------------------------------
+	//--------------------------------------------------------------------
 
-if (! function_exists('strip_image_tags'))
-{
 	/**
-	 * Strip Image Tags
+	 * If the debug flag is set (CI_DEBUG) then collect performance
+	 * and debug information and display it in a toolbar.
 	 *
-	 * @param  string $str
-	 * @return string
-	 */
-	function strip_image_tags(string $str)
-	{
-		return preg_replace([
-			'#<img[\s/]+.*?src\s*=\s*(["\'])([^\\1]+?)\\1.*?\>#i',
-			'#<img[\s/]+.*?src\s*=\s*?(([^\s"\'=<>`]+)).*?\>#i',
-		], '\\2', $str
-		);
-	}
-}
-
-//--------------------------------------------------------------------
-
-if (! function_exists('encode_php_tags'))
-{
-	/**
-	 * Convert PHP tags to entities
+	 * @param RequestInterface|\CodeIgniter\HTTP\IncomingRequest $request
+	 * @param ResponseInterface|\CodeIgniter\HTTP\Response       $response
 	 *
-	 * @param  string
-	 * @return string
+	 * @return mixed
 	 */
-	function encode_php_tags(string $str): string
+	public function after(RequestInterface $request, ResponseInterface $response)
 	{
-		return str_replace(['<?', '?>'], ['&lt;?', '?&gt;'], $str);
+		Services::toolbar()->prepare();
 	}
-}
 
-//--------------------------------------------------------------------
+	//--------------------------------------------------------------------
+}

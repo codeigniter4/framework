@@ -1,4 +1,4 @@
-<?php
+<?php namespace CodeIgniter\Filters;
 
 /**
  * CodeIgniter
@@ -30,61 +30,49 @@
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
- * @license    https://opensource.org/licenses/MIT    MIT License
+ * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
  * @filesource
  */
 
+use CodeIgniter\Filters\FilterInterface;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
+use CodeIgniter\Honeypot\Exceptions\HoneypotException;
 
-if (! function_exists('sanitize_filename'))
+class Honeypot implements FilterInterface
 {
+
 	/**
-	 * @param string $filename
+	 * Checks if Honeypot field is empty; if not
+	 * then the requester is a bot
 	 *
-	 * @return string
+	 * @param CodeIgniter\HTTP\RequestInterface $request
+	 *
+	 * @return mixed
 	 */
-	function sanitize_filename(string $filename)
+	public function before(RequestInterface $request)
 	{
-		return Services::security()->sanitizeFilename($filename);
+		$honeypot = Services::honeypot(new \Config\Honeypot());
+		if ($honeypot->hasContent($request))
+		{
+			throw HoneypotException::isBot();
+		}
 	}
-}
 
-//--------------------------------------------------------------------
-
-if (! function_exists('strip_image_tags'))
-{
 	/**
-	 * Strip Image Tags
+	 * Attach a honypot to the current response.
 	 *
-	 * @param  string $str
-	 * @return string
+	 * @param  CodeIgniter\HTTP\RequestInterface  $request
+	 * @param  CodeIgniter\HTTP\ResponseInterface $response
+	 * @return mixed
 	 */
-	function strip_image_tags(string $str)
+	public function after(RequestInterface $request, ResponseInterface $response)
 	{
-		return preg_replace([
-			'#<img[\s/]+.*?src\s*=\s*(["\'])([^\\1]+?)\\1.*?\>#i',
-			'#<img[\s/]+.*?src\s*=\s*?(([^\s"\'=<>`]+)).*?\>#i',
-		], '\\2', $str
-		);
+		$honeypot = Services::honeypot(new \Config\Honeypot());
+		$honeypot->attachHoneypot($response);
 	}
+
 }
-
-//--------------------------------------------------------------------
-
-if (! function_exists('encode_php_tags'))
-{
-	/**
-	 * Convert PHP tags to entities
-	 *
-	 * @param  string
-	 * @return string
-	 */
-	function encode_php_tags(string $str): string
-	{
-		return str_replace(['<?', '?>'], ['&lt;?', '?&gt;'], $str);
-	}
-}
-
-//--------------------------------------------------------------------

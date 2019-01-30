@@ -1,4 +1,4 @@
-<?php
+<?php namespace CodeIgniter\Filters;
 
 /**
  * CodeIgniter
@@ -30,61 +30,71 @@
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
- * @license    https://opensource.org/licenses/MIT    MIT License
+ * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
  * @filesource
  */
 
+use CodeIgniter\Filters\FilterInterface;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Security\Exceptions\SecurityException;
 use Config\Services;
 
-if (! function_exists('sanitize_filename'))
+class CSRF implements FilterInterface
 {
 	/**
-	 * @param string $filename
+	 * Do whatever processing this filter needs to do.
+	 * By default it should not return anything during
+	 * normal execution. However, when an abnormal state
+	 * is found, it should return an instance of
+	 * CodeIgniter\HTTP\Response. If it does, script
+	 * execution will end and that Response will be
+	 * sent back to the client, allowing for error pages,
+	 * redirects, etc.
 	 *
-	 * @return string
+	 * @param RequestInterface|\CodeIgniter\HTTP\IncomingRequest $request
+	 *
+	 * @return mixed
 	 */
-	function sanitize_filename(string $filename)
+	public function before(RequestInterface $request)
 	{
-		return Services::security()->sanitizeFilename($filename);
+		if ($request->isCLI())
+		{
+			return;
+		}
+
+		$security = Services::security();
+
+		try
+		{
+			$security->CSRFVerify($request);
+		}
+		catch (SecurityException $e)
+		{
+			if (config('App')->CSRFRedirect && ! $request->isAJAX())
+			{
+				return redirect()->back()->with('error', $e->getMessage());
+			}
+
+			throw $e;
+		}
 	}
-}
 
-//--------------------------------------------------------------------
+	//--------------------------------------------------------------------
 
-if (! function_exists('strip_image_tags'))
-{
 	/**
-	 * Strip Image Tags
+	 * We don't have anything to do here.
 	 *
-	 * @param  string $str
-	 * @return string
-	 */
-	function strip_image_tags(string $str)
-	{
-		return preg_replace([
-			'#<img[\s/]+.*?src\s*=\s*(["\'])([^\\1]+?)\\1.*?\>#i',
-			'#<img[\s/]+.*?src\s*=\s*?(([^\s"\'=<>`]+)).*?\>#i',
-		], '\\2', $str
-		);
-	}
-}
-
-//--------------------------------------------------------------------
-
-if (! function_exists('encode_php_tags'))
-{
-	/**
-	 * Convert PHP tags to entities
+	 * @param RequestInterface|\CodeIgniter\HTTP\IncomingRequest $request
+	 * @param ResponseInterface|\CodeIgniter\HTTP\Response       $response
 	 *
-	 * @param  string
-	 * @return string
+	 * @return mixed
 	 */
-	function encode_php_tags(string $str): string
+	public function after(RequestInterface $request, ResponseInterface $response)
 	{
-		return str_replace(['<?', '?>'], ['&lt;?', '?&gt;'], $str);
 	}
-}
 
-//--------------------------------------------------------------------
+	//--------------------------------------------------------------------
+}

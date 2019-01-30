@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -727,6 +727,7 @@ class Model
 		{
 			if ($this->validate($data) === false)
 			{
+				dd($this->errors());
 				return false;
 			}
 		}
@@ -1254,26 +1255,63 @@ class Model
 			$data = (array) $data;
 		}
 
+		$rules = $this->validationRules;
+		$rules = $this->cleanValidationRules($rules, $data);
+
+		// If no data existed that needs validation
+		// our job is done here.
+		if (empty($rules))
+		{
+			return true;
+		}
+
 		// ValidationRules can be either a string, which is the group name,
 		// or an array of rules.
-		if (is_string($this->validationRules))
+		if (is_string($rules))
 		{
-			$valid = $this->validation->run($data, $this->validationRules, $this->DBGroup);
+			$valid = $this->validation->run($data, $rules, $this->DBGroup);
 		}
 		else
 		{
 			// Replace any placeholders (i.e. {id}) in the rules with
 			// the value found in $data, if exists.
-			$rules = $this->fillPlaceholders($this->validationRules, $data);
+			$rules = $this->fillPlaceholders($rules, $data);
 
-			$this->validation->setRules($rules, $this->validationMessages, $this->DBGroup);
-			$valid = $this->validation->run($data);
+			$this->validation->setRules($rules, $this->validationMessages);
+			$valid = $this->validation->run($data, null, $this->DBGroup);
 		}
 
 		return (bool) $valid;
 	}
 
 	//--------------------------------------------------------------------
+
+	/**
+	 * Removes any rules that apply to fields that have not been set
+	 * currently so that rules don't block updating when only updating
+	 * a partial row.
+	 *
+	 * @param array $rules
+	 *
+	 * @return array
+	 */
+	protected function cleanValidationRules(array $rules, array $data = null)
+	{
+		if (empty($data))
+		{
+			return [];
+		}
+
+		foreach ($rules as $field => $rule)
+		{
+			if (! array_key_exists($field, $data))
+			{
+				unset($rules[$field]);
+			}
+		}
+
+		return $rules;
+	}
 
 	/**
 	 * Replace any placeholders within the rules with the values that
@@ -1364,6 +1402,24 @@ class Model
 	//--------------------------------------------------------------------
 
 	/**
+	 * Override countAllResults to account for soft deleted accounts.
+	 *
+	 * @param boolean $reset
+	 * @param boolean $test
+	 *
+	 * @return mixed
+	 */
+	public function countAllResults(bool $reset = true, bool $test = false)
+	{
+		if ($this->tempUseSoftDeletes === true)
+		{
+			$this->builder()->where($this->deletedField, 0);
+		}
+
+		return $this->builder()->countAllResults($reset, $test);
+	}
+
+	/**
 	 * A simple event trigger for Model Events that allows additional
 	 * data manipulation within the model. Specifically intended for
 	 * usage by child models this can be used to format data,
@@ -1418,7 +1474,7 @@ class Model
 	 */
 	public function __get(string $name)
 	{
-		if (in_array($name, ['primaryKey', 'table', 'returnType']))
+		if (in_array($name, ['primaryKey', 'table', 'returnType', 'DBGroup']))
 		{
 			return $this->{$name};
 		}

@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT  MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -97,6 +97,35 @@ if (! function_exists('config'))
 	function config(string $name, bool $getShared = true)
 	{
 		return \CodeIgniter\Config\Config::get($name, $getShared);
+	}
+}
+
+//--------------------------------------------------------------------
+
+if (! function_exists('db_connnect'))
+{
+	/**
+	 * Grabs a database connection and returns it to the user.
+	 *
+	 * This is a convenience wrapper for \Config\Database::connect()
+	 * and supports the same parameters. Namely:
+	 *
+	 * When passing in $db, you may pass any of the following to connect:
+	 * - group name
+	 * - existing connection instance
+	 * - array of database configuration values
+	 *
+	 * If $getShared === false then a new connection instance will be provided,
+	 * otherwise it will all calls will return the same instance.
+	 *
+	 * @param \CodeIgniter\Database\ConnectionInterface|array|string $db
+	 * @param boolean                                                $getShared
+	 *
+	 * @return \CodeIgniter\Database\BaseConnection
+	 */
+	function db_connect($db = null, bool $getShared = true)
+	{
+		return \Config\Database::connect($db, $getShared);
 	}
 }
 
@@ -540,7 +569,7 @@ if (! function_exists('helper'))
 	 * both in and out of the 'helpers' directory of a namespaced directory.
 	 *
 	 * Will load ALL helpers of the matching name, in the following order:
-	 *   1. application/Helpers
+	 *   1. app/Helpers
 	 *   2. {namespace}/Helpers
 	 *   3. system/Helpers
 	 *

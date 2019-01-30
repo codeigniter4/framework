@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -119,7 +119,8 @@ class FileLocator
 			{
 				continue;
 			}
-			$path     = $this->getNamespaces($prefix);
+			$path = $this->getNamespaces($prefix);
+
 			$filename = implode('/', $segments);
 			break;
 		}
@@ -201,8 +202,8 @@ class FileLocator
 	 *  $locator->search('Config/Routes.php');
 	 *  // Assuming PSR4 namespaces include foo and bar, might return:
 	 *  [
-	 *      'application/modules/foo/Config/Routes.php',
-	 *      'application/modules/bar/Config/Routes.php',
+	 *      'app/Modules/foo/Config/Routes.php',
+	 *      'app/Modules/bar/Config/Routes.php',
 	 *  ]
 	 *
 	 * @param string $path
@@ -268,7 +269,9 @@ class FileLocator
 		{
 			$path = $this->autoloader->getNamespace($prefix);
 
-			return isset($path[0]) ? $path[0] : '';
+			return isset($path[0])
+				? rtrim($path[0], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
+				: '';
 		}
 
 		$namespaces = [];
@@ -279,7 +282,7 @@ class FileLocator
 			{
 				$namespaces[] = [
 					'prefix' => $prefix,
-					'path'   => $path,
+					'path'   => rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR,
 				];
 			}
 		}

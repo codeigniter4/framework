@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -327,6 +327,16 @@ abstract class BaseConnection implements ConnectionInterface
 	 */
 	protected $aliasedTables = [];
 
+	/**
+	 * Should the bindings be collected with a default escape value?
+	 * The Builder will automatically set this to false, so that any
+	 * $db->query('...', [binds]);  Will result in bindings being
+	 * automatically escaped.
+	 *
+	 * @var boolean
+	 */
+	protected $setEscapeFlags = true;
+
 	//--------------------------------------------------------------------
 
 	/**
@@ -578,6 +588,20 @@ abstract class BaseConnection implements ConnectionInterface
 	}
 
 	/**
+	 * Should query() automatically attach escape flags to each bound var?
+	 *
+	 * @param boolean $setFlags
+	 *
+	 * @return $this
+	 */
+	public function setEscapeFlags(bool $setFlags)
+	{
+		$this->setEscapeFlags = $setFlags;
+
+		return $this;
+	}
+
+	/**
 	 * Executes the query against the database.
 	 *
 	 * @param $sql
@@ -596,9 +620,11 @@ abstract class BaseConnection implements ConnectionInterface
 	 * Should automatically handle different connections for read/write
 	 * queries if needed.
 	 *
-	 * @param  string $sql
-	 * @param  array  ...$binds
-	 * @param  string $queryClass
+	 * @param string  $sql
+	 * @param array   ...$binds
+	 * @param string  $queryClass
+	 * @param boolean $setEscape
+	 *
 	 * @return BaseResult|Query|false
 	 */
 	public function query(string $sql, $binds = null, $queryClass = 'CodeIgniter\\Database\\Query')
@@ -609,13 +635,12 @@ abstract class BaseConnection implements ConnectionInterface
 		}
 
 		$resultClass = str_replace('Connection', 'Result', get_class($this));
-
 		/**
 		 * @var Query $query
 		 */
 		$query = new $queryClass($this);
 
-		$query->setQuery($sql, $binds);
+		$query->setQuery($sql, $binds, $this->setEscapeFlags);
 
 		if (! empty($this->swapPre) && ! empty($this->DBPrefix))
 		{

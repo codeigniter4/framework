@@ -7,7 +7,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014-2018 British Columbia Institute of Technology
+ * Copyright (c) 2014-2019 British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2018 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
@@ -226,6 +226,9 @@ class BaseBuilder
 		}
 
 		$this->db = $db;
+
+		// turn off automatic escape flags
+		$this->db->setEscapeFlags(false);
 
 		$this->from($tableName);
 
@@ -664,7 +667,7 @@ class BaseBuilder
 				$op = $this->getOperator($k);
 				$k  = trim(str_replace($op, '', $k));
 
-				$bind = $this->setBind($k, $v);
+				$bind = $this->setBind($k, $v, $escape);
 
 				if (empty($op))
 				{
@@ -813,8 +816,8 @@ class BaseBuilder
 
 		$not = ($not) ? ' NOT' : '';
 
-		$where_in         = array_values($values);
-		$this->binds[$ok] = $where_in;
+		$where_in = array_values($values);
+		$ok       = $this->setBind($ok, $where_in, $escape);
 
 		$prefix = empty($this->QBWhere) ? $this->groupGetType('') : $this->groupGetType($type);
 
@@ -955,19 +958,19 @@ class BaseBuilder
 
 			if ($side === 'none')
 			{
-				$bind = $this->setBind($k, $v);
+				$bind = $this->setBind($k, $v, $escape);
 			}
 			elseif ($side === 'before')
 			{
-				$bind = $this->setBind($k, "%$v");
+				$bind = $this->setBind($k, "%$v", $escape);
 			}
 			elseif ($side === 'after')
 			{
-				$bind = $this->setBind($k, "$v%");
+				$bind = $this->setBind($k, "$v%", $escape);
 			}
 			else
 			{
-				$bind = $this->setBind($k, "%$v%");
+				$bind = $this->setBind($k, "%$v%", $escape);
 			}
 
 			$like_statement = $this->_like_statement($prefix, $k, $not, $bind, $insensitiveSearch);
@@ -1345,7 +1348,7 @@ class BaseBuilder
 		{
 			if ($escape)
 			{
-				$bind                                                           = $this->setBind($k, $v);
+				$bind                                                           = $this->setBind($k, $v, $escape);
 				$this->QBSet[$this->db->protectIdentifiers($k, false, $escape)] = ":$bind:";
 			}
 			else
@@ -1399,10 +1402,31 @@ class BaseBuilder
 			$this->resetSelect();
 		}
 
-		return $select;
+		return $this->compileFinalQuery($select);
 	}
 
 	//--------------------------------------------------------------------
+
+	/**
+	 * Returns a finalized, compiled query string with the bindings
+	 * inserted and prefixes swapped out.
+	 *
+	 * @param string $sql
+	 *
+	 * @return mixed|string
+	 */
+	protected function compileFinalQuery(string $sql): string
+	{
+		$query = new Query($this->db);
+		$query->setQuery($sql, $this->binds, false);
+
+		if (! empty($this->db->swapPre) && ! empty($this->db->DBPrefix))
+		{
+			$query->swapPrefix($this->db->DBPrefix, $this->db->swapPre);
+		}
+
+		return $query->getQuery();
+	}
 
 	/**
 	 * Get
@@ -1423,6 +1447,7 @@ class BaseBuilder
 		{
 			$this->limit($limit, $offset);
 		}
+
 		$result = $returnSQL ? $this->getCompiledSelect() : $this->db->query($this->compileSelect(), $this->binds);
 
 		if ($reset === true)
@@ -1696,7 +1721,7 @@ class BaseBuilder
 			$clean = [];
 			foreach ($row as $k => $value)
 			{
-				$clean[] = ':' . $this->setBind($k, $value) . ':';
+				$clean[] = ':' . $this->setBind($k, $value, $escape) . ':';
 			}
 
 			$row = $clean;
@@ -1741,7 +1766,7 @@ class BaseBuilder
 			$this->resetWrite();
 		}
 
-		return $sql;
+		return $this->compileFinalQuery($sql);
 	}
 
 	//--------------------------------------------------------------------
@@ -1931,7 +1956,7 @@ class BaseBuilder
 			$this->resetWrite();
 		}
 
-		return $sql;
+		return $this->compileFinalQuery($sql);
 	}
 
 	//--------------------------------------------------------------------
@@ -2203,7 +2228,7 @@ class BaseBuilder
 					$index_set = true;
 				}
 
-				$bind = $this->setBind($k2, $v2);
+				$bind = $this->setBind($k2, $v2, $escape);
 
 				$clean[$this->db->protectIdentifiers($k2, false, $escape)] = ":$bind:";
 			}
@@ -2312,7 +2337,7 @@ class BaseBuilder
 		$sql                   = $this->delete($table, '', null, $reset);
 		$this->returnDeleteSQL = false;
 
-		return $sql;
+		return $this->compileFinalQuery($sql);
 	}
 
 	//--------------------------------------------------------------------
@@ -2918,17 +2943,24 @@ class BaseBuilder
 
 	/**
 	 * Stores a bind value after ensuring that it's unique.
+	 * While it might be nicer to have named keys for our binds array
+	 * with PHP 7+ we get a huge memory/performance gain with indexed
+	 * arrays instead, so lets take advantage of that here.
 	 *
-	 * @param string $key
-	 * @param null   $value
+	 * @param string  $key
+	 * @param null    $value
+	 * @param boolean $escape
 	 *
 	 * @return string
 	 */
-	protected function setBind(string $key, $value = null)
+	protected function setBind(string $key, $value = null, bool $escape = true)
 	{
 		if (! array_key_exists($key, $this->binds))
 		{
-			$this->binds[$key] = $value;
+			$this->binds[$key] = [
+				$value,
+				$escape,
+			];
 
 			return $key;
 		}
@@ -2937,10 +2969,13 @@ class BaseBuilder
 
 		while (array_key_exists($key . $count, $this->binds))
 		{
-			++ $count;
+			++$count;
 		}
 
-		$this->binds[$key . $count] = $value;
+		$this->binds[$key . $count] = [
+			$value,
+			$escape,
+		];
 
 		return $key . $count;
 	}
