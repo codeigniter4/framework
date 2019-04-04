@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter\Filters;
+<?php
 
 /**
  * CodeIgniter
@@ -34,14 +34,26 @@
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
  * @filesource
+ *
+ * This filter is not intended to be used from the command line.
+ *
+ * @codeCoverageIgnore
  */
 
-use CodeIgniter\Filters\FilterInterface;
+namespace CodeIgniter\Filters;
+
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Security\Exceptions\SecurityException;
 use Config\Services;
 
+/**
+ * CSRF filter.
+ *
+ * This filter is not intended to be used from the command line.
+ *
+ * @codeCoverageIgnore
+ */
 class CSRF implements FilterInterface
 {
 	/**

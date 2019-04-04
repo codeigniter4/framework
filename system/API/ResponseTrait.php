@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter\API;
+<?php
 
 /**
  * CodeIgniter
@@ -35,6 +35,8 @@
  * @since      Version 3.0.0
  * @filesource
  */
+
+namespace CodeIgniter\API;
 
 use Config\Format;
 use CodeIgniter\HTTP\Response;
@@ -327,9 +329,9 @@ trait ResponseTrait
 	 * Handles formatting a response. Currently makes some heavy assumptions
 	 * and needs updating! :)
 	 *
-	 * @param null $data
+	 * @param string|array|null $data
 	 *
-	 * @return null|string
+	 * @return string|null
 	 */
 	protected function format($data = null)
 	{

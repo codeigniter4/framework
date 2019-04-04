@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter;
+<?php
 
 /**
  * CodeIgniter
@@ -36,6 +36,9 @@
  * @filesource
  */
 
+namespace CodeIgniter;
+
+use CodeIgniter\Exceptions\ModelException;
 use Config\Database;
 use CodeIgniter\I18n\Time;
 use CodeIgniter\Pager\Pager;
@@ -343,9 +346,32 @@ class Model
 		$this->tempReturnType     = $this->returnType;
 		$this->tempUseSoftDeletes = $this->useSoftDeletes;
 
-		$this->reset();
-
 		return $row['data'];
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Fetches the column of database from $this->table
+	 *
+	 * @param string        $column_name Column name
+	 *
+	 * @return array|null   The resulting row of data, or null if no data found.
+	 *
+	 * @throws \CodeIgniter\Database\Exceptions\DataException
+	 */
+	public function findColumn(string $columnName)
+	{
+		if (strpos($columnName, ',') !== false)
+		{
+			throw DataException::forFindColumnHaveMultipleColumns();
+		}
+
+		$resultSet = $this->select($columnName)
+		                  ->asArray()
+		                  ->find();
+
+		return (!empty($resultSet)) ? array_column($resultSet, $columnName) : null;
 	}
 
 	//--------------------------------------------------------------------
@@ -385,7 +411,7 @@ class Model
 
 	/**
 	 * Returns the first row of the result set. Will take any previous
-	 * Query Builder calls into account when determing the result set.
+	 * Query Builder calls into account when determining the result set.
 	 *
 	 * @return array|object|null
 	 */
@@ -424,13 +450,13 @@ class Model
 	 * data here. This allows it to be used with any of the other
 	 * builder methods and still get validated data, like replace.
 	 *
-	 * @param $key
+	 * @param mixed        $key
 	 * @param string       $value
 	 * @param boolean|null $escape
 	 *
 	 * @return $this
 	 */
-	public function set($key, $value = '', bool $escape = null)
+	public function set($key, string $value = '', bool $escape = null)
 	{
 		$data = is_array($key)
 			? $key
@@ -456,7 +482,7 @@ class Model
 	 * @return boolean
 	 * @throws \ReflectionException
 	 */
-	public function save($data)
+	public function save($data): bool
 	{
 		// If $data is using a custom class with public or protected
 		// properties representing the table elements, we need to grab
@@ -481,7 +507,12 @@ class Model
 		}
 		else
 		{
-			$response = $this->insert($data);
+			$response = $this->insert($data, false);
+			// call insert directly if you want the ID or the record object
+			if ($response !== false)
+			{
+				$response = true;
+			}
 		}
 
 		return $response;
@@ -565,7 +596,7 @@ class Model
 	 *
 	 * @return integer
 	 */
-	public function getInsertID()
+	public function getInsertID(): int
 	{
 		return $this->insertID;
 	}
@@ -629,10 +660,16 @@ class Model
 		// strip out created_at values.
 		$data = $this->doProtectFields($data);
 
-		if ($this->useTimestamps && ! array_key_exists($this->createdField, $data))
+		// Set created_at and updated_at with same time
+		$date = $this->setDate();
+
+		if ($this->useTimestamps && ! empty($this->createdField) && ! array_key_exists($this->createdField, $data))
 		{
-			$date                      = $this->setDate();
 			$data[$this->createdField] = $date;
+		}
+
+		if ($this->useTimestamps && ! empty($this->updatedField) && ! array_key_exists($this->updatedField, $data))
+		{
 			$data[$this->updatedField] = $date;
 		}
 
@@ -673,9 +710,9 @@ class Model
 	 * @param integer $batchSize
 	 * @param boolean $testing
 	 *
-	 * @return integer Number of rows inserted or FALSE on failure
+	 * @return integer|boolean Number of rows inserted or FALSE on failure
 	 */
-	public function insertBatch($set = null, $escape = null, $batchSize = 100, $testing = false)
+	public function insertBatch(array $set = null, bool $escape = null, int $batchSize = 100, bool $testing = false)
 	{
 		if (is_array($set) && $this->skipValidation === false)
 		{
@@ -703,7 +740,7 @@ class Model
 	 * @return boolean
 	 * @throws \ReflectionException
 	 */
-	public function update($id = null, $data = null)
+	public function update($id = null, $data = null): bool
 	{
 		$escape = null;
 
@@ -753,7 +790,7 @@ class Model
 		// strip out updated_at values.
 		$data = $this->doProtectFields($data);
 
-		if ($this->useTimestamps && ! array_key_exists($this->updatedField, $data))
+		if ($this->useTimestamps && ! empty($this->updatedField) && ! array_key_exists($this->updatedField, $data))
 		{
 			$data[$this->updatedField] = $this->setDate();
 		}
@@ -797,7 +834,7 @@ class Model
 	 * @return mixed    Number of rows affected or FALSE on failure
 	 * @throws \CodeIgniter\Database\Exceptions\DatabaseException
 	 */
-	public function updateBatch($set = null, $index = null, $batchSize = 100, $returnSQL = false)
+	public function updateBatch(array $set = null, string $index = null, int $batchSize = 100, bool $returnSQL = false)
 	{
 		if (is_array($set) && $this->skipValidation === false)
 		{
@@ -825,7 +862,7 @@ class Model
 	 * @return mixed
 	 * @throws \CodeIgniter\Database\Exceptions\DatabaseException
 	 */
-	public function delete($id = null, $purge = false)
+	public function delete($id = null, bool $purge = false)
 	{
 		if (! empty($id) && is_numeric($id))
 		{
@@ -844,7 +881,7 @@ class Model
 		{
 			$set[$this->deletedField] = 1;
 
-			if ($this->useTimestamps)
+			if ($this->useTimestamps && ! empty($this->updatedField))
 			{
 				$set[$this->updatedField] = $this->setDate();
 			}
@@ -928,7 +965,7 @@ class Model
 	 *
 	 * @return boolean TRUE on success, FALSE on failure
 	 */
-	public function replace($data = null, $returnSQL = false)
+	public function replace($data = null, bool $returnSQL = false): bool
 	{
 		// Validate data before saving.
 		if (! empty($data) && $this->skipValidation === false)
@@ -989,7 +1026,7 @@ class Model
 	 *
 	 * @throws \CodeIgniter\Database\Exceptions\DataException
 	 */
-	public function chunk($size = 100, \Closure $userFunc)
+	public function chunk(int $size, \Closure $userFunc)
 	{
 		$total = $this->builder()
 				->countAllResults(false);
@@ -1007,7 +1044,7 @@ class Model
 				throw DataException::forEmptyDataset('chunk');
 			}
 
-			$rows = $rows->getResult();
+			$rows = $rows->getResult($this->tempReturnType);
 
 			$offset += $size;
 
@@ -1090,6 +1127,14 @@ class Model
 			return $this->builder;
 		}
 
+		// We're going to force a primary key to exist
+		// so we don't have overly convoluted code,
+		// and future features are likely to require them.
+		if (empty($this->primaryKey))
+		{
+			throw ModelException::forNoPrimaryKey(get_class($this));
+		}
+
 		$table = empty($table) ? $this->table : $table;
 
 		// Ensure we have a good db connection
@@ -1117,7 +1162,7 @@ class Model
 	 * @return array
 	 * @throws \CodeIgniter\Database\Exceptions\DataException
 	 */
-	protected function doProtectFields($data)
+	protected function doProtectFields(array $data): array
 	{
 		if ($this->protectFields === false)
 		{
@@ -1160,7 +1205,7 @@ class Model
 	 *
 	 * @return mixed
 	 */
-	protected function setDate($userData = null)
+	protected function setDate(int $userData = null)
 	{
 		$currentDate = is_numeric($userData) ? (int) $userData : time();
 
@@ -1246,6 +1291,36 @@ class Model
 	//--------------------------------------------------------------------
 
 	/**
+	 * Allows to set validation messages.
+	 * It could be used when you have to change default or override current validate messages.
+	 *
+	 * @param array $validationMessages
+	 *
+	 * @return void
+	 */
+	public function setValidationMessages(array $validationMessages)
+	{
+		$this->validationMessages = $validationMessages;
+	}
+	//--------------------------------------------------------------------
+
+	/**
+	 * Allows to set field wise validation message.
+	 * It could be used when you have to change default or override current validate messages.
+	 *
+	 * @param string $field
+	 * @param array  $fieldMessages
+	 *
+	 * @return void
+	 */
+	public function setValidationMessage(string $field, array $fieldMessages)
+	{
+		$this->validationMessages[$field] = $fieldMessages;
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
 	 * Validate the data against the validation rules (or the validation group)
 	 * specified in the class property, $validationRules.
 	 *
@@ -1302,11 +1377,13 @@ class Model
 	 * currently so that rules don't block updating when only updating
 	 * a partial row.
 	 *
-	 * @param array $rules
+	 * @param array      $rules
+	 *
+	 * @param array|null $data
 	 *
 	 * @return array
 	 */
-	protected function cleanValidationRules($rules, array $data = null)
+	protected function cleanValidationRules(array $rules, array $data = null): array
 	{
 		if (empty($data))
 		{
@@ -1344,7 +1421,7 @@ class Model
 	 *
 	 * @return array
 	 */
-	protected function fillPlaceholders(array $rules, array $data)
+	protected function fillPlaceholders(array $rules, array $data): array
 	{
 		$replacements = [];
 
@@ -1386,9 +1463,11 @@ class Model
 	 * Returns the model's defined validation rules so that they
 	 * can be used elsewhere, if needed.
 	 *
+	 * @param array $options
+	 *
 	 * @return array
 	 */
-	public function getValidationRules(array $options = [])
+	public function getValidationRules(array $options = []): array
 	{
 		$rules = $this->validationRules;
 
@@ -1412,7 +1491,7 @@ class Model
 	 *
 	 * @return array
 	 */
-	public function getValidationMessages()
+	public function getValidationMessages(): array
 	{
 		return $this->validationMessages;
 	}
@@ -1488,7 +1567,7 @@ class Model
 	 *
 	 * @param string $name
 	 *
-	 * @return null
+	 * @return mixed
 	 */
 	public function __get(string $name)
 	{
@@ -1519,7 +1598,7 @@ class Model
 	 *
 	 * @return Model|null
 	 */
-	public function __call($name, array $params)
+	public function __call(string $name, array $params)
 	{
 		$result = null;
 

@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter;
+<?php
 
 /**
  * CodeIgniter
@@ -36,6 +36,8 @@
  * @filesource
  */
 
+namespace CodeIgniter;
+
 /**
  * ComposerScripts
  *
@@ -55,6 +57,8 @@ class ComposerScripts
 	 * After composer install/update, this is called to move
 	 * the bare-minimum required files for our dependencies
 	 * to appropriate locations.
+	 *
+	 * @throws \ReflectionException
 	 */
 	public static function postUpdate()
 	{
@@ -97,6 +101,7 @@ class ComposerScripts
 	 * @param string $class
 	 *
 	 * @return string
+	 * @throws \ReflectionException
 	 */
 	protected static function getClassFilePath(string $class)
 	{
@@ -139,6 +144,8 @@ class ComposerScripts
 	/**
 	 * Moves the Zend Escaper files into our base repo so that it's
 	 * available for packaged releases where the users don't user Composer.
+	 *
+	 * @throws \ReflectionException
 	 */
 	public static function moveEscaper()
 	{

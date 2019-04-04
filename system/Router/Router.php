@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter\Router;
+<?php
 
 /**
  * CodeIgniter
@@ -35,6 +35,8 @@
  * @since      Version 3.0.0
  * @filesource
  */
+
+namespace CodeIgniter\Router;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Router\Exceptions\RouterException;
@@ -411,10 +413,14 @@ class Router implements RouterInterface
 		// Loop through the route array looking for wildcards
 		foreach ($routes as $key => $val)
 		{
+			$key = $key === '/'
+				? $key
+				: ltrim($key, '/ ');
+
 			// Are we dealing with a locale?
 			if (strpos($key, '{locale}') !== false)
 			{
-				$localeSegment = array_search('{locale}', explode('/', $key));
+				$localeSegment = array_search('{locale}', preg_split('/[\/]*((^[a-zA-Z0-9])|\(([^()]*)\))*[\/]+/m', $key));
 
 				// Replace it with a regex so it
 				// will actually match.
@@ -471,7 +477,15 @@ class Router implements RouterInterface
 				}
 				elseif (strpos($val, '/') !== false)
 				{
-					$val = str_replace('/', '\\', $val);
+					[
+						$controller,
+						$method,
+					] = explode( '::', $val );
+
+					// Only replace slashes in the controller, not in the method.
+					$controller = str_replace('/', '\\', $controller);
+
+					$val = $controller . '::' . $method;
 				}
 
 				// Is this route supposed to redirect to another?

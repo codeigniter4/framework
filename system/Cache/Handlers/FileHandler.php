@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter\Cache\Handlers;
+<?php
 
 /**
  * CodeIgniter
@@ -36,9 +36,14 @@
  * @filesource
  */
 
+namespace CodeIgniter\Cache\Handlers;
+
 use CodeIgniter\Cache\CacheInterface;
 use CodeIgniter\Cache\Exceptions\CacheException;
 
+/**
+ * File system cache handler
+ */
 class FileHandler implements CacheInterface
 {
 
@@ -95,7 +100,7 @@ class FileHandler implements CacheInterface
 
 		$data = $this->getItem($key);
 
-		return is_array($data) ? $data['data'] : false;
+		return is_array($data) ? $data['data'] : null;
 	}
 
 	//--------------------------------------------------------------------

@@ -1,7 +1,4 @@
 <?php
-namespace CodeIgniter\HTTP;
-
-use CodeIgniter\HTTP\Exceptions\HTTPException;
 
 /**
  * CodeIgniter
@@ -37,6 +34,14 @@ use CodeIgniter\HTTP\Exceptions\HTTPException;
  * @link       https://codeigniter.com
  * @since      Version 3.0.0
  * @filesource
+ */
+
+namespace CodeIgniter\HTTP;
+
+use CodeIgniter\HTTP\Exceptions\HTTPException;
+
+/**
+ * An HTTP message
  */
 class Message
 {
@@ -311,7 +316,7 @@ class Message
 	 * @param string $name
 	 * @param string $value
 	 *
-	 * @return string
+	 * @return Message
 	 */
 	public function appendHeader(string $name, $value)
 	{
@@ -331,7 +336,7 @@ class Message
 	 * @param string $name
 	 * @param string $value
 	 *
-	 * @return string
+	 * @return Message
 	 */
 	public function prependHeader(string $name, $value)
 	{

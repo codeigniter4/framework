@@ -1,5 +1,4 @@
-<?php namespace CodeIgniter\Session;
-
+<?php
 /**
  * CodeIgniter
  *
@@ -36,6 +35,8 @@
  * @filesource
  */
 
+namespace CodeIgniter\Session;
+
 use Psr\Log\LoggerAwareTrait;
 
 /**
@@ -52,7 +53,7 @@ class Session implements SessionInterface
 	/**
 	 * Instance of the driver to use.
 	 *
-	 * @var HandlerInterface
+	 * @var \CodeIgniter\Log\Handlers\HandlerInterface
 	 */
 	protected $driver;
 
@@ -303,8 +304,8 @@ class Session implements SessionInterface
 		{
 			ini_set('session.gc_maxlifetime', (int) $this->sessionExpiration);
 		}
-		
-		if(!empty($this->sessionSavePath))
+
+		if (! empty($this->sessionSavePath))
 		{
 			ini_set('session.save_path', $this->sessionSavePath);
 		}

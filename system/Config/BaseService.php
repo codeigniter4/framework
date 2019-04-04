@@ -1,5 +1,4 @@
-<?php namespace CodeIgniter\Config;
-
+<?php
 /**
  * CodeIgniter
  *
@@ -35,6 +34,8 @@
  * @since      Version 3.0.0
  * @filesource
  */
+
+namespace CodeIgniter\Config;
 
 /**
  * Services Configuration file.
@@ -251,6 +252,7 @@ class BaseService
 
 				if (empty($files))
 				{
+					// no files at all found - this would be really, really bad
 					return null;
 				}
 
@@ -271,6 +273,7 @@ class BaseService
 
 		if (! static::$services)
 		{
+			// we found stuff, but no services - this would be really bad
 			return null;
 		}
 

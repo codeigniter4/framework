@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  *
  * @package    CodeIgniter
- * @author     EllisLab Dev Team
+ * @author     CodeIgniter Dev Team
  * @copyright  2008-2014 EllisLab, Inc. (https://ellislab.com/)
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
@@ -43,7 +43,7 @@
  * @package    CodeIgniter
  * @subpackage Helpers
  * @category   Helpers
- * @author     EllisLab Dev Team
+ * @author     CodeIgniter Dev Team
  * @link       https://codeigniter.com/user_guide/helpers/text_helper.html
  */
 //--------------------------------------------------------------------
@@ -264,14 +264,14 @@ if (! function_exists('word_censor'))
 	 * word you've submitted.
 	 *
 	 * @param string $str         the text string
-	 * @param string $censored    the array of censored words
+	 * @param array  $censored    the array of censored words
 	 * @param string $replacement the optional replacement value
 	 *
 	 * @return string
 	 */
-	function word_censor(string $str, $censored, string $replacement = ''): string
+	function word_censor(string $str, array $censored, string $replacement = ''): string
 	{
-		if (! is_array($censored))
+		if (empty($censored))
 		{
 			return $str;
 		}
@@ -460,7 +460,7 @@ if (! function_exists('word_wrap'))
 	 * Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor
 	 * will URLs.
 	 *
-	 * @param string  $str             the text string
+	 * @param string  $str     the text string
 	 * @param integer $charlim = 76    the number of characters to wrap at
 	 *
 	 * @return string
@@ -604,7 +604,7 @@ if (! function_exists('strip_slashes'))
 	 *
 	 * Removes slashes contained in a string or in an array
 	 *
-	 * @param mixed  $str  string or array
+	 * @param mixed $str string or array
 	 *
 	 * @return mixed  string or array
 	 */

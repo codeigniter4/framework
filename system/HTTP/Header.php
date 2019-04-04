@@ -1,5 +1,4 @@
-<?php namespace CodeIgniter\HTTP;
-
+<?php
 /**
  * CodeIgniter
  *
@@ -35,6 +34,8 @@
  * @since      Version 3.0.0
  * @filesource
  */
+
+namespace CodeIgniter\HTTP;
 
 /**
  * Class Header
@@ -91,7 +92,7 @@ class Header
 
 	/**
 	 * Gets the raw value of the header. This may return either a string
-	 * of an array, depending on whether the header has mutliple values or not.
+	 * of an array, depending on whether the header has multiple values or not.
 	 *
 	 * @return array|null|string
 	 */

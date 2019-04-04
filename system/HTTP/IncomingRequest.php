@@ -1,6 +1,5 @@
 <?php
 
-namespace CodeIgniter\HTTP;
 
 /**
  * CodeIgniter
@@ -38,10 +37,12 @@ namespace CodeIgniter\HTTP;
  * @filesource
  */
 
+namespace CodeIgniter\HTTP;
+
 use CodeIgniter\HTTP\Exceptions\HTTPException;
 use CodeIgniter\HTTP\Files\FileCollection;
 use CodeIgniter\HTTP\Files\UploadedFile;
-use CodeIgniter\Services;
+use CodeIgniter\Config\Services;
 
 /**
  * Class IncomingRequest
@@ -373,9 +374,9 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch an item from GET data.
 	 *
-	 * @param null $index  Index for item to fetch from $_GET.
-	 * @param null $filter A filter name to apply.
-	 * @param null $flags
+	 * @param string|array|null $index  Index for item to fetch from $_GET.
+	 * @param integer|null      $filter A filter name to apply.
+	 * @param mixed|null        $flags
 	 *
 	 * @return mixed
 	 */
@@ -389,9 +390,9 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch an item from POST.
 	 *
-	 * @param null $index  Index for item to fetch from $_POST.
-	 * @param null $filter A filter name to apply
-	 * @param null $flags
+	 * @param string|array|null $index  Index for item to fetch from $_POST.
+	 * @param integer|null      $filter A filter name to apply
+	 * @param mixed             $flags
 	 *
 	 * @return mixed
 	 */
@@ -405,9 +406,9 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch an item from POST data with fallback to GET.
 	 *
-	 * @param null $index  Index for item to fetch from $_POST or $_GET
-	 * @param null $filter A filter name to apply
-	 * @param null $flags
+	 * @param string|array|null $index  Index for item to fetch from $_POST or $_GET
+	 * @param integer|null      $filter A filter name to apply
+	 * @param mixed             $flags
 	 *
 	 * @return mixed
 	 */
@@ -424,9 +425,9 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch an item from GET data with fallback to POST.
 	 *
-	 * @param null $index  Index for item to be fetched from $_GET or $_POST
-	 * @param null $filter A filter name to apply
-	 * @param null $flags
+	 * @param string|array|null $index  Index for item to be fetched from $_GET or $_POST
+	 * @param integer|null      $filter A filter name to apply
+	 * @param mixed             $flags
 	 *
 	 * @return mixed
 	 */
@@ -443,9 +444,9 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch an item from the COOKIE array.
 	 *
-	 * @param null $index  Index for item to be fetched from $_COOKIE
-	 * @param null $filter A filter name to be applied
-	 * @param null $flags
+	 * @param string|array|null $index  Index for item to be fetched from $_COOKIE
+	 * @param integer|null      $filter A filter name to be applied
+	 * @param mixed             $flags
 	 *
 	 * @return mixed
 	 */
@@ -459,9 +460,7 @@ class IncomingRequest extends Request
 	/**
 	 * Fetch the user agent string
 	 *
-	 * @param null $filter
-	 *
-	 * @return mixed
+	 * @return \CodeIgniter\HTTP\UserAgent
 	 */
 	public function getUserAgent()
 	{
@@ -530,7 +529,7 @@ class IncomingRequest extends Request
 	 * Returns an array of all files that have been uploaded with this
 	 * request. Each file is represented by an UploadedFile instance.
 	 *
-	 * @return Files\FileCollection
+	 * @return array
 	 */
 	public function getFiles()
 	{
@@ -572,7 +571,7 @@ class IncomingRequest extends Request
 	 * @param string $protocol
 	 * @param string $baseURL
 	 */
-	protected function detectURI($protocol, $baseURL)
+	protected function detectURI(string $protocol, string $baseURL)
 	{
 		$this->uri->setPath($this->detectPath($protocol));
 
@@ -614,7 +613,7 @@ class IncomingRequest extends Request
 	 *
 	 * @return string
 	 */
-	public function detectPath($protocol = '')
+	public function detectPath(string $protocol = ''): string
 	{
 		if (empty($protocol))
 		{
@@ -650,7 +649,7 @@ class IncomingRequest extends Request
 	 *
 	 * @return string
 	 */
-	public function negotiate(string $type, array $supported, bool $strictMatch = false)
+	public function negotiate(string $type, array $supported, bool $strictMatch = false): string
 	{
 		if (is_null($this->negotiator))
 		{
@@ -775,7 +774,7 @@ class IncomingRequest extends Request
 	 *
 	 * @return string
 	 */
-	protected function removeRelativeDirectory($uri)
+	protected function removeRelativeDirectory(string $uri): string
 	{
 		$uris = [];
 		$tok  = strtok($uri, '/');

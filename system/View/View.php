@@ -1,4 +1,4 @@
-<?php namespace CodeIgniter\View;
+<?php
 
 /**
  * CodeIgniter
@@ -35,6 +35,8 @@
  * @since      Version 3.0.0
  * @filesource
  */
+
+namespace CodeIgniter\View;
 
 use CodeIgniter\View\Exceptions\ViewException;
 use Config\Services;
@@ -81,7 +83,7 @@ class View implements RendererInterface
 	/**
 	 * Logger instance.
 	 *
-	 * @var Logger
+	 * @var \CodeIgniter\Log\Logger
 	 */
 	protected $logger;
 
@@ -179,7 +181,7 @@ class View implements RendererInterface
 	 *
 	 * @return string
 	 */
-	public function render(string $view, array $options = null, $saveData = null): string
+	public function render(string $view, array $options = null, bool $saveData = null): string
 	{
 		$this->renderVars['start'] = microtime(true);
 
@@ -237,7 +239,7 @@ class View implements RendererInterface
 		// When using layouts, the data has already been stored
 		// in $this->sections, and no other valid output
 		// is allowed in $output so we'll overwrite it.
-		if (! is_null($this->layout))
+		if (! is_null($this->layout) && empty($this->currentSection))
 		{
 			$layoutView   = $this->layout;
 			$this->layout = null;
@@ -294,7 +296,7 @@ class View implements RendererInterface
 	 *
 	 * @return string
 	 */
-	public function renderString(string $view, array $options = null, $saveData = null): string
+	public function renderString(string $view, array $options = null, bool $saveData = null): string
 	{
 		$start = microtime(true);
 		if (is_null($saveData))
@@ -388,7 +390,7 @@ class View implements RendererInterface
 	 *
 	 * @return RendererInterface
 	 */
-	public function resetData()
+	public function resetData(): RendererInterface
 	{
 		$this->data = [];
 
@@ -402,7 +404,7 @@ class View implements RendererInterface
 	 *
 	 * @return array
 	 */
-	public function getData()
+	public function getData(): array
 	{
 		return $this->data;
 	}
@@ -414,7 +416,7 @@ class View implements RendererInterface
 	 *
 	 * @param string $layout
 	 *
-	 * @return $this
+	 * @return void
 	 */
 	public function extend(string $layout)
 	{
@@ -481,6 +483,22 @@ class View implements RendererInterface
 		{
 			echo $contents;
 		}
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Used within layout views to include additional views.
+	 *
+	 * @param string     $view
+	 * @param array|null $options
+	 * @param null       $saveData
+	 *
+	 * @return string
+	 */
+	public function include(string $view, array $options = null, $saveData = null): string
+	{
+		return $this->render($view, $options, $saveData);
 	}
 
 	//--------------------------------------------------------------------

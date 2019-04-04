@@ -1,5 +1,4 @@
 <?php
-namespace CodeIgniter\HTTP;
 
 /**
  * CodeIgniter
@@ -37,6 +36,8 @@ namespace CodeIgniter\HTTP;
  * @filesource
  */
 
+namespace CodeIgniter\HTTP;
+
 /**
  * Class ContentSecurityPolicy
  *
@@ -55,14 +56,14 @@ class ContentSecurityPolicy
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $baseURI = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $childSrc = [];
 
@@ -76,56 +77,56 @@ class ContentSecurityPolicy
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $defaultSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $fontSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $formAction = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var type
+	 * @var array|string
 	 */
 	protected $frameAncestors = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $imageSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $mediaSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $objectSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $pluginTypes = [];
 
@@ -139,28 +140,28 @@ class ContentSecurityPolicy
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $sandbox = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $scriptSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $styleSrc = [];
 
 	/**
 	 * Used for security enforcement
 	 *
-	 * @var array
+	 * @var array|string
 	 */
 	protected $manifestSrc = [];
 

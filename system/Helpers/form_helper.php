@@ -38,6 +38,16 @@
 
 use Config\Services;
 
+/**
+ * CodeIgniter Form Helpers
+ *
+ * @package    CodeIgniter
+ * @subpackage Helpers
+ * @category   Helpers
+ * @author     CodeIgniter Dev Team
+ * @link       https://codeigniter.com/user_guide/helpers/cookie_helper.html
+ */
+
 //--------------------------------------------------------------------
 
 if (! function_exists('form_open'))
@@ -65,7 +75,7 @@ if (! function_exists('form_open'))
 			$action = site_url($action);
 		}
 
-		if(is_array($attributes) && array_key_exists('csrf_id', $attributes))
+		if (is_array($attributes) && array_key_exists('csrf_id', $attributes))
 		{
 			$csrfId = $attributes['csrf_id'];
 			unset($attributes['csrf_id']);
@@ -247,9 +257,9 @@ if (! function_exists('form_upload'))
 	 *
 	 * Identical to the input function but adds the "file" type
 	 *
-	 * @param mixed
-	 * @param string
-	 * @param mixed
+	 * @param mixed  $data
+	 * @param string $value
+	 * @param mixed  $extra
 	 *
 	 * @return string
 	 */
@@ -309,10 +319,10 @@ if (! function_exists('form_multiselect'))
 	/**
 	 * Multi-select menu
 	 *
-	 * @param string
-	 * @param array
-	 * @param mixed
-	 * @param mixed
+	 * @param string $name
+	 * @param array  $options
+	 * @param array  $selected
+	 * @param mixed  $extra
 	 *
 	 * @return string
 	 */
@@ -620,7 +630,7 @@ if (! function_exists('form_datalist'))
 	 *
 	 * @return string
 	 */
-	function form_datalist($name, $value, $options)
+	function form_datalist(string $name, string $value, array $options): string
 	{
 		$data = [
 			'type'  => 'text',
@@ -905,12 +915,12 @@ if (! function_exists('parse_form_attributes'))
 	 *
 	 * Helper function used by some of the form helpers
 	 *
-	 * @param array $attributes List of attributes
-	 * @param array $default    Default values
+	 * @param string|array $attributes List of attributes
+	 * @param array        $default    Default values
 	 *
 	 * @return string
 	 */
-	function parse_form_attributes($attributes, $default): string
+	function parse_form_attributes($attributes, array $default): string
 	{
 		if (is_array($attributes))
 		{
