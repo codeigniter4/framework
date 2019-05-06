@@ -32,7 +32,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -157,7 +157,7 @@ interface ValidationInterface
 	 * Resets the class to a blank slate. Should be called whenever
 	 * you need to process more than one array.
 	 *
-	 * @return mixed
+	 * @return \CodeIgniter\Validation\ValidationInterface
 	 */
 	public function reset(): ValidationInterface;
 

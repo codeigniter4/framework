@@ -31,7 +31,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -39,6 +39,7 @@ namespace CodeIgniter\Test;
 
 use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\Response;
+use Config\Format;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -46,23 +47,34 @@ use PHPUnit\Framework\TestCase;
  */
 class FeatureResponse extends TestCase
 {
+
 	/**
+	 * The response.
+	 *
 	 * @var \CodeIgniter\HTTP\Response
 	 */
 	public $response;
 
 	/**
+	 * DOM for the body.
+	 *
 	 * @var \CodeIgniter\Test\DOMParser
 	 */
 	protected $domParser;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param Response $response
+	 */
 	public function __construct(Response $response = null)
 	{
 		$this->response = $response;
 
-		if (is_string($this->response->getBody()))
+		$body = $response->getBody();
+		if (! empty($body) && is_string($body))
 		{
-			$this->domParser = (new DOMParser())->withString($this->response->getBody());
+			$this->domParser = (new DOMParser())->withString($body);
 		}
 	}
 
@@ -123,7 +135,7 @@ class FeatureResponse extends TestCase
 	 */
 	public function assertStatus(int $code)
 	{
-		$this->assertEquals($code, (int)$this->response->getStatusCode());
+		$this->assertEquals($code, (int) $this->response->getStatusCode());
 	}
 
 	/**
@@ -226,10 +238,6 @@ class FeatureResponse extends TestCase
 	 * Assert the Response does not have the specified cookie set.
 	 *
 	 * @param string $key
-	 * @param null   $value
-	 * @param string $prefix
-	 *
-	 * @throws \Exception
 	 */
 	public function assertCookieMissing(string $key)
 	{
@@ -352,7 +360,7 @@ class FeatureResponse extends TestCase
 	}
 
 	/**
-	 *
+	 * Test that the response contains a matching JSON fragment.
 	 *
 	 * @param array $fragment
 	 *
@@ -379,7 +387,7 @@ class FeatureResponse extends TestCase
 
 		if (is_array($test))
 		{
-			$config    = new \Config\Format();
+			$config    = new Format();
 			$formatter = $config->getFormatter('application/json');
 			$test      = $formatter->format($test);
 		}
@@ -400,4 +408,5 @@ class FeatureResponse extends TestCase
 	{
 		return $this->response->getXML();
 	}
+
 }

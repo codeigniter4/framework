@@ -31,7 +31,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -142,6 +142,7 @@ abstract class BaseCommand
 	 * @param array  $params
 	 *
 	 * @return mixed
+	 * @throws \ReflectionException
 	 */
 	protected function call(string $command, array $params = [])
 	{
@@ -183,6 +184,8 @@ abstract class BaseCommand
 		{
 			return $this->$key;
 		}
+
+		return null;
 	}
 
 	//--------------------------------------------------------------------
@@ -192,7 +195,7 @@ abstract class BaseCommand
 	 */
 	public function showHelp()
 	{
-		// 4 spaces insted of tab
+		// 4 spaces instead of tab
 		$tab = '   ';
 		CLI::write(lang('CLI.helpDescription'), 'yellow');
 		CLI::write($tab . $this->description);
@@ -236,7 +239,7 @@ abstract class BaseCommand
 	 *
 	 * @return integer
 	 */
-	public function getPad($array, int $pad)
+	public function getPad(array $array, int $pad): int
 	{
 		$max = 0;
 		foreach ($array as $key => $value)

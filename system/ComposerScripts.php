@@ -32,11 +32,13 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
 namespace CodeIgniter;
+
+use ReflectionClass;
 
 /**
  * ComposerScripts
@@ -51,6 +53,11 @@ namespace CodeIgniter;
  */
 class ComposerScripts
 {
+	/**
+	 * Base path to use.
+	 *
+	 * @var type
+	 */
 	protected static $basePath = 'ThirdParty/';
 
 	/**
@@ -76,7 +83,7 @@ class ComposerScripts
 	 *
 	 * @return boolean
 	 */
-	protected static function moveFile(string $source, string $destination)
+	protected static function moveFile(string $source, string $destination): bool
 	{
 		$source = realpath($source);
 
@@ -105,7 +112,7 @@ class ComposerScripts
 	 */
 	protected static function getClassFilePath(string $class)
 	{
-		$reflector = new \ReflectionClass($class);
+		$reflector = new ReflectionClass($class);
 
 		return $reflector->getFileName();
 	}

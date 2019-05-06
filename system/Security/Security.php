@@ -32,7 +32,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -163,6 +163,8 @@ class Security
 	 * setup initial state.
 	 *
 	 * @param \Config\App $config
+	 *
+	 * @throws \Exception
 	 */
 	public function __construct($config)
 	{
@@ -192,9 +194,10 @@ class Security
 	/**
 	 * CSRF Verify
 	 *
-	 * @param  RequestInterface $request
+	 * @param RequestInterface $request
+	 *
 	 * @return $this|false
-	 * @throws \LogicException
+	 * @throws \Exception
 	 */
 	public function CSRFVerify(RequestInterface $request)
 	{
@@ -330,7 +333,7 @@ class Security
 	 *
 	 * @return string
 	 */
-	public function sanitizeFilename($str, $relative_path = false)
+	public function sanitizeFilename(string $str, bool $relative_path = false): string
 	{
 		$bad = $this->filenameBadChars;
 

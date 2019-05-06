@@ -31,7 +31,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -52,7 +52,6 @@ class Builder extends BaseBuilder
 	 * @var array
 	 */
 	protected $randomKeyword = [
-		'RANDOM()',
 		'RANDOM()',
 	];
 
@@ -98,7 +97,7 @@ class Builder extends BaseBuilder
 	 * @param string  $column
 	 * @param integer $value
 	 *
-	 * @return boolean
+	 * @return mixed
 	 */
 	public function increment(string $column, int $value = 1)
 	{
@@ -117,7 +116,7 @@ class Builder extends BaseBuilder
 	 * @param string  $column
 	 * @param integer $value
 	 *
-	 * @return boolean
+	 * @return mixed
 	 */
 	public function decrement(string $column, int $value = 1)
 	{
@@ -141,7 +140,7 @@ class Builder extends BaseBuilder
 	 * @param array   $set       An associative array of insert values
 	 * @param boolean $returnSQL
 	 *
-	 * @return   boolean TRUE on success, FALSE on failure
+	 * @return   mixed
 	 * @throws   DatabaseException
 	 * @internal param true $bool returns the generated SQL, false executes the query.
 	 */
@@ -351,11 +350,11 @@ class Builder extends BaseBuilder
 	 *
 	 * @see https://www.postgresql.org/docs/9.2/static/functions-matching.html
 	 *
-	 * @param string    $prefix
-	 * @param string    $column
-	 * @param string    $not
-	 * @param string    $bind
-	 * @param boolean   $insensitiveSearch
+	 * @param string  $prefix
+	 * @param string  $column
+	 * @param string  $not
+	 * @param string  $bind
+	 * @param boolean $insensitiveSearch
 	 *
 	 * @return string     $like_statement
 	 */

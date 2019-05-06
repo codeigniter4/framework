@@ -31,7 +31,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -88,11 +88,15 @@ class Table
 	protected $prefixedTableName;
 
 	/**
+	 * Database connection.
+	 *
 	 * @var Connection
 	 */
 	protected $db;
 
 	/**
+	 * Handle to our forge.
+	 *
 	 * @var Forge
 	 */
 	protected $forge;
@@ -101,6 +105,7 @@ class Table
 	 * Table constructor.
 	 *
 	 * @param Connection $db
+	 * @param Forge      $forge
 	 */
 	public function __construct(Connection $db, Forge $forge)
 	{
@@ -214,6 +219,8 @@ class Table
 
 	/**
 	 * Creates the new table based on our current fields.
+	 *
+	 * @return mixed
 	 */
 	protected function createTable()
 	{
@@ -264,6 +271,8 @@ class Table
 	 * Copies data from our old table to the new one,
 	 * taking care map data correctly based on any columns
 	 * that have been renamed.
+	 *
+	 * @return void
 	 */
 	protected function copyData()
 	{
@@ -297,7 +306,7 @@ class Table
 	 *
 	 * @param array|boolean $fields
 	 *
-	 * @return array
+	 * @return mixed
 	 */
 	protected function formatFields($fields)
 	{
@@ -332,7 +341,7 @@ class Table
 	 * Converts keys retrieved from the database to
 	 * the format needed to create later.
 	 *
-	 * @param $keys
+	 * @param mixed $keys
 	 *
 	 * @return mixed
 	 */
@@ -359,6 +368,8 @@ class Table
 	/**
 	 * Attempts to drop all indexes and constraints
 	 * from the database for this table.
+	 *
+	 * @return null|void
 	 */
 	protected function dropIndexes()
 	{

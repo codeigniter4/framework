@@ -31,6 +31,14 @@ class Migration_Create_test_tables extends \CodeIgniter\Database\Migration
 				'constraint' => 1,
 				'default'    => '0',
 			],
+			'created_at' => [
+				'type'       => 'DATETIME',
+				'null'       => true,
+			],
+			'updated_at' => [
+				'type'       => 'DATETIME',
+				'null'       => true,
+			],
 		]);
 		$this->forge->addKey('id', true);
 		$this->forge->createTable('user', true);
@@ -46,10 +54,24 @@ class Migration_Create_test_tables extends \CodeIgniter\Database\Migration
 				'type'       => 'VARCHAR',
 				'constraint' => 40,
 			],
-			'description' => ['type' => 'TEXT'],
-			'created_at'  => [
-				'type' => 'DATETIME',
+			'description' => [
+				'type' => 'TEXT',
 				'null' => true,
+			],
+			'deleted' => [
+				'type'       => 'TINYINT',
+				'constraint' => 1,
+				'default'    => '0',
+			],
+			'created_at' => [
+				'type'       => 'INTEGER',
+				'constraint' => 11,
+				'null'       => true,
+			],
+			'updated_at' => [
+				'type'       => 'INTEGER',
+				'constraint' => 11,
+				'null'       => true,
 			],
 		]);
 		$this->forge->addKey('id', true);
@@ -81,6 +103,14 @@ class Migration_Create_test_tables extends \CodeIgniter\Database\Migration
 			'name' => [
 				'type'       => 'VARCHAR',
 				'constraint' => 40,
+			],
+			'created_at' => [
+				'type'       => 'DATE',
+				'null'       => true,
+			],
+			'updated_at' => [
+				'type'       => 'DATE',
+				'null'       => true,
 			],
 		]);
 		$this->forge->addKey('id', true);

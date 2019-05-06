@@ -32,7 +32,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -92,6 +92,12 @@ class Pager implements PagerInterface
 
 	//--------------------------------------------------------------------
 
+	/**
+	 * Constructor.
+	 *
+	 * @param type              $config
+	 * @param RendererInterface $view
+	 */
 	public function __construct($config, RendererInterface $view)
 	{
 		$this->config = $config;
@@ -166,7 +172,7 @@ class Pager implements PagerInterface
 	 *
 	 * @return string
 	 */
-	protected function displayLinks(string $group, string $template)
+	protected function displayLinks(string $group, string $template): string
 	{
 		$pager = new PagerRenderer($this->getDetails($group));
 
@@ -191,7 +197,7 @@ class Pager implements PagerInterface
 	 * @param integer $total
 	 * @param integer $segment
 	 *
-	 * @return mixed
+	 * @return $this
 	 */
 	public function store(string $group, int $page, int $perPage, int $total, int $segment = 0)
 	{
@@ -212,8 +218,8 @@ class Pager implements PagerInterface
 	/**
 	 * Sets the path that an aliased group of links will use.
 	 *
-	 * @param string $group
 	 * @param string $path
+	 * @param string $group
 	 *
 	 * @return mixed
 	 */
@@ -304,7 +310,7 @@ class Pager implements PagerInterface
 	 *
 	 * @return integer
 	 */
-	public function getFirstPage(string $group = 'default')
+	public function getFirstPage(string $group = 'default'): int
 	{
 		$this->ensureGroup($group);
 
@@ -323,7 +329,7 @@ class Pager implements PagerInterface
 	 *
 	 * @return string|\CodeIgniter\HTTP\URI
 	 */
-	public function getPageURI(int $page = null, string $group = 'default', $returnObject = false)
+	public function getPageURI(int $page = null, string $group = 'default', bool $returnObject = false)
 	{
 		$this->ensureGroup($group);
 
@@ -368,7 +374,7 @@ class Pager implements PagerInterface
 	 *
 	 * @return string|null
 	 */
-	public function getNextPageURI(string $group = 'default', $returnObject = false)
+	public function getNextPageURI(string $group = 'default', bool $returnObject = false)
 	{
 		$this->ensureGroup($group);
 
@@ -399,7 +405,7 @@ class Pager implements PagerInterface
 	 *
 	 * @return string|null
 	 */
-	public function getPreviousPageURI(string $group = 'default', $returnObject = false)
+	public function getPreviousPageURI(string $group = 'default', bool $returnObject = false)
 	{
 		$this->ensureGroup($group);
 

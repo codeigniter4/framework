@@ -47,6 +47,11 @@ use CodeIgniter\CodeIgniter;
  */
 class Config
 {
+	/**
+	 * Return toolbar config values as an array.
+	 *
+	 * @return array
+	 */
 	public static function display(): array
 	{
 		$config = config(App::class);
@@ -60,7 +65,6 @@ class Config
 			'timezone'    => app_timezone(),
 			'locale'      => Services::request()->getLocale(),
 			'cspEnabled'  => $config->CSPEnabled,
-			'salt'        => $config->salt,
 		];
 	}
 }

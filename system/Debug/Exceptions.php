@@ -32,14 +32,20 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
 namespace CodeIgniter\Debug;
 
 use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\Exceptions\PageNotFoundException;
+use CodeIgniter\HTTP\IncomingRequest;
+use CodeIgniter\HTTP\Response;
 use Config\Paths;
+use function error_reporting;
+use ErrorException;
+use Throwable;
 
 /**
  * Exceptions manager
@@ -64,16 +70,22 @@ class Exceptions
 	protected $viewPath;
 
 	/**
+	 * Config for debug exceptions.
+	 *
 	 * @var \Config\Exceptions
 	 */
 	protected $config;
 
 	/**
+	 * The incoming request.
+	 *
 	 * @var \CodeIgniter\HTTP\IncomingRequest
 	 */
 	protected $request;
 
 	/**
+	 * The outgoing response.
+	 *
 	 * @var \CodeIgniter\HTTP\Response
 	 */
 	protected $response;
@@ -87,7 +99,7 @@ class Exceptions
 	 * @param \CodeIgniter\HTTP\IncomingRequest $request
 	 * @param \CodeIgniter\HTTP\Response        $response
 	 */
-	public function __construct(\Config\Exceptions $config, \CodeIgniter\HTTP\IncomingRequest $request, \CodeIgniter\HTTP\Response $response)
+	public function __construct(\Config\Exceptions $config, IncomingRequest $request, Response $response)
 	{
 		$this->ob_level = ob_get_level();
 
@@ -127,7 +139,7 @@ class Exceptions
 	 *
 	 * @param \Throwable $exception
 	 */
-	public function exceptionHandler(\Throwable $exception)
+	public function exceptionHandler(Throwable $exception)
 	{
 		$codes      = $this->determineCodes($exception);
 		$statusCode = $codes[0];
@@ -179,13 +191,13 @@ class Exceptions
 	 */
 	public function errorHandler(int $severity, string $message, string $file = null, int $line = null, $context = null)
 	{
-		if (! (\error_reporting() & $severity))
+		if (! (error_reporting() & $severity))
 		{
 			return;
 		}
 
 		// Convert it to an exception and pass it along.
-		throw new \ErrorException($message, 0, $severity, $file, $line);
+		throw new ErrorException($message, 0, $severity, $file, $line);
 	}
 
 	//--------------------------------------------------------------------
@@ -206,7 +218,7 @@ class Exceptions
 			// Fatal Error?
 			if (in_array($error['type'], [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]))
 			{
-				$this->exceptionHandler(new \ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
+				$this->exceptionHandler(new ErrorException($error['message'], $error['type'], 0, $error['file'], $error['line']));
 			}
 		}
 	}
@@ -222,7 +234,7 @@ class Exceptions
 	 *
 	 * @return string       The path and filename of the view file to use
 	 */
-	protected function determineView(\Throwable $exception, string $template_path): string
+	protected function determineView(Throwable $exception, string $template_path): string
 	{
 		// Production environments should have a custom exception file.
 		$view          = 'production.php';
@@ -234,7 +246,7 @@ class Exceptions
 		}
 
 		// 404 Errors
-		if ($exception instanceof \CodeIgniter\Exceptions\PageNotFoundException)
+		if ($exception instanceof PageNotFoundException)
 		{
 			return 'error_404.php';
 		}
@@ -256,7 +268,7 @@ class Exceptions
 	 * @param \Throwable $exception
 	 * @param integer    $statusCode
 	 */
-	protected function render(\Throwable $exception, int $statusCode)
+	protected function render(Throwable $exception, int $statusCode)
 	{
 		// Determine directory with views
 		$path = $this->viewPath;
@@ -300,7 +312,7 @@ class Exceptions
 	 *
 	 * @return array
 	 */
-	protected function collectVars(\Throwable $exception, int $statusCode): array
+	protected function collectVars(Throwable $exception, int $statusCode): array
 	{
 		return [
 			'title'   => get_class($exception),
@@ -320,7 +332,7 @@ class Exceptions
 	 *
 	 * @return array
 	 */
-	protected function determineCodes(\Throwable $exception): array
+	protected function determineCodes(Throwable $exception): array
 	{
 		$statusCode = abs($exception->getCode());
 
@@ -432,7 +444,7 @@ class Exceptions
 		{
 			$source = file_get_contents($file);
 		}
-		catch (\Throwable $e)
+		catch (Throwable $e)
 		{
 			return false;
 		}

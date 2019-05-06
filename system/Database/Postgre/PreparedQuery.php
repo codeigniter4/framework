@@ -32,7 +32,7 @@
  * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
- * @since      Version 3.0.0
+ * @since      Version 4.0.0
  * @filesource
  */
 
@@ -41,6 +41,9 @@ namespace CodeIgniter\Database\Postgre;
 use CodeIgniter\Database\PreparedQueryInterface;
 use CodeIgniter\Database\BasePreparedQuery;
 
+/**
+ * Prepared query for Postgre
+ */
 class PreparedQuery extends BasePreparedQuery implements PreparedQueryInterface
 {
 
@@ -74,6 +77,7 @@ class PreparedQuery extends BasePreparedQuery implements PreparedQueryInterface
 	 *                        Unused in the MySQLi driver.
 	 *
 	 * @return mixed
+	 * @throws \Exception
 	 */
 	public function _prepare(string $sql, array $options = [])
 	{
@@ -104,7 +108,7 @@ class PreparedQuery extends BasePreparedQuery implements PreparedQueryInterface
 	 *
 	 * @return boolean
 	 */
-	public function _execute($data)
+	public function _execute(array $data): bool
 	{
 		if (is_null($this->statement))
 		{
