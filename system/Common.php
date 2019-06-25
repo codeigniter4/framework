@@ -442,7 +442,11 @@ if (! function_exists('lang'))
 	 *
 	 * @return string
 	 */
-	function lang(string $line, array $args = [], string $locale = null): string
+	/* Removed string return type to support array return type as it should be described in documentation
+	 * Documentation Link: https://codeigniter4.github.io/CodeIgniter4/outgoing/localization.html#nested-arrays
+	 * Issue Link: https://github.com/codeigniter4/CodeIgniter4/issues/2075
+	 */
+	function lang(string $line, array $args = [], string $locale = null)
 	{
 		return Services::language($locale)
 						->getLine($line, $args);
