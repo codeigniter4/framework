@@ -120,7 +120,7 @@ class Model
 
 	/**
 	 * If this model should use "softDeletes" and
-	 * simply set a flag when rows are deleted, or
+	 * simply set a date when rows are deleted, or
 	 * do hard deletes.
 	 *
 	 * @var boolean
@@ -182,7 +182,7 @@ class Model
 	 *
 	 * @var string
 	 */
-	protected $deletedField = 'deleted';
+	protected $deletedField = 'deleted_at';
 
 	/**
 	 * Used by asArray and asObject to provide
@@ -356,7 +356,7 @@ class Model
 
 		if ($this->tempUseSoftDeletes === true)
 		{
-			$builder->where($this->table . '.' . $this->deletedField, 0);
+			$builder->where($this->table . '.' . $this->deletedField, null);
 		}
 
 		if (is_array($id))
@@ -395,6 +395,7 @@ class Model
 	 * @param string $columnName
 	 *
 	 * @return array|null   The resulting row of data, or null if no data found.
+	 * @throws \CodeIgniter\Database\Exceptions\DataException
 	 */
 	public function findColumn(string $columnName)
 	{
@@ -427,7 +428,7 @@ class Model
 
 		if ($this->tempUseSoftDeletes === true)
 		{
-			$builder->where($this->table . '.' . $this->deletedField, 0);
+			$builder->where($this->table . '.' . $this->deletedField, null);
 		}
 
 		$row = $builder->limit($limit, $offset)
@@ -457,7 +458,7 @@ class Model
 
 		if ($this->tempUseSoftDeletes === true)
 		{
-			$builder->where($this->table . '.' . $this->deletedField, 0);
+			$builder->where($this->table . '.' . $this->deletedField, null);
 		}
 
 		// Some databases, like PostgreSQL, need order
@@ -713,16 +714,20 @@ class Model
 		$result = $this->builder()
 				->set($data['data'], '', $escape)
 				->insert();
-
+		
+		// If insertion succeeded then save the insert ID
+		if ($result)
+		{
+			$this->insertID = $this->db->insertID();
+		}
+		
 		$this->trigger('afterInsert', ['data' => $originalData, 'result' => $result]);
 
-		// If insertion failed, get our of here
+		// If insertion failed, get out of here
 		if (! $result)
 		{
 			return $result;
 		}
-
-		$this->insertID = $this->db->insertID();
 
 		// otherwise return the insertID, if requested.
 		return $returnID ? $this->insertID : $result;
@@ -908,7 +913,7 @@ class Model
 
 		if ($this->useSoftDeletes && ! $purge)
 		{
-			$set[$this->deletedField] = 1;
+			$set[$this->deletedField] = $this->setDate();
 
 			if ($this->useTimestamps && ! empty($this->updatedField))
 			{
@@ -943,8 +948,8 @@ class Model
 		}
 
 		return $this->builder()
-						->where($this->deletedField, 1)
-						->delete();
+			    ->where($this->table . '.' . $this->deletedField . ' IS NOT NULL')
+			    ->delete();
 	}
 
 	//--------------------------------------------------------------------
@@ -977,7 +982,7 @@ class Model
 		$this->tempUseSoftDeletes = false;
 
 		$this->builder()
-				->where($this->deletedField, 1);
+		     ->where($this->table . '.' . $this->deletedField . ' IS NOT NULL');
 
 		return $this;
 	}
@@ -1148,6 +1153,7 @@ class Model
 	 * @param string $table
 	 *
 	 * @return BaseBuilder
+	 * @throws \CodeIgniter\Exceptions\ModelException;
 	 */
 	protected function builder(string $table = null)
 	{
@@ -1222,8 +1228,8 @@ class Model
 	/**
 	 * A utility function to allow child models to use the type of
 	 * date/time format that they prefer. This is primarily used for
-	 * setting created_at and updated_at values, but can be used
-	 * by inheriting classes.
+	 * setting created_at, updated_at and deleted_at values, but can be
+	 * used by inheriting classes.
 	 *
 	 * The available time formats are:
 	 *  - 'int'      - Stores the date as an integer timestamp
@@ -1233,6 +1239,7 @@ class Model
 	 * @param integer $userData An optional PHP timestamp to be converted.
 	 *
 	 * @return mixed
+	 * @throws \CodeIgniter\Exceptions\ModelException;
 	 */
 	protected function setDate(int $userData = null)
 	{
@@ -1249,6 +1256,8 @@ class Model
 			case 'date':
 				return date('Y-m-d', $currentDate);
 				break;
+			default:
+				throw ModelException::forNoDateFormat(get_class($this));
 		}
 	}
 
@@ -1539,7 +1548,7 @@ class Model
 	{
 		if ($this->tempUseSoftDeletes === true)
 		{
-			$this->builder()->where($this->deletedField, 0);
+			$this->builder()->where($this->table . '.' . $this->deletedField, null);
 		}
 
 		return $this->builder()->countAllResults($reset, $test);

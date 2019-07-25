@@ -65,7 +65,7 @@ class CodeIgniter
 	/**
 	 * The current version of CodeIgniter Framework
 	 */
-	const CI_VERSION = '4.0.0-beta.3';
+	const CI_VERSION = '4.0.0-beta.4';
 
 	/**
 	 * App startup time.
@@ -642,7 +642,7 @@ class CodeIgniter
 	 */
 	protected function generateCacheName($config): string
 	{
-		if (is_cli() && ! (ENVIRONMENT === 'testing'))
+		if (get_class($this->request) === CLIRequest::class)
 		{
 			return md5($this->request->getPath());
 		}
@@ -704,7 +704,7 @@ class CodeIgniter
 		}
 
 		// $routes is defined in Config/Routes.php
-		$this->router = Services::router($routes);
+		$this->router = Services::router($routes, $this->request);
 
 		$path = $this->determinePath();
 
@@ -985,16 +985,9 @@ class CodeIgniter
 	/**
 	 * Modifies the Request Object to use a different method if a POST
 	 * variable called _method is found.
-	 *
-	 * Does not work on CLI commands.
 	 */
 	public function spoofRequestMethod()
 	{
-		if (is_cli())
-		{
-			return;
-		}
-
 		// Only works with POSTED forms
 		if ($this->request->getMethod() !== 'post')
 		{

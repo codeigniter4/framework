@@ -538,7 +538,7 @@ class CURLRequest extends Request
 			// See http://tools.ietf.org/html/rfc7230#section-3.3.2
 			if (is_null($this->getHeader('content-length')))
 			{
-				$this->setHeader('Content-Length', 0);
+				$this->setHeader('Content-Length', '0');
 			}
 		}
 		else if ($method === 'HEAD')
@@ -675,7 +675,7 @@ class CURLRequest extends Request
 		if (isset($config['debug']))
 		{
 			$curl_options[CURLOPT_VERBOSE] = $config['debug'] === true ? 1 : 0;
-			$curl_options[CURLOPT_STDERR]  = is_bool($config['debug']) ? fopen('php://output', 'w+') : $config['debug'];
+			$curl_options[CURLOPT_STDERR]  = $config['debug'] === true ? fopen('php://output', 'w+') : $config['debug'];
 		}
 
 		// Decode Content
