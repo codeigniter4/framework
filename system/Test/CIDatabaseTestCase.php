@@ -158,7 +158,7 @@ class CIDatabaseTestCase extends CIUnitTestCase
 	 *
 	 * @throws ConfigException
 	 */
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -173,6 +173,7 @@ class CIDatabaseTestCase extends CIUnitTestCase
 			{
 				$this->migrations->setNamespace($this->namespace);
 			}
+			$this->migrations->regress(0, 'tests');
 
 			// Delete all of the tables to ensure we're at a clean start.
 			$tables = $this->db->listTables();
@@ -192,7 +193,6 @@ class CIDatabaseTestCase extends CIUnitTestCase
 				}
 			}
 
-			$this->migrations->regress(0, 'tests');
 			$this->migrations->latest('tests');
 		}
 
@@ -200,7 +200,7 @@ class CIDatabaseTestCase extends CIUnitTestCase
 		{
 			if (! empty($this->basePath))
 			{
-				$this->seeder->setPath(rtrim($this->basePath, '/') . '/seeds');
+				$this->seeder->setPath(rtrim($this->basePath, '/') . '/Seeds');
 			}
 
 			$this->seed($this->seed);
@@ -213,7 +213,7 @@ class CIDatabaseTestCase extends CIUnitTestCase
 	 * Takes care of any required cleanup after the test, like
 	 * removing any rows inserted via $this->hasInDatabase()
 	 */
-	public function tearDown()
+	public function tearDown(): void
 	{
 		if (! empty($this->insertCache))
 		{
