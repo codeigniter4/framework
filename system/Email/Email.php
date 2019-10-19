@@ -438,6 +438,17 @@ class Email
 	}
 	//--------------------------------------------------------------------
 	/**
+	 * Alias of clear(true)
+	 * Initialize the Email Data.
+	 *
+	 * @return Email
+	 */
+	public function clearAll()
+	{
+		return $this->clear(true);
+	}
+	//--------------------------------------------------------------------
+	/**
 	 * Set FROM
 	 *
 	 * @param string      $from
