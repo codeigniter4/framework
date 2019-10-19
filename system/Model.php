@@ -8,6 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
+ * Copyright (c) 2019 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2019 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -687,11 +688,6 @@ class Model
 			}
 		}
 
-		// Save the original data so it can be passed to
-		// any Model Event callbacks and not stripped
-		// by doProtectFields
-		$originalData = $data;
-
 		// Must be called first so we don't
 		// strip out created_at values.
 		$data = $this->doProtectFields($data);
@@ -722,7 +718,8 @@ class Model
 			$this->insertID = $this->db->insertID();
 		}
 
-		$this->trigger('afterInsert', ['data' => $originalData, 'result' => $result]);
+		// Trigger afterInsert events with the inserted data and new ID
+		$this->trigger('afterInsert', ['id' => $this->insertID, 'data' => $data, 'result' => $result]);
 
 		// If insertion failed, get out of here
 		if (! $result)
@@ -821,11 +818,6 @@ class Model
 			}
 		}
 
-		// Save the original data so it can be passed to
-		// any Model Event callbacks and not stripped
-		// by doProtectFields
-		$originalData = $data;
-
 		// Must be called first so we don't
 		// strip out updated_at values.
 		$data = $this->doProtectFields($data);
@@ -849,7 +841,7 @@ class Model
 				->set($data['data'], '', $escape)
 				->update();
 
-		$this->trigger('afterUpdate', ['id' => $id, 'data' => $originalData, 'result' => $result]);
+		$this->trigger('afterUpdate', ['id' => $id, 'data' => $data, 'result' => $result]);
 
 		return $result;
 	}
@@ -1618,7 +1610,7 @@ class Model
 	 */
 	public function __get(string $name)
 	{
-		if (in_array($name, ['primaryKey', 'table', 'returnType', 'DBGroup']))
+		if (property_exists($this, $name))
 		{
 			return $this->{$name};
 		}
@@ -1639,7 +1631,7 @@ class Model
 	 *
 	 * @param string $name
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function __isset(string $name): bool
 	{

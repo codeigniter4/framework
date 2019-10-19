@@ -8,6 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
+ * Copyright (c) 2019 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2014-2019 British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright  2019 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -2488,6 +2489,7 @@ class BaseBuilder
 		// Batch this baby
 		$affected_rows = 0;
 		$savedSQL      = [];
+		$savedQBWhere  = $this->QBWhere;
 		for ($i = 0, $total = count($this->QBSet); $i < $total; $i += $batchSize)
 		{
 			$sql = $this->_updateBatch($table, array_slice($this->QBSet, $i, $batchSize), $this->db->protectIdentifiers($index)
@@ -2503,7 +2505,7 @@ class BaseBuilder
 				$affected_rows += $this->db->affectedRows();
 			}
 
-			$this->QBWhere = [];
+			$this->QBWhere = $savedQBWhere;
 		}
 
 		$this->resetWrite();
@@ -2690,7 +2692,7 @@ class BaseBuilder
 	{
 		$table = $this->QBFrom[0];
 
-		$sql = $this->delete($table, '', $reset, true);
+		$sql = $this->delete($table, null, $reset, true);
 
 		return $this->compileFinalQuery($sql);
 	}
