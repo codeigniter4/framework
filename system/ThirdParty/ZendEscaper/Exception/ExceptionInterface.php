@@ -9,6 +9,10 @@
 
 namespace Zend\Escaper\Exception;
 
+/**
+ * Interface ExceptionInterface
+ * @package Zend\Escaper\Exception
+ */
 interface ExceptionInterface
 {
 }

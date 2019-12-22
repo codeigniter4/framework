@@ -74,6 +74,11 @@ class ResourceController extends Controller
 
 	//--------------------------------------------------------------------
 
+	/**
+	 * @param \CodeIgniter\HTTP\RequestInterface  $request
+	 * @param \CodeIgniter\HTTP\ResponseInterface $response
+	 * @param \Psr\Log\LoggerInterface            $logger
+	 */
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
 		parent::initController($request, $response, $logger);

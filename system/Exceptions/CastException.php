@@ -14,6 +14,9 @@ class CastException extends CriticalError
 	 */
 	protected $code = 3;
 
+	/**
+	 * @param int $error
+	 */
 	public static function forInvalidJsonFormatException(int $error)
 	{
 		switch($error)

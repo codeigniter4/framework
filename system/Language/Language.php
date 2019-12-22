@@ -84,6 +84,11 @@ class Language
 
 	//--------------------------------------------------------------------
 
+	/**
+	 * Language constructor.
+	 *
+	 * @param string $locale
+	 */
 	public function __construct(string $locale)
 	{
 		$this->locale = $locale;
