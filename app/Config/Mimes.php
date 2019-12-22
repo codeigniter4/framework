@@ -514,15 +514,15 @@ class Mimes
 			return $proposed_extension;
 		}
 
-		foreach (static::$mimes as $ext => $types)
+		foreach (static::$mimes as $extension => $types)
 		{
 			if (is_string($types) && $types === $type)
 			{
-				return $ext;
+				return $extension;
 			}
 			else if (is_array($types) && in_array($type, $types))
 			{
-				return $ext;
+				return $extension;
 			}
 		}
 
