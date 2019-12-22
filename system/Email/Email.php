@@ -136,7 +136,7 @@ class Email
 	 * @see Email::$wordWrap
 	 * @var integer
 	 */
-	public $wrapChars = 76;
+	public $wrapCharacters = 76;
 	/**
 	 * Message format.
 	 *
@@ -1002,7 +1002,7 @@ class Email
 		// Set the character limit, if not already present
 		if (empty($charlim))
 		{
-			$charlim = empty($this->wrapChars) ? 76 : $this->wrapChars;
+			$charlim = empty($this->wrapCharacters) ? 76 : $this->wrapCharacters;
 		}
 		// Standardize newlines
 		if (strpos($str, "\r") !== false)

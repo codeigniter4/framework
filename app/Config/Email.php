@@ -96,7 +96,7 @@ class Email
 	 *
 	 * @var integer
 	 */
-	public $wrapChars = 76;
+	public $wrapCharacters = 76;
 
 	/**
 	 * Type of mail, either 'text' or 'html'

@@ -396,22 +396,23 @@ class Connection extends BaseConnection implements ConnectionInterface
 	 * additional "ESCAPE x" parameter for specifying the escape character
 	 * in "LIKE" strings, and this handles those directly with a backslash.
 	 *
-	 * @param  string|string[] $str Input string
+	 * @param  string|string[] $string Input string
+	 *
 	 * @return string|string[]
 	 */
-	public function escapeLikeStringDirect($str)
+	public function escapeLikeStringDirect($string)
 	{
-		if (is_array($str))
+		if (is_array($string))
 		{
-			foreach ($str as $key => $val)
+			foreach ($string as $key => $value)
 			{
-				$str[$key] = $this->escapeLikeStringDirect($val);
+				$string[$key] = $this->escapeLikeStringDirect($value);
 			}
 
-			return $str;
+			return $string;
 		}
 
-		$str = $this->_escapeString($str);
+		$string = $this->_escapeString($string);
 
 		// Escape LIKE condition wildcards
 		return str_replace([
@@ -422,10 +423,10 @@ class Connection extends BaseConnection implements ConnectionInterface
 			'\\' . $this->likeEscapeChar,
 			'\\' . '%',
 			'\\' . '_',
-		], $str
+		], $string
 		);
 
-		return $str;
+		return $string;
 	}
 
 	//--------------------------------------------------------------------
