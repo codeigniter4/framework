@@ -7,7 +7,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -41,6 +41,7 @@ namespace CodeIgniter\View;
 use CodeIgniter\Cache\CacheInterface;
 use CodeIgniter\View\Exceptions\ViewException;
 use ReflectionMethod;
+use Config\Services;
 
 /**
  * Class Cell
@@ -118,6 +119,11 @@ class Cell
 
 		// Not cached - so grab it...
 		$instance = new $class();
+
+		if (method_exists($instance, 'initController'))
+		{
+			$instance->initController(Services::request(), Services::response(), Services::logger());
+		}
 
 		if (! method_exists($instance, $method))
 		{

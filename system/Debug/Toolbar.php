@@ -7,7 +7,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -136,7 +136,7 @@ class Toolbar
 			{
 				foreach ($items as $key => $value)
 				{
-					$varData[esc($key)] = is_string($value) ? esc($value) : print_r($value, true);
+					$varData[esc($key)] = is_string($value) ? esc($value) : '<pre>' . esc(print_r($value, true)) . '</pre>';
 				}
 			}
 
@@ -153,18 +153,18 @@ class Toolbar
 					$value = 'binary data';
 				}
 
-				$data['vars']['session'][esc($key)] = is_string($value) ? esc($value) : print_r($value, true);
+				$data['vars']['session'][esc($key)] = is_string($value) ? esc($value) : '<pre>' . esc(print_r($value, true)) . '</pre>';
 			}
 		}
 
 		foreach ($request->getGet() as $name => $value)
 		{
-			$data['vars']['get'][esc($name)] = is_array($value) ? esc(print_r($value, true)) : esc($value);
+			$data['vars']['get'][esc($name)] = is_array($value) ? '<pre>' . esc(print_r($value, true)) . '</pre>' : esc($value);
 		}
 
 		foreach ($request->getPost() as $name => $value)
 		{
-			$data['vars']['post'][esc($name)] = is_array($value) ? esc(print_r($value, true)) : esc($value);
+			$data['vars']['post'][esc($name)] = is_array($value) ? '<pre>' . esc(print_r($value, true)) . '</pre>' : esc($value);
 		}
 
 		foreach ($request->getHeaders() as $header => $value)
@@ -375,7 +375,7 @@ class Toolbar
 			// for this response
 			if ($request->isAJAX() || strpos($format, 'html') === false)
 			{
-				$response->setHeader('Debugbar-Time', $time)
+				$response->setHeader('Debugbar-Time', "$time")
 						->setHeader('Debugbar-Link', site_url("?debugbar_time={$time}"))
 						->getBody();
 
@@ -390,10 +390,10 @@ class Toolbar
 					. '<style type="text/css" {csp-style-nonce} id="debugbar_dynamic_style"></style>'
 					. PHP_EOL;
 
-			if (strpos($response->getBody(), '</body>') !== false)
+			if (strpos($response->getBody(), '<head>') !== false)
 			{
 				$response->setBody(
-						str_replace('</body>', $script . '</body>', $response->getBody())
+						str_replace('<head>', $script . '<head>', $response->getBody())
 				);
 
 				return;

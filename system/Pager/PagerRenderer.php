@@ -8,7 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -93,6 +93,12 @@ class PagerRenderer
 	 * @var integer
 	 */
 	protected $segment;
+	/**
+	 * Name of $_GET parameter
+	 *
+	 * @var integer
+	 */
+	protected $pageSelector;
 
 	//--------------------------------------------------------------------
 
@@ -103,13 +109,14 @@ class PagerRenderer
 	 */
 	public function __construct(array $details)
 	{
-		$this->first     = 1;
-		$this->last      = $details['pageCount'];
-		$this->current   = $details['currentPage'];
-		$this->total     = $details['total'];
-		$this->uri       = $details['uri'];
-		$this->pageCount = $details['pageCount'];
-		$this->segment   = $details['segment'] ?? 0;
+		$this->first        = 1;
+		$this->last         = $details['pageCount'];
+		$this->current      = $details['currentPage'];
+		$this->total        = $details['total'];
+		$this->uri          = $details['uri'];
+		$this->pageCount    = $details['pageCount'];
+		$this->segment      = $details['segment'] ?? 0;
+		$this->pageSelector = $details['pageSelector'] ?? 'page';
 	}
 
 	//--------------------------------------------------------------------
@@ -164,7 +171,7 @@ class PagerRenderer
 
 		if ($this->segment === 0)
 		{
-			$uri->addQuery('page', $this->first - 1);
+			$uri->addQuery($this->pageSelector, $this->first - 1);
 		}
 		else
 		{
@@ -208,7 +215,7 @@ class PagerRenderer
 
 		if ($this->segment === 0)
 		{
-			$uri->addQuery('page', $this->last + 1);
+			$uri->addQuery($this->pageSelector, $this->last + 1);
 		}
 		else
 		{
@@ -231,7 +238,7 @@ class PagerRenderer
 
 		if ($this->segment === 0)
 		{
-			$uri->addQuery('page', 1);
+			$uri->addQuery($this->pageSelector, 1);
 		}
 		else
 		{
@@ -254,7 +261,7 @@ class PagerRenderer
 
 		if ($this->segment === 0)
 		{
-			$uri->addQuery('page', $this->pageCount);
+			$uri->addQuery($this->pageSelector, $this->pageCount);
 		}
 		else
 		{
@@ -277,7 +284,7 @@ class PagerRenderer
 
 		if ($this->segment === 0)
 		{
-			$uri->addQuery('page', $this->current);
+			$uri->addQuery($this->pageSelector, $this->current);
 		}
 		else
 		{
@@ -306,7 +313,7 @@ class PagerRenderer
 		for ($i = $this->first; $i <= $this->last; $i ++)
 		{
 			$links[] = [
-				'uri'    => (string) ($this->segment === 0 ? $uri->addQuery('page', $i) : $uri->setSegment($this->segment, $i)),
+				'uri'    => (string) ($this->segment === 0 ? $uri->addQuery($this->pageSelector, $i) : $uri->setSegment($this->segment, $i)),
 				'title'  => (int) $i,
 				'active' => ($i === $this->current),
 			];

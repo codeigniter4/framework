@@ -8,7 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -348,7 +348,7 @@ class Pager implements PagerInterface
 		}
 		else
 		{
-			$uri->addQuery('page', $page);
+			$uri->addQuery($this->groups[$group]['pageSelector'], $page);
 		}
 
 		if ($this->only)
@@ -357,7 +357,7 @@ class Pager implements PagerInterface
 
 			if (! $segment)
 			{
-				$query['page'] = $page;
+				$query[$this->groups[$group]['pageSelector']] = $page;
 			}
 
 			$uri->setQueryArray($query);
@@ -503,13 +503,31 @@ class Pager implements PagerInterface
 		}
 
 		$this->groups[$group] = [
-			'uri'       => clone Services::request()->uri,
-			'hasMore'   => false,
-			'total'     => null,
-			'perPage'   => $this->config->perPage,
-			'pageCount' => 1,
+			'uri'          => clone current_url(true),
+			'hasMore'      => false,
+			'total'        => null,
+			'perPage'      => $this->config->perPage,
+			'pageCount'    => 1,
+			'pageSelector' => $group === 'default' ? 'page' : 'page_' . $group,
 		];
 
+		$this->calculateCurrentPage($group);
+
+		if ($_GET)
+		{
+			$this->groups[$group]['uri'] = $this->groups[$group]['uri']->setQueryArray($_GET);
+		}
+	}
+
+	//--------------------------------------------------------------------
+
+	/**
+	 * Calculating the current page
+	 *
+	 * @param string $group
+	 */
+	protected function calculateCurrentPage(string $group)
+	{
 		if (array_key_exists($group, $this->segment))
 		{
 			try
@@ -523,12 +541,11 @@ class Pager implements PagerInterface
 		}
 		else
 		{
-			$this->groups[$group]['currentPage'] = $_GET['page_' . $group] ?? $_GET['page'] ?? 1;
-		}
+			$pageSelector = $this->groups[$group]['pageSelector'];
 
-		if ($_GET)
-		{
-			$this->groups[$group]['uri'] = $this->groups[$group]['uri']->setQueryArray($_GET);
+			$page = (int) ($_GET[$pageSelector] ?? 1);
+
+			$this->groups[$group]['currentPage'] = $page < 1 ? 1 : $page;
 		}
 	}
 

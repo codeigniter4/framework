@@ -7,7 +7,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -652,6 +652,10 @@ class RouteCollection implements RouteCollectionInterface
 		if (array_key_exists($to, $this->routes['*']))
 		{
 			$to = $this->routes['*'][$to]['route'];
+		}
+		else if (array_key_exists($to, $this->routes['get']))
+		{
+			$to = $this->routes['get'][$to]['route'];
 		}
 
 		$this->create('*', $from, $to, ['redirect' => $status]);
@@ -1382,7 +1386,7 @@ class RouteCollection implements RouteCollectionInterface
 		}
 
 		// Limiting to subdomains?
-		else if (isset($options['subdomain']) && ! empty($options['subdomain']))
+		else if (! empty($options['subdomain']))
 		{
 			// If we don't match the current subdomain, then
 			// we don't need to add the route.
@@ -1420,7 +1424,7 @@ class RouteCollection implements RouteCollectionInterface
 		}
 
 		// If no namespace found, add the default namespace
-		if (is_string($to) && strpos($to, '\\') === false)
+		if (is_string($to) && (strpos($to, '\\') === false || strpos($to, '\\') > 0))
 		{
 			$namespace = $options['namespace'] ?? $this->defaultNamespace;
 			$to        = trim($namespace, '\\') . '\\' . $to;

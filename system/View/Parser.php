@@ -8,7 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -414,7 +414,10 @@ class Parser extends View
 				$str .= $out;
 			}
 
-			$replace['#' . $match[0] . '#s'] = $str;
+			//Escape | character from filters as it's handled as OR in regex
+			$escaped_match = preg_replace('/(?<!\\\\)\\|/', '\\|', $match[0]);
+
+			$replace['#' . $escaped_match . '#s'] = $str;
 		}
 
 		return $replace;
@@ -762,28 +765,19 @@ class Parser extends View
 			{
 				$params = [];
 
-				// Split on "words", but keep quoted groups together, accounting for escaped quotes.
-				// Note: requires double quotes, not single quotes.
-				$parts = str_getcsv($match[1], ' ');
-
-				foreach ($parts as $part)
+				preg_match_all('/([\w-]+=\"[^"]+\")|([\w-]+=[^\"\s=]+)|(\"[^"]+\")|(\S+)/', trim($match[1]), $matchesParams);
+				foreach ($matchesParams[0] as $item)
 				{
-					if (empty($part))
+					$keyVal = explode('=', $item);
+					if (count($keyVal) === 2)
 					{
-						continue;
-					}
-
-					if (strpos($part, '=') !== false)
-					{
-						list($a, $b) = explode('=', $part);
-						$params[$a]  = $b;
+						$params[$keyVal[0]] = str_replace('"', '', $keyVal[1]);
 					}
 					else
 					{
-						$params[] = $part;
+						$params[] = str_replace('"', '', $item);
 					}
 				}
-				unset($parts);
 
 				$template = $isPair ? str_replace($match[0], $callable($match[2], $params), $template) : str_replace($match[0], $callable($params), $template);
 			}

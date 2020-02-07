@@ -9,7 +9,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019 CodeIgniter Foundation
+ * Copyright (c) 2019-2020 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019 CodeIgniter Foundation
+ * @copyright  2019-2020 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -239,13 +239,10 @@ class Response extends Message implements ResponseInterface
 		// Also ensures that a Cache-control header exists.
 		$this->noCache();
 
-		// Are we enforcing a Content Security Policy?
-		if ($config->CSPEnabled === true)
-		{
-			$this->CSP        = new ContentSecurityPolicy(new \Config\ContentSecurityPolicy());
-			$this->CSPEnabled = true;
-		}
+		// We need CSP object even if not enabled to avoid calls to non existing methods
+		$this->CSP = new ContentSecurityPolicy(new \Config\ContentSecurityPolicy());
 
+		$this->CSPEnabled     = $config->CSPEnabled;
 		$this->cookiePrefix   = $config->cookiePrefix;
 		$this->cookieDomain   = $config->cookieDomain;
 		$this->cookiePath     = $config->cookiePath;
@@ -448,9 +445,9 @@ class Response extends Message implements ResponseInterface
 	 *
 	 * @return $this
 	 */
-	public function setJSON($body)
+	public function setJSON($body, bool $unencoded = false)
 	{
-		$this->body = $this->formatBody($body, 'json');
+		$this->body = $this->formatBody($body, 'json' . ($unencoded ? '-unencoded' : ''));
 
 		return $this;
 	}
@@ -538,12 +535,12 @@ class Response extends Message implements ResponseInterface
 	 */
 	protected function formatBody($body, string $format)
 	{
-		$mime = "application/{$format}";
+		$this->bodyFormat = ($format === 'json-unencoded' ? 'json' : $format);
+		$mime             = "application/{$this->bodyFormat}";
 		$this->setContentType($mime);
-		$this->bodyFormat = $format;
 
 		// Nothing much to do for a string...
-		if (! is_string($body))
+		if (! is_string($body) || $format === 'json-unencoded')
 		{
 			/**
 			 * @var Format $config
@@ -713,7 +710,7 @@ class Response extends Message implements ResponseInterface
 
 		// Per spec, MUST be sent with each request, if possible.
 		// http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
-		if (! isset($this->headers['Date']))
+		if (! isset($this->headers['Date']) && php_sapi_name() !== 'cli-server')
 		{
 			$this->setDate(\DateTime::createFromFormat('U', (string) time()));
 		}
@@ -724,7 +721,7 @@ class Response extends Message implements ResponseInterface
 		// Send all of our headers
 		foreach ($this->getHeaders() as $name => $values)
 		{
-			header($name . ': ' . $this->getHeaderLine($name), false, $this->statusCode);
+			header($name . ': ' . $this->getHeaderLine($name), true, $this->statusCode);
 		}
 
 		return $this;
