@@ -22,7 +22,8 @@
     "autoload": {
         "psr-4": {
             "CodeIgniter\\": "system/",
-            "Config\\": "app/"
+            "Config\\": "app/",
+            "App\\": "app/"
         }
     },
     "scripts": {
