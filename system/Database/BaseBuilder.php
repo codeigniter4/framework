@@ -1025,194 +1025,207 @@ class BaseBuilder
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * LIKE
-	 *
-	 * Generates a %LIKE% portion of the query.
-	 * Separates multiple calls with 'AND'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
-	 *
-	 * @return BaseBuilder
-	 */
-	public function like($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * LIKE
+     *
+     * Generates a %LIKE% portion of the query.
+     * Separates multiple calls with 'AND'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
+     *
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function like($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'AND ', $side, '', $escape, $insensitiveSearch);
+		return $this->_like($field, $match, 'AND ', $side, '', $escape, $insensitiveSearch, 'QBWhere', $cast);
 	}
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * NOT LIKE
-	 *
-	 * Generates a NOT LIKE portion of the query.
-	 * Separates multiple calls with 'AND'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
-	 *
-	 * @return BaseBuilder
-	 */
-	public function notLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * NOT LIKE
+     *
+     * Generates a NOT LIKE portion of the query.
+     * Separates multiple calls with 'AND'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
+     *
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function notLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'AND ', $side, 'NOT', $escape, $insensitiveSearch);
+		return $this->_like($field, $match, 'AND ', $side, 'NOT', $escape, $insensitiveSearch,'QBWhere', $cast);
 	}
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * OR LIKE
-	 *
-	 * Generates a %LIKE% portion of the query.
-	 * Separates multiple calls with 'OR'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
-	 *
-	 * @return BaseBuilder
-	 */
-	public function orLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * OR LIKE
+     *
+     * Generates a %LIKE% portion of the query.
+     * Separates multiple calls with 'OR'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
+     *
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function orLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'OR ', $side, '', $escape, $insensitiveSearch);
+		return $this->_like($field, $match, 'OR ', $side, '', $escape, $insensitiveSearch,'QBWhere', $cast);
 	}
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * OR NOT LIKE
-	 *
-	 * Generates a NOT LIKE portion of the query.
-	 * Separates multiple calls with 'OR'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
-	 *
-	 * @return BaseBuilder
-	 */
-	public function orNotLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * OR NOT LIKE
+     *
+     * Generates a NOT LIKE portion of the query.
+     * Separates multiple calls with 'OR'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
+     *
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function orNotLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'OR ', $side, 'NOT', $escape, $insensitiveSearch);
+		return $this->_like($field, $match, 'OR ', $side, 'NOT', $escape, $insensitiveSearch,'QBWhere', $cast);
 	}
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * LIKE with HAVING clause
-	 *
-	 * Generates a %LIKE% portion of the query.
-	 * Separates multiple calls with 'AND'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 *
-	 * @return BaseBuilder
-	 */
-	public function havingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * LIKE with HAVING clause
+     *
+     * Generates a %LIKE% portion of the query.
+     * Separates multiple calls with 'AND'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     *
+     * @param bool $insensitiveSearch
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function havingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'AND ', $side, '', $escape, $insensitiveSearch, 'QBHaving');
+		return $this->_like($field, $match, 'AND ', $side, '', $escape, $insensitiveSearch, 'QBHaving', $cast);
 	}
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * NOT LIKE with HAVING clause
-	 *
-	 * Generates a NOT LIKE portion of the query.
-	 * Separates multiple calls with 'AND'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 *
-	 * @return BaseBuilder
-	 */
-	public function notHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * NOT LIKE with HAVING clause
+     *
+     * Generates a NOT LIKE portion of the query.
+     * Separates multiple calls with 'AND'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     *
+     * @param bool $insensitiveSearch
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function notHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'AND ', $side, 'NOT', $escape, $insensitiveSearch, 'QBHaving');
+		return $this->_like($field, $match, 'AND ', $side, 'NOT', $escape, $insensitiveSearch, 'QBHaving', $cast);
 	}
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * OR LIKE with HAVING clause
-	 *
-	 * Generates a %LIKE% portion of the query.
-	 * Separates multiple calls with 'OR'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 *
-	 * @return BaseBuilder
-	 */
-	public function orHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * OR LIKE with HAVING clause
+     *
+     * Generates a %LIKE% portion of the query.
+     * Separates multiple calls with 'OR'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     *
+     * @param bool $insensitiveSearch
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function orHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'OR ', $side, '', $escape, $insensitiveSearch, 'QBHaving');
+		return $this->_like($field, $match, 'OR ', $side, '', $escape, $insensitiveSearch, 'QBHaving', $cast);
 	}
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * OR NOT LIKE with HAVING clause
-	 *
-	 * Generates a NOT LIKE portion of the query.
-	 * Separates multiple calls with 'OR'.
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $side
-	 * @param boolean $escape
-	 *
-	 * @return BaseBuilder
-	 */
-	public function orNotHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false)
+    /**
+     * OR NOT LIKE with HAVING clause
+     *
+     * Generates a NOT LIKE portion of the query.
+     * Separates multiple calls with 'OR'.
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $side
+     * @param boolean $escape
+     *
+     * @param bool $insensitiveSearch
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	public function orNotHavingLike($field, string $match = '', string $side = 'both', bool $escape = null, bool $insensitiveSearch = false, string $cast ='')
 	{
-		return $this->_like($field, $match, 'OR ', $side, 'NOT', $escape, $insensitiveSearch, 'QBHaving');
+		return $this->_like($field, $match, 'OR ', $side, 'NOT', $escape, $insensitiveSearch, 'QBHaving', $cast);
 	}
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * Internal LIKE
-	 *
-	 * @used-by like()
-	 * @used-by orLike()
-	 * @used-by notLike()
-	 * @used-by orNotLike()
-	 * @used-by havingLike()
-	 * @used-by orHavingLike()
-	 * @used-by notHavingLike()
-	 * @used-by orNotHavingLike()
-	 *
-	 * @param mixed   $field
-	 * @param string  $match
-	 * @param string  $type
-	 * @param string  $side
-	 * @param string  $not
-	 * @param boolean $escape
-	 * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
-	 * @param string  $clause            (Internal use only)
-	 *
-	 * @return BaseBuilder
-	 */
-	protected function _like($field, string $match = '', string $type = 'AND ', string $side = 'both', string $not = '', bool $escape = null, bool $insensitiveSearch = false, string $clause = 'QBWhere')
+    /**
+     * Internal LIKE
+     *
+     * @used-by like()
+     * @used-by orLike()
+     * @used-by notLike()
+     * @used-by orNotLike()
+     * @used-by havingLike()
+     * @used-by orHavingLike()
+     * @used-by notHavingLike()
+     * @used-by orNotHavingLike()
+     *
+     * @param mixed $field
+     * @param string $match
+     * @param string $type
+     * @param string $side
+     * @param string $not
+     * @param boolean $escape
+     * @param boolean $insensitiveSearch IF true, will force a case-insensitive search
+     * @param string $clause (Internal use only)
+     *
+     * @param string $cast
+     * @return BaseBuilder
+     */
+	protected function _like($field, string $match = '', string $type = 'AND ', string $side = 'both', string $not = '', bool $escape = null, bool $insensitiveSearch = false, string $clause = 'QBWhere', string $cast ='')
 	{
 		if (! is_array($field))
 		{
@@ -1250,7 +1263,7 @@ class BaseBuilder
 				$bind = $this->setBind($k, "%$v%", $escape);
 			}
 
-			$like_statement = $this->_like_statement($prefix, $k, $not, $bind, $insensitiveSearch);
+			$like_statement = $this->_like_statement($prefix, $k, $not, $bind, $insensitiveSearch, $cast);
 
 			// some platforms require an escape sequence definition for LIKE wildcards
 			if ($escape === true && $this->db->likeEscapeStr !== '')
@@ -1269,24 +1282,38 @@ class BaseBuilder
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * Platform independent LIKE statement builder.
-	 *
-	 * @param string  $prefix
-	 * @param string  $column
-	 * @param string  $not
-	 * @param string  $bind
-	 * @param boolean $insensitiveSearch
-	 *
-	 * @return string     $like_statement
-	 */
-	protected function _like_statement(string $prefix = null, string $column, string $not = null, string $bind, bool $insensitiveSearch = false): string
+    /**
+     * Platform independent LIKE statement builder.
+     *
+     * @param string $prefix
+     * @param string $column
+     * @param string $not
+     * @param string $bind
+     * @param boolean $insensitiveSearch
+     *
+     * @param string $cast
+     * @return string     $like_statement
+     */
+	protected function _like_statement(string $prefix = null, string $column, string $not = null, string $bind, bool $insensitiveSearch = false, string $cast =''): string
 	{
-		$like_statement = "{$prefix} {$column} {$not} LIKE :{$bind}:";
+
+        if( $cast !=='')
+        {
+            $like_statement = "{$prefix} CAST({$column} AS {$cast}) {$not} LIKE :{$bind}:";
+        }else{
+            $like_statement = "{$prefix} {$column} {$not} LIKE :{$bind}:";
+        }
 
 		if ($insensitiveSearch === true)
 		{
-			$like_statement = "{$prefix} LOWER({$column}) {$not} LIKE :{$bind}:";
+
+            if( $cast !=='')
+            {
+                $like_statement = "{$prefix} LOWER(CAST({$column} AS {$cast})) {$not} LIKE :{$bind}:";
+            }else{
+                $like_statement = "{$prefix} LOWER({$column}) {$not} LIKE :{$bind}:";
+            }
+
 		}
 
 		return $like_statement;

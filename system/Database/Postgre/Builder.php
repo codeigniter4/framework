@@ -380,27 +380,33 @@ class Builder extends BaseBuilder
 
 	//--------------------------------------------------------------------
 
-	/**
-	 * Platform independent LIKE statement builder.
-	 *
-	 * In PostgreSQL, the ILIKE operator will perform case insensitive
-	 * searches according to the current locale.
-	 *
-	 * @see https://www.postgresql.org/docs/9.2/static/functions-matching.html
-	 *
-	 * @param string  $prefix
-	 * @param string  $column
-	 * @param string  $not
-	 * @param string  $bind
-	 * @param boolean $insensitiveSearch
-	 *
-	 * @return string     $like_statement
-	 */
-	public function _like_statement(string $prefix = null, string $column, string $not = null, string $bind, bool $insensitiveSearch = false): string
+    /**
+     * Platform independent LIKE statement builder.
+     *
+     * In PostgreSQL, the ILIKE operator will perform case insensitive
+     * searches according to the current locale.
+     *
+     * @see https://www.postgresql.org/docs/9.2/static/functions-matching.html
+     *
+     * @param string $prefix
+     * @param string $column
+     * @param string $not
+     * @param string $bind
+     * @param boolean $insensitiveSearch
+     *
+     * @param string $cast
+     * @return string     $like_statement
+     */
+	public function _like_statement(string $prefix = null, string $column, string $not = null, string $bind, bool $insensitiveSearch = false, string $cast =''): string
 	{
 		$op = $insensitiveSearch === true ? 'ILIKE' : 'LIKE';
 
-		return "{$prefix} {$column} {$not} {$op} :{$bind}:";
+        if( $cast !=='')
+        {
+            return "{$prefix} CAST({$column} AS {$cast}) {$not} {$op} :{$bind}:";
+        }else{
+            return "{$prefix} {$column} {$not} {$op} :{$bind}:";
+        }
 	}
 
 	//--------------------------------------------------------------------
