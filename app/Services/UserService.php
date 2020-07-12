@@ -37,4 +37,13 @@ class UserService {
      $user = $userModel->find($user_id);
      return $user;
    }
+
+   public function deleteUserById($user_id)
+   {
+     $userModel = new UserModel();
+     $user = $userModel->find($user_id);
+     $userModel->delete([$user_id]);
+
+     return $user;
+   }
 }
