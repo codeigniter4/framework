@@ -2,37 +2,50 @@
 use App\Models\UserModel;
 use App\Services\UserService;
 
-
-
-
-
-
 class Users extends BaseController
 {
 	public function index()
 	{
-		$userModel = new UserModel();
-		$users = $userModel->findAll();
-		echo json_encode($users);
-	}
-
-	public function getById($user_id)
-	{
-		$userModel = new UserModel();
-		$method = $this->request->getMethod();
+		$userService = new UserService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+		$json = $request->getJSON();
 
 		switch ($method) {
 		    case 'post':
-						// $data = [
-						// 	'name' => 'dc2dwwef',
-						// 	'email'=> 'd.vader@theempire.com'
-						// ];
-
-						$userModel->update($user_id, $data);
-		        echo json_encode($method);
+						$user = $userService->saveUser($json);
+						return $response->setJSON($user);
+		        break;
+				case 'put':
+		        $errResponse = $response->setStatusCode(404);
+						return $response->setJSON($errResponse);
 		        break;
 		    case 'get':
-		        echo json_encode($method);
+						$users = $userService->getUsers();
+						return $response->setJSON($users);
+		        break;
+		    default:
+		        echo "string";;
+		}
+	}
+
+	public function id($user_id)
+	{
+		$userService = new UserService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+		$json = $request->getJSON();
+
+		switch ($method) {
+		    case 'post':
+						$user = $userService->updateUserById($user_id, $json);
+		        return $response->setJSON($user);
+		        break;
+		    case 'get':
+						$user = $userService->getUser($user_id);
+						return $response->setJSON($user);
 		        break;
 		    default:
 		        echo "string";;
