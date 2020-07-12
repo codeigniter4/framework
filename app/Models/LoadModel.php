@@ -6,12 +6,28 @@ class LoadModel extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table      = 'dispatchboard';
+    protected $table      = 'loads';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
-    protected $allowedFields = ['db_type'];
+    protected $allowedFields = [
+      'type',
+      'status',
+      'pickupDate',
+      'dropoffDate',
+      'pickupLocation',
+      'dropoffLocation',
+      'loadedMiles',
+      'deadHead',
+      'weight',
+      'cargo',
+      'rate',
+      'brokerId',
+      'detentionPay',
+      'layoverPay',
+      'notes'
+    ];
 
     protected $useTimestamps = false;
     protected $createdField  = 'created_at';

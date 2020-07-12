@@ -14,7 +14,7 @@ class TableService {
      $query = $tableQuery->getCreateQuery($tableName, $data);
      $db = db_connect();
      $createTable  = $db->query($query);
-     return $createTable;
+     return $query;
    }
 
 

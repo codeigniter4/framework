@@ -37,7 +37,7 @@ class TableQuery {
        $createTableStatement .= 'PRIMARY KEY (`id`)';
        $createTableStatement .= ')';
 
-       $createTableStatement .= "COLLATE='latin1_swedish_ci' ENGINE=InnoDB";
+       $createTableStatement .= "COLLATE='utf8_general_ci' ENGINE=InnoDB";
 
        $query = "CREATE TABLE " . $table . $createTableStatement;
 

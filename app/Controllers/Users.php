@@ -1,5 +1,4 @@
 <?php namespace App\Controllers;
-use App\Models\UserModel;
 use App\Services\UserService;
 
 class Users extends BaseController
