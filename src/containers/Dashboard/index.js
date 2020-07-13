@@ -1,23 +1,22 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import List from "../../components/list/"
 
 
-class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+const Dashboard = () => {
+  const [count, setCount] = useState(0);
 
+  const doSomething = (count) => {
+    console.log(count);
+    return setCount(count+1);
+  }
 
-    render() {
-        return (
-            <React.Fragment>
-              Dashboard
-              <List/>
-            </React.Fragment>
-        );
-    }
+  return (
+      <React.Fragment>
+        Dashboard {count}
+        <p onClick={() => doSomething(count)}>click</p>
+        <List/>
+      </React.Fragment>
+  );
 }
 
 export default Dashboard;
