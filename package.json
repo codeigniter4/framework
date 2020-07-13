@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "material-ui-bootstrap": "^1.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "0.9.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.3.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
