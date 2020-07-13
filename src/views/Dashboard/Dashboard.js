@@ -10,7 +10,7 @@ import {
   LatestSales,
   UsersByDevice,
   LatestProducts,
-  LatestOrders
+  RecentLoads
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -98,7 +98,7 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestOrders />
+          <RecentLoads />
         </Grid>
       </Grid>
     </div>
