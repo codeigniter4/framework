@@ -85,8 +85,8 @@ function Navigator(props) {
             Project Overview
           </ListItemText>
         </ListItem>
-        {categories.map(({ id, children }) => (
-          <React.Fragment key={id}>
+        {categories.map(({ id, children }, index) => (
+          <React.Fragment key={index}>
             <ListItem className={classes.categoryHeader}>
               <ListItemText
                 classes={{
@@ -96,9 +96,9 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
+            {children.map(({ id: childId, icon, active }, idx) => (
               <ListItem
-                key={childId}
+                key={idx}
                 button
                 className={clsx(classes.item, active && classes.itemActiveItem)}
               >
@@ -108,7 +108,7 @@ function Navigator(props) {
                     primary: classes.itemPrimary,
                   }}
                 >
-                  {childId}
+                  {childId} {idx} hello
                 </ListItemText>
               </ListItem>
             ))}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,9 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Navigator from '../../components/Navigator';
-import ListView from '../../components/ListView';
-import ListToolBar from '../../components/ListToolBar';
+import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
+import LoadContextProvider from '../../contexts/LoadContext';
 
 function Copyright() {
   return (
@@ -168,10 +168,11 @@ const styles = {
   },
 };
 
+
 function Loadboard(props) {
+  const [loads, setLoads] = useState([]);
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -197,8 +198,9 @@ function Loadboard(props) {
           <Header onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
             <Paper className={classes.paper}>
-              <ListToolBar />
-              <ListView />
+              <LoadContextProvider>
+                <LoadListView />
+              </LoadContextProvider>
             </Paper>
           </main>
           <footer className={classes.footer}>

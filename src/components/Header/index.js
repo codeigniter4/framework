@@ -43,7 +43,7 @@ function Header(props) {
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
-            <Grid item justify="flex-end">
+            <Grid item>
               <Button className={classes.button} variant="outlined" color="inherit" size="small">
                 Upload
               </Button>
