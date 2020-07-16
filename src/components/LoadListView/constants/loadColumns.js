@@ -15,7 +15,7 @@ export const loadColumns = [
   },
   {
     id: 'pickupLocation',
-    label: 'Pickup',
+    label: 'Origin',
     align: 'center'
   },
   {
@@ -26,12 +26,12 @@ export const loadColumns = [
   },
   {
     id: 'dropoffLocation',
-    label: 'Drop',
+    label: 'Destination',
     align: 'center'
   },
   {
     id: 'deadHead',
-    label: 'Dead Head',
+    label: 'DeadHead',
     align: 'center'
   },
   {
@@ -40,33 +40,13 @@ export const loadColumns = [
     align: 'center'
   },
   {
-    id: 'weight',
-    label: 'Weight',
-    align: 'center'
-  },
-  {
     id: 'rate',
     label: 'Rate',
     align: 'center'
   },
   {
-    id: 'cargo',
-    label: 'Cargo',
-    align: 'center'
-  },
-  {
     id: 'brokerId',
     label: 'Broker',
-    align: 'center'
-  },
-  {
-    id: 'detentionPay',
-    label: 'Detention',
-    align: 'center'
-  },
-  {
-    id: 'layoverPay',
-    label: 'Layover',
     align: 'center'
   },
   {

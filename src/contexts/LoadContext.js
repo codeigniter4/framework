@@ -5,7 +5,9 @@ export const LoadContext = createContext();
 
 class LoadContextProvider extends Component {
   state = {
-    loads: []
+    loads: [],
+    filteredLoads: [],
+    searchTerm: ''
   }
   componentDidMount() {
     getLoads().then(loadData => {
@@ -13,6 +15,17 @@ class LoadContextProvider extends Component {
         loads: [...loadData]
       })
     });
+  }
+
+  filterLoads = (searchTerm) => {
+    const result = this.state.loads.filter(load => {
+      return load.id.includes(searchTerm)
+    });
+
+    this.setState({
+      filteredLoads: [...result],
+      searchTerm
+    })
   }
 
   addLoad = (load) => {
@@ -23,7 +36,9 @@ class LoadContextProvider extends Component {
 
   render() {
     return (
-      <LoadContext.Provider value={{...this.state}} addLoad={this.addLoad}>
+      <LoadContext.Provider
+        value={{...this.state, addLoad: this.addLoad, filterLoads: this.filterLoads}
+      }>
         {this.props.children}
       </LoadContext.Provider>
     );

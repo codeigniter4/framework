@@ -46,6 +46,7 @@ function ListToolBar(props) {
                 disableUnderline: true,
                 className: classes.searchInput,
               }}
+              onChange={props.handleChange}
             />
           </Grid>
           <Grid item>

@@ -10,12 +10,15 @@ const LoadListView = (props) => {
 
   return (
     <LoadContext.Consumer>{(context) => {
-      const { loads } = context;
-
+      const { loads, filteredLoads, searchTerm, filterLoads } = context;
+      const rows = searchTerm ? filteredLoads : loads;
+      const handleChange = (e) => {
+        filterLoads(e.target.value)
+      }
       return (
         <React.Fragment>
-          <ListToolBar/>
-          <ListTable columns={loadColumns} rows={loads}/>
+          <ListToolBar handleChange={handleChange}/>
+          <ListTable columns={loadColumns} rows={rows}/>
         </React.Fragment>
       )
     }}
