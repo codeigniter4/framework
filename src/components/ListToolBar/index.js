@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
+import { LoadContext } from '../../contexts/LoadContext';
 
 const styles = (theme) => ({
   paper: {
@@ -31,36 +32,46 @@ const styles = (theme) => ({
 
 function ListToolBar(props) {
   const { classes } = props;
-
   return (
-    <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
-      <Toolbar>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item>
-          </Grid>
-          <Grid item xs>
-            <TextField
-              fullWidth
-              placeholder="Search"
-              InputProps={{
-                disableUnderline: true,
-                className: classes.searchInput,
-              }}
-              onChange={props.handleChange}
-            />
-          </Grid>
-          <Grid item>
-            <Button variant="contained" color="primary" className={classes.add}>
-              Add
-            </Button>
-            <Tooltip title="Reload">
-              <IconButton>
-              </IconButton>
-            </Tooltip>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+    <LoadContext.Consumer>{(context) => {
+      const { setLoad, toggleModal } = context;
+      const handleClick = () => {
+        setLoad(false);
+        toggleModal(true);
+      }
+
+      return (
+        <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+          <Toolbar>
+            <Grid container spacing={2} alignItems="center">
+              <Grid item>
+              </Grid>
+              <Grid item xs>
+                <TextField
+                  fullWidth
+                  placeholder="Search"
+                  InputProps={{
+                    disableUnderline: true,
+                    className: classes.searchInput,
+                  }}
+                  onChange={props.handleChange}
+                />
+              </Grid>
+              <Grid item>
+                <Button variant="contained" color="primary" className={classes.add} onClick={handleClick}>
+                  Add
+                </Button>
+                <Tooltip title="Reload">
+                  <IconButton>
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+      )
+    }}
+    </LoadContext.Consumer>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 import { LoadContext } from '../../contexts/LoadContext';
 import ListTable from '../ListTable';
 import ListToolBar from '../ListToolBar';
@@ -10,8 +11,18 @@ const LoadListView = (props) => {
 
   return (
     <LoadContext.Consumer>{(context) => {
-      const { loads, filteredLoads, searchTerm, filterLoads } = context;
+      const { loads, filteredLoads, searchTerm, filterLoads, setLoad, toggleModal } = context;
       const rows = searchTerm ? filteredLoads : loads;
+      const editButton = (id) => (<Button color="primary" onClick={() => handleClick(id)}>Edit</Button>);
+      const updateRowData = rows.map(row => {
+        row.edit = editButton(row.id);
+        return row;
+      })
+      const handleClick = (id) => {
+        setLoad(id);
+        toggleModal(true);
+      }
+
       const handleChange = (e) => {
         filterLoads(e.target.value)
       }

@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { getLoads } from '../services/LoadService';
+import { getLoads, getLoadByID } from '../services/LoadService';
 
 export const LoadContext = createContext();
 
@@ -7,7 +7,9 @@ class LoadContextProvider extends Component {
   state = {
     loads: [],
     filteredLoads: [],
-    searchTerm: ''
+    searchTerm: '',
+    load: {},
+    openModal: false
   }
   componentDidMount() {
     getLoads().then(loadData => {
@@ -28,16 +30,41 @@ class LoadContextProvider extends Component {
     })
   }
 
+  setLoad = (id) => {
+    if(!id){
+      this.setState({
+        load: {}
+      })
+    }else {
+      getLoadByID(id).then(data => {
+        this.setState({
+          load: {...data}
+        })
+      })
+    }
+  }
+
   addLoad = (load) => {
     this.setState({
       loads: [...this.state.loads, {...load}]
     });
   }
 
+  toggleModal = (open) => {
+    this.setState({
+      openModal: open
+    });
+  }
+
   render() {
     return (
       <LoadContext.Provider
-        value={{...this.state, addLoad: this.addLoad, filterLoads: this.filterLoads}
+        value={{...this.state,
+          addLoad: this.addLoad,
+          filterLoads: this.filterLoads,
+          setLoad: this.setLoad,
+          toggleModal: this.toggleModal
+        }
       }>
         {this.props.children}
       </LoadContext.Provider>

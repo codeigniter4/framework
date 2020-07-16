@@ -10,6 +10,7 @@ import Navigator from '../../components/Navigator';
 import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
 import LoadContextProvider from '../../contexts/LoadContext';
+import LoadModal from '../../components/LoadModal';
 
 function Copyright() {
   return (
@@ -200,6 +201,7 @@ function Loadboard(props) {
             <Paper className={classes.paper}>
               <LoadContextProvider>
                 <LoadListView />
+                <LoadModal/>
               </LoadContextProvider>
             </Paper>
           </main>
