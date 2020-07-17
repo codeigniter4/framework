@@ -43,4 +43,21 @@ class Loads extends BaseController
 		}
 	}
 
+	public function delete($load_id)
+	{
+		$loadService = new LoadService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+
+		switch ($method) {
+		    case 'post':
+						$load = $loadService->deleteLoadById($load_id);
+		        return $response->setJSON($load);
+		        break;
+		    default:
+		        echo "nothing here!";
+		}
+	}
+
 }

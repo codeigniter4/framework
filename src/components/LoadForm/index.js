@@ -26,13 +26,14 @@ function LoadForm(props) {
 
   return (
     <LoadContext.Consumer>{(context) => {
-      const { load, save } = context;
+      const { load, save, deleteLoad } = context;
       const loadToSave = load && load.id ? load : newLoad;
       return (
         <React.Fragment>
           <Paper className={classes.paper}>
             <p>LoadForm</p>
             <Button onClick={() => save(loadToSave)}>Save</Button>
+            {load && load.id ? <Button onClick={() => deleteLoad(load.id)}>Delete</Button> : ''}
           </Paper>
         </React.Fragment>
       )

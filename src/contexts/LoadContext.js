@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { getLoads, getLoadByID, saveLoad } from '../services/LoadService';
+import { getLoads, getLoadByID, saveLoad, deleteLoadById } from '../services/LoadService';
 
 export const LoadContext = createContext();
 
@@ -25,7 +25,17 @@ class LoadContextProvider extends Component {
 
   save = (load) => {
     saveLoad(load).then(response => {
-      this.getAllLoads()
+      this.setState({
+        load: {...response}
+      })
+      this.getAllLoads();
+    })
+  }
+
+  deleteLoad = (id) => {
+    deleteLoadById(id).then(response => {
+      this.getAllLoads();
+      this.toggleModal(false);
     })
   }
 
@@ -74,7 +84,8 @@ class LoadContextProvider extends Component {
           filterLoads: this.filterLoads,
           setLoad: this.setLoad,
           toggleModal: this.toggleModal,
-          save: this.save
+          save: this.save,
+          deleteLoad: this.deleteLoad
         }
       }>
         {this.props.children}
