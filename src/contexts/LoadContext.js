@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { getLoads, getLoadByID } from '../services/LoadService';
+import { getLoads, getLoadByID, saveLoad } from '../services/LoadService';
 
 export const LoadContext = createContext();
 
@@ -12,11 +12,21 @@ class LoadContextProvider extends Component {
     openModal: false
   }
   componentDidMount() {
+    this.getAllLoads()
+  }
+
+  getAllLoads = () => {
     getLoads().then(loadData => {
       this.setState({
         loads: [...loadData]
       })
     });
+  }
+
+  save = (load) => {
+    saveLoad(load).then(response => {
+      this.getAllLoads()
+    })
   }
 
   filterLoads = (searchTerm) => {
@@ -63,7 +73,8 @@ class LoadContextProvider extends Component {
           addLoad: this.addLoad,
           filterLoads: this.filterLoads,
           setLoad: this.setLoad,
-          toggleModal: this.toggleModal
+          toggleModal: this.toggleModal,
+          save: this.save
         }
       }>
         {this.props.children}

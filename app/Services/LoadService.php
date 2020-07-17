@@ -11,7 +11,7 @@ class LoadService {
    public function getLoads()
    {
      $loadModel = new LoadModel();
-     $loads = $loadModel->findAll();
+     $loads = $loadModel->orderBy('id', 'DESC')->findAll();
      return $loads;
    }
 

@@ -24,3 +24,20 @@ export const getLoadByID = (id) => {
   })
   return getLoadByIDPromise;
 }
+
+export const saveLoad = (load) => {
+  console.log('saveLoad: ', load);
+  const getLoadByIDPromise = new Promise((resolve, reject) => {
+    fetch('http://localhost:8888/public/loads', {
+      method: 'post',
+      body: JSON.stringify(load)
+    })
+      .then(response => response.json())
+      .then(loadData => {
+        resolve(loadData)
+      }).catch(err => {
+        console.log(err);
+      })
+  })
+  return getLoadByIDPromise;
+}

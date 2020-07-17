@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { LoadContext } from '../../contexts/LoadContext';
 import ListTable from '../ListTable';
@@ -29,7 +28,7 @@ const LoadListView = (props) => {
       return (
         <React.Fragment>
           <ListToolBar handleChange={handleChange}/>
-          <ListTable columns={loadColumns} rows={rows}/>
+          <ListTable columns={loadColumns} rows={updateRowData}/>
         </React.Fragment>
       )
     }}
