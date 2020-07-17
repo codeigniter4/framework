@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "54cb7a1e-3484-4864-ac48-8c293c60c600",
+		"name": "vgdtAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loads",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/loads",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"\",\n  \"status\": \"completed\",\n  \"pickupDate\": \"mm/dd/yyy 00:00:00\",\n  \"dropoffDate\": \"mm/dd/yyy  00:00:00\",\n  \"pickupLocation\": \"\",\n  \"dropoffLocation\": \"\",\n  \"loadedMiles\": 550,\n  \"deadHead\": 20,\n  \"weight\": 40,\n  \"cargo\": \"\",\n  \"rate\": \"00.00\",\n  \"brokerId\": \"111\",\n  \"detentionPay\": 0,\n  \"layoverPay\": 0,\n  \"notes\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/loads",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1\",\n    \"type\": \"VAN\",\n    \"status\": \"live\",\n    \"pickupDate\": \"mm/dd/yyy 00:00:00\",\n    \"dropoffDate\": \"mm/dd/yyy  00:00:00\",\n    \"pickupLocation\": \"\",\n    \"dropoffLocation\": \"\",\n    \"loadedMiles\": 550,\n    \"deadHead\": 20,\n    \"weight\": 40,\n    \"cargo\": \"\",\n    \"rate\": \"00.00\",\n    \"brokerId\": \"111\",\n    \"detentionPay\": 0,\n    \"layoverPay\": 0,\n    \"notes\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/loads",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loads"
+							]
+						},
+						"description": "Only required field is id"
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/loads/id/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loads",
+								"id",
+								"1"
+							]
+						},
+						"description": "Get User by id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "brokers",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/brokers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brokers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/brokers/id/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								"id",
+								"2"
+							]
+						},
+						"description": "Get User by id"
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"dcrock log\",\n  \"address\": \"1223 main\",\n  \"phone\": \"555.555.555\",\n  \"contact\": \"dc\",\n  \"Email\": \"dchot.com\",\n  \"billingContact\": \"we\",\n  \"billingEmail\": \"wewe@knk.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/brokers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brokers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1\",\n  \"name\": \"dcrock log 2\",\n  \"address\": \"1223 main\",\n  \"phone\": \"555.555.555\",\n  \"contact\": \"dc\",\n  \"Email\": \"dchot.com\",\n  \"billingContact\": \"we\",\n  \"billingEmail\": \"wewe@knk.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/brokers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"brokers"
+							]
+						},
+						"description": "Only required field is id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "demo",
+			"item": [
+				{
+					"name": "getUserByID (./users/Id/)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/id/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"id",
+								"1"
+							]
+						},
+						"description": "Get User by id"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserByID (./delete/Id/)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/delete/6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"delete",
+								"6"
+							]
+						},
+						"description": "Get User by id"
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers (./users)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Get all users"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser (./users)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3\",\n    \"name\": \"dcewe_update\",\n    \"email\": \"1eupdate@theempire.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Update existing user by passing id"
+					},
+					"response": []
+				},
+				{
+					"name": "addUser (./users)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"another user32\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "utils",
+			"item": [
+				{
+					"name": "createTable (./table)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"address\": \"\",\n  \"phone\": \"\",\n  \"contact\": \"\",\n  \"Email\": \"\",\n  \"billingContact\": \"\",\n  \"billingEmail\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/public/table/create/broker",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"public",
+								"table",
+								"create",
+								"broker"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
