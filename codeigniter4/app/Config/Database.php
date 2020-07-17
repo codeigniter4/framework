@@ -32,8 +32,8 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => 'root',
+		'username' => 'vgdt-admin',
+		'password' => 'Ronaldo07@',
 		'database' => 'VanguardTrucking',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',

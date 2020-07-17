@@ -1,6 +1,6 @@
 export const getLoads = () => {
   const getLoadsPromise = new Promise((resolve, reject) => {
-    fetch('http://localhost:8888/public/loads')
+    fetch('http://vanguard-trucking.com/api/loads')
       .then(response => response.json())
       .then(loadData => {
         resolve(loadData)
@@ -14,7 +14,7 @@ export const getLoads = () => {
 
 export const getLoadByID = (id) => {
   const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://localhost:8888/public/loads/id/' + id)
+    fetch('http://vanguard-trucking.com/api/loads/id/' + id)
       .then(response => response.json())
       .then(loadData => {
         resolve(loadData)
@@ -27,7 +27,7 @@ export const getLoadByID = (id) => {
 
 export const saveLoad = (load) => {
   const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://localhost:8888/public/loads', {
+    fetch('http://vanguard-trucking.com/api/loads', {
       method: 'post',
       body: JSON.stringify(load)
     })
@@ -44,7 +44,7 @@ export const saveLoad = (load) => {
 
 export const deleteLoadById = (id) => {
   const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://localhost:8888/public/loads/delete/' + id, {
+    fetch('http://vanguard-trucking.com/api/loads/delete/' + id, {
       method: 'post'
     })
       .then(response => response.json())

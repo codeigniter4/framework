@@ -1,0 +1,347 @@
+CRITICAL - 2020-07-10 00:03:42 --> Call to a member function update() on null
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(21): App\Controllers\updateUser('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:03:52 --> Call to a member function update() on null
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(33): App\Controllers\updateUser('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:04:11 --> Call to undefined function App\Controllers\updateUser()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:04:22 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users/getById/1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users/getById/1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:04:23 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users/getById/1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users/getById/1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:04:33 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users/getById/1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users/getById/1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:04:50 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users/getById/1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users/getById/1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:04:58 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:05:02 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:05:02 --> syntax error, unexpected 'private' (T_PRIVATE), expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:05:46 --> Call to undefined function App\Controllers\updateUser()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:05:53 --> Use of undefined constant this - assumed 'this' (this will throw an Error in a future version of PHP)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', '/Users/dxc2762/...', 21, Array)
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:06:06 --> Call to undefined function App\Controllers\updateUser()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:07:12 --> Call to a member function getMethod() on null
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:07:30 --> Call to a member function getMethod() on null
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:10:14 --> Too few arguments to function App\Controllers\Users::__construct(), 0 passed in /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php on line 886 and exactly 1 expected
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(886): App\Controllers\Users->__construct()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(395): CodeIgniter\CodeIgniter->createController()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:10:21 --> Too few arguments to function App\Controllers\Users::__construct(), 0 passed in /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php on line 886 and exactly 1 expected
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(886): App\Controllers\Users->__construct()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(395): CodeIgniter\CodeIgniter->createController()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:10:45 --> Call to a member function getMethod() on null
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->getById('1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:11:05 --> syntax error, unexpected '$this' (T_VARIABLE), expecting function (T_FUNCTION) or const (T_CONST)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users/getById/1')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users/getById/1')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:25:52 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:26:12 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:28:36 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:29:21 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:29:41 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:29:49 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:29:54 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:30:49 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:31:32 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:32:53 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:33:41 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:33:57 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:34:18 --> Class 'App\Services\UserService' not found
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:34:38 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:34:52 --> Object of class App\Services\UserService could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:35:08 --> Function name must be a string
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:36:06 --> syntax error, unexpected 'constructor' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/dxc2762/...')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\Us...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\Us...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): spl_autoload_call('App\\Services\\Us...')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 00:38:19 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:40:31 --> require(/Users/dxc2762/Documents/gitHub/VGDT/app/Service/UserService.php): failed to open stream: No such file or directory
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require(/Users/...', '/Users/dxc2762/...', 2, Array)
+#1 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(2): require()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(575): include_once('/Users/dxc2762/...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('users')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('users')
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 00:40:49 --> Class 'App\Controllers\UserService' not found
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:41:43 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:42:08 --> Use of undefined constant getUsers - assumed 'getUsers' (this will throw an Error in a future version of PHP)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', '/Users/dxc2762/...', 11, Array)
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:42:14 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:42:25 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:43:06 --> Call to undefined function App\Controllers\getUsers()
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-07-10 00:43:27 --> Use of undefined constant UserModel - assumed 'UserModel' (this will throw an Error in a future version of PHP)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Services/UserService.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', '/Users/dxc2762/...', 9, Array)
+#1 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): App\Services\UserService->__construct()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-07-10 00:44:11 --> syntax error, unexpected 'echo' (T_ECHO)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/dxc2762/...')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\Us...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\Us...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): spl_autoload_call('App\\Services\\Us...')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 00:44:18 --> Object of class App\Models\UserModel could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): App\Services\UserService->__construct()
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#2 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-07-10 00:44:52 --> syntax error, unexpected 'getUsers' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/dxc2762/...')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\Us...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\Us...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): spl_autoload_call('App\\Services\\Us...')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 08:30:31 --> syntax error, unexpected 'getUsers' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/dxc2762/...')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\Us...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\Us...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): spl_autoload_call('App\\Services\\Us...')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-07-10 08:30:32 --> syntax error, unexpected 'getUsers' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+#0 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('/Users/dxc2762/...')
+#1 /Users/dxc2762/Documents/gitHub/VGDT/system/Autoloader/Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Services\\Us...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Services\\Us...')
+#3 /Users/dxc2762/Documents/gitHub/VGDT/app/Controllers/Users.php(9): spl_autoload_call('App\\Services\\Us...')
+#4 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(914): App\Controllers\Users->index()
+#5 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#6 /Users/dxc2762/Documents/gitHub/VGDT/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dxc2762/Documents/gitHub/VGDT/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
