@@ -33,7 +33,11 @@ export const saveLoad = (load) => {
     })
       .then(response => response.json())
       .then(loadData => {
-        resolve(loadData[loadData.length - 1])
+        if(load.id) {
+          resolve(load)
+        }else {
+          resolve(loadData[loadData.length - 1])
+        }
       }).catch(err => {
         console.log(err);
       })
