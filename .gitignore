@@ -103,6 +103,11 @@ _modules/*
 # Netbeans
 nbproject/
 build/
+
+# copied build files to match shared hosting file structure
+vgdt-admin/
+vgdt-admin.zip
+
 nbbuild/
 dist/
 nbdist/
