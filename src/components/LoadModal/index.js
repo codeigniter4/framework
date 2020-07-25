@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
+import { Modal, Paper, Backdrop } from '@material-ui/core';
 import { LoadContext } from '../../contexts/LoadContext';
 import LoadForm from '../LoadForm';
 
@@ -41,9 +40,9 @@ const LoadModal = (props) => {
               timeout: 500,
             }}
           >
-            <React.Fragment>
-              <LoadForm/>
-            </React.Fragment>
+            <Paper className={classes.paper}>
+              {props.children}
+            </Paper>
           </Modal>
       )
     }}

@@ -11,6 +11,8 @@ import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
 import LoadContextProvider from '../../contexts/LoadContext';
 import LoadModal from '../../components/LoadModal';
+import LoadForm from '../../components/LoadForm';
+// import FullScreenDialog from '../../components/FullScreenDialog';
 import { styles, drawerWidth, theme } from './styles/';
 
 function Copyright() {
@@ -36,36 +38,38 @@ function Loadboard(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <CssBaseline />
-        <nav className={classes.drawer}>
-          <Hidden smUp implementation="js">
-            <Navigator
-              PaperProps={{ style: { width: drawerWidth } }}
-              variant="temporary"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-            />
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <Navigator PaperProps={{ style: { width: drawerWidth } }} />
-          </Hidden>
-        </nav>
-        <div className={classes.app}>
-          <Header onDrawerToggle={handleDrawerToggle} />
-          <main className={classes.main}>
-            <Paper className={classes.paper}>
-              <LoadContextProvider>
+      <LoadContextProvider>
+        <div className={classes.root}>
+          <CssBaseline />
+          <nav className={classes.drawer}>
+            <Hidden smUp implementation="js">
+              <Navigator
+                PaperProps={{ style: { width: drawerWidth } }}
+                variant="temporary"
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+              />
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+            </Hidden>
+          </nav>
+          <div className={classes.app}>
+            <Header onDrawerToggle={handleDrawerToggle} />
+            <main className={classes.main}>
+              <Paper className={classes.paper}>
                 <LoadListView />
-                <LoadModal/>
-              </LoadContextProvider>
-            </Paper>
-          </main>
-          <footer className={classes.footer}>
-            <Copyright />
-          </footer>
+              </Paper>
+            </main>
+            <footer className={classes.footer}>
+              <Copyright />
+            </footer>
+          </div>
         </div>
-      </div>
+        <LoadModal>
+          <LoadForm/>
+        </LoadModal>
+      </LoadContextProvider>
     </ThemeProvider>
   );
 }

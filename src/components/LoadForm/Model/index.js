@@ -1,5 +1,5 @@
 export const LOAD_MODEL = {
-  "type": "van", 
+  "type": "po",
   "status": "live",
   "pickupDate": "mm/dd/yyy 00:00:00",
   "dropoffDate": "mm/dd/yyy  00:00:00",
@@ -15,3 +15,14 @@ export const LOAD_MODEL = {
   "layoverPay": 0,
   "notes": "Some message"
 }
+
+export const LOAD_TYPES = [
+  {
+    type: 'van',
+    label: 'Van'
+  },
+  {
+    type: 'po',
+    label: 'Power Only'
+  }
+]

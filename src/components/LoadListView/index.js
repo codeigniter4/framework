@@ -18,6 +18,7 @@ const LoadListView = (props) => {
         return row;
       })
       const handleClick = (id) => {
+        // setLoadFromList(id)
         setLoad(id);
         toggleModal(true);
       }

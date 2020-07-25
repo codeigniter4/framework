@@ -50,12 +50,27 @@ class LoadContextProvider extends Component {
     })
   }
 
+  setLoadFromList = (id) => {
+    const result = this.state.loads.filter(load => {
+      return load.id.includes(id)
+    });
+    this.setState({
+      load: {...result}
+    })
+  }
+
   setLoad = (id) => {
     if(!id){
       this.setState({
         load: {}
       })
     }else {
+      // const result = this.state.loads.filter(load => {
+      //   return load.id.includes(id)
+      // });
+      // this.setState({
+      //   load: {...result[0]}
+      // })
       getLoadByID(id).then(data => {
         this.setState({
           load: {...data}
@@ -76,6 +91,17 @@ class LoadContextProvider extends Component {
     });
   }
 
+
+  updateLoad = (event) => {
+    console.log('updateLoad: ', event.target.name);
+    const name = event.target.name;
+    this.setState({
+      load: {
+        ...this.state.load,
+        [name]: event.target.value}
+    })
+  }
+
   render() {
     return (
       <LoadContext.Provider
@@ -85,7 +111,8 @@ class LoadContextProvider extends Component {
           setLoad: this.setLoad,
           toggleModal: this.toggleModal,
           save: this.save,
-          deleteLoad: this.deleteLoad
+          deleteLoad: this.deleteLoad,
+          updateLoad: this.updateLoad
         }
       }>
         {this.props.children}

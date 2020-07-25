@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Demo from '../containers/Demo';
+// import Demo from '../containers/Demo';
 import Dashboard from '../containers/Dashboard';
 import LoadBoard from '../containers/LoadBoard';
 
@@ -13,7 +13,7 @@ export default function RouterComponent() {
     <Router>
         <Switch>
           <Route path="/demo">
-            <Demo />
+            <Dashboard />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
