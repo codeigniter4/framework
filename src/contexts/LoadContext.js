@@ -4,18 +4,32 @@ import { getLoads, getLoadByID, saveLoad, deleteLoadById } from '../services/Loa
 export const LoadContext = createContext();
 
 class LoadContextProvider extends Component {
-  state = {
-    loads: [],
-    filteredLoads: [],
-    searchTerm: '',
-    load: {},
-    openModal: false
+  constructor() {
+    super()
+    this.state = {
+      loads: [],
+      filteredLoads: [],
+      searchTerm: '',
+      load: {},
+      openModal: false
+    }
+    this.getAllLoads = this.getAllLoads.bind(this);
+    this.save = this.save.bind(this);
+    this.deleteLoad = this.deleteLoad.bind(this);
+    this.filterLoads = this.filterLoads.bind(this);
+    this.setLoadFromList = this.setLoadFromList.bind(this);
+    this.setLoad = this.setLoad.bind(this);
+    this.addLoad = this.addLoad.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.updateLoad = this.updateLoad.bind(this);
+
   }
+
   componentDidMount() {
     this.getAllLoads()
   }
 
-  getAllLoads = () => {
+  getAllLoads() {
     getLoads().then(loadData => {
       this.setState({
         loads: [...loadData]
@@ -23,7 +37,7 @@ class LoadContextProvider extends Component {
     });
   }
 
-  save = (load) => {
+  save(load) {
     saveLoad(load).then(response => {
       this.setState({
         load: {...response}
@@ -32,14 +46,14 @@ class LoadContextProvider extends Component {
     })
   }
 
-  deleteLoad = (id) => {
+  deleteLoad(id) {
     deleteLoadById(id).then(response => {
       this.getAllLoads();
       this.toggleModal(false);
     })
   }
 
-  filterLoads = (searchTerm) => {
+  filterLoads(searchTerm) {
     const result = this.state.loads.filter(load => {
       return load.id.includes(searchTerm)
     });
@@ -50,7 +64,7 @@ class LoadContextProvider extends Component {
     })
   }
 
-  setLoadFromList = (id) => {
+  setLoadFromList(id) {
     const result = this.state.loads.filter(load => {
       return load.id.includes(id)
     });
@@ -59,7 +73,7 @@ class LoadContextProvider extends Component {
     })
   }
 
-  setLoad = (id) => {
+  setLoad(id) {
     if(!id){
       this.setState({
         load: {}
@@ -79,21 +93,20 @@ class LoadContextProvider extends Component {
     }
   }
 
-  addLoad = (load) => {
+  addLoad(load) {
     this.setState({
       loads: [...this.state.loads, {...load}]
     });
   }
 
-  toggleModal = (open) => {
+  toggleModal(open) {
     this.setState({
       openModal: open
     });
   }
 
 
-  updateLoad = (event) => {
-    console.log('updateLoad: ', event.target.name);
+  updateLoad(event) {
     const name = event.target.name;
     this.setState({
       load: {
