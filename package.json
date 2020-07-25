@@ -27,12 +27,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "sass-loader": "^9.0.2",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "zip-a-folder": "0.0.12"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn run clean && webpack",
-    "clean": "rm -rf ./public/vgdt-admin",
+    "build": "yarn run clean && webpack && node utilities/ZipFolder.js",
+    "clean": "rm -rf ./public/vgdt-admin && rm -rf ./public/vgdt-admin.zip",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
