@@ -10,6 +10,7 @@ import Navigator from '../../components/Navigator';
 import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
 import LoadContextProvider from '../../contexts/LoadContext';
+import ModalContextProvider from '../../contexts/ModalContext';
 import AdminModal from '../../components/AdminModal';
 import LoadForm from '../../components/LoadForm';
 // import FullScreenDialog from '../../components/FullScreenDialog';
@@ -39,36 +40,39 @@ function Loadboard(props) {
   return (
     <ThemeProvider theme={theme}>
       <LoadContextProvider>
-        <div className={classes.root}>
-          <CssBaseline />
-          <nav className={classes.drawer}>
-            <Hidden smUp implementation="js">
-              <Navigator
-                PaperProps={{ style: { width: drawerWidth } }}
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-              />
-            </Hidden>
-            <Hidden xsDown implementation="css">
-              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
-            </Hidden>
-          </nav>
-          <div className={classes.app}>
-            <Header onDrawerToggle={handleDrawerToggle} />
-            <main className={classes.main}>
-              <Paper className={classes.paper}>
-                <LoadListView />
-              </Paper>
-            </main>
-            <footer className={classes.footer}>
-              <Copyright />
-            </footer>
+        <ModalContextProvider>
+          <div className={classes.root}>
+            <CssBaseline />
+            <nav className={classes.drawer}>
+              <Hidden smUp implementation="js">
+                <Navigator
+                  PaperProps={{ style: { width: drawerWidth } }}
+                  variant="primary"
+                  open={mobileOpen}
+                  onClose={handleDrawerToggle}
+                />
+              </Hidden>
+              <Hidden xsDown implementation="css">
+                <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+              </Hidden>
+            </nav>
+            <div className={classes.app}>
+              <Header onDrawerToggle={handleDrawerToggle} />
+              <main className={classes.main}>
+                <Paper className={classes.paper}>
+                    <LoadListView />
+                </Paper>
+              </main>
+              <footer className={classes.footer}>
+                <Copyright />
+              </footer>
+            </div>
           </div>
-        </div>
-        <AdminModal>
-          <LoadForm/>
-        </AdminModal>
+
+          <AdminModal>
+            <LoadForm/>
+          </AdminModal>
+        </ModalContextProvider>
       </LoadContextProvider>
     </ThemeProvider>
   );

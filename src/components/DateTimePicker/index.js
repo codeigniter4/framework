@@ -10,8 +10,7 @@ import {
 
 export default function MaterialUIPickers(props) {
   const { date, label, name } = props;
-  const existingDate = new Date(date) || new Date();
-  const [selectedDate, setSelectedDate] = useState(existingDate);
+  const [selectedDate, setSelectedDate] = useState(new Date(date));
   const handleDateChange = (date) => {
     const updateLoadData = {
       target: {
@@ -23,6 +22,8 @@ export default function MaterialUIPickers(props) {
     props.onChange(updateLoadData)
 
   };
+
+
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>

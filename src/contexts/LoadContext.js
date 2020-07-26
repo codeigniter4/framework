@@ -22,7 +22,6 @@ class LoadContextProvider extends Component {
     this.addLoad = this.addLoad.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.updateLoad = this.updateLoad.bind(this);
-    this.setDateRange = this.setDateRange.bind(this);
   }
 
   componentDidMount() {
@@ -34,11 +33,12 @@ class LoadContextProvider extends Component {
       this.setState({
         loads: [...loadData]
       })
+    }).catch(e => {
+      console.error(e);
     });
   }
 
   save(load) {
-    console.log('save > ', load);
     saveLoad(load).then(response => {
       this.setState({
         load: {...response}
@@ -75,23 +75,17 @@ class LoadContextProvider extends Component {
   }
 
   setLoad(id) {
-    if(!id){
+    const result = this.state.loads.filter(load => {
+      return load.id.includes(id)
+    });
+    this.setState({
+      load: {...result[0]}
+    })
+    getLoadByID(id).then(data => {
       this.setState({
-        load: {}
+        load: {...data}
       })
-    }else {
-      // const result = this.state.loads.filter(load => {
-      //   return load.id.includes(id)
-      // });
-      // this.setState({
-      //   load: {...result[0]}
-      // })
-      getLoadByID(id).then(data => {
-        this.setState({
-          load: {...data}
-        })
-      })
-    }
+    })
   }
 
   addLoad(load) {
@@ -108,17 +102,12 @@ class LoadContextProvider extends Component {
 
 
   updateLoad(event) {
-    console.log(event);
     const name = event.target.name;
     this.setState({
       load: {
         ...this.state.load,
         [name]: event.target.value}
     })
-  }
-
-  setDateRange(range) {
-    console.log('setDateRange: ', range);
   }
 
   render() {

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, TextField, Select, FormControl, InputLabel, Input, InputAdornment } from '@material-ui/core';
 import { LoadContext } from '../../../contexts/LoadContext';
@@ -85,7 +84,7 @@ function LoadFormUI(props) {
                   value={load.brokerId}
                   onChange={updateLoad}
                   inputProps={{
-                    name: 'brokerId',
+                    name: 'broker',
                     id: 'load-broker',
                   }}
                 >
@@ -124,7 +123,7 @@ function LoadFormUI(props) {
 
             <Grid item xs={6}>
               <Grid item xs={12}>
-                <FormControl fullWidth className={classes.margin} fullWidth>
+                <FormControl fullWidth className={classes.margin}>
                   <TextField
                     id="pickupLocation"
                     label="Pickup Location"

@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Paper, Backdrop } from '@material-ui/core';
-import { LoadContext } from '../../contexts/LoadContext';
-import LoadForm from '../LoadForm';
+import { ModalContext } from '../../contexts/ModalContext';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const AdminModal = (props) => {
   const classes = useStyles();
   return (
-    <LoadContext.Consumer>{(context) => {
+    <ModalContext.Consumer>{(context) => {
       const { openModal, toggleModal } = context;
       const handleClose = () => {
         toggleModal(false);
@@ -45,7 +44,7 @@ const AdminModal = (props) => {
           </Modal>
       )
     }}
-    </LoadContext.Consumer>
+    </ModalContext.Consumer>
   );
 }
 

@@ -31,13 +31,12 @@ const styles = (theme) => ({
 });
 
 function ListToolBar(props) {
-  const { classes } = props;
+  const { classes, newLoad } = props;
   return (
     <LoadContext.Consumer>{(context) => {
-      const { setLoad, toggleModal } = context;
+      const { save } = context;
       const handleClick = () => {
-        setLoad(false);
-        toggleModal(true);
+        save(newLoad);
       }
 
       return (

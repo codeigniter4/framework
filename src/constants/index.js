@@ -1,19 +1,20 @@
 export const LOAD_MODEL = {
-  "type": "po",
-  "status": "live",
-  "pickupDate": "mm/dd/yyy 00:00:00",
-  "dropoffDate": "mm/dd/yyy  00:00:00",
-  "pickupLocation": "Springfield, OH",
-  "dropoffLocation": "Atlanta, GA",
-  "loadedMiles": 550,
-  "deadHead": 20,
-  "weight": 40,
+  "type": "",
+  "status": "planning",
+  "pickupDate": "",
+  "dropoffDate": "",
+  "pickupLocation": "",
+  "dropoffLocation": "",
+  "loadedMiles": "",
+  "deadHead": "",
+  "weight": "",
   "cargo": "",
-  "rate": "1003.00",
-  "brokerId": "222",
-  "detentionPay": 0,
-  "layoverPay": 0,
-  "notes": "Some message"
+  "rate": "",
+  "broker": "",
+  "detentionPay": "",
+  "layoverPay": "",
+  "notes": "",
+  "user": ""
 }
 
 export const LOAD_TYPES = [
@@ -38,6 +39,10 @@ export const LOAD_STATUS = [
   {
     type: 'none',
     label: 'Select Status',
+  },
+  {
+    type: 'planning',
+    label: 'Planning',
   },
   {
     type: 'scheduled',
