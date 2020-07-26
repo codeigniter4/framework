@@ -45,6 +45,12 @@ export const loadColumns = [
     align: 'center',
     numeric: false
   },
+  {
+    id: 'user',
+    label: 'User',
+    align: 'center',
+    numeric: false
+  },
   // {
   //   id: 'notes',
   //   label: 'Notes',

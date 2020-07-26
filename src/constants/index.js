@@ -52,3 +52,46 @@ export const LOAD_STATUS = [
     label: 'Completed'
   }
 ];
+
+export const VGDT_USERS = [
+  {
+    id: '1',
+    type: 'super',
+    label: 'bigDuro',
+    fname: 'Darryl',
+    lname: 'Crockett',
+    avatar: ''
+  },
+  {
+    id: '2',
+    type: 'admin',
+    label: 'Precios',
+    fname: 'Precions',
+    lname: 'Crockett',
+    avatar: ''
+  },
+  {
+    id: '3',
+    type: 'admin',
+    label: 'Dujon',
+    fname: 'Dujon',
+    lname: 'Criswick',
+    avatar: ''
+  },
+  {
+    id: '4',
+    type: 'admin',
+    label: 'Natarlie',
+    fname: 'Natarlie',
+    lname: 'Criswick',
+    avatar: ''
+  },
+  {
+    id: '5',
+    type: 'super',
+    label: 'KayDee',
+    fname: 'Kyle',
+    lname: 'Davis',
+    avatar: ''
+  }
+];

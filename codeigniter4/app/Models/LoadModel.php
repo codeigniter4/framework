@@ -23,7 +23,7 @@ class LoadModel extends Model
       'weight',
       'cargo',
       'rate',
-      'brokerId',
+      'broker',
       'detentionPay',
       'layoverPay',
       'notes',

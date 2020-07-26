@@ -29,12 +29,12 @@ function LoadFormUI(props) {
           >
             <Grid item xs={12}>
               <Typography variant="h6" component="h6">
-              Load Form {load.id}
+              Load #{load.id}
               </Typography>
             </Grid>
 
             <Grid item xs={3}>
-              <FormControl className={classes.formControl}>
+              <FormControl className={classes.formControl} fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
                   native
@@ -56,7 +56,7 @@ function LoadFormUI(props) {
             </Grid>
 
             <Grid item xs={3}>
-              <FormControl className={classes.formControl}>
+              <FormControl className={classes.formControl} fullWidth>
                 <InputLabel>Status</InputLabel>
                 <Select
                   native
@@ -78,7 +78,7 @@ function LoadFormUI(props) {
             </Grid>
 
             <Grid item xs={3}>
-              <FormControl className={classes.formControl}>
+              <FormControl className={classes.formControl} fullWidth>
                 <InputLabel>Broker</InputLabel>
                 <Select
                   native
@@ -100,20 +100,20 @@ function LoadFormUI(props) {
               </Grid>
 
               <Grid item xs={3}>
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} fullWidth>
                   <InputLabel>User</InputLabel>
                   <Select
                     native
                     value={load.user}
                     onChange={updateLoad}
                     inputProps={{
-                      name: 'userId',
+                      name: 'user',
                       id: 'load-user',
                     }}
                   >
-                    {props.status.map((item, index) => {
+                    {props.users.map((item, index) => {
                       return (
-                        <option key={index} value={item.type}>{item.label}</option>
+                        <option key={index} value={item.label}>{item.label}</option>
                       )
                     })}
                   </Select>
@@ -121,57 +121,61 @@ function LoadFormUI(props) {
 
             </Grid>
 
+
             <Grid item xs={6}>
-              <FormControl fullWidth className={classes.margin}>
-                <TextField
-                  id="pickupLocation"
-                  label="Pickup Location"
-                  name="pickupLocation"
-                  value={load.pickupLocation}
+              <Grid item xs={12}>
+                <FormControl fullWidth className={classes.margin} fullWidth>
+                  <TextField
+                    id="pickupLocation"
+                    label="Pickup Location"
+                    name="pickupLocation"
+                    value={load.pickupLocation}
+                    onChange={updateLoad}
+                    multiline
+                  />
+                </FormControl>
+              </Grid>
+
+
+              <Grid item xs={12}>
+                <DateTimePicker
                   onChange={updateLoad}
-                  multiline
+                  label="Pick Up"
+                  date={load.pickupDate}
+                  name="pickupDate"
                 />
-              </FormControl>
-            </Grid>
-
-
-            <Grid item xs={6}>
-              <DateTimePicker
-                onChange={updateLoad}
-                label="Pick Up"
-                date={load.pickupDate}
-                name="pickupDate"
-              />
+              </Grid>
             </Grid>
 
             <Grid item xs={6}>
-              <FormControl fullWidth className={classes.margin}>
-                <TextField
-                  id="dropoffLocation"
-                  label="Drop off Location"
-                  name="dropoffLocation"
-                  value={load.dropoffLocation}
+              <Grid item xs={12}>
+                <FormControl fullWidth className={classes.margin}>
+                  <TextField
+                    id="dropoffLocation"
+                    label="Drop off Location"
+                    name="dropoffLocation"
+                    value={load.dropoffLocation}
+                    onChange={updateLoad}
+                    multiline
+                  />
+                </FormControl>
+              </Grid>
+
+              <Grid item xs={12}>
+                <DateTimePicker
                   onChange={updateLoad}
-                  multiline
+                  label="Drop Off"
+                  date={load.dropoffDate}
+                  name="dropoffDate"
                 />
-              </FormControl>
+              </Grid>
             </Grid>
-
-            <Grid item xs={6}>
-              <DateTimePicker
-                onChange={updateLoad}
-                label="Drop Off"
-                date={load.dropoffDate}
-                name="dropoffDate"
-              />
-            </Grid>
-
 
             <Grid item xs={12}>
               <FormControl fullWidth className={classes.margin}>
-                <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+                <InputLabel htmlFor="loadrate">Rate</InputLabel>
                 <Input
-                  id="standard-adornment-amount"
+                  id="loadrate"
                   name="rate"
                   value={load.rate}
                   onChange={updateLoad}

@@ -11,7 +11,18 @@ import {
 export default function MaterialUIPickers(props) {
   const { date, label, name } = props;
   const existingDate = new Date(date) || new Date();
-  const [selectedDate, handleDateChange] = useState(existingDate);
+  const [selectedDate, setSelectedDate] = useState(existingDate);
+  const handleDateChange = (date) => {
+    const updateLoadData = {
+      target: {
+        name: props.name,
+        value: date.toString()
+      }
+    }
+    setSelectedDate(date)
+    props.onChange(updateLoadData)
+
+  };
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -26,6 +37,7 @@ export default function MaterialUIPickers(props) {
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
+          fullWidth
         />
         <KeyboardTimePicker
           margin="normal"
@@ -36,6 +48,7 @@ export default function MaterialUIPickers(props) {
           KeyboardButtonProps={{
             'aria-label': 'change time',
           }}
+          fullWidth
         />
       </Grid>
     </MuiPickersUtilsProvider>

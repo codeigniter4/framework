@@ -4,7 +4,7 @@ import { LoadContext } from '../../contexts/LoadContext';
 import ListTable from '../ListTable';
 import ListToolBar from '../ListToolBar';
 import { loadColumns } from './constants/loadColumns';
-import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS } from '../../constants';
+import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS, VGDT_USERS } from '../../constants';
 
 
 const LoadListView = (props) => {
@@ -26,7 +26,6 @@ const LoadListView = (props) => {
             row.status = item.label
           }
         })
-
         row.pickupDate = new Date(row.pickupDate).toLocaleString();
         row.dropoffDate = new Date(row.dropoffDate).toLocaleString();
         return row;
