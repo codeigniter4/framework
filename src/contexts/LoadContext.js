@@ -22,7 +22,7 @@ class LoadContextProvider extends Component {
     this.addLoad = this.addLoad.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.updateLoad = this.updateLoad.bind(this);
-
+    this.setDateRange = this.setDateRange.bind(this);
   }
 
   componentDidMount() {
@@ -107,12 +107,17 @@ class LoadContextProvider extends Component {
 
 
   updateLoad(event) {
+    console.log(event);
     const name = event.target.name;
     this.setState({
       load: {
         ...this.state.load,
         [name]: event.target.value}
     })
+  }
+
+  setDateRange(range) {
+    console.log('setDateRange: ', range);
   }
 
   render() {

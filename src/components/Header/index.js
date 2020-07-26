@@ -12,7 +12,7 @@ const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = (theme) => ({
   secondaryBar: {
-    zIndex: 0,
+    zIndex: 10000,
   },
   menuButton: {
     marginLeft: -theme.spacing(1),
@@ -44,9 +44,6 @@ function Header(props) {
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
             <Grid item>
-              <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                Upload
-              </Button>
             </Grid>
             <Grid item>
               <Tooltip title="Help">

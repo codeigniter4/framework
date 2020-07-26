@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Paper, Button } from '@material-ui/core/';
+import { Paper, Button, Grid } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import { LOAD_MODEL, LOAD_TYPES } from './Model';
+import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS } from '../../constants';
 import { LoadContext } from '../../contexts/LoadContext';
 import LoadFormUI from './LoadFormUI';
 
@@ -19,9 +19,20 @@ class LoadForm extends Component {
         const { load, save, deleteLoad } = context;
         return (
           <React.Fragment>
-            <LoadFormUI types={LOAD_TYPES}/>
-            <Button onClick={() => save(load)}>Save</Button>
-            {load && load.id ? <Button onClick={() => deleteLoad(load.id)}>Delete</Button> : ''}
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <LoadFormUI types={LOAD_TYPES} status={LOAD_STATUS}/>
+
+              <Grid item xs={12}>
+              <Button onClick={() => save(load)}>Save</Button>
+              {load && load.id ? <Button onClick={() => deleteLoad(load.id)}>Delete</Button> : ''}
+              </Grid>
+            </Grid>
           </React.Fragment>
         )
       }}

@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-syntax-class-properties": "^7.10.4",
+    "@date-io/date-fns": "1.x",
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@material-ui/core": "^4.11.0",
+    "@material-ui/pickers": "^3.2.10",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -17,6 +19,7 @@
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
     "css-loader": "^4.0.0",
+    "date-fns": "^2.15.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",

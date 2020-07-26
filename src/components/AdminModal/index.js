@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: '1px solid #eee',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    width: 800,
   },
 }));
 
-const LoadModal = (props) => {
+const AdminModal = (props) => {
   const classes = useStyles();
   return (
     <LoadContext.Consumer>{(context) => {
@@ -29,8 +30,6 @@ const LoadModal = (props) => {
 
       return (
           <Modal
-            aria-labelledby="transition-modal-title"
-            aria-describedby="transition-modal-description"
             className={classes.modal}
             open={openModal}
             onClose={handleClose}
@@ -50,6 +49,6 @@ const LoadModal = (props) => {
   );
 }
 
-LoadModal.propTypes = {};
+AdminModal.propTypes = {};
 
-export default LoadModal;
+export default AdminModal;

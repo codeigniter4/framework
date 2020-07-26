@@ -18,11 +18,37 @@ export const LOAD_MODEL = {
 
 export const LOAD_TYPES = [
   {
+    type: 'none',
+    label: 'N/A',
+    alias: 'Select Type'
+  },
+  {
     type: 'van',
-    label: 'Van'
+    label: 'Van',
+    alias: `53' Dry Van`
   },
   {
     type: 'po',
-    label: 'Power Only'
+    label: 'PO',
+    alias: 'Power Only'
   }
 ]
+
+export const LOAD_STATUS = [
+  {
+    type: 'none',
+    label: 'Select Status',
+  },
+  {
+    type: 'scheduled',
+    label: 'Scheduled'
+  },
+  {
+    type: 'live',
+    label: 'Live'
+  },
+  {
+    type: 'completed',
+    label: 'Completed'
+  }
+];

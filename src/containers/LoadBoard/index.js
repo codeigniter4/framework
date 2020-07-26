@@ -10,7 +10,7 @@ import Navigator from '../../components/Navigator';
 import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
 import LoadContextProvider from '../../contexts/LoadContext';
-import LoadModal from '../../components/LoadModal';
+import AdminModal from '../../components/AdminModal';
 import LoadForm from '../../components/LoadForm';
 // import FullScreenDialog from '../../components/FullScreenDialog';
 import { styles, drawerWidth, theme } from './styles/';
@@ -66,9 +66,9 @@ function Loadboard(props) {
             </footer>
           </div>
         </div>
-        <LoadModal>
+        <AdminModal>
           <LoadForm/>
-        </LoadModal>
+        </AdminModal>
       </LoadContextProvider>
     </ThemeProvider>
   );
