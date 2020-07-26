@@ -26,7 +26,8 @@ class LoadModel extends Model
       'brokerId',
       'detentionPay',
       'layoverPay',
-      'notes'
+      'notes',
+      'user'
     ];
 
     protected $useTimestamps = false;

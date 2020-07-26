@@ -38,6 +38,7 @@ class LoadContextProvider extends Component {
   }
 
   save(load) {
+    console.log('save > ', load);
     saveLoad(load).then(response => {
       this.setState({
         load: {...response}

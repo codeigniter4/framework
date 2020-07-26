@@ -1,8 +1,10 @@
 const path = require('path');
 const zipFolder = require('zip-a-folder');
-const vgdtAdminUI_As = 'public/vgdt-admin.zip';
-const vgdtAPI_As = 'public/api.zip';
-const to = 'public';
+const vgdtAdminUI_zip = 'public/vgdt-admin.zip';
+const vgdtAPI_zip = 'public/api.zip';
+const codeigniter4_zip = 'non_public/codeigniter4.zip';
+const publicHtml = 'public';
+const codeigniter4 = 'codeigniter4';
 
 class ZipAFolder {
 
@@ -15,5 +17,6 @@ class ZipAFolder {
     }
 }
 
-ZipAFolder.main(to, vgdtAdminUI_As);
-ZipAFolder.main(to, vgdtAPI_As);
+// ZipAFolder.main(publicHtml, vgdtAdminUI_zip);
+// ZipAFolder.main(publicHtml, vgdtAPI_zip);
+ZipAFolder.main(codeigniter4, codeigniter4_zip);
