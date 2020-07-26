@@ -7,6 +7,11 @@ export let theme = createMuiTheme({
       main: '#009be5',
       dark: '#006db3',
     },
+    secondary: {
+      light: '#63ccff',
+      main: '#009be5',
+      dark: '#006db3',
+    },
   },
   typography: {
     h5: {

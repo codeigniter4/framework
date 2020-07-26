@@ -26,7 +26,9 @@ class LoadForm extends Component {
               alignItems="center"
               spacing={2}
             >
-              <LoadFormUI types={LOAD_TYPES} status={LOAD_STATUS}/>
+              {load && load.id ?
+                <LoadFormUI types={LOAD_TYPES} status={LOAD_STATUS}/>
+              : ''}
 
               <Grid item xs={12}>
               <Button onClick={() => save(load)}>Save</Button>

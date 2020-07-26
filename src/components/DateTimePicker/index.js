@@ -1,5 +1,5 @@
 import 'date-fns';
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -9,26 +9,19 @@ import {
 } from '@material-ui/pickers';
 
 export default function MaterialUIPickers(props) {
-  const handleDateChange = (date) => {
-    const updateLoadData = {
-      target: {
-        name: props.name,
-        value: date.toString()
-      }
-    }
-    props.onChange(updateLoadData)
-
-  };
+  const { date, label, name } = props;
+  const existingDate = new Date(date) || new Date();
+  const [selectedDate, handleDateChange] = useState(existingDate);
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
         <KeyboardDatePicker
           margin="normal"
-          id={`${props.name}-date`}
-          label={`${props.label} Date`}
+          id={`${name}-date`}
+          label={`${label} Date`}
           format="MM/dd/yyyy"
-          value={new Date(props.date) || new Date()}
+          value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
@@ -38,7 +31,7 @@ export default function MaterialUIPickers(props) {
           margin="normal"
           id={`${props.name}-time`}
           label={`${props.label} Time`}
-          value={new Date(props.date) || new Date()}
+          value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change time',

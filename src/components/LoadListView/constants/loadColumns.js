@@ -1,41 +1,49 @@
 export const loadColumns = [
   { id: 'type',
     label: 'Type',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   { id: 'status', // should generate scheduled, live, completed based on the start and end times
     label: 'Status',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   {
     id: 'pickupDate',
     label: 'Start',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   {
     id: 'pickupLocation',
     label: 'Origin',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   {
     id: 'dropoffDate',
     label: 'End',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   {
     id: 'dropoffLocation',
     label: 'Destination',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   {
     id: 'rate',
     label: 'Rate',
-    align: 'center'
+    align: 'center',
+    numeric: true
   },
   {
     id: 'brokerId',
     label: 'Broker',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
   // {
   //   id: 'notes',
@@ -45,6 +53,7 @@ export const loadColumns = [
   {
     id: 'edit',
     label: '',
-    align: 'center'
+    align: 'center',
+    numeric: false
   },
 ]
