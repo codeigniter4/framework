@@ -1,62 +1,34 @@
-export const getLoads = () => {
-  const getLoadsPromise = new Promise((resolve, reject) => {
-    fetch('http://vanguard-trucking.com/api/loads')
-      .then(response => response.json())
-      .then(loadData => {
-        resolve(loadData)
-      }).catch(err => {
-        console.log(err);
-      })
-  })
-  return getLoadsPromise;
+export const getLoads = async () => {
+  const response = await fetch('http://vanguard-trucking.com/api/loads')
+  const json = await response.json();
+  return json;
 }
 
 
-export const getLoadByID = (id) => {
-  const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://vanguard-trucking.com/api/loads/id/' + id)
-      .then(response => response.json())
-      .then(loadData => {
-        resolve(loadData)
-      }).catch(err => {
-        console.log(err);
-      })
-  })
-  return getLoadByIDPromise;
+export const getLoadByID = async (id) => {
+  const response = await fetch('http://vanguard-trucking.com/api/loads/id/' + id);
+  const json = await response.json();
+  return json;
 }
 
-export const saveLoad = (load) => {
-  const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://vanguard-trucking.com/api/loads', {
-      method: 'post',
-      body: JSON.stringify(load)
-    })
-      .then(response => response.json())
-      .then(loadData => {
-        if(load.id) {
-          resolve(load)
-        }else {
-          resolve(loadData[loadData.length - 1])
-        }
-      }).catch(err => {
-        console.log(err);
-      })
+export const saveLoad = async (load) => {
+  const response = await fetch('http://vanguard-trucking.com/api/loads', {
+    method: 'post',
+    body: JSON.stringify(load)
   })
-  return getLoadByIDPromise;
+  const json = await response.json();
+  if(json.id) {
+    return json;
+  }else {
+    return json[json.length - 1]
+  }
 }
 
 
-export const deleteLoadById = (id) => {
-  const getLoadByIDPromise = new Promise((resolve, reject) => {
-    fetch('http://vanguard-trucking.com/api/loads/delete/' + id, {
-      method: 'post'
-    })
-      .then(response => response.json())
-      .then(loadData => {
-        resolve(loadData)
-      }).catch(err => {
-        console.log(err);
-      })
-  })
-  return getLoadByIDPromise;
+export const deleteLoadById = async (id) => {
+  const response = await fetch('http://vanguard-trucking.com/api/loads/delete/' + id, {
+    method: 'post'
+  });
+  const json = await response.json();
+  return json;
 }

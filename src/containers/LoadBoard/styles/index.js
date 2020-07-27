@@ -137,6 +137,12 @@ export const styles = {
     flex: 1,
     padding: theme.spacing(6, 4),
     background: '#eaeff1',
+    [`@media (max-width:  440px)`]: {
+      paddingLeft: theme.spacing(2, 2),
+      paddingRight: theme.spacing(2, 2),
+      width: '100%'
+    }
+
   },
   footer: {
     padding: theme.spacing(2),
@@ -146,5 +152,10 @@ export const styles = {
     maxWidth: 1280,
     margin: 'auto',
     overflow: 'hidden',
+    [`@media (max-width:  440px)`]: {
+      paddingLeft: theme.spacing(2, 2),
+      paddingRight: theme.spacing(2, 2),
+      width: 350
+    }
   },
 };
