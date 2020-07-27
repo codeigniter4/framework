@@ -60,10 +60,6 @@ function ListToolBar(props) {
                 <Button variant="contained" color="primary" className={classes.add} onClick={handleClick}>
                   Add
                 </Button>
-                <Tooltip title="Reload">
-                  <IconButton>
-                  </IconButton>
-                </Tooltip>
               </Grid>
             </Grid>
           </Toolbar>
