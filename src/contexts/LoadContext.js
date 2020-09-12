@@ -16,17 +16,12 @@ class LoadContextProvider extends Component {
     }
     this.getAllLoads = this.getAllLoads.bind(this);
     this.save = this.save.bind(this);
-    this.deleteLoad = this.deleteLoad.bind(this);
+    this.deleteLoads = this.deleteLoads.bind(this);
     this.filterLoads = this.filterLoads.bind(this);
     this.setLoadFromList = this.setLoadFromList.bind(this);
-    this.setLoad = this.setLoad.bind(this);
+    this.getLoad = this.getLoad.bind(this);
     this.addLoad = this.addLoad.bind(this);
     this.updateLoad = this.updateLoad.bind(this);
-  }
-
-  componentDidMount() {
-    // this.getAllLoads()
-    // console.log('LoadContextProvider');
   }
 
   async getAllLoads() {
@@ -41,14 +36,17 @@ class LoadContextProvider extends Component {
     this.setState({
       load: {...response}
     })
-    this.getAllLoads();
   }
 
-  async deleteLoad(id) {
-    const response = await deleteLoadById(id);
-    this.setState({
-      deletedload: {...response}
-    });
+  async deleteLoads(ids) {
+    await ids.map(id => {
+      console.log('delete id: ', id);
+      const response = deleteLoadById(id);
+      this.setState({
+        deletedload: {...response}
+      });
+    })
+
     this.getAllLoads();
   }
 
@@ -72,7 +70,7 @@ class LoadContextProvider extends Component {
     })
   }
 
-  async setLoad(id) {
+  async getLoad(id) {
     const response = await getLoadByID(id);
     this.setState({
       load: {...response}
@@ -100,10 +98,11 @@ class LoadContextProvider extends Component {
         value={{...this.state,
           addLoad: this.addLoad,
           filterLoads: this.filterLoads,
-          setLoad: this.setLoad,
+          getLoad: this.getLoad,
           save: this.save,
-          deleteLoad: this.deleteLoad,
-          updateLoad: this.updateLoad
+          deleteLoads: this.deleteLoads,
+          updateLoad: this.updateLoad,
+          getAllLoads: this.getAllLoads
         }
       }>
         {this.props.children}

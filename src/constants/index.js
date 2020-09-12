@@ -1,8 +1,12 @@
+const date = new Date();
+date.setMilliseconds(0);
+const newDate = date.toISOString();
+
 export const LOAD_MODEL = {
-  "type": "",
-  "status": "planning",
-  "pickupDate": "",
-  "dropoffDate": "",
+  "type": "foo",
+  "status": "foo",
+  "pickupDate": newDate,
+  "dropoffDate": newDate,
   "pickupLocation": "",
   "dropoffLocation": "",
   "loadedMiles": "",
@@ -10,11 +14,11 @@ export const LOAD_MODEL = {
   "weight": "",
   "cargo": "",
   "rate": "",
-  "broker": "",
+  "broker": "foo",
   "detentionPay": "",
   "layoverPay": "",
   "notes": "",
-  "user": ""
+  "user": "foo"
 }
 
 export const LOAD_TYPES = [
