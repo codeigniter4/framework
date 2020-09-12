@@ -16,6 +16,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
+import DeleteIcon from '@material-ui/icons/Delete';
 import './index.scss';
 
 function descendingComparator(a, b, orderBy) {
@@ -120,6 +121,11 @@ const useToolbarStyles = makeStyles((theme) => ({
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
   const { numSelected } = props;
+  const deleteLoads = (ids) => {
+    props.deleteLoads(ids).then(data => {
+      props.setSelected([]);
+    });
+  }
 
   return (
     numSelected > 0 ? (<Toolbar
@@ -134,11 +140,19 @@ const EnhancedTableToolbar = (props) => {
 
 
       {numSelected > 0 ? (
-        <Tooltip title="Export">
-          <IconButton aria-label="export">
-            <ImportExportIcon/>
-          </IconButton>
-        </Tooltip>
+        <React.Fragment>
+          <Tooltip title="Export">
+            <IconButton aria-label="export">
+              <ImportExportIcon/>
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Delete">
+            <IconButton aria-label="delete" onClick={() => deleteLoads(props.selected)}>
+              <DeleteIcon/>
+            </IconButton>
+          </Tooltip>
+        </React.Fragment>
+
       ) : ''}
     </Toolbar>) : ''
   );
@@ -182,7 +196,7 @@ export default function EnhancedTable(props) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { rows } = props;
+  const { rows, deleteLoads } = props;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -230,7 +244,7 @@ export default function EnhancedTable(props) {
 
   return (
     <div className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} deleteLoads={deleteLoads} selected={selected} setSelected={setSelected}/>
         <TableContainer className={classes.tableContainter}>
           <Table
             className={classes.table}
