@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import { LoadContext } from '../../contexts/LoadContext';
-import { ModalContext } from '../../contexts/ModalContext';
 import ListTable from '../ListTable';
 import ListToolBar from '../ListToolBar';
 import { loadColumns } from './constants/loadColumns';
@@ -12,21 +11,17 @@ const LoadListView = (props) => {
 
   return (
     <LoadContext.Consumer>{(context) => {
-      const { loads, filteredLoads, searchTerm, filterLoads, setLoad } = context;
+      const { loads, filteredLoads, searchTerm, filterLoads, setLoad, getAllLoads, deleteLoads } = context;
       const rows = searchTerm ? filteredLoads : [...loads];
+
+      if(!rows.length){
+        getAllLoads();
+      }
+      const handleClick = (id) => {
+        props.history.push('/loadboard/' + id);
+      }
       const editButton = (id) => (
-          <ModalContext.Consumer>{(context) => {
-            const { toggleModal } = context;
-            const handleClick = (id) => {
-              setLoad(id);
-              toggleModal(true);
-            }
-            return (
-              <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
-              )
-            }
-          }
-          </ModalContext.Consumer>
+          <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);
@@ -53,7 +48,7 @@ const LoadListView = (props) => {
       return (
         <React.Fragment>
           <ListToolBar handleChange={handleChange} newLoad={LOAD_MODEL}/>
-          <ListTable columns={loadColumns} rows={updateRowData}/>
+          <ListTable columns={loadColumns} rows={updateRowData} deleteLoads={deleteLoads}/>
         </React.Fragment>
       )
     }}

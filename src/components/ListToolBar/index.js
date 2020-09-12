@@ -34,9 +34,11 @@ function ListToolBar(props) {
   const { classes, newLoad } = props;
   return (
     <LoadContext.Consumer>{(context) => {
-      const { save } = context;
+      const { save, getAllLoads } = context;
       const handleClick = () => {
-        save(newLoad);
+        save(newLoad).then(data => {
+          getAllLoads();
+        });
       }
 
       return (

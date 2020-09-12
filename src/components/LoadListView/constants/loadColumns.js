@@ -40,7 +40,7 @@ export const loadColumns = [
     numeric: true
   },
   {
-    id: 'brokerId',
+    id: 'broker',
     label: 'Broker',
     align: 'center',
     numeric: false
