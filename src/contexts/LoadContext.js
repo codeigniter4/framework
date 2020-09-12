@@ -25,7 +25,8 @@ class LoadContextProvider extends Component {
   }
 
   componentDidMount() {
-    this.getAllLoads()
+    // this.getAllLoads()
+    // console.log('LoadContextProvider');
   }
 
   async getAllLoads() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import { LoadContext } from '../../contexts/LoadContext';
-import { ModalContext } from '../../contexts/ModalContext';
+// import { ModalContext } from '../../contexts/ModalContext';
 import ListTable from '../ListTable';
 import ListToolBar from '../ListToolBar';
 import { loadColumns } from './constants/loadColumns';
@@ -14,19 +14,23 @@ const LoadListView = (props) => {
     <LoadContext.Consumer>{(context) => {
       const { loads, filteredLoads, searchTerm, filterLoads, setLoad } = context;
       const rows = searchTerm ? filteredLoads : [...loads];
+      const handleClick = (id) => {
+        console.log(id);
+      }
       const editButton = (id) => (
-          <ModalContext.Consumer>{(context) => {
-            const { toggleModal } = context;
-            const handleClick = (id) => {
-              setLoad(id);
-              toggleModal(true);
-            }
-            return (
-              <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
-              )
-            }
-          }
-          </ModalContext.Consumer>
+          // <ModalContext.Consumer>{(context) => {
+          //   const { toggleModal } = context;
+          //   const handleClick = (id) => {
+          //     setLoad(id);
+          //     toggleModal(true);
+          //   }
+          //   return (
+          //     <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
+          //     )
+          //   }
+          // }
+          // </ModalContext.Consumer>
+          <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);

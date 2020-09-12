@@ -10,9 +10,9 @@ import Navigator from '../../components/Navigator';
 import LoadListView from '../../components/LoadListView';
 import Header from '../../components/Header';
 import LoadContextProvider from '../../contexts/LoadContext';
-import ModalContextProvider from '../../contexts/ModalContext';
-import AdminModal from '../../components/AdminModal';
-import LoadForm from '../../components/LoadForm';
+// import ModalContextProvider from '../../contexts/ModalContext';
+// import AdminModal from '../../components/AdminModal';
+// import LoadForm from '../../components/LoadForm';
 // import FullScreenDialog from '../../components/FullScreenDialog';
 import { styles, drawerWidth, theme } from './styles/';
 
@@ -40,7 +40,6 @@ function Loadboard(props) {
   return (
     <ThemeProvider theme={theme}>
       <LoadContextProvider>
-        <ModalContextProvider>
           <div className={classes.root}>
             <CssBaseline />
             <nav className={classes.drawer}>
@@ -68,11 +67,6 @@ function Loadboard(props) {
               </footer>
             </div>
           </div>
-
-          <AdminModal>
-            <LoadForm/>
-          </AdminModal>
-        </ModalContextProvider>
       </LoadContextProvider>
     </ThemeProvider>
   );
