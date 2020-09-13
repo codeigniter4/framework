@@ -6,14 +6,15 @@ import { BrokerContext } from '../../contexts/BrokerContext';
 import './index.scss';
 
 function brokerForm(props) {
+  const { history, match } = props;
   return (
     <BrokerContextProvider>
       <BrokerContext.Consumer>{(context) => {
         const { broker, save, getBroker} = context;
-        const brokerId = props.match.params.id;
+        const brokerId = match.params.id;
         const savebroker = (broker) => {
           save(broker).then( data => {
-            props.history.push('/brokerboard');
+            history.push('/brokerboard');
           })
         }
 

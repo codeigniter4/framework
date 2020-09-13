@@ -8,7 +8,7 @@ import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS } from '../../constants';
 
 
 const LoadListView = (props) => {
-
+  const { history } = props;
   return (
     <LoadContext.Consumer>{(context) => {
       const { loads, filteredLoads, searchTerm, filterLoads, getAllLoads, deleteLoads, save } = context;
@@ -18,7 +18,7 @@ const LoadListView = (props) => {
         getAllLoads();
       }
       const handleClick = (id) => {
-        props.history.push('/loadboard/' + id);
+        history.push('/loadboard/' + id);
       }
       const editButton = (id) => (
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>

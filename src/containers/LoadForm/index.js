@@ -6,14 +6,15 @@ import { LoadContext } from '../../contexts/LoadContext';
 import './index.scss';
 
 function LoadForm(props) {
+  const { history, match } = props;
   return (
     <LoadContextProvider>
       <LoadContext.Consumer>{(context) => {
         const { load, save, getLoad} = context;
-        const loadId = props.match.params.id;
+        const loadId = match.params.id;
         const saveLoad = (load) => {
           save(load).then( data => {
-            props.history.push('/loadboard');
+            history.push('/loadboard');
           })
         }
 

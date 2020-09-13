@@ -8,11 +8,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import {
-  BrowserRouter as Router,
-  Link,
-  useRouteMatch
-} from "react-router-dom";
 
 const categories = [
   {
@@ -66,41 +61,39 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { classes, ...other } = props;
+  const { history, classes, ...other } = props;
+  const navigate = (location) => {
+    history.push(`/${location}`)
+    console.log(`/${location}`, history);
+  }
   return (
     <Drawer variant="permanent" {...other}>
-      <Router>
-
         <List disablePadding>
           <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
             VGDT Admin
           </ListItem>
-          <Link to={`/loadboard`}>
-            <ListItem className={clsx(classes.item, classes.itemCategory)}>
-              <ListItemIcon className={classes.itemIcon}>
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.itemPrimary,
-                }}
-              >
-                Load Board
-              </ListItemText>
-            </ListItem>
-          </Link>
-          <Link to={`/brokerboard`}>
-            <ListItem className={clsx(classes.item, classes.itemCategory)}>
-              <ListItemIcon className={classes.itemIcon}>
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.itemPrimary,
-                }}
-              >
-                Brokers Board
-              </ListItemText>
-            </ListItem>
-          </Link>
+          <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('loadboard')}>
+            <ListItemIcon className={classes.itemIcon}>
+            </ListItemIcon>
+            <ListItemText
+              classes={{
+                primary: classes.itemPrimary,
+              }}
+            >
+              Load Board
+            </ListItemText>
+          </ListItem>
+          <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('brokerboard')}>
+            <ListItemIcon className={classes.itemIcon}>
+            </ListItemIcon>
+            <ListItemText
+              classes={{
+                primary: classes.itemPrimary,
+              }}
+            >
+              Brokers
+            </ListItemText>
+          </ListItem>
           {categories.map(({ id, children }, index) => (
             <React.Fragment key={index}>
               <ListItem className={classes.categoryHeader}>
@@ -133,7 +126,6 @@ function Navigator(props) {
             </React.Fragment>
           ))}
         </List>
-      </Router>
     </Drawer>
   );
 }
