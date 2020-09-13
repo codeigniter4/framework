@@ -104,3 +104,22 @@ export const VGDT_USERS = [
     avatar: ''
   }
 ];
+
+export const BROKER_MODEL = {
+  "type": "foo",
+  "status": "foo",
+  "pickupDate": newDate,
+  "dropoffDate": newDate,
+  "pickupLocation": "",
+  "dropoffLocation": "",
+  "loadedMiles": "",
+  "deadHead": "",
+  "weight": "",
+  "cargo": "",
+  "rate": "",
+  "broker": "foo",
+  "detentionPay": "",
+  "layoverPay": "",
+  "notes": "",
+  "user": "foo"
+}

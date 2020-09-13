@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { getLoads, getLoadByID, saveLoad, deleteLoadById } from '../services/LoadService';
+import { get, getByID, save, deleteById } from '../services/';
 
 export const LoadContext = createContext();
 
@@ -25,14 +25,14 @@ class LoadContextProvider extends Component {
   }
 
   async getAllLoads() {
-    const response = await getLoads();
+    const response = await get('loads');
     this.setState({
       loads: [...response]
     })
   }
 
   async save(load) {
-    const response = await saveLoad(load);
+    const response = await save('loads', load);
     this.setState({
       load: {...response}
     })
@@ -40,8 +40,7 @@ class LoadContextProvider extends Component {
 
   async deleteLoads(ids) {
     await ids.map(id => {
-      console.log('delete id: ', id);
-      const response = deleteLoadById(id);
+      const response = deleteById('loads', id);
       this.setState({
         deletedload: {...response}
       });
@@ -71,7 +70,7 @@ class LoadContextProvider extends Component {
   }
 
   async getLoad(id) {
-    const response = await getLoadByID(id);
+    const response = await getByID('loads', id);
     this.setState({
       load: {...response}
     });

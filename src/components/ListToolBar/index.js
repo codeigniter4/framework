@@ -32,14 +32,9 @@ const styles = (theme) => ({
 
 function ListToolBar(props) {
   const { classes, newLoad } = props;
-  return (
-    <LoadContext.Consumer>{(context) => {
-      const { save, getAllLoads } = context;
-      const handleClick = () => {
-        save(newLoad).then(data => {
-          getAllLoads();
-        });
-      }
+  const handleClick = () => {
+    console.log('add');
+  }
 
       return (
         <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -67,9 +62,6 @@ function ListToolBar(props) {
           </Toolbar>
         </AppBar>
       )
-    }}
-    </LoadContext.Consumer>
-  );
 }
 
 ListToolBar.propTypes = {
