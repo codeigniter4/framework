@@ -44,13 +44,14 @@ class BrokerContextProvider extends Component {
       this.setState({
         deletedBroker: {...response}
       });
+      return response;
     })
 
     this.getAllBrokers();
   }
 
   filterBrokers(searchTerm) {
-    const result = this.state.Brokers.filter(broker => {
+    const result = this.state.brokers.filter(broker => {
       return broker.id.includes(searchTerm)
     });
 
@@ -61,7 +62,7 @@ class BrokerContextProvider extends Component {
   }
 
   setBrokerFromList(id) {
-    const result = this.state.Brokers.filter(Broker => {
+    const result = this.state.brokers.filter(broker => {
       return broker.id.includes(id)
     });
     this.setState({
@@ -76,9 +77,9 @@ class BrokerContextProvider extends Component {
     });
   }
 
-  addBroker(Broker) {
+  addBroker(broker) {
     this.setState({
-      brokers: [...this.state.Brokers, {...broker}]
+      brokers: [...this.state.brokers, {...broker}]
     });
   }
 

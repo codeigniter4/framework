@@ -1,64 +1,47 @@
 export const brokerColumns = [
-  { id: 'type',
-    label: 'Type',
-    align: 'center',
-    numeric: false
-  },
-  { id: 'status', // should generate scheduled, live, completed based on the start and end times
-    label: 'Status',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'pickupDate',
-    label: 'Start',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'pickupLocation',
-    label: 'Origin',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'dropoffDate',
-    label: 'End',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'dropoffLocation',
-    label: 'Destination',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'rate',
-    label: 'Rate',
-    align: 'center',
-    numeric: true
-  },
-  {
-    id: 'broker',
+  { id: 'name',
     label: 'Broker',
     align: 'center',
     numeric: false
   },
-  {
-    id: 'user',
-    label: 'User',
+  { id: 'address', // should generate scheduled, live, completed based on the start and end times
+    label: 'Address',
     align: 'center',
     numeric: false
   },
-  // {
-  //   id: 'notes',
-  //   label: 'Notes',
-  //   align: 'center'
-  // },
   {
-    id: 'edit',
-    label: '',
+    id: 'phone',
+    label: 'Phone',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'contact',
+    label: 'Main Contact',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'Email',
+    label: 'Email',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'billingContact',
+    label: 'Billing Contact',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'billingEmail',
+    label: 'Billing Email',
+    align: 'center',
+    numeric: true
+  },
+  {
+    id: 'quickPay',
+    label: 'QuickPay',
     align: 'center',
     numeric: false
   }

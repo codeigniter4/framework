@@ -11,7 +11,7 @@ const LoadListView = (props) => {
 
   return (
     <LoadContext.Consumer>{(context) => {
-      const { loads, filteredLoads, searchTerm, filterLoads, setLoad, getAllLoads, deleteLoads } = context;
+      const { loads, filteredLoads, searchTerm, filterLoads, getAllLoads, deleteLoads, save } = context;
       const rows = searchTerm ? filteredLoads : [...loads];
 
       if(!rows.length){
@@ -45,10 +45,17 @@ const LoadListView = (props) => {
       const handleChange = (e) => {
         filterLoads(e.target.value)
       }
+
+      const handleAdd = () => {
+        save(LOAD_MODEL).then(data => {
+          getAllLoads()
+        })
+      }
+
       return (
         <React.Fragment>
-          <ListToolBar handleChange={handleChange} newLoad={LOAD_MODEL}/>
-          <ListTable columns={loadColumns} rows={updateRowData} deleteLoads={deleteLoads}/>
+          <ListToolBar handleChange={handleChange} handleAdd={handleAdd}/>
+          <ListTable columns={loadColumns} rows={updateRowData} deleteSelected={deleteLoads}/>
         </React.Fragment>
       )
     }}

@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper';
 
 import RouterComponent from './components/routerComponent';
 import Navigator from './components/Navigator';
-import LoadListView from './components/LoadListView';
 import Header from './components/Header';
 import './App.scss';
 import { styles, drawerWidth, theme } from './styles/';

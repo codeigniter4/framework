@@ -44,6 +44,7 @@ class LoadContextProvider extends Component {
       this.setState({
         deletedload: {...response}
       });
+      return response;
     })
 
     this.getAllLoads();

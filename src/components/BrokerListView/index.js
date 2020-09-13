@@ -11,7 +11,7 @@ const BrokerListView = (props) => {
 
   return (
     <BrokerContext.Consumer>{(context) => {
-      const { brokers, filteredBrokers, searchTerm, filterBrokers, setBroker, getAllBrokers, deleteBrokers } = context;
+      const { brokers, filteredBrokers, searchTerm, filterBrokers, getAllBrokers, deleteBrokers, save } = context;
       const rows = searchTerm ? filteredBrokers : [...brokers];
 
       if(!rows.length){
@@ -31,10 +31,17 @@ const BrokerListView = (props) => {
       const handleChange = (e) => {
         filterBrokers(e.target.value)
       }
+
+      const handleAdd = () => {
+        save(BROKER_MODEL).then(data => {
+          getAllBrokers()
+        })
+      }
+
       return (
         <React.Fragment>
-          <ListToolBar handleChange={handleChange} newBroker={BROKER_MODEL}/>
-          <ListTable columns={brokerColumns} rows={updateRowData} deleteBrokers={deleteBrokers}/>
+          <ListToolBar handleChange={handleChange} handleAdd={handleAdd}/>
+          <ListTable columns={brokerColumns} rows={updateRowData} deleteSelected={deleteBrokers}/>
         </React.Fragment>
       )
     }}

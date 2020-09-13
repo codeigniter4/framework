@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import LoadListView from '../../components/LoadListView';
 import LoadContextProvider from '../../contexts/LoadContext';
 
@@ -14,6 +13,5 @@ function Loadboard(props) {
   );
 }
 
-Loadboard.propTypes = {};
 
 export default Loadboard;
