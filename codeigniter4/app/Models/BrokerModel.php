@@ -18,7 +18,10 @@ class BrokerModel extends Model
       'contact',
       'Email',
       'billingContact',
-      'billingEmail'
+      'billingEmail',
+      'quickPay',
+      'quickPayPercentage',
+      'payTo',
     ];
 
     protected $useTimestamps = false;

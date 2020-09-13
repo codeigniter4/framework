@@ -112,6 +112,5 @@ export const BROKER_MODEL = {
   "billingContact": "",
   "billingEmail": "",
   "quickPay": true,
-  "quickPayPercentage": "",
-  "payTo": ""
+  "quickPayPercentage": "0"
 }
