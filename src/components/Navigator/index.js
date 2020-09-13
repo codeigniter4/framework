@@ -63,8 +63,7 @@ const styles = (theme) => ({
 function Navigator(props) {
   const { history, classes, ...other } = props;
   const navigate = (location) => {
-    history.push(`/${location}`)
-    console.log(`/${location}`, history);
+    history.push(`/vgdt-admin/${location}`);
   }
   return (
     <Drawer variant="permanent" {...other}>

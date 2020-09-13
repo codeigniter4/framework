@@ -16,12 +16,12 @@ export default function RouterComponent(props) {
   return (
     <Router history={history}>
         <Switch>
-          <Route exact path="/dashboard" component={LoadBoard} />
-          <Route exact path="/loadboard" component={LoadBoard} />
-          <Route path="/loadboard/:id" component={LoadForm} />
-          <Route exact path="/brokerboard" component={BrokerBoard} />
-          <Route path="/brokerboard/:id" component={BrokerForm} />
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/vgdt-admin/dashboard" component={LoadBoard} />
+          <Route exact path="/vgdt-admin/loadboard" component={LoadBoard} />
+          <Route path="/vgdt-admin/loadboard/:id" component={LoadForm} />
+          <Route exact path="/vgdt-admin/brokerboard" component={BrokerBoard} />
+          <Route path="/vgdt-admin/brokerboard/:id" component={BrokerForm} />
+          <Route exact path="/vgdt-admin/" component={Dashboard} />
         </Switch>
     </Router>
   );

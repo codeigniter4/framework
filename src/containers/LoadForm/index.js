@@ -14,7 +14,7 @@ function LoadForm(props) {
         const loadId = match.params.id;
         const saveLoad = (load) => {
           save(load).then( data => {
-            history.push('/loadboard');
+            history.push('/vgdt-admin/loadboard');
           })
         }
 

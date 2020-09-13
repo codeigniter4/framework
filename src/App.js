@@ -26,7 +26,6 @@ function Copyright() {
 }
 
 function App(props) {
-  console.log(history);
   const { classes } = props;
   const handleDrawerToggle = () => {
     // setMobileOpen(!mobileOpen);
