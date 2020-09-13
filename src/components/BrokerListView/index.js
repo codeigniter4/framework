@@ -25,7 +25,7 @@ const BrokerListView = (props) => {
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);
-        
+        row.quickPay = row.quickPay == "0" ? "No" : "Yes"
         return row;
       })
 

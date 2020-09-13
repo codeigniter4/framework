@@ -39,12 +39,12 @@ export const brokerColumns = [
     align: 'center',
     numeric: true
   },
-  // {
-  //   id: 'quickPay',
-  //   label: 'QuickPay',
-  //   align: 'center',
-  //   numeric: false
-  // },
+  {
+    id: 'quickPay',
+    label: 'QuickPay',
+    align: 'center',
+    numeric: false
+  },
   {
     id: 'edit',
     label: '',

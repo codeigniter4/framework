@@ -39,6 +39,21 @@ export const JSONSchema = {
       "title": "Billing Email",
       "default": ""
     },
+    "quickPay": {
+      "type": "boolean",
+      "title": "QuickPay",
+      "default": "true"
+    },
+    "quickPayPercentage": {
+      "type": "string",
+      "title": "QuickPay Percentage",
+      "default": ""
+    },
+    "quickPayPercentage": {
+      "type": "string",
+      "title": "QuickPay Percentage",
+      "default": ""
+    }
   }
 }
 

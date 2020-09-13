@@ -5,7 +5,20 @@ import BrokerContextProvider from '../../contexts/BrokerContext';
 import { BrokerContext } from '../../contexts/BrokerContext';
 import './index.scss';
 
-function brokerForm(props) {
+const formatData = (formData) => {
+  const fields_boolean = ['quickPay'];
+  const fields_int = [];
+
+  fields_boolean.map(field => {
+    formData[field] = formData[field] !== "0" && formData[field] > 0;
+  })
+
+  fields_int.map(field => {
+    formData[field] = parseInt(formData[field])
+  })
+  return formData;
+}
+function BrokerForm(props) {
   const { history, match } = props;
   return (
     <BrokerContextProvider>
@@ -24,7 +37,7 @@ function brokerForm(props) {
 
         return (
           <div className="broker_Form">
-            <Form schema={JSONSchema} uiSchema={UISchema} formData={broker} onSubmit={(data) => savebroker(data.formData)}></Form>
+            <Form schema={JSONSchema} uiSchema={UISchema} formData={formatData(broker)} onSubmit={(data) => savebroker(data.formData)}></Form>
           </div>
         )
       }}
@@ -33,4 +46,4 @@ function brokerForm(props) {
   )
 }
 
-export default brokerForm;
+export default BrokerForm;
