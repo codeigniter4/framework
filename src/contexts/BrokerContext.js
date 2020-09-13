@@ -66,14 +66,14 @@ class BrokerContextProvider extends Component {
       return broker.id.includes(id)
     });
     this.setState({
-      Broker: {...result}
+      broker: {...result}
     })
   }
 
   async getBroker(id) {
     const response = await getByID('brokers', id);
     this.setState({
-      Broker: {...response}
+      broker: {...response}
     });
   }
 
@@ -86,8 +86,8 @@ class BrokerContextProvider extends Component {
   updateBroker(event) {
     const name = event.target.name;
     this.setState({
-      Broker: {
-        ...this.state.Broker,
+      broker: {
+        ...this.state.broker,
         [name]: event.target.value}
     })
   }

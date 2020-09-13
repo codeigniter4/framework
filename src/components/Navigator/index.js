@@ -13,13 +13,8 @@ const categories = [
   {
     id: '',
     children: [
-      // { id: 'Authentication', icon: <PeopleIcon />, active: true }
-    ],
-  },
-  {
-    id: '',
-    children: [
-      // { id: 'Analytics', icon: <SettingsIcon /> }
+      // { id: 'LoadBoard', icon: <ListItemIcon />, active: true },
+      // { id: 'Brokers', icon: <ListItemIcon /> }
     ],
   },
 ];
@@ -66,15 +61,17 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { classes, ...other } = props;
-
+  const { history, classes, ...other } = props;
+  const navigate = (location) => {
+    window.location.href = `/${location}`;
+  }
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
           VGDT Admin
         </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)}>
+        <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('loadboard')}>
           <ListItemIcon className={classes.itemIcon}>
           </ListItemIcon>
           <ListItemText
@@ -82,7 +79,18 @@ function Navigator(props) {
               primary: classes.itemPrimary,
             }}
           >
-            Project Overview
+            Load Board
+          </ListItemText>
+        </ListItem>
+        <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('brokerboard')}>
+          <ListItemIcon className={classes.itemIcon}>
+          </ListItemIcon>
+          <ListItemText
+            classes={{
+              primary: classes.itemPrimary,
+            }}
+          >
+            Brokers
           </ListItemText>
         </ListItem>
         {categories.map(({ id, children }, index) => (
@@ -108,7 +116,7 @@ function Navigator(props) {
                     primary: classes.itemPrimary,
                   }}
                 >
-                  {childId} {idx} hello
+                  {childId}
                 </ListItemText>
               </ListItem>
             ))}

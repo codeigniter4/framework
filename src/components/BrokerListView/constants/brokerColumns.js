@@ -44,5 +44,11 @@ export const brokerColumns = [
     label: 'QuickPay',
     align: 'center',
     numeric: false
-  }
+  },
+  {
+    id: 'edit',
+    label: '',
+    align: 'center',
+    numeric: false
+  },
 ]
