@@ -36,6 +36,7 @@ class BrokerContextProvider extends Component {
     this.setState({
       broker: {...response}
     })
+    return response
   }
 
   async deleteBrokers(ids) {
@@ -52,7 +53,7 @@ class BrokerContextProvider extends Component {
 
   filterBrokers(searchTerm) {
     const result = this.state.brokers.filter(broker => {
-      return broker.id.includes(searchTerm)
+      return broker.name.includes(searchTerm)
     });
 
     this.setState({

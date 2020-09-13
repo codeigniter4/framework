@@ -1,6 +1,6 @@
 export const loadColumns = [
   { id: 'type',
-    label: 'Type',
+    label: 'Load Type',
     align: 'center',
     numeric: false
   },

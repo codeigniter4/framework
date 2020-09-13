@@ -36,6 +36,7 @@ class LoadContextProvider extends Component {
     this.setState({
       load: {...response}
     })
+    return response
   }
 
   async deleteLoads(ids) {

@@ -35,7 +35,7 @@ const BrokerListView = (props) => {
 
       const handleAdd = () => {
         save(BROKER_MODEL).then(data => {
-          getAllBrokers()
+          history.push('/vgdt-admin/brokerboard/' + data.id);
         })
       }
 

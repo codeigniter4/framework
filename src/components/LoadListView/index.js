@@ -67,7 +67,7 @@ const LoadListView = (props) => {
 
       const handleAdd = () => {
         save(LOAD_MODEL).then(data => {
-          getAllLoads()
+          history.push('/vgdt-admin/loadboard/' + data.id);
         })
       }
 

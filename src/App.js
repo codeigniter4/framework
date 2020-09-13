@@ -11,6 +11,7 @@ import Header from './components/Header';
 import history from './utils/history';
 import './App.scss';
 import { styles, drawerWidth, theme } from './styles/';
+import favicon from './assets/favicon.ico';
 
 function Copyright() {
   return (
@@ -27,28 +28,21 @@ function Copyright() {
 
 function App(props) {
   const { classes } = props;
-  const handleDrawerToggle = () => {
-    // setMobileOpen(!mobileOpen);
+  const [state, setState] = React.useState({
+    left: false
+  });
+
+  const toggleDrawer = (anchor) => {
+    setState({ ...state, [anchor]: !state.left });
   };
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <div className={classes.root}>
           <CssBaseline />
-          <nav className={classes.drawer}>
-            <Hidden smUp implementation="js">
-              <Navigator
-                PaperProps={{ style: { width: drawerWidth } }}
-                variant="primary"
-                history={history}
-              />
-            </Hidden>
-            <Hidden xsDown implementation="css">
-              <Navigator PaperProps={{ style: { width: drawerWidth } }} history={history} />
-            </Hidden>
-          </nav>
           <div className={classes.app}>
-            <Header onDrawerToggle={handleDrawerToggle} />
+            <Header toggleDrawer={toggleDrawer} />
+            <Navigator toggleDrawer={toggleDrawer} anchor="left" open={state["left"]} history={history}/>
             <main className={classes.main}>
               <Paper className={classes.paper}>
                 <RouterComponent history={history}/>

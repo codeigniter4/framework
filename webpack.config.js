@@ -30,6 +30,10 @@ module.exports = {
               'sass-loader',
             ],
           },
+          {
+              test: /\.(jpe?g|png|gif|svg|ico)$/i,
+              loader: "file-loader?name=./public/icons/[name].[ext]"
+          }
       ]
   },
   plugins: [

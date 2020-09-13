@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
+import mainLogo from '../../assets/logo.png';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = (theme) => ({
   secondaryBar: {
-    zIndex: 10000,
+    zIndex: 10,
   },
   menuButton: {
     marginLeft: -theme.spacing(1),
@@ -32,7 +35,11 @@ const styles = (theme) => ({
 });
 
 function Header(props) {
-  const { classes } = props;
+  const { classes, toggleDrawer } = props;
+  const handleToggle = (e) => {
+    e.preventDefault()
+    toggleDrawer('left')
+  }
 
   return (
     <React.Fragment>
@@ -43,11 +50,21 @@ function Header(props) {
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
             <Grid item>
+              <Tooltip title="Toggle Menu">
+                <IconButton color="inherit" onClick={handleToggle}>
+                  <MenuIcon/>
+                </IconButton>
+              </Tooltip>
             </Grid>
             <Grid item>
-              <Tooltip title="Help">
-                <IconButton color="inherit">
-                </IconButton>
+
+              <Tooltip title="Vanguard Trucking - Admin">
+                <img
+                  src={mainLogo}
+                  width={250}
+                  style={{"margin":"30px 0 20px"}}
+                  spacing={1}
+                />
               </Tooltip>
             </Grid>
           </Grid>
@@ -59,7 +76,7 @@ function Header(props) {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
-  onDrawerToggle: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

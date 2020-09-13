@@ -40,7 +40,7 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: '#18202c',
+        backgroundColor: '#313131',
       },
     },
     MuiButton: {
@@ -135,8 +135,9 @@ export const styles = {
   },
   main: {
     flex: 1,
-    padding: theme.spacing(6, 4),
+    padding: theme.spacing(2, 2),
     background: '#eaeff1',
+    textAlign: 'left',
     [`@media (max-width:  440px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
@@ -149,7 +150,6 @@ export const styles = {
     background: '#eaeff1',
   },
   paper: {
-    maxWidth: 1280,
     margin: 'auto',
     overflow: 'hidden',
     [`@media (max-width:  500px)`]: {

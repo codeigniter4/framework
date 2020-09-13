@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles, useTheme  } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import GroupIcon from '@material-ui/icons/Group';
+import iconLogo from '../../assets/icon.png';
 
 const categories = [
   {
@@ -18,6 +21,41 @@ const categories = [
     ],
   },
 ];
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -36,7 +74,7 @@ const styles = (theme) => ({
     },
   },
   itemCategory: {
-    backgroundColor: '#232f3e',
+    backgroundColor: '#232323',
     boxShadow: '0 -1px 0 #404854 inset',
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
@@ -61,70 +99,44 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { history, classes, ...other } = props;
+  const { toggleDrawer, anchor, open, history, classes, ...other } = props;
   const navigate = (location) => {
     history.push(`/vgdt-admin/${location}`);
   }
+  const navigation = [
+    {
+      name: 'LoadBoard',
+      route: 'loadboard',
+      icon: (<PostAddIcon />)
+    },
+    {
+      name: 'Brokers',
+      route: 'brokerboard',
+      icon: (<GroupIcon />)
+    }
+  ]
   return (
-    <Drawer variant="permanent" {...other}>
-        <List disablePadding>
-          <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-            VGDT Admin
-          </ListItem>
-          <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('loadboard')}>
-            <ListItemIcon className={classes.itemIcon}>
-            </ListItemIcon>
-            <ListItemText
-              classes={{
-                primary: classes.itemPrimary,
-              }}
-            >
-              Load Board
-            </ListItemText>
-          </ListItem>
-          <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('brokerboard')}>
-            <ListItemIcon className={classes.itemIcon}>
-            </ListItemIcon>
-            <ListItemText
-              classes={{
-                primary: classes.itemPrimary,
-              }}
-            >
-              Brokers
-            </ListItemText>
-          </ListItem>
-          {categories.map(({ id, children }, index) => (
-            <React.Fragment key={index}>
-              <ListItem className={classes.categoryHeader}>
-                <ListItemText
-                  classes={{
-                    primary: classes.categoryHeaderPrimary,
-                  }}
-                >
-                  {id}
-                </ListItemText>
-              </ListItem>
-              {children.map(({ id: childId, icon, active }, idx) => (
-                <ListItem
-                  key={idx}
-                  button
-                  className={clsx(classes.item, active && classes.itemActiveItem)}
-                >
-                  <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.itemPrimary,
-                    }}
-                  >
-                    {childId}
-                  </ListItemText>
-                </ListItem>
-              ))}
-
-              <Divider className={classes.divider} />
-            </React.Fragment>
+    <Drawer anchor={anchor} open={open} onClose={() => toggleDrawer(anchor)}>
+      <div
+        role="presentation"
+        onClick={() => toggleDrawer(anchor)}
+        onKeyDown={() => toggleDrawer(anchor)}
+      >
+        <img
+          src={iconLogo}
+          width={100}
+          style={{"margin":"50px"}}
+          spacing={1}
+        />
+        <List>
+          {navigation.map((item, index) => (
+            <ListItem onClick={() => navigate(item.route)} button key={index} className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
           ))}
         </List>
+      </div>
     </Drawer>
   );
 }
