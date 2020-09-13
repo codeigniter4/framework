@@ -18,7 +18,7 @@ const LoadListView = (props) => {
         getAllLoads();
       }
       const handleClick = (id) => {
-        props.history.push('/loadboard/' + id);
+        props.history.push('/vgdt-admin/loadboard/' + id);
       }
       const editButton = (id) => (
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>

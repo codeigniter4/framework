@@ -8,6 +8,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import {
+  BrowserRouter as Router,
+  Link,
+  useRouteMatch
+} from "react-router-dom";
 
 const categories = [
   {
@@ -61,70 +66,74 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { history, classes, ...other } = props;
-  const navigate = (location) => {
-    window.location.href = `/${location}`;
-  }
+  const { classes, ...other } = props;
   return (
     <Drawer variant="permanent" {...other}>
-      <List disablePadding>
-        <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          VGDT Admin
-        </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('loadboard')}>
-          <ListItemIcon className={classes.itemIcon}>
-          </ListItemIcon>
-          <ListItemText
-            classes={{
-              primary: classes.itemPrimary,
-            }}
-          >
-            Load Board
-          </ListItemText>
-        </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)} onClick={() => navigate('brokerboard')}>
-          <ListItemIcon className={classes.itemIcon}>
-          </ListItemIcon>
-          <ListItemText
-            classes={{
-              primary: classes.itemPrimary,
-            }}
-          >
-            Brokers
-          </ListItemText>
-        </ListItem>
-        {categories.map(({ id, children }, index) => (
-          <React.Fragment key={index}>
-            <ListItem className={classes.categoryHeader}>
+      <Router>
+
+        <List disablePadding>
+          <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
+            VGDT Admin
+          </ListItem>
+          <Link to={`/vgdt-admin/loadboard`}>
+            <ListItem className={clsx(classes.item, classes.itemCategory)}>
+              <ListItemIcon className={classes.itemIcon}>
+              </ListItemIcon>
               <ListItemText
                 classes={{
-                  primary: classes.categoryHeaderPrimary,
+                  primary: classes.itemPrimary,
                 }}
               >
-                {id}
+                Load Board
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }, idx) => (
-              <ListItem
-                key={idx}
-                button
-                className={clsx(classes.item, active && classes.itemActiveItem)}
+          </Link>
+          <Link to={`/vgdt-admin/brokerboard`}>
+            <ListItem className={clsx(classes.item, classes.itemCategory)}>
+              <ListItemIcon className={classes.itemIcon}>
+              </ListItemIcon>
+              <ListItemText
+                classes={{
+                  primary: classes.itemPrimary,
+                }}
               >
-                <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                Brokers Board
+              </ListItemText>
+            </ListItem>
+          </Link>
+          {categories.map(({ id, children }, index) => (
+            <React.Fragment key={index}>
+              <ListItem className={classes.categoryHeader}>
                 <ListItemText
                   classes={{
-                    primary: classes.itemPrimary,
+                    primary: classes.categoryHeaderPrimary,
                   }}
                 >
-                  {childId}
+                  {id}
                 </ListItemText>
               </ListItem>
-            ))}
+              {children.map(({ id: childId, icon, active }, idx) => (
+                <ListItem
+                  key={idx}
+                  button
+                  className={clsx(classes.item, active && classes.itemActiveItem)}
+                >
+                  <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
+              ))}
 
-            <Divider className={classes.divider} />
-          </React.Fragment>
-        ))}
-      </List>
+              <Divider className={classes.divider} />
+            </React.Fragment>
+          ))}
+        </List>
+      </Router>
     </Drawer>
   );
 }
