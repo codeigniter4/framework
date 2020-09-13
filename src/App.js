@@ -5,11 +5,10 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-
 import RouterComponent from './components/routerComponent';
 import Navigator from './components/Navigator';
-import LoadListView from './components/LoadListView';
 import Header from './components/Header';
+import history from './utils/history';
 import './App.scss';
 import { styles, drawerWidth, theme } from './styles/';
 
@@ -27,10 +26,10 @@ function Copyright() {
 }
 
 function App(props) {
+  console.log(history);
   const { classes } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    // setMobileOpen(!mobileOpen);
   };
   return (
     <div className="App">
@@ -42,19 +41,18 @@ function App(props) {
               <Navigator
                 PaperProps={{ style: { width: drawerWidth } }}
                 variant="primary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
+                history={history}
               />
             </Hidden>
             <Hidden xsDown implementation="css">
-              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+              <Navigator PaperProps={{ style: { width: drawerWidth } }} history={history} />
             </Hidden>
           </nav>
           <div className={classes.app}>
             <Header onDrawerToggle={handleDrawerToggle} />
             <main className={classes.main}>
               <Paper className={classes.paper}>
-                <RouterComponent />
+                <RouterComponent history={history}/>
               </Paper>
             </main>
             <footer className={classes.footer}>

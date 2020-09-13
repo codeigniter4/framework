@@ -120,9 +120,9 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const { numSelected } = props;
-  const deleteLoads = (ids) => {
-    props.deleteLoads(ids).then(data => {
+  const { numSelected, deleteSelected, selected } = props;
+  const deleteSelectedItems = (ids) => {
+    deleteSelected(ids).then(data => {
       props.setSelected([]);
     });
   }
@@ -147,7 +147,7 @@ const EnhancedTableToolbar = (props) => {
             </IconButton>
           </Tooltip>
           <Tooltip title="Delete">
-            <IconButton aria-label="delete" onClick={() => deleteLoads(props.selected)}>
+            <IconButton aria-label="delete" onClick={() => deleteSelectedItems(selected)}>
               <DeleteIcon/>
             </IconButton>
           </Tooltip>
@@ -196,7 +196,7 @@ export default function EnhancedTable(props) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { rows, deleteLoads } = props;
+  const { rows, deleteSelected } = props;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -244,7 +244,7 @@ export default function EnhancedTable(props) {
 
   return (
     <div className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} deleteLoads={deleteLoads} selected={selected} setSelected={setSelected}/>
+        <EnhancedTableToolbar numSelected={selected.length} deleteSelected={deleteSelected} selected={selected} setSelected={setSelected}/>
         <TableContainer className={classes.tableContainter}>
           <Table
             className={classes.table}

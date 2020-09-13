@@ -43,4 +43,21 @@ class Brokers extends BaseController
 		}
 	}
 
+	public function delete($broker_id)
+	{
+		$brokerService = new BrokerService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+
+		switch ($method) {
+				case 'post':
+						$broker = $brokerService->deleteBrokerById($broker_id);
+						return $response->setJSON($broker);
+						break;
+				default:
+						echo "nothing here!";
+		}
+	}
+
 }

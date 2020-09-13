@@ -8,17 +8,17 @@ import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS } from '../../constants';
 
 
 const LoadListView = (props) => {
-
+  const { history } = props;
   return (
     <LoadContext.Consumer>{(context) => {
-      const { loads, filteredLoads, searchTerm, filterLoads, setLoad, getAllLoads, deleteLoads } = context;
+      const { loads, filteredLoads, searchTerm, filterLoads, getAllLoads, deleteLoads, save } = context;
       const rows = searchTerm ? filteredLoads : [...loads];
 
       if(!rows.length){
         getAllLoads();
       }
       const handleClick = (id) => {
-        props.history.push('/loadboard/' + id);
+        history.push('/loadboard/' + id);
       }
       const editButton = (id) => (
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
@@ -45,10 +45,17 @@ const LoadListView = (props) => {
       const handleChange = (e) => {
         filterLoads(e.target.value)
       }
+
+      const handleAdd = () => {
+        save(LOAD_MODEL).then(data => {
+          getAllLoads()
+        })
+      }
+
       return (
         <React.Fragment>
-          <ListToolBar handleChange={handleChange} newLoad={LOAD_MODEL}/>
-          <ListTable columns={loadColumns} rows={updateRowData} deleteLoads={deleteLoads}/>
+          <ListToolBar handleChange={handleChange} handleAdd={handleAdd}/>
+          <ListTable columns={loadColumns} rows={updateRowData} deleteSelected={deleteLoads}/>
         </React.Fragment>
       )
     }}

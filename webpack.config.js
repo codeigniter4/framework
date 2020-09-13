@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'public/vgdt-admin'),
+    path: path.resolve(__dirname, 'build/public/vgdt-admin'),
     filename: 'index.js',
     library: pkg.name,
     libraryTarget: 'umd'

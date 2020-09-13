@@ -1,12 +1,10 @@
-const date = new Date();
-date.setMilliseconds(0);
-const newDate = date.toISOString();
+
 
 export const LOAD_MODEL = {
   "type": "foo",
   "status": "foo",
-  "pickupDate": newDate,
-  "dropoffDate": newDate,
+  "pickupDate": "",
+  "dropoffDate": "",
   "pickupLocation": "",
   "dropoffLocation": "",
   "loadedMiles": "",
@@ -104,3 +102,16 @@ export const VGDT_USERS = [
     avatar: ''
   }
 ];
+
+export const BROKER_MODEL = {
+  "name": "",
+  "address": "",
+  "phone": "",
+  "contact": "",
+  "Email": "",
+  "billingContact": "",
+  "billingEmail": "",
+  "quickPay": true,
+  "quickPayPercentage": "",
+  "payTo": ""
+}

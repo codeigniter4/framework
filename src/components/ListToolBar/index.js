@@ -5,10 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
-import { LoadContext } from '../../contexts/LoadContext';
 
 const styles = (theme) => ({
   paper: {
@@ -31,15 +28,7 @@ const styles = (theme) => ({
 });
 
 function ListToolBar(props) {
-  const { classes, newLoad } = props;
-  return (
-    <LoadContext.Consumer>{(context) => {
-      const { save, getAllLoads } = context;
-      const handleClick = () => {
-        save(newLoad).then(data => {
-          getAllLoads();
-        });
-      }
+  const { classes, handleAdd } = props;
 
       return (
         <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -59,7 +48,7 @@ function ListToolBar(props) {
                 />
               </Grid>
               <Grid item>
-                <Button variant="contained" color="primary" className={classes.add} onClick={handleClick}>
+                <Button variant="contained" color="primary" className={classes.add} onClick={handleAdd}>
                   Add
                 </Button>
               </Grid>
@@ -67,9 +56,6 @@ function ListToolBar(props) {
           </Toolbar>
         </AppBar>
       )
-    }}
-    </LoadContext.Consumer>
-  );
 }
 
 ListToolBar.propTypes = {
