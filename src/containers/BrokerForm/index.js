@@ -13,7 +13,7 @@ function brokerForm(props) {
         const brokerId = props.match.params.id;
         const savebroker = (broker) => {
           save(broker).then( data => {
-            props.history.push('/vgdt-admin/brokerboard');
+            props.history.push('/brokerboard');
           })
         }
 

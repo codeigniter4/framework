@@ -14,12 +14,12 @@ export default function RouterComponent() {
   return (
     <Router>
         <Switch>
-          <Route exact path="*/dashboard" component={LoadBoard} />
-          <Route exact path="*/loadboard" component={LoadBoard} />
-          <Route exact path="*/loadboard/:id" component={LoadForm} />
-          <Route exact path="*/brokerboard" component={BrokerBoard} />
-          <Route exact path="*/brokerboard/:id" component={BrokerForm} />
-          <Route exact path="*/" component={LoadBoard} />
+          <Route exact path="/dashboard" component={LoadBoard} />
+          <Route exact path="/loadboard" component={LoadBoard} />
+          <Route path="/loadboard/:id" component={LoadForm} />
+          <Route exact path="/brokerboard" component={BrokerBoard} />
+          <Route path="/brokerboard/:id" component={BrokerForm} />
+          <Route exact path="/" component={Dashboard} />
         </Switch>
     </Router>
   );

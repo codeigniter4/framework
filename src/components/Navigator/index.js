@@ -75,7 +75,7 @@ function Navigator(props) {
           <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
             VGDT Admin
           </ListItem>
-          <Link to={`/vgdt-admin/loadboard`}>
+          <Link to={`/loadboard`}>
             <ListItem className={clsx(classes.item, classes.itemCategory)}>
               <ListItemIcon className={classes.itemIcon}>
               </ListItemIcon>
@@ -88,7 +88,7 @@ function Navigator(props) {
               </ListItemText>
             </ListItem>
           </Link>
-          <Link to={`/vgdt-admin/brokerboard`}>
+          <Link to={`/brokerboard`}>
             <ListItem className={clsx(classes.item, classes.itemCategory)}>
               <ListItemIcon className={classes.itemIcon}>
               </ListItemIcon>

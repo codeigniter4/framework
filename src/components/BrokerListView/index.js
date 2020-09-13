@@ -18,7 +18,7 @@ const BrokerListView = (props) => {
         getAllBrokers();
       }
       const handleClick = (id) => {
-        props.history.push('/vgdt-admin/brokerboard/' + id);
+        props.history.push('/brokerboard/' + id);
       }
       const editButton = (id) => (
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
