@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
-import { JSONSchema } from '../../constants/Schemas/broker';
+import { JSONSchema, UISchema } from '../../constants/Schemas/broker';
 import BrokerContextProvider from '../../contexts/BrokerContext';
 import { BrokerContext } from '../../contexts/BrokerContext';
 import './index.scss';
@@ -24,7 +24,7 @@ function brokerForm(props) {
 
         return (
           <div className="broker_Form">
-            <Form schema={JSONSchema} formData={broker} onSubmit={(data) => savebroker(data.formData)}></Form>
+            <Form schema={JSONSchema} uiSchema={UISchema} formData={broker} onSubmit={(data) => savebroker(data.formData)}></Form>
           </div>
         )
       }}

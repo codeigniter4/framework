@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from '@rjsf/material-ui';
-import { JSONSchema } from '../../constants/Schemas/load';
+import { JSONSchema, UISchema } from '../../constants/Schemas/load';
 import LoadContextProvider from '../../contexts/LoadContext';
 import { LoadContext } from '../../contexts/LoadContext';
 import './index.scss';
@@ -31,6 +31,15 @@ const addBrokersToSchema = (schema, brokers) => {
   }
 }
 
+const formatLoadData = (formData) => {
+  const fields = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay'];
+
+  fields.map(field => {
+    formData[field] = parseInt(formData[field])
+  })
+  return formData
+}
+
 
 function LoadForm(props) {
   const { history, match } = props;
@@ -57,7 +66,7 @@ function LoadForm(props) {
 
         return (
           <div className="Load_Form">
-            <Form schema={addBrokersToSchema(JSONSchema, brokers)} formData={load} onSubmit={(data) => saveLoad(data.formData)}></Form>
+            <Form schema={addBrokersToSchema(JSONSchema, brokers)} uiSchema={UISchema} formData={formatLoadData(load)} onSubmit={(data) => saveLoad(data.formData)}></Form>
           </div>
         )
       }}
