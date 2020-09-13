@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuIcon from '@material-ui/icons/Menu';
+import PersonIcon from '@material-ui/icons/Person';
 import { withStyles } from '@material-ui/core/styles';
 import mainLogo from '../../assets/logo.png';
 
@@ -49,15 +50,14 @@ function Header(props) {
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
-            <Grid item>
+            <Grid item xs={2} style={{"text-align":"left"}}>
               <Tooltip title="Toggle Menu">
                 <IconButton color="inherit" onClick={handleToggle}>
                   <MenuIcon/>
                 </IconButton>
               </Tooltip>
             </Grid>
-            <Grid item>
-
+            <Grid item xs={8}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}
@@ -65,6 +65,13 @@ function Header(props) {
                   style={{"margin":"30px 0 20px"}}
                   spacing={1}
                 />
+              </Tooltip>
+            </Grid>
+            <Grid item xs={2} style={{"text-align":"right"}}>
+              <Tooltip title="Toggle Menu">
+                <IconButton color="inherit" onClick={handleToggle}>
+                  <PersonIcon />
+                </IconButton>
               </Tooltip>
             </Grid>
           </Grid>
