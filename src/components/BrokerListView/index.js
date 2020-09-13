@@ -25,6 +25,7 @@ const BrokerListView = (props) => {
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);
+        
         return row;
       })
 

@@ -17,7 +17,7 @@ const addBrokersToSchema = (schema, brokers) => {
   broker.enumNames = []
 
   brokers.map(b => {
-    broker.enum.push(b.name);
+    broker.enum.push(b.id);
     broker.enumNames.push(b.name);
   });
 
