@@ -23,7 +23,7 @@ export const brokerColumns = [
   },
   {
     id: 'Email',
-    label: 'Email',
+    label: 'Main Email',
     align: 'center',
     numeric: false
   },
@@ -39,12 +39,12 @@ export const brokerColumns = [
     align: 'center',
     numeric: true
   },
-  {
-    id: 'quickPay',
-    label: 'QuickPay',
-    align: 'center',
-    numeric: false
-  },
+  // {
+  //   id: 'quickPay',
+  //   label: 'QuickPay',
+  //   align: 'center',
+  //   numeric: false
+  // },
   {
     id: 'edit',
     label: '',

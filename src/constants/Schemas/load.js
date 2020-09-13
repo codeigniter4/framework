@@ -8,53 +8,59 @@ export const JSONSchema = {
       "title": "Dispatch",
       "type": "string",
       "enum": [
-        "foo",
-        "bar"
+        "select",
+        "bigDuro",
+        "Dujon",
+        "KayDee",
+        "Precious",
+        "Natarlie"
       ],
       "enumNames": [
-        "Foo",
-        "Bar"
+        "select",
+        "bigDuro",
+        "Dujon",
+        "KayDee",
+        "Precious",
+        "Natarlie"
       ],
-      "default": "foo"
+      "default": "select"
     },
     "status": {
       "title": "Status",
       "type": "string",
       "enum": [
-        "foo",
-        "bar"
+        "Planning",
+        "Scheduled",
+        "Live",
+        "Completed"
       ],
       "enumNames": [
-        "Foo",
-        "Bar"
+        "Planning",
+        "Scheduled",
+        "Live",
+        "Completed"
       ],
-      "default": "foo"
+      "default": "Planning"
     },
     "type": {
       "title": "Type",
       "type": "string",
       "enum": [
-        "foo",
-        "bar"
+        "PO",
+        "Van"
       ],
       "enumNames": [
-        "Foo",
-        "Bar"
+        "PO",
+        "Van"
       ],
-      "default": "foo"
+      "default": "Van"
     },
     "broker": {
       "title": "Broker",
       "type": "string",
-      "enum": [
-        "foo",
-        "bar"
-      ],
-      "enumNames": [
-        "Foo",
-        "Bar"
-      ],
-      "default": "foo"
+      "enum": [""],
+      "enumNames": [""],
+      "default": ""
     },
     "pickupLocation": {
       "type": "string",
@@ -80,22 +86,22 @@ export const JSONSchema = {
     },
     "deadHead": {
       "title": "DeadHead",
-      "type": "string",
-      "default": "0"
+      "type": "number",
+      "default": 0
     },
     "loadedMiles": {
       "title": "Loaded Miles",
-      "type": "string",
-      "default": "500"
+      "type": "number",
+      "default": 500
     },
     "rate": {
       "title": "Rate",
-      "type": "string",
-      "default": ""
+      "type": "number",
+      "default": 1500
     },
     "weight": {
       "title": "Weight",
-      "type": "string",
+      "type": "number",
       "default": ""
     },
     "cargo": {
@@ -105,13 +111,13 @@ export const JSONSchema = {
     },
     "detentionPay": {
       "title": "Detention hrs",
-      "type": "string",
-      "default": "0"
+      "type": "number",
+      "default": 0
     },
     "layoverPay": {
       "title": "Layover hrs",
-      "type": "string",
-      "default": "0"
+      "type": "number",
+      "default": 0
     },
     "notes": {
       "title": "Notes",
@@ -124,4 +130,14 @@ export const JSONSchema = {
 
 export const formData = {};
 
-export const UISchema = {}
+export const UISchema = {
+  // "pickupDate": {
+  //   "ui:widget": "alt-datetime",
+  //   "ui:options": {
+  //     "yearsRange": [
+  //       1980,
+  //       2030
+  //     ]
+  //   }
+  // }
+}

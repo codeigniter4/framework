@@ -8,7 +8,7 @@ import { BROKER_MODEL } from '../../constants';
 
 
 const BrokerListView = (props) => {
-
+  const { history } = props;
   return (
     <BrokerContext.Consumer>{(context) => {
       const { brokers, filteredBrokers, searchTerm, filterBrokers, getAllBrokers, deleteBrokers, save } = context;
@@ -18,13 +18,14 @@ const BrokerListView = (props) => {
         getAllBrokers();
       }
       const handleClick = (id) => {
-        props.history.push('/brokerboard/' + id);
+        history.push('/vgdt-admin/brokerboard/' + id);
       }
       const editButton = (id) => (
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);
+        
         return row;
       })
 

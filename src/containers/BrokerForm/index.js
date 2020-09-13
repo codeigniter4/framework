@@ -1,19 +1,20 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
-import { JSONSchema } from '../../constants/Schemas/broker';
+import { JSONSchema, UISchema } from '../../constants/Schemas/broker';
 import BrokerContextProvider from '../../contexts/BrokerContext';
 import { BrokerContext } from '../../contexts/BrokerContext';
 import './index.scss';
 
 function brokerForm(props) {
+  const { history, match } = props;
   return (
     <BrokerContextProvider>
       <BrokerContext.Consumer>{(context) => {
         const { broker, save, getBroker} = context;
-        const brokerId = props.match.params.id;
+        const brokerId = match.params.id;
         const savebroker = (broker) => {
           save(broker).then( data => {
-            props.history.push('/brokerboard');
+            history.push('/vgdt-admin/brokerboard');
           })
         }
 
@@ -23,7 +24,7 @@ function brokerForm(props) {
 
         return (
           <div className="broker_Form">
-            <Form schema={JSONSchema} formData={broker} onSubmit={(data) => savebroker(data.formData)}></Form>
+            <Form schema={JSONSchema} uiSchema={UISchema} formData={broker} onSubmit={(data) => savebroker(data.formData)}></Form>
           </div>
         )
       }}

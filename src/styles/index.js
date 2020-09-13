@@ -152,7 +152,7 @@ export const styles = {
     maxWidth: 1280,
     margin: 'auto',
     overflow: 'hidden',
-    [`@media (max-width:  440px)`]: {
+    [`@media (max-width:  500px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
       width: 350
