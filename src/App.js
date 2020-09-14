@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
@@ -10,8 +9,7 @@ import Navigator from './components/Navigator';
 import Header from './components/Header';
 import history from './utils/history';
 import './App.scss';
-import { styles, drawerWidth, theme } from './styles/';
-import favicon from './assets/favicon.ico';
+import { styles, theme } from './styles/';
 
 function Copyright() {
   return (

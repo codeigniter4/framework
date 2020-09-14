@@ -48,11 +48,6 @@ export const JSONSchema = {
       "type": "string",
       "title": "QuickPay Percentage",
       "default": ""
-    },
-    "quickPayPercentage": {
-      "type": "string",
-      "title": "QuickPay Percentage",
-      "default": ""
     }
   }
 }

@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'build/public/'),
+    path: path.resolve(__dirname, 'build/public/vgdt-admin'),
     filename: 'index.js',
     library: pkg.name,
     libraryTarget: 'umd'
@@ -32,7 +32,7 @@ module.exports = {
           },
           {
               test: /\.(jpe?g|png|gif|svg|ico)$/i,
-              loader: "file-loader?name=/vgdt-admin/public/icons/[name].[ext]"
+              loader: "file-loader?name=/[name].[ext]"
           }
       ]
   },

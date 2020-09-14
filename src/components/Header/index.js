@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -50,7 +49,7 @@ function Header(props) {
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
-            <Grid item xs={2} style={{"text-align":"left"}}>
+            <Grid item xs={2} style={{"textAlign":"left"}}>
               <Tooltip title="Toggle Menu">
                 <IconButton color="inherit" onClick={handleToggle}>
                   <MenuIcon/>
@@ -64,10 +63,11 @@ function Header(props) {
                   width={250}
                   style={{"margin":"30px 0 20px"}}
                   spacing={1}
+                  alt="Vanguard Trucking logo"
                 />
               </Tooltip>
             </Grid>
-            <Grid item xs={2} style={{"text-align":"right"}}>
+            <Grid item xs={2} style={{"textAlign":"right"}}>
               <Tooltip title="Toggle Menu">
                 <IconButton color="inherit" onClick={handleToggle}>
                   <PersonIcon />

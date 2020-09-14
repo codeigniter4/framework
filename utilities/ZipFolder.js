@@ -1,16 +1,20 @@
 const path = require('path');
 const zipFolder = require('zip-a-folder');
-const vgdtAdminUI_zip = 'build/public/vgdt-admin.zip';
 const vgdtAPI_zip = 'build/public/api.zip';
-const public_zip = 'build/public/public.zip';
+
 const codeigniter4_zip = 'build/non_public/codeigniter4/codeigniter4.zip';
-const publicHtml = 'build/public';
+const publicHtml = 'build/public/vgdt-admin';
+const publicHtml_zip = 'build/public/vgdt-admin.zip';
+const publicAssets = 'src/assets';
+const publicAssets_zip = 'build/public/assets.zip';
+const publicAPI = 'build/public/api';
+const publicAPI_zip = 'build/public/api.zip';
 const codeigniter4 = 'codeigniter4';
 
 class ZipAFolder {
 
-    static main(to, as) {
-        zipFolder.zipFolder(to, as, function(err) {
+    static main(from, as) {
+        zipFolder.zipFolder(from, as, function(err) {
             if(err) {
                 console.log('Something went wrong!', err);
             }
@@ -18,6 +22,7 @@ class ZipAFolder {
     }
 }
 
-ZipAFolder.main(publicHtml, public_zip);
-// ZipAFolder.main(publicHtml, vgdtAPI_zip);
+ZipAFolder.main(publicHtml, publicHtml_zip);
+ZipAFolder.main(publicAssets, publicAssets_zip);
+ZipAFolder.main(publicAPI, publicAPI_zip);
 ZipAFolder.main(codeigniter4, codeigniter4_zip);

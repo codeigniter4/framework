@@ -15,7 +15,9 @@ const BrokerListView = (props) => {
       const rows = searchTerm ? filteredBrokers : [...brokers];
 
       if(!rows.length){
-        getAllBrokers();
+        getAllBrokers().then(data => {
+          return data
+        });
       }
       const handleClick = (id) => {
         history.push('/vgdt-admin/brokerboard/' + id);
@@ -24,9 +26,10 @@ const BrokerListView = (props) => {
           <Button color="primary" onClick={() => handleClick(id)}>Edit</Button>
       );
       const updateRowData = rows.map(row => {
-        row.edit = editButton(row.id);
-        row.quickPay = row.quickPay == "0" ? "No" : "Yes"
-        return row;
+        const newRow = {...row};
+        newRow.edit = editButton(row.id);
+        newRow.quickPay = row.quickPay === "0" ? "No" : "Yes"
+        return newRow;
       })
 
       const handleChange = (e) => {
