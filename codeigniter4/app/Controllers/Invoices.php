@@ -1,11 +1,11 @@
 <?php namespace App\Controllers;
-use App\Services\BrokerService;
+use App\Services\InvoiceService;
 
-class Brokers extends BaseController
+class Invoices extends BaseController
 {
 	public function index()
 	{
-		$brokerService = new BrokerService();
+		$Service = new InvoiceService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -13,21 +13,21 @@ class Brokers extends BaseController
 
 		switch ($method) {
 		    case 'post':
-						$broker = $brokerService->saveBroker($json);
-						return $response->setJSON($broker);
+						$record = $Service->saveRecord($json);
+						return $response->setJSON($record);
 		        break;
 		    case 'get':
-						$brokers = $brokerService->getBrokers();
-						return $response->setJSON($brokers);
+						$records = $Service->getRecords();
+						return $response->setJSON($records);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function id($broker_id)
+	public function id($id)
 	{
-		$brokerService = new BrokerService();
+		$Service = new InvoiceService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -35,25 +35,25 @@ class Brokers extends BaseController
 
 		switch ($method) {
 		    case 'get':
-						$broker = $brokerService->getBroker($broker_id);
-						return $response->setJSON($broker);
+						$record = $Service->getRecord($id);
+						return $response->setJSON($record);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function delete($broker_id)
+	public function delete($id)
 	{
-		$brokerService = new BrokerService();
+		$Service = new InvoiceService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
 
 		switch ($method) {
 				case 'post':
-						$broker = $brokerService->deleteBrokerById($broker_id);
-						return $response->setJSON($broker);
+						$record = $Service->deleteRecordById($id);
+						return $response->setJSON($record);
 						break;
 				default:
 						echo "nothing here!";

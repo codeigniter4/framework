@@ -19,22 +19,22 @@ class BrokerService {
    {
      $model = new BrokerModel();
      $model->save($data);
-     $record = $recordModel->find($data);
+     $record = $model->find($data);
      return $record;
    }
 
    public function getRecord($record_id)
    {
-     $recordModel = new BrokerModel();
-     $record = $recordModel->find($record_id);
+     $model = new BrokerModel();
+     $record = $model->find($record_id);
      return $record;
    }
 
    public function deleteRecordById($record_id)
    {
-     $recordModel = new BrokerModel();
-     $record = $recordModel->find($record_id);
-     $recordModel->delete([$record_id]);
+     $model = new BrokerModel();
+     $record = $model->find($record_id);
+     $model->delete([$record_id]);
 
      return $record;
    }
