@@ -11,14 +11,14 @@ class BrokerService {
    public function getRecords()
    {
      $model = new BrokerModel();
-     $records = $model->findAll();
+     $records = $recordsModel->findAll();
      return $records;
    }
 
    public function saveRecord($data)
    {
      $model = new BrokerModel();
-     $model->save($data);
+     $recordModel->save($data);
      $record = $recordModel->find($data);
      return $record;
    }
@@ -26,14 +26,14 @@ class BrokerService {
    public function getRecord($record_id)
    {
      $recordModel = new BrokerModel();
-     $record = $recordModel->find($record_id);
-     return $record;
+     $records = $recordModel->find($record_id);
+     return $brokers;
    }
 
    public function deleteRecordById($record_id)
    {
      $recordModel = new BrokerModel();
-     $record = $recordModel->find($record_id);
+     $record = $brokerModel->find($record_id);
      $recordModel->delete([$record_id]);
 
      return $record;

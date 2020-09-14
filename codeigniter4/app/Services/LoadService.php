@@ -8,34 +8,34 @@ class LoadService {
 
    }
 
-   public function getLoads()
+   public function getRecords()
    {
-     $loadModel = new LoadModel();
-     $loads = $loadModel->orderBy('id', 'DESC')->findAll();
-     return $loads;
+     $model = new LoadModel();
+     $records = $model->findAll();
+     return $records;
    }
 
-   public function saveLoad($data)
+   public function saveRecord($data)
    {
-     $loadModel = new LoadModel();
-     $loadModel->save($data);
-     $loads = $loadModel->find($data);
-     return $loads;
+     $model = new LoadModel();
+     $model->save($data);
+     $record = $recordModel->find($data);
+     return $record;
    }
 
-   public function getLoad($load_id)
+   public function getRecord($record_id)
    {
-     $loadModel = new LoadModel();
-     $loads = $loadModel->find($load_id);
-     return $loads;
+     $recordModel = new LoadModel();
+     $record = $recordModel->find($record_id);
+     return $record;
    }
 
-   public function deleteLoadById($load_id)
+   public function deleteRecordById($record_id)
    {
-     $loadModel = new LoadModel();
-     $load = $loadModel->find($load_id);
-     $loadModel->delete([$load_id]);
+     $recordModel = new LoadModel();
+     $record = $recordModel->find($record_id);
+     $recordModel->delete([$record_id]);
 
-     return $load;
+     return $record;
    }
 }

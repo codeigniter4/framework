@@ -5,7 +5,7 @@ class Brokers extends BaseController
 {
 	public function index()
 	{
-		$Service = new BrokerService();
+		$brokerService = new BrokerService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -13,21 +13,21 @@ class Brokers extends BaseController
 
 		switch ($method) {
 		    case 'post':
-						$record = $Service->saveRecord($json);
-						return $response->setJSON($record);
+						$broker = $brokerService->saveBroker($json);
+						return $response->setJSON($broker);
 		        break;
 		    case 'get':
-						$records = $Service->getRecords();
-						return $response->setJSON($records);
+						$brokers = $brokerService->getBrokers();
+						return $response->setJSON($brokers);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function id($id)
+	public function id($broker_id)
 	{
-		$Service = new BrokerService();
+		$brokerService = new BrokerService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -35,25 +35,25 @@ class Brokers extends BaseController
 
 		switch ($method) {
 		    case 'get':
-						$record = $Service->getRecord($id);
-						return $response->setJSON($record);
+						$broker = $brokerService->getBroker($broker_id);
+						return $response->setJSON($broker);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function delete($id)
+	public function delete($broker_id)
 	{
-		$Service = new BrokerService();
+		$brokerService = new BrokerService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
 
 		switch ($method) {
 				case 'post':
-						$record = $Service->deleteRecordById($id);
-						return $response->setJSON($record);
+						$broker = $brokerService->deleteBrokerById($broker_id);
+						return $response->setJSON($broker);
 						break;
 				default:
 						echo "nothing here!";

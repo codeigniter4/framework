@@ -5,7 +5,7 @@ class Loads extends BaseController
 {
 	public function index()
 	{
-		$loadService = new LoadService();
+		$Service = new LoadService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -13,21 +13,21 @@ class Loads extends BaseController
 
 		switch ($method) {
 		    case 'post':
-						$load = $loadService->saveLoad($json);
-						return $response->setJSON($load);
+						$record = $Service->saveRecord($json);
+						return $response->setJSON($record);
 		        break;
 		    case 'get':
-						$loads = $loadService->getLoads();
-						return $response->setJSON($loads);
+						$records = $Service->getRecords();
+						return $response->setJSON($records);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function id($load_id)
+	public function id($id)
 	{
-		$loadService = new LoadService();
+		$Service = new LoadService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -35,28 +35,28 @@ class Loads extends BaseController
 
 		switch ($method) {
 		    case 'get':
-						$load = $loadService->getload($load_id);
-						return $response->setJSON($load);
+						$record = $Service->getRecord($id);
+						return $response->setJSON($record);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function delete($load_id)
+	public function delete($id)
 	{
-		$loadService = new LoadService();
+		$Service = new LoadService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
 
 		switch ($method) {
-		    case 'post':
-						$load = $loadService->deleteLoadById($load_id);
-		        return $response->setJSON($load);
-		        break;
-		    default:
-		        echo "nothing here!";
+				case 'post':
+						$record = $Service->deleteRecordById($id);
+						return $response->setJSON($record);
+						break;
+				default:
+						echo "nothing here!";
 		}
 	}
 

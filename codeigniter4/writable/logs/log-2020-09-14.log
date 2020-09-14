@@ -238,3 +238,38 @@ CRITICAL - 2020-09-14 17:03:55 --> Access denied for user '****'@'localhost' (us
 #8 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
 #10 {main}
+CRITICAL - 2020-09-14 17:15:33 --> Call to a member function findAll() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Brokers.php(20): App\Services\BrokerService->getRecords()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Brokers->index()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Brokers))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-14 17:16:35 --> Call to a member function findAll() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Brokers.php(20): App\Services\BrokerService->getRecords()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Brokers->index()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Brokers))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-14 17:17:37 --> Call to a member function findAll() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Brokers.php(20): App\Services\BrokerService->getRecords()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Brokers->index()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Brokers))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-14 17:19:51 --> Call to a member function find() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Brokers.php(55): App\Services\BrokerService->deleteRecordById('22')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Brokers->delete('22')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Brokers))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-14 17:20:19 --> Call to a member function find() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Brokers.php(55): App\Services\BrokerService->deleteRecordById('22')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Brokers->delete('22')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Brokers))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
