@@ -47,11 +47,13 @@ export const JSONSchema = {
       "type": "string",
       "enum": [
         "PO",
-        "Van"
+        "Van",
+        "Reefer"
       ],
       "enumNames": [
         "PO",
-        "Van"
+        "Van",
+        "Reefer"
       ],
       "default": "Van"
     },
@@ -107,6 +109,13 @@ export const JSONSchema = {
     "cargo": {
       "title": "Cargo",
       "type": "string",
+      "default": ""
+    },
+    "driver": {
+      "title": "Driver",
+      "type": "string",
+      "enum": ["Ben"],
+      "enumNames": ["Ben"],
       "default": ""
     },
     "detentionPay": {

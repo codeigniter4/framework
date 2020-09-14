@@ -27,7 +27,8 @@ class LoadModel extends Model
       'detentionPay',
       'layoverPay',
       'notes',
-      'user'
+      'user',
+      'driver'
     ];
 
     protected $useTimestamps = false;
