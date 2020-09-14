@@ -4,7 +4,7 @@ import { LoadContext } from '../../contexts/LoadContext';
 import ListTable from '../ListTable';
 import ListToolBar from '../ListToolBar';
 import { loadColumns } from './constants/loadColumns';
-import { LOAD_MODEL, LOAD_TYPES, LOAD_STATUS } from '../../constants';
+import { LOAD_MODEL } from '../../constants';
 import { get } from '../../services/';
 
 const getAllBrokers = () => {
@@ -12,6 +12,24 @@ const getAllBrokers = () => {
   return response;
 }
 
+
+const getTodayAndTommorrowDates = () => {
+  Date.prototype.addDays = function (days) {
+    let date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  }
+
+  let date = new Date();
+
+  date.setMinutes(0)
+  date.setSeconds(0)
+  date.setMilliseconds(0)
+  const today = date.toISOString();
+  const tomorrow = date.addDays(1).toISOString();
+
+  return { today, tomorrow }
+}
 
 const LoadListView = (props) => {
   const { history } = props;
@@ -35,18 +53,7 @@ const LoadListView = (props) => {
       );
       const updateRowData = rows.map(row => {
         row.edit = editButton(row.id);
-        LOAD_TYPES.map(item => {
-          if(row.type === item.type) {
-            row.type = item.label
-          }
-          return row
-        })
-        LOAD_STATUS.map(item => {
-          if(row.status === item.type) {
-            row.status = item.label
-          }
-          return row
-        })
+
 
         brokers.map(broker => {
           if (broker.id === row.broker) {
@@ -66,7 +73,12 @@ const LoadListView = (props) => {
       }
 
       const handleAdd = () => {
-        save(LOAD_MODEL).then(data => {
+        const updatedLoad = {...LOAD_MODEL};
+        const { today, tomorrow } = getTodayAndTommorrowDates();
+
+        updatedLoad.pickupDate = today;
+        updatedLoad.dropoffDate = tomorrow;
+        save(updatedLoad).then(data => {
           history.push('/vgdt-admin/loadboard/' + data.id);
         })
       }
