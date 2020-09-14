@@ -13,6 +13,12 @@ const getAllBrokers = () => {
 
 const addBrokersToSchema = (schema, brokers) => {
   const { broker } = schema.properties;
+  const updatedSchema = {...schema,
+   properties: {
+     ...schema.properties,
+     }
+  }
+
   broker.enum = []
   broker.enumNames = []
 
@@ -21,14 +27,9 @@ const addBrokersToSchema = (schema, brokers) => {
     broker.enumNames.push(b.name);
   });
 
-  return {...schema,
-    properties: {
-      ...schema.properties,
-      broker: {
-        ...broker
-      }
-    }
-  }
+  updatedSchema.broker = {...broker};
+
+  return updatedSchema
 }
 
 const formatLoadData = (formData) => {
