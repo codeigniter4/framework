@@ -53,5 +53,6 @@ export const BROKER_MODEL = {
   "billingContact": "",
   "billingEmail": "",
   "quickPay": true,
-  "quickPayPercentage": "0"
+  "quickPayPercentage": "0",
+  "paymentTerms": "30"
 }
