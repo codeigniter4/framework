@@ -21,7 +21,8 @@ class BrokerModel extends Model
       'billingEmail',
       'quickPay',
       'quickPayPercentage',
-      'paymentTerms'
+      'paymentTerms',
+      'detentionRate'
     ];
 
     protected $useTimestamps = false;

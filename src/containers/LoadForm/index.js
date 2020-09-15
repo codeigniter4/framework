@@ -33,7 +33,7 @@ const addBrokersToSchema = (schema, brokers) => {
 }
 
 const formatLoadData = (formData) => {
-  const fields = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay', 'quickPayPercentage'];
+  const fields = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay', 'quickPayPercentage', 'lumper'];
 
   fields.map(field => {
     formData[field] = parseInt(formData[field])

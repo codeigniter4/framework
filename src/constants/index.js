@@ -16,7 +16,8 @@ export const LOAD_MODEL = {
   "detentionPay": "",
   "layoverPay": "",
   "notes": "",
-  "user": ""
+  "user": "",
+  "lumper": ""
 }
 
 
@@ -54,5 +55,6 @@ export const BROKER_MODEL = {
   "billingEmail": "",
   "quickPay": true,
   "quickPayPercentage": "0",
-  "paymentTerms": "30"
+  "paymentTerms": "30",
+  "detentionRate": "50"
 }

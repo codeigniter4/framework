@@ -1,5 +1,5 @@
 export const JSONSchema = {
-  "title": "",
+  "title": "Load Details",
   "description": "",
   "type": "object",
   "required": [],
@@ -32,7 +32,8 @@ export const JSONSchema = {
         "Planning",
         "Scheduled",
         "Live",
-        "Completed"
+        "Completed",
+        "TONU"
       ],
       "enumNames": [
         "Planning",
@@ -67,6 +68,7 @@ export const JSONSchema = {
     "pickupLocation": {
       "type": "string",
       "title": "Origin",
+      "description": "Pickup Location",
       "default": ""
     },
     "pickupDate": {
@@ -125,6 +127,11 @@ export const JSONSchema = {
     },
     "layoverPay": {
       "title": "Layover hrs",
+      "type": "number",
+      "default": 0
+    },
+    "lumper": {
+      "title": "Lumper Fee",
       "type": "number",
       "default": 0
     },

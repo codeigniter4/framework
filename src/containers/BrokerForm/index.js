@@ -7,7 +7,7 @@ import './index.scss';
 
 const formatData = (formData) => {
   const fields_boolean = ['quickPay'];
-  const fields_int = [];
+  const fields_int = ['paymentTerms', 'detentionRate'];
 
   fields_boolean.map((field) => {
     formData[field] = formData[field] !== "0" && formData[field] > 0;

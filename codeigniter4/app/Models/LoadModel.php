@@ -28,7 +28,8 @@ class LoadModel extends Model
       'layoverPay',
       'notes',
       'user',
-      'driver'
+      'driver',
+      'lumper'
     ];
 
     protected $useTimestamps = false;

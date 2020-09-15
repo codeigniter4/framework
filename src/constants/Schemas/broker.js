@@ -1,5 +1,5 @@
 export const JSONSchema = {
-  "title": "",
+  "title": "Broker Profile",
   "description": "",
   "type": "object",
   "required": [],
@@ -50,9 +50,14 @@ export const JSONSchema = {
       "default": ""
     },
     "paymentTerms": {
-      "type": "string",
+      "type": "number",
       "title": "Payment Terms",
-      "default": "30"
+      "default": 30
+    },
+    "detentionRate": {
+      "type": "number",
+      "title": "Detention Rate",
+      "default": 50
     }
   }
 }
