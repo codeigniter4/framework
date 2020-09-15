@@ -69,6 +69,11 @@ function Navigator(props) {
       name: 'Brokers',
       route: 'brokers',
       icon: (<GroupIcon />)
+    },
+    {
+      name: 'Invoices',
+      route: 'invoices',
+      icon: (<GroupIcon />)
     }
   ]
   return (

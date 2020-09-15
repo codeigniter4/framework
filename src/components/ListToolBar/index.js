@@ -47,11 +47,13 @@ function ListToolBar(props) {
                   onChange={handleChange}
                 />
               </Grid>
+              { handleAdd ? 
               <Grid item>
                 <Button variant="contained" color="primary" className={classes.add} onClick={handleAdd}>
                   Add
                 </Button>
               </Grid>
+              : '' }
             </Grid>
           </Toolbar>
         </AppBar>
