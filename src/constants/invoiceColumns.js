@@ -6,7 +6,7 @@ export const invoiceColumns = [
   },
   {
     id: 'ItemDescription',
-    label: '',
+    label: 'Description',
     align: 'center',
     numeric: false
   },
@@ -17,13 +17,13 @@ export const invoiceColumns = [
   },
   {
     id: 'BillingAddress',
-    label: 'Billing Address',
+    label: 'Address',
     align: 'center',
     numeric: false
   },
   {
     id: 'CustomerEmail',
-    label: 'CustomerEmail',
+    label: 'Email',
     align: 'center',
     numeric: false
   },

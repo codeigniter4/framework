@@ -17,7 +17,7 @@ export const brokerColumns = [
   },
   {
     id: 'contact',
-    label: 'Main Contact',
+    label: 'Contact',
     align: 'center',
     numeric: false
   },
