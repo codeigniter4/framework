@@ -7,7 +7,7 @@ import './index.scss';
 
 const formatData = (formData) => {
   const fields_boolean = ['quickPay'];
-  const fields_int = ['paymentTerms', 'detentionRate'];
+  const fields_int = ['paymentTerms', 'detentionRate', 'tonuFee'];
 
   fields_boolean.map((field) => {
     formData[field] = formData[field] !== "0" && formData[field] > 0;
@@ -18,6 +18,7 @@ const formatData = (formData) => {
     formData[field] = parseInt(formData[field])
     return false;
   })
+  
   return formData;
 }
 function BrokerForm(props) {

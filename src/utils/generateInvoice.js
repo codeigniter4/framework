@@ -2,12 +2,35 @@
 import { INVOICE_MODEL } from '../constants';
 import { getTodayAndTommorrowDates, addDaysToToday } from './adjustDates'
 
+const getItemAmount = (load, broker, service) => {
+  const { rate, detentionPay, lumper } = load;
+  const { quickPayPercentage, detentionRate, tonuFee } = broker;
+  switch (service) {
+    case 'TONU':
+      return parseInt(tonuFee)
+      break;
+    case 'QUICKPAY':
+      const quickPayFee = rate * (quickPayPercentage/100);
+      return -quickPayFee
+      break;
+    case 'DETENTION':
+      const detentionPayFee = detentionPay * detentionRate;
+      return detentionPayFee
+      break;
+    case 'LUMPER CHARGE':
+      return lumper;
+      break;
 
-const getItem = (load, broker, mainServices) => {
+    default: return rate
+  }
+}
+
+const getItem = (load, broker, service) => {
   const { id, loadNumber, dropoffDate, pickupLocation, dropoffLocation} = load;
   const { name, address, Email, paymentTerms} = broker;
   const { today, tomorrow } = getTodayAndTommorrowDates();
-  const dueDate = addDaysToToday(parseInt(paymentTerms))
+  const dueDate = addDaysToToday(parseInt(paymentTerms));
+  const itemAmount = getItemAmount(load, broker, service);
   const item = {
     ...INVOICE_MODEL,
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
@@ -19,10 +42,10 @@ const getItem = (load, broker, mainServices) => {
     "*DueDate": dueDate, // *InvoiceDate + Terms
     "Terms": `NET ${paymentTerms}`, // Broker
     "ItemDescription": `${pickupLocation} - ${dropoffLocation}`, // Load Origin - Destination
-    "ProductService": mainServices, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
+    "ProductService": service, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
     "ItemQuantity": "1",
-    "ItemRate": "", // rate - qp fee + detentionPay + layoverPay || TONU charge || lumper
-    "*ItemAmount": ""
+    "ItemRate": "",
+    "*ItemAmount": itemAmount
   }
 
   return item;
@@ -30,17 +53,26 @@ const getItem = (load, broker, mainServices) => {
 
 
 export const generateInvoiceItems = (load, broker) => {
-  const { tonu } = load;
+  const { tonu, detentionPay, layoverPay, lumper } = load;
+  const { quickPay } = broker;
   const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
-  const mainServices = ['TRANSPORTATION', 'TONU']
-  const additionalServices = ['QUICKPAY', 'DETENTION', 'LUMPER CHARGE'];
+  const invoiceItem = getItem(load, broker, service);
+  const quickPayItem = quickPay !== "0" && quickPay > 0 ? getItem(load, broker, 'QUICKPAY') : false;
+  const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;
+  // const layoverPayItem = layoverPay ? getItem(load, broker, 'LAYOVER') : false;
+  const lumperItem = lumper !== "0" && lumper > 0 ? getItem(load, broker, 'LUMPER CHARGE') : false;
+  const items = [invoiceItem, quickPayItem, detentionPayItem, lumperItem]
 
-  additionalServices.map(service => {
-
+  const invoiceItems = []
+  items.map(item => {
+    if(item) {
+      invoiceItems.push(item);
+    }
   })
 
 
 
-  const invoiceItems = getItem(load, broker, service);
-  return [invoiceItems];
+
+
+  return invoiceItems;
 }

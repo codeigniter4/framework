@@ -58,7 +58,8 @@ export const BROKER_MODEL = {
   "quickPay": true,
   "quickPayPercentage": "0",
   "paymentTerms": "30",
-  "detentionRate": "50"
+  "detentionRate": "50",
+  "tonuFee": "250"
 }
 
 export const INVOICE_MODEL = {

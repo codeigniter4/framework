@@ -33,7 +33,8 @@ export const addDaysToToday = (num) => {
   date.setMinutes(0)
   date.setSeconds(0)
   date.setMilliseconds(0)
-  const newDate = date.addDays(num).toISOString();
+  date.addDays(num)
+  const newDate = date.toISOString();
 
   return newDate
 }

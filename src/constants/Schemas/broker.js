@@ -58,6 +58,11 @@ export const JSONSchema = {
       "type": "number",
       "title": "Detention Rate",
       "default": 50
+    },
+    "tonuFee": {
+      "type": "number",
+      "title": "TONU Fee",
+      "default": 250
     }
   }
 }
