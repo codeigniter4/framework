@@ -31,10 +31,16 @@ const getItem = (load, broker, mainServices) => {
 
 export const generateInvoiceItems = (load, broker) => {
   const { tonu } = load;
-  const isTonu = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
+  const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
   const mainServices = ['TRANSPORTATION', 'TONU']
-  const additionalServices = ['DETENTION', 'LUMPER CHARGE', 'QUICKPAY']
+  const additionalServices = ['QUICKPAY', 'DETENTION', 'LUMPER CHARGE'];
 
-  const invoiceItems = getItem(load, broker, mainServices);
+  additionalServices.map(service => {
+
+  })
+
+
+
+  const invoiceItems = getItem(load, broker, service);
   return [invoiceItems];
 }
