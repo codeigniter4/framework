@@ -28,7 +28,7 @@ const styles = (theme) => ({
 });
 
 function ListToolBar(props) {
-  const { classes, handleAdd } = props;
+  const { classes, handleAdd, handleChange } = props;
 
       return (
         <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -44,7 +44,7 @@ function ListToolBar(props) {
                     disableUnderline: true,
                     className: classes.searchInput,
                   }}
-                  onChange={props.handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item>

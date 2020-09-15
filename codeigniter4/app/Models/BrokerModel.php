@@ -6,7 +6,7 @@ class BrokerModel extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table      = 'broker';
+    protected $table      = 'brokers';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';

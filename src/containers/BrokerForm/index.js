@@ -1,8 +1,8 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
 import { JSONSchema, UISchema } from '../../constants/Schemas/broker';
-import BrokerContextProvider from '../../contexts/BrokerContext';
-import { BrokerContext } from '../../contexts/BrokerContext';
+import AdminContextProvider from '../../contexts/AdminContext';
+import { AdminContext } from '../../contexts/AdminContext';
 import './index.scss';
 
 const formatData = (formData) => {
@@ -21,33 +21,39 @@ const formatData = (formData) => {
   return formData;
 }
 function BrokerForm(props) {
+  const table = 'brokers';
   const { history, match } = props;
   return (
-    <BrokerContextProvider>
-      <BrokerContext.Consumer>{(context) => {
-        const { broker, save, getBroker} = context;
-        const brokerId = match.params.id;
-        const savebroker = (broker) => {
-          save(broker).then( data => {
-            history.push('/vgdt-admin/brokerboard');
+    <AdminContextProvider>
+      <AdminContext.Consumer>{(context) => {
+        const { record, saveRecord, getRecord} = context;
+        const recordId = match.params.id;
+        const saveBroker = (record) => {
+          saveRecord(table, record).then( data => {
+            history.push(`/vgdt-admin/${table}`);
             return data
           })
         }
 
-        if(!broker.id) {
-          getBroker(brokerId).then(data => {
+        if(!record.id) {
+          getRecord(table, recordId).then(data => {
             return data
           });
         }
 
         return (
           <div className="broker_Form">
-            <Form schema={JSONSchema} uiSchema={UISchema} formData={formatData(broker)} onSubmit={(data) => savebroker(data.formData)}></Form>
+            <Form
+              schema={JSONSchema}
+              uiSchema={UISchema}
+              formData={formatData(record)}
+              onSubmit={(data) => saveBroker(data.formData)}>
+            </Form>
           </div>
         )
       }}
-      </BrokerContext.Consumer>
-    </BrokerContextProvider>
+      </AdminContext.Consumer>
+    </AdminContextProvider>
   )
 }
 

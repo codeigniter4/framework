@@ -17,10 +17,10 @@ export default function RouterComponent(props) {
     <Router history={history}>
         <Switch>
           <Route exact path="/vgdt-admin/dashboard" component={LoadBoard} />
-          <Route exact path="/vgdt-admin/loadboard" component={LoadBoard} />
-          <Route path="/vgdt-admin/loadboard/:id" component={LoadForm} />
-          <Route exact path="/vgdt-admin/brokerboard" component={BrokerBoard} />
-          <Route path="/vgdt-admin/brokerboard/:id" component={BrokerForm} />
+          <Route exact path="/vgdt-admin/loads" component={LoadBoard} />
+          <Route path="/vgdt-admin/loads/:id" component={LoadForm} />
+          <Route exact path="/vgdt-admin/brokers" component={BrokerBoard} />
+          <Route path="/vgdt-admin/brokers/:id" component={BrokerForm} />
           <Route exact path="/vgdt-admin/" component={Dashboard} />
         </Switch>
     </Router>

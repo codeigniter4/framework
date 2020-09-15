@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Form from '@rjsf/material-ui';
 import { JSONSchema, UISchema } from '../../constants/Schemas/load';
-import LoadContextProvider from '../../contexts/LoadContext';
-import { LoadContext } from '../../contexts/LoadContext';
+import AdminContextProvider from '../../contexts/AdminContext';
+import { AdminContext } from '../../contexts/AdminContext';
 import './index.scss';
 import { get } from '../../services/';
 
@@ -18,15 +18,12 @@ const addBrokersToSchema = (schema, brokers) => {
      ...schema.properties,
      }
   }
-
   broker.enum = []
   broker.enumNames = []
-
   brokers.map(b => {
     broker.enum.push(b.id);
     broker.enumNames.push(b.name);
   });
-
   updatedSchema.broker = {...broker};
 
   return updatedSchema
@@ -43,36 +40,40 @@ const formatLoadData = (formData) => {
 
 
 function LoadForm(props) {
+  const table = 'loads';
   const { history, match } = props;
   const [brokers, setBrokers] = useState([]);
   return (
-    <LoadContextProvider>
-      <LoadContext.Consumer>{(context) => {
-        const { load, save, getLoad} = context;
-        const loadId = match.params.id;
+    <AdminContextProvider>
+      <AdminContext.Consumer>{(context) => {
+        const { record, saveRecord, getRecord } = context;
+        const recordId = match.params.id;
         const saveLoad = (load) => {
-          save(load).then( data => {
-            history.push('/vgdt-admin/loadboard');
+          saveRecord(table, load).then( data => {
+            history.push(`/vgdt-admin/${table}`);
           })
         }
 
-        if(!load.id) {
-          getLoad(loadId);
+        if(!record.id) {
+          getRecord(table, recordId);
           getAllBrokers().then(data => {
             setBrokers(data)
           })
         }
 
-
-
         return (
           <div className="Load_Form">
-            <Form schema={addBrokersToSchema(JSONSchema, brokers)} uiSchema={UISchema} formData={formatLoadData(load)} onSubmit={(data) => saveLoad(data.formData)}></Form>
+            <Form
+              schema={addBrokersToSchema(JSONSchema, brokers)}
+              uiSchema={UISchema}
+              formData={formatLoadData(record)}
+              onSubmit={(data) => saveLoad(data.formData)}>
+            </Form>
           </div>
         )
       }}
-      </LoadContext.Consumer>
-    </LoadContextProvider>
+      </AdminContext.Consumer>
+    </AdminContextProvider>
   )
 }
 

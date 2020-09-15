@@ -62,12 +62,12 @@ function Navigator(props) {
   const navigation = [
     {
       name: 'LoadBoard',
-      route: 'loadboard',
+      route: 'loads',
       icon: (<PostAddIcon />)
     },
     {
       name: 'Brokers',
-      route: 'brokerboard',
+      route: 'brokers',
       icon: (<GroupIcon />)
     }
   ]

@@ -58,3 +58,19 @@ export const BROKER_MODEL = {
   "paymentTerms": "30",
   "detentionRate": "50"
 }
+
+export const INVOICE_MODEL = {
+    "*InvoiceNo": "", // 2018 +
+    "*Customer": "", // Broker Name
+    "BillingAddress": "", // Broker
+    "CustomerEmail": "", // Broker
+    "ServiceDate": "", // On Drop Load
+    "*InvoiceDate": "", // On Completed Load
+    "*DueDate": "", // *InvoiceDate + Terms
+    "Terms": "", // Broker
+    "ItemDescription": "", // Load Origin - Destination
+    "ProductService": "", // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
+    "ItemQuantity": "1",
+    "ItemRate": "", // rate - qp fee + detentionPay + layoverPay || TONU charge || lumper
+    "*ItemAmount": ""
+}

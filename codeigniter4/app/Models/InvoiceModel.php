@@ -6,13 +6,25 @@ class InvoiceModel extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table      = 'Invoice';
+    protected $table      = 'invoices';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
     protected $allowedFields = [
-      
+      '*InvoiceNo',
+      '*Customer',
+      'BillingAddress',
+      'CustomerEmail',
+      'ServiceDate',
+      '*InvoiceDate',
+      '*DueDate',
+      'Terms',
+      'ItemDescription',
+      'ProductService',
+      'ItemQuantity',
+      'ItemRate',
+      '*ItemAmount'
     ];
 
     protected $useTimestamps = false;
