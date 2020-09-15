@@ -31,8 +31,8 @@ const getItem = (load, broker, mainServices) => {
 
 export const generateInvoiceItems = (load, broker) => {
   const { tonu } = load;
-  console.log(tonu);
-  const mainServices = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
+  const isTonu = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
+  const mainServices = ['TRANSPORTATION', 'TONU']
   const additionalServices = ['DETENTION', 'LUMPER CHARGE', 'QUICKPAY']
 
   const invoiceItems = getItem(load, broker, mainServices);
