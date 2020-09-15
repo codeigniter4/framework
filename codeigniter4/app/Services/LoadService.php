@@ -34,7 +34,7 @@ class LoadService {
    {
      $model = new LoadModel();
      $record = $model->find($record_id);
-     $recordModel->delete([$record_id]);
+     $model->delete([$record_id]);
 
      return $record;
    }

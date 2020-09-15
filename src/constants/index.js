@@ -2,7 +2,7 @@
 
 export const LOAD_MODEL = {
   "type": "Van",
-  "status": "",
+  "status": "Planning",
   "pickupDate": "",
   "dropoffDate": "",
   "pickupLocation": "",
