@@ -8,29 +8,11 @@ import ListToolBar from '../../components/ListToolBar';
 import { loadColumns } from '../../constants/loadColumns';
 import { LOAD_MODEL } from '../../constants';
 import { get } from '../../services/';
+import { getTodayAndTommorrowDates } from '../../utils/adjustDates'
 
 const getAllBrokers = () => {
   const response = get('brokers');
   return response;
-}
-
-
-const getTodayAndTommorrowDates = () => {
-  Date.prototype.addDays = function (days) {
-    let date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-  }
-
-  let date = new Date();
-
-  date.setMinutes(0)
-  date.setSeconds(0)
-  date.setMilliseconds(0)
-  const today = date.toISOString();
-  const tomorrow = date.addDays(1).toISOString();
-
-  return { today, tomorrow }
 }
 
 
@@ -45,7 +27,9 @@ function Loadboard(props) {
         const rows = searchTerm ? filteredRecords : [...records];
 
         if(!rows.length){
-          getAllRecords(table);
+          getAllRecords(table).then(data => {
+            return data
+          });
           getAllBrokers().then(data => {
             setBrokers(data)
           })
@@ -55,7 +39,8 @@ function Loadboard(props) {
             history.push(`/vgdt-admin/${table}/${id}`);
           },
           handleChange: (e) => {
-            filterRecords(e.target.value)
+            const fields = ['loadNumber', 'user'];
+            filterRecords(fields, e.target.value)
           },
           handleAdd: () => {
             const updatedLoad = {...LOAD_MODEL};

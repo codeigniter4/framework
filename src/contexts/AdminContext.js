@@ -51,15 +51,21 @@ class AdminContextProvider extends Component {
     this.getAllRecords(table);
   }
 
-  filterRecords(searchTerm) {
-    const result = this.state.records.filter(record => {
-      return record.name.includes(searchTerm)
-    });
+  filterRecords(fields, searchTerm) {
+    if(fields.length) {
+      let results = [];
+      fields.map(field => {
+        results = this.state.records.filter(record => {
+          return record[field] ? record[field].toLowerCase().includes(searchTerm.toLowerCase()) : false
+        });
+        return results
+      })
 
-    this.setState({
-      filteredRecords: [...result],
-      searchTerm
-    })
+      this.setState({
+        filteredRecords: [...results],
+        searchTerm
+      })
+    }
   }
 
   setRecordFromList(id) {

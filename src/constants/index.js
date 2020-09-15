@@ -17,7 +17,9 @@ export const LOAD_MODEL = {
   "layoverPay": "",
   "notes": "",
   "user": "",
-  "lumper": ""
+  "lumper": "",
+  "loadNumber": "",
+  "tonu": "false"
 }
 
 

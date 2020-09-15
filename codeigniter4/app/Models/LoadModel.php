@@ -29,7 +29,9 @@ class LoadModel extends Model
       'notes',
       'user',
       'driver',
-      'lumper'
+      'lumper',
+      'tonu',
+      'loadNumber'
     ];
 
     protected $useTimestamps = false;

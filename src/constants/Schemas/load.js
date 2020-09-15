@@ -33,13 +33,14 @@ export const JSONSchema = {
         "Scheduled",
         "Live",
         "Completed",
-        "TONU"
+        "Billed"
       ],
       "enumNames": [
         "Planning",
         "Scheduled",
         "Live",
-        "Completed"
+        "Completed",
+        "Billed"
       ],
       "default": "Planning"
     },
@@ -135,10 +136,20 @@ export const JSONSchema = {
       "type": "number",
       "default": 0
     },
+    "loadNumber": {
+      "title": "Load#",
+      "type": "string",
+      "default": ""
+    },
     "notes": {
       "title": "Notes",
       "type": "string",
       "default": ""
+    },
+    "tonu": {
+      "type": "boolean",
+      "title": "TONU",
+      "default": "false"
     }
   }
 }

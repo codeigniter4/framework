@@ -1,4 +1,9 @@
 export const loadColumns = [
+  {
+    id: 'loadNumber',
+    label: 'Load#',
+    align: 'center'
+  },
   { id: 'type',
     label: 'Type',
     align: 'center',
@@ -51,11 +56,6 @@ export const loadColumns = [
     align: 'center',
     numeric: false
   },
-  // {
-  //   id: 'notes',
-  //   label: 'Notes',
-  //   align: 'center'
-  // },
   {
     id: 'edit',
     label: '',

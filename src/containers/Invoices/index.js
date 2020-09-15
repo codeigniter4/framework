@@ -28,7 +28,8 @@ function Invoices(props) {
             history.push(`/vgdt-admin/${table}/${id}`);
           },
           handleChange: (e) => {
-            filterRecords(e.target.value)
+            const fields = ['*Customer', '*InvoiceNo'];
+            filterRecords(fields, e.target.value)
           },
           handleAdd: false,
           handleDelete: (ids) => {

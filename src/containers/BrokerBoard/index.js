@@ -28,7 +28,8 @@ function Brokerboard(props) {
             history.push(`/vgdt-admin/${table}/${id}`);
           },
           handleChange: (e) => {
-            filterRecords(e.target.value)
+            const fields = ['name'];
+            filterRecords(fields, e.target.value)
           },
           handleAdd: () => {
             saveRecord(table, BROKER_MODEL).then(data => {

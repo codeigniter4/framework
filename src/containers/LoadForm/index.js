@@ -3,8 +3,9 @@ import Form from '@rjsf/material-ui';
 import { JSONSchema, UISchema } from '../../constants/Schemas/load';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
-import './index.scss';
 import { get } from '../../services/';
+import { generateInvoiceItems } from '../../utils/generateInvoice';
+import './index.scss';
 
 const getAllBrokers = () => {
   const response = get('brokers');
@@ -30,11 +31,17 @@ const addBrokersToSchema = (schema, brokers) => {
 }
 
 const formatLoadData = (formData) => {
-  const fields = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay', 'quickPayPercentage', 'lumper'];
+  const fields_boolean = ['tonu'];
+  const fields_int = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay', 'quickPayPercentage', 'lumper'];
 
-  fields.map(field => {
+  fields_boolean.map(field => {
+    formData[field] = formData[field] !== "0" && formData[field] > 0;
+  })
+
+  fields_int.map(field => {
     formData[field] = parseInt(formData[field])
   })
+
   return formData
 }
 
@@ -54,6 +61,23 @@ function LoadForm(props) {
           })
         }
 
+        const handleChange = (data) => {
+
+          if(record.status !== "Billed" && data.formData.status === "Billed") {
+            const load = data.formData;
+            let broker = {};
+
+            brokers.map(item => {
+              if(item.id === load.broker) {
+                broker = {...item}
+              }
+            })
+
+            const invoiceItems = generateInvoiceItems(load, broker);
+            console.log('Invoice: ', invoiceItems);
+          }
+        }
+
         if(!record.id) {
           getRecord(table, recordId);
           getAllBrokers().then(data => {
@@ -67,7 +91,8 @@ function LoadForm(props) {
               schema={addBrokersToSchema(JSONSchema, brokers)}
               uiSchema={UISchema}
               formData={formatLoadData(record)}
-              onSubmit={(data) => saveLoad(data.formData)}>
+              onSubmit={(data) => saveLoad(data.formData)}
+              onChange={handleChange}>
             </Form>
           </div>
         )
