@@ -17,7 +17,25 @@ function Invoices(props) {
       <AdminContext.Consumer>{(context) => {
         const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord } = context;
         const rows = searchTerm ? filteredRecords : [...records];
-
+        const getInvoiceItemsWithIds = (ids) => {
+          const idsToDelete = [];
+          const invoiceId = [];
+          ids.map(id => {
+            records.map(record => {
+              if(record.id === id) {
+                invoiceId.push(record['*InvoiceNo'])
+              }
+            })
+          })
+          invoiceId.map(id => {
+            records.map(record => {
+              if(record['*InvoiceNo'] === id) {
+                idsToDelete.push(record.id)
+              }
+            })
+          })
+          return idsToDelete
+        }
         if(!rows.length){
           getAllRecords(table).then(data => {
             return data
@@ -33,7 +51,9 @@ function Invoices(props) {
           },
           handleAdd: false,
           handleDelete: (ids) => {
-            deleteRecord(table, ids);
+            const idsToDelete = getInvoiceItemsWithIds(ids)
+            console.log('idsToDelete: ', idsToDelete);
+            // deleteRecord(table, idsToDelete);
           }
         }
         const editButton = (id) => (
@@ -57,9 +77,7 @@ function Invoices(props) {
           ids[id].map((row, idx) => {
              productServices.push(ids[id][idx].ProductService)
           })
-
           ids[id][0].ProductService = productServices.join(', ')
-          console.log('productServices: ', ids[id][0]);
           updateRowData.push(ids[id][0])
         })
 

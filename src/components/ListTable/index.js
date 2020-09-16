@@ -145,11 +145,11 @@ const EnhancedTableToolbar = (props) => {
               <ImportExportIcon/>
             </IconButton>
           </Tooltip>
-          <Tooltip title="Delete">
+          {handleDelete ? <Tooltip title="Delete">
             <IconButton aria-label="delete" onClick={() => handleDeleteItems(selected)}>
               <DeleteIcon/>
             </IconButton>
-          </Tooltip>
+          </Tooltip> : ''}
         </React.Fragment>
 
       ) : ''}
