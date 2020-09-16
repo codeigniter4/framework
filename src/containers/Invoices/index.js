@@ -51,9 +51,8 @@ function Invoices(props) {
           },
           handleAdd: false,
           handleDelete: (ids) => {
-            const idsToDelete = getInvoiceItemsWithIds(ids)
-            console.log('idsToDelete: ', idsToDelete);
-            // deleteRecord(table, idsToDelete);
+            const idsToDelete = getInvoiceItemsWithIds(ids);
+            deleteRecord(table, idsToDelete);
           }
         }
         const editButton = (id) => (

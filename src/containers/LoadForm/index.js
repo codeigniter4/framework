@@ -10,7 +10,6 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './index.scss';
 
 const getAllBrokers = () => {
-  console.log('getAllBrokers getAllBrokers');
   const response = get('brokers');
   return response;
 }
@@ -65,7 +64,6 @@ function LoadForm(props) {
           if(invoices.length) {
             invoices.map(invoice => {
               saveRecord('invoices', invoice)
-              console.log('save invoice: ', invoice);
             })
           }
 
