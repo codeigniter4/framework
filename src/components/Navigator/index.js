@@ -9,6 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import GroupIcon from '@material-ui/icons/Group';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import iconLogo from '../../assets/icon.svg';
 
 
@@ -73,7 +74,7 @@ function Navigator(props) {
     {
       name: 'Invoices',
       route: 'invoices',
-      icon: (<GroupIcon />)
+      icon: (<MonetizationOnIcon />)
     }
   ]
   return (
