@@ -2,7 +2,7 @@ export const JSONSchema = {
   "title": "Broker Profile",
   "description": "",
   "type": "object",
-  "required": [],
+  "required": ['name', 'address', 'Email', 'detentionRate', 'tonuFee'],
   "properties": {
     "name": {
       "type": "string",

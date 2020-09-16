@@ -11,7 +11,7 @@ class InvoiceService {
    public function getRecords()
    {
      $model = new InvoiceModel();
-     $records = $model->findAll();
+     $records = $model->orderBy('id', 'DESC')->findAll();
      return $records;
    }
 

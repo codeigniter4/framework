@@ -18,7 +18,7 @@ class AdminContextProvider extends Component {
     this.saveRecord = this.saveRecord.bind(this);
     this.deleteRecord = this.deleteRecord.bind(this);
     this.filterRecords = this.filterRecords.bind(this);
-    this.setRecordFromList = this.setRecordFromList.bind(this);
+    this.setRecord = this.setRecord.bind(this);
     this.getRecord = this.getRecord.bind(this);
     this.addRecord = this.addRecord.bind(this);
     this.updateRecord = this.updateRecord.bind(this);
@@ -34,7 +34,7 @@ class AdminContextProvider extends Component {
   async saveRecord(table, record) {
     const response = await save(table, record);
     this.setState({
-      record: {...response}
+      record: {...record}
     })
     return response
   }
@@ -68,12 +68,9 @@ class AdminContextProvider extends Component {
     }
   }
 
-  setRecordFromList(id) {
-    const result = this.state.records.filter(record => {
-      return record.id.includes(id)
-    });
+  setRecord(record, callback) {
     this.setState({
-      record: {...result}
+      record: {...record}
     })
   }
 
@@ -82,6 +79,7 @@ class AdminContextProvider extends Component {
     this.setState({
       record: {...response}
     });
+    return response
   }
 
   addRecord(record) {
@@ -109,7 +107,8 @@ class AdminContextProvider extends Component {
           saveRecord: this.saveRecord,
           deleteRecord: this.deleteRecord,
           updateRecord: this.updateRecord,
-          getAllRecords: this.getAllRecords
+          getAllRecords: this.getAllRecords,
+          setRecord: this.setRecord
         }
       }>
         {this.props.children}

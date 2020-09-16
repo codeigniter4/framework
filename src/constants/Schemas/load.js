@@ -2,7 +2,20 @@ export const JSONSchema = {
   "title": "Load Details",
   "description": "",
   "type": "object",
-  "required": [],
+  "required": [
+    'type',
+    'status',
+    'pickupDate',
+    'dropoffDate',
+    'pickupLocation',
+    'dropoffLocation',
+    'loadedMiles',
+    'deadHead',
+    'rate',
+    'user',
+    'driver',
+    'broker'
+  ],
   "properties": {
     "user": {
       "title": "Dispatch",

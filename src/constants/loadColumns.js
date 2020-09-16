@@ -1,18 +1,18 @@
 export const loadColumns = [
-  {
-    id: 'loadNumber',
-    label: 'Load#',
-    align: 'center'
+  { id: 'status', // should generate scheduled, live, completed based on the start and end times
+    label: 'Status',
+    align: 'center',
+    numeric: false
   },
   { id: 'type',
     label: 'Type',
     align: 'center',
     numeric: false
   },
-  { id: 'status', // should generate scheduled, live, completed based on the start and end times
-    label: 'Status',
-    align: 'center',
-    numeric: false
+  {
+    id: 'loadNumber',
+    label: 'Load#',
+    align: 'center'
   },
   {
     id: 'pickupDate',

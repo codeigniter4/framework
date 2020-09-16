@@ -5,9 +5,12 @@ import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
 import { get } from '../../services/';
 import { generateInvoiceItems } from '../../utils/generateInvoice';
+import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './index.scss';
 
 const getAllBrokers = () => {
+  console.log('getAllBrokers getAllBrokers');
   const response = get('brokers');
   return response;
 }
@@ -41,58 +44,84 @@ const formatLoadData = (formData) => {
   fields_int.map(field => {
     formData[field] = parseInt(formData[field])
   })
-
   return formData
 }
+
 
 
 function LoadForm(props) {
   const table = 'loads';
   const { history, match } = props;
   const [brokers, setBrokers] = useState([]);
+  const [invoices, setinvoices] = useState([]);
+  const [disabled, setdisabled] = useState(false);
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const { record, saveRecord, getRecord } = context;
+        const { record, saveRecord, getRecord, setRecord } = context;
         const recordId = match.params.id;
         const saveLoad = (load) => {
+
+          if(invoices.length) {
+            invoices.map(invoice => {
+              saveRecord('invoices', invoice)
+              console.log('save invoice: ', invoice);
+            })
+          }
+
           saveRecord(table, load).then( data => {
             history.push(`/vgdt-admin/${table}`);
           })
+
         }
 
         const handleChange = (data) => {
+          const load = data.formData;
+          let broker = {};
+          brokers.map(item => {
+            if(item.id === load.broker) {
+              broker = {...item}
+            }
+          })
 
-          if(record.status !== "Billed" && data.formData.status === "Billed") {
-            const load = data.formData;
-            let broker = {};
-
-            brokers.map(item => {
-              if(item.id === load.broker) {
-                broker = {...item}
-              }
-            })
-
+          if(record.status && record.status !== "Billed" && data.formData.status === "Billed" && !disabled) {
             const invoiceItems = generateInvoiceItems(load, broker);
-            console.log('Invoice: ', invoiceItems);
+            setdisabled(!disabled);
+            setRecord(load);
+            setinvoices(invoiceItems);
           }
         }
 
         if(!record.id) {
-          getRecord(table, recordId);
+          getRecord(table, recordId).then(data => {
+            const isBilled = data.status === "Billed";
+            setdisabled(isBilled)
+          });
           getAllBrokers().then(data => {
             setBrokers(data)
           })
         }
 
+        const handleLockToggle = (e) => {
+          e.preventDefault();
+          setdisabled(!disabled)
+        }
+
         return (
           <div className="Load_Form">
+            <div className="Load_Form_Lock" onClick={handleLockToggle}>
+              {disabled ?
+                <LockIcon/> :
+                <LockOpenIcon/>
+              }
+            </div>
             <Form
               schema={addBrokersToSchema(JSONSchema, brokers)}
               uiSchema={UISchema}
               formData={formatLoadData(record)}
               onSubmit={(data) => saveLoad(data.formData)}
-              onChange={handleChange}>
+              onChange={handleChange}
+              disabled={disabled}>
             </Form>
           </div>
         )

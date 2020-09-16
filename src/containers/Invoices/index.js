@@ -36,17 +36,35 @@ function Invoices(props) {
             deleteRecord(table, ids);
           }
         }
-        // const editButton = (id) => (
-        //     <Button color="primary" onClick={() => actions.handleClick(id)}>Details</Button>
-        // );
-        //
-        // const updateRowData = rows.map(row => {
-        //   const newRow = {...row};
-        //   newRow.edit = editButton(row.id);
-        //   return newRow;
-        // })
+        const editButton = (id) => (
+            <Button color="primary" onClick={() => actions.handleClick(id)}>Details</Button>
+        );
+
+        const ids = {};
+        const updateRowData = [];
+        rows.map(row => {
+          ids[row['*InvoiceNo']] = ids[row['*InvoiceNo']] && ids[row['*InvoiceNo']].length ? ids[row['*InvoiceNo']] : []
+          if(ids[row['*InvoiceNo']]) {
+            ids[row['*InvoiceNo']].push(row);
+          }
+          const newRow = {...row};
+          newRow.edit = editButton(row.id);
+          newRow.ServiceDate = new Date(row.ServiceDate).toLocaleString();
+          return newRow;
+        })
+        Object.keys(ids).map(id => {
+          const productServices = [];
+          ids[id].map((row, idx) => {
+             productServices.push(ids[id][idx].ProductService)
+          })
+
+          ids[id][0].ProductService = productServices.join(', ')
+          console.log('productServices: ', ids[id][0]);
+          updateRowData.push(ids[id][0])
+        })
+
         return (
-          <ListView history={history} actions={actions} rows={rows} columns={invoiceColumns}/>
+          <ListView history={history} actions={actions} rows={updateRowData} columns={invoiceColumns}/>
         )
       }}
       </AdminContext.Consumer>

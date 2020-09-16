@@ -3,14 +3,15 @@ import { INVOICE_MODEL } from '../constants';
 import { getTodayAndTommorrowDates, addDaysToToday } from './adjustDates'
 
 const getItemAmount = (load, broker, service) => {
-  const { rate, detentionPay, lumper } = load;
+  const { rate, detentionPay, lumper, tonu } = load;
   const { quickPayPercentage, detentionRate, tonuFee } = broker;
   switch (service) {
     case 'TONU':
       return parseInt(tonuFee)
       break;
     case 'QUICKPAY':
-      const quickPayFee = rate * (quickPayPercentage/100);
+      const fee = tonu ? tonuFee : rate
+      const quickPayFee = fee * (quickPayPercentage/100);
       return -quickPayFee
       break;
     case 'DETENTION':
@@ -20,7 +21,6 @@ const getItemAmount = (load, broker, service) => {
     case 'LUMPER CHARGE':
       return lumper;
       break;
-
     default: return rate
   }
 }
@@ -48,7 +48,7 @@ const getItem = (load, broker, service) => {
     "*ItemAmount": itemAmount
   }
 
-  return item;
+  return itemAmount ? item : false;
 }
 
 

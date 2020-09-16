@@ -1,0 +1,100 @@
+Arguments: 
+  /Users/dxc2762/.nvm/versions/node/v8.9.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add @material-ui/lab/ToggleButton
+
+PATH: 
+  /Users/dxc2762/google-cloud-sdk/bin:/Users/dxc2762/.nvm/versions/node/v8.9.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  8.9.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@material-ui%2flab/ToggleButton: Request "https://registry.yarnpkg.com/@material-ui%2flab/ToggleButton" returned a 405
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66996:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
+
+npm manifest: 
+  {
+    "name": "vgdt-admin",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@babel/plugin-syntax-class-properties": "^7.10.4",
+      "@babel/plugin-transform-runtime": "^7.10.5",
+      "@date-io/date-fns": "1.x",
+      "@fortawesome/fontawesome-free": "^5.13.1",
+      "@material-ui/core": "^4.11.0",
+      "@material-ui/icons": "^4.9.1",
+      "@material-ui/pickers": "^3.2.10",
+      "@rjsf/core": "^2.4.0",
+      "@rjsf/material-ui": "^2.4.0",
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/react": "^9.3.2",
+      "@testing-library/user-event": "^7.1.2",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^8.1.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-latest": "^6.24.1",
+      "babel-preset-react": "^6.24.1",
+      "bootstrap": "^4.5.0",
+      "chart.js": "^2.9.3",
+      "css-loader": "^4.0.0",
+      "date-fns": "^2.15.0",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "html-webpack-plugin": "^4.3.0",
+      "mini-css-extract-plugin": "^0.9.0",
+      "node-sass": "^4.14.1",
+      "react": "^16.13.1",
+      "react-chartjs-2": "^2.9.0",
+      "react-dom": "^16.13.1",
+      "react-router-dom": "^5.2.0",
+      "react-scripts": "3.4.1",
+      "sass-loader": "^9.0.2",
+      "style-loader": "^1.2.1",
+      "zip-a-folder": "0.0.12"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "yarn run clean && webpack && node utilities/ZipFolder.js",
+      "clean": "rm -rf ./build/public/vgdt-admin && rm -rf ./build/public/api.zip && rm -rf ./build/public/assets.zip && rm -rf ./build/public/vgdt-admin.zip && rm -rf ./build/non_public/codeigniter4/codeigniter4.zip",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "webpack-cli": "^3.3.12"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
