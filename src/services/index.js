@@ -32,3 +32,18 @@ export const deleteById = async (type, id) => {
   const json = await response.json();
   return json;
 }
+
+
+export const exportToCSV = async (type, items) => {
+  const response = await fetch(`http://vanguard-trucking.com/api/utils/export`, {
+    method: 'post',
+    body: JSON.stringify(items)
+  })
+  const csv = await response.blob().then(blob => {
+    const file = window.URL.createObjectURL(blob);
+    console.log(file);
+    window.location.assign(file);
+  })
+  console.log(csv);
+  return csv;
+}

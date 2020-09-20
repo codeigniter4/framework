@@ -1,0 +1,127 @@
+CRITICAL - 2020-09-16 23:22:15 --> Cannot use object of type stdClass as array
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(60): App\Controllers\getRows(Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:22:54 --> Object of class stdClass could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(61): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/dxc2762/...', 61, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:23:17 --> Object of class stdClass could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(65): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/dxc2762/...', 65, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:23:49 --> Object of class stdClass could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(65): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/dxc2762/...', 65, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:24:17 --> Object of class stdClass could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(65): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/dxc2762/...', 65, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:24:46 --> Object of class stdClass could not be converted to string
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(41): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/dxc2762/...', 41, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(60): App\Controllers\getRows(Array)
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:25:41 --> fputcsv() expects parameter 2 to be array, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fputcsv() expec...', '/Users/dxc2762/...', 65, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(65): fputcsv(Resource id #74, Object(stdClass))
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:28:55 --> Call to a member function result_array() on array
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-09-16 23:29:07 --> Can't use method return value in write context
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-09-16 23:32:23 --> syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/export')
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/export')
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:35:08 --> syntax error, unexpected '}'
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/export')
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/export')
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:47:26 --> fputcsv() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fputcsv() expec...', '/Users/dxc2762/...', 69, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(69): fputcsv(Resource id #74, NULL)
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:48:34 --> fputcsv() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fputcsv() expec...', '/Users/dxc2762/...', 69, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(69): fputcsv(Resource id #74, NULL)
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:49:01 --> fputcsv() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fputcsv() expec...', '/Users/dxc2762/...', 69, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(69): fputcsv(Resource id #74, NULL)
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:49:28 --> fputcsv() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fputcsv() expec...', '/Users/dxc2762/...', 69, Array)
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/app/Controllers/Utils.php(69): fputcsv(Resource id #74, NULL)
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->export()
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-09-16 23:51:29 --> syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/export')
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/export')
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:51:39 --> syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/export')
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/export')
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-09-16 23:51:45 --> syntax error, unexpected ';', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+#0 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/export')
+#1 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/export')
+#2 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/dxc2762/Documents/gitHub/vgdt/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

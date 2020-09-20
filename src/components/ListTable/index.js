@@ -120,9 +120,14 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const { numSelected, handleDelete, selected } = props;
+  const { numSelected, handleDelete, selected, handleExport } = props;
   const handleDeleteItems = (ids) => {
     handleDelete(ids);
+    props.setSelected([]);
+  }
+
+  const handleExportItems = (ids) => {
+    handleExport(ids);
     props.setSelected([]);
   }
 
@@ -141,7 +146,7 @@ const EnhancedTableToolbar = (props) => {
       {numSelected > 0 ? (
         <React.Fragment>
           <Tooltip title="Export">
-            <IconButton aria-label="export">
+            <IconButton aria-label="export" onClick={() => handleExportItems(selected)}>
               <ImportExportIcon/>
             </IconButton>
           </Tooltip>
@@ -195,7 +200,7 @@ export default function EnhancedTable(props) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { rows, handleDelete } = props;
+  const { rows, handleDelete, handleExport } = props;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -243,7 +248,7 @@ export default function EnhancedTable(props) {
 
   return (
     <div className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} handleDelete={handleDelete} selected={selected} setSelected={setSelected}/>
+        <EnhancedTableToolbar numSelected={selected.length} handleDelete={handleDelete} handleExport={handleExport} selected={selected} setSelected={setSelected}/>
         <TableContainer className={classes.tableContainter}>
           <Table
             className={classes.table}

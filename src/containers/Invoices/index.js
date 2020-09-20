@@ -42,9 +42,10 @@ function Invoices(props) {
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord } = context;
+        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord, exportRecordToCSV } = context;
         const rows = searchTerm ? filteredRecords : [...records];
         const updateRowData = rows.length ? getRows(rows) : [];
+
         const getInvoiceItemsWithIds = (ids) => {
           const idsToDelete = [];
           const invoiceId = [];
@@ -64,6 +65,7 @@ function Invoices(props) {
           })
           return idsToDelete
         }
+
         if(!rows.length){
           getAllRecords(table).then(data => {
             return data
@@ -82,6 +84,18 @@ function Invoices(props) {
           handleDelete: (ids) => {
             const idsToDelete = getInvoiceItemsWithIds(ids);
             deleteRecord(table, idsToDelete);
+          },
+          handleExport: (ids) => {
+            const idsToExport = getInvoiceItemsWithIds(ids);
+            const recordsToExport = records.filter(record => {
+              return idsToExport.includes(record.id);
+            }).reverse()
+            console.log(idsToExport, recordsToExport);
+            exportRecordToCSV(table, recordsToExport).then(data => {
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+            })
           }
         }
 
