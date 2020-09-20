@@ -39,7 +39,7 @@ function Loadboard(props) {
             history.push(`/vgdt-admin/${table}/${id}`);
           },
           handleChange: (e) => {
-            const fields = ['loadNumber', 'user'];
+            const fields = ['loadNumber', 'user', 'broker'];
             filterRecords(fields, e.target.value)
           },
           handleAdd: () => {

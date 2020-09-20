@@ -17,33 +17,30 @@ class Utils extends BaseController
 	 $json = $request->getJSON();
 
 
-	 function getheaders($json) {
+	 function getData($json) {
+
 		 $headers = array();
+		 $rows = array();
 		 foreach ($json as $key => $value)
 		 {
+			 $row = array();
 			 foreach ($json[$key] as $k => $v) {
 				 if(in_array($k, $headers) == 0) {
 					 array_push($headers, $k);
 				 }
+				 array_push($row, $v);
 
 			 }
+			 array_push($rows, $row);
 		 }
-		 return $headers;
-	 }
 
-	 function getRows($json) {
-		 $rows = array();
-			foreach ($json as $key => $value)
-	 		 {
-				 $row = array();
-	 			 foreach ($json[$key] as $k => $v)
-	 			 {
-					 // echo $v;
-					 	array_push($rows, $v);
-	 			 }
-	 		 }
 
-		 return $rows;
+		 $data = (object) [
+		    'headers' => $headers,
+		    'rows' => $rows,
+		  ];
+
+		 return $data;
 	 }
 
 
@@ -56,11 +53,18 @@ class Utils extends BaseController
 
 					$file = fopen('php://output', 'w');
 
-					$headers = getheaders($json);
-					$rows = getRows($json);
+					$data = getData($json);
+					$headers = $data->headers;
+					$rows = $data->rows;
 
 					fputcsv($file, $headers);
-					fputcsv($file, $rows);
+					// fputcsv($file, $rows[0]);
+					foreach ($rows as $key => $value)
+		 		 	{
+						fputcsv($file, $value);
+					}
+
+
 					fclose($file);
 					exit;
 					break;

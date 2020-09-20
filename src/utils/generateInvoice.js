@@ -31,6 +31,7 @@ const getItem = (load, broker, service) => {
   const { today, tomorrow } = getTodayAndTommorrowDates();
   const dueDate = addDaysToToday(parseInt(paymentTerms));
   const itemAmount = getItemAmount(load, broker, service);
+  console.log('service: ', service);
   const item = {
     ...INVOICE_MODEL,
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
@@ -55,7 +56,7 @@ const getItem = (load, broker, service) => {
 export const generateInvoiceItems = (load, broker) => {
   const { tonu, detentionPay, layoverPay, lumper } = load;
   const { quickPay } = broker;
-  const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
+  const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'Transportation';
   const invoiceItem = getItem(load, broker, service);
   const quickPayItem = quickPay !== "0" && quickPay > 0 ? getItem(load, broker, 'QUICKPAY') : false;
   const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;

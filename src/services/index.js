@@ -35,7 +35,7 @@ export const deleteById = async (type, id) => {
 
 
 export const exportToCSV = async (type, items) => {
-  const response = await fetch(`http://vanguard-trucking.com/api/utils/export`, {
+  const response = await fetch(`http://localhost:8888/public/api/utils/export`, {
     method: 'post',
     body: JSON.stringify(items)
   })
