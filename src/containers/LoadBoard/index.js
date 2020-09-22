@@ -54,7 +54,8 @@ function Loadboard(props) {
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
-          }
+          },
+          handleExport: false
         }
         const editButton = (id) => (
             <Button color="primary" onClick={() => actions.handleClick(id)}>Details</Button>
