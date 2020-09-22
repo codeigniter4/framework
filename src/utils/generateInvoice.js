@@ -31,7 +31,7 @@ const getItem = (load, broker, service) => {
   const { today, tomorrow } = getTodayAndTommorrowDates();
   const dueDate = paymentTerms ? addDaysToToday(parseInt(paymentTerms)) : 30;
   const itemAmount = getItemAmount(load, broker, service);
-  const description = service === 'Transportation' ? `${pickupLocation} - ${dropoffLocation}` : service;
+  const description = service === 'Transportation' || service === 'TONU' ? `${pickupLocation} - ${dropoffLocation}` : service;
   const item = {
     ...INVOICE_MODEL,
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
@@ -62,8 +62,8 @@ export const generateInvoiceItems = (load, broker) => {
   const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;
   // const layoverPayItem = layoverPay ? getItem(load, broker, 'LAYOVER') : false;
   const lumperItem = lumper !== "0" && lumper > 0 ? getItem(load, broker, 'LUMPER CHARGE') : false;
-  const items = [invoiceItem, quickPayItem, detentionPayItem, lumperItem]
-  const invoiceItems = []
+  const items = [quickPayItem, detentionPayItem, lumperItem]
+  const invoiceItems = [invoiceItem]
   items.map(item => {
     if(item) {
       invoiceItems.push(item);

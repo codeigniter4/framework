@@ -25,7 +25,6 @@ const getRows = (rows, actions) => {
     return services.join(', ');
   }
   const newRows = [];
-  console.log('mappedInvoiceNo: ', mappedInvoiceNo);
   Object.keys(mappedInvoiceNo).map(id => {
     const productServices = formatProductServices(mappedInvoiceNo[id].reverse());
     const mergedRow = {
