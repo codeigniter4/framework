@@ -51,11 +51,15 @@ export const exportToCSV = async (type, items) => {
     method: 'post',
     body: JSON.stringify(items)
   })
-  const csv = await response.blob().then(blob => {
-    const file = window.URL.createObjectURL(blob);
-    console.log(file);
-    window.location.assign(file);
-  })
-  console.log(csv);
+  // const csv = await response.blob().then(blob => {
+  //   const file = window.URL.createObjectURL(blob);
+  //   const encodedUri = encodeURI(file)
+  //   window.location.assign(encodedUri);
+  // });
+  const csv = await response.text()
+  .then(text => {
+    console.log(response);
+    window.open("data:text/csv;charset=utf-8," + escape(text), "_blank", true)
+  });
   return csv;
 }
