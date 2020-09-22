@@ -31,7 +31,8 @@ const getItem = (load, broker, service) => {
   const { today, tomorrow } = getTodayAndTommorrowDates();
   const dueDate = addDaysToToday(parseInt(paymentTerms));
   const itemAmount = getItemAmount(load, broker, service);
-  console.log('service: ', service);
+  const description = service === 'Transportation' ? `${pickupLocation} - ${dropoffLocation}` : service;
+  console.log('dueDate: ', dueDate);
   const item = {
     ...INVOICE_MODEL,
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
@@ -42,7 +43,7 @@ const getItem = (load, broker, service) => {
     "*InvoiceDate": today, // On Completed Load
     "*DueDate": dueDate, // *InvoiceDate + Terms
     "Terms": `NET ${paymentTerms}`, // Broker
-    "ItemDescription": `${pickupLocation} - ${dropoffLocation}`, // Load Origin - Destination
+    "ItemDescription": description, 
     "ProductService": service, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
     "ItemQuantity": "1",
     "ItemRate": "",

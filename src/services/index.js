@@ -1,3 +1,5 @@
+import { INVOICE_DATES } from '../constants/';
+
 export const get = async (type) => {
   const response = await fetch(`http://vanguard-trucking.com/api/${type}`)
   const json = await response.json();
@@ -33,9 +35,19 @@ export const deleteById = async (type, id) => {
   return json;
 }
 
+const formatItems = (items) => {
+  const records = INVOICE_DATES.map(field => {
+    return items.map(item => {
+      item[field] = new Date(item[field]).toLocaleDateString()
+      return item;
+    })
+  })
+  return records;
+}
 
 export const exportToCSV = async (type, items) => {
-  const response = await fetch(`http://localhost:8888/public/api/utils/export`, {
+  const records = formatItems(items);
+  const response = await fetch(`http://vanguard-trucking.com/api/utils/export`, {
     method: 'post',
     body: JSON.stringify(items)
   })

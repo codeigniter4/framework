@@ -18,31 +18,34 @@ const getRows = (rows, actions) => {
     return map
   },{});
 
-  console.log('mappedInvoiceNo', mappedInvoiceNo);
-
   const formatProductServices = (records) => {
     const services = records.map(record => {
       return record.ProductService
     });
     return services.join(', ');
   }
-  const newRows = Object.assign([...rows, Object.keys(mappedInvoiceNo).filter(id => {
-    const productServices = formatProductServices(mappedInvoiceNo[id]);
-    console.log('productServices: ', productServices, mappedInvoiceNo[id][0]);
-    return {...mappedInvoiceNo[id][0], ProductService: productServices}
-  })])
+  const newRows = [];
 
-  console.log('newRows: ', newRows);
+  Object.keys(mappedInvoiceNo).map(id => {
+    const productServices = formatProductServices(mappedInvoiceNo[id]);
+    const mergedRow = {
+      ...mappedInvoiceNo[id][0],
+      ProductService: productServices
+    }
+    newRows.push(mergedRow)
+    return mergedRow
+  })
 
   const updateRowData = newRows.map(row => {
     const newRow = {...row};
     newRow.edit = editButton(row.id);
     newRow.ServiceDate = new Date(row.ServiceDate).toLocaleString();
     return newRow;
-  })
-  // console.log('updateRowData: ', updateRowData);
-  return [...updateRowData];
+  });
+  return updateRowData;
 }
+
+
 function Invoices(props) {
   const table = 'invoices';
   const { history } = props;
@@ -57,7 +60,7 @@ function Invoices(props) {
           ids.map(id => {
             records.filter(record => {
               if(record.id === id) {
-                invoiceId.push()
+                invoiceId.push(record['*InvoiceNo'])
               }
             })
           })
@@ -92,25 +95,21 @@ function Invoices(props) {
           },
           handleExport: (ids) => {
             const idsToExport = getInvoiceItemsWithIds(ids);
-            console.log('records: ', records);
             const recordsToExport = records.filter(record => {
               return idsToExport.includes(record.id);
             }).reverse()
-            console.log(idsToExport, recordsToExport);
-            // exportRecordToCSV(table, recordsToExport).then(data => {
-            //   console.log(data);
-            // }).catch(e => {
-            //   console.log(e);
-            // })
+            exportRecordToCSV(table, recordsToExport).then(data => {
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+            })
           }
         };
 
-        // const updateRowData = rows.length ? getRows(rows, actions) : [];
-        // getRows(rows, actions);
-        // console.log('records: ', records[0]);
+        const updateRowData = rows.length ? getRows(rows, actions) : [];
 
         return (
-          <ListView history={history} actions={actions} rows={rows} columns={invoiceColumns}/>
+          <ListView history={history} actions={actions} rows={updateRowData} columns={invoiceColumns}/>
         )
       }}
       </AdminContext.Consumer>
