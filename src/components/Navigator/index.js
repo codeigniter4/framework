@@ -10,6 +10,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import GroupIcon from '@material-ui/icons/Group';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import PeopleIcon from '@material-ui/icons/People';
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import iconLogo from '../../assets/icon.svg';
 
 
@@ -75,6 +77,16 @@ function Navigator(props) {
       name: 'Invoices',
       route: 'invoices',
       icon: (<MonetizationOnIcon />)
+    },
+    {
+      name: 'Users',
+      route: 'users',
+      icon: (<SupervisedUserCircleIcon />)
+    },
+    {
+      name: 'Drivers',
+      route: 'drivers',
+      icon: (<PeopleIcon />)
     }
   ]
   return (

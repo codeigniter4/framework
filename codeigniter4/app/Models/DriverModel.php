@@ -2,27 +2,37 @@
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class DriverModel extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table      = 'users';
+    protected $table      = 'empinfo';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
     protected $allowedFields = [
-      'username',
       'firstname',
       'lastname',
+      'position',
+      'title',
+      'employer',
+      'employment',
+      'pay_structure',
+      'compensation',
+      'phone_number',
       'email',
-      'password',
-      'role',
-      'company',
-      'create_datetime',
-      'last_login',
-      'active',
-      'status'
+      'address',
+      'city',
+      'state',
+      'zip',
+      'gender',
+      'dob',
+      'hire_date',
+      'cdl_num',
+      'cdl_state',
+      'cdl_exp',
+      'med_cert_exp'
     ];
 
     protected $useTimestamps = false;

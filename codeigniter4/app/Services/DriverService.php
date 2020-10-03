@@ -1,8 +1,8 @@
 <?php namespace App\Services;
-use App\Models\UserModel;
+use App\Models\DriverModel;
 
-// Get User info takes connection and sql query
-class UserService {
+// Get Driver info takes connection and sql query
+class DriverService {
   function __construct()
    {
 
@@ -10,14 +10,14 @@ class UserService {
 
    public function getRecords()
    {
-     $model = new UserModel();
+     $model = new DriverModel();
      $records = $model->findAll();
      return $records;
    }
 
    public function saveRecord($data)
    {
-     $model = new UserModel();
+     $model = new DriverModel();
      $model->save($data);
      $record = $model->find($data);
      return $record;
@@ -25,14 +25,14 @@ class UserService {
 
    public function getRecord($record_id)
    {
-     $model = new UserModel();
+     $model = new DriverModel();
      $record = $model->find($record_id);
      return $record;
    }
 
    public function deleteRecordById($record_id)
    {
-     $model = new UserModel();
+     $model = new DriverModel();
      $record = $model->find($record_id);
      $model->delete([$record_id]);
 

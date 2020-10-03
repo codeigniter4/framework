@@ -62,6 +62,45 @@ export const BROKER_MODEL = {
   "tonuFee": "250"
 }
 
+
+export const USER_MODEL = {
+  username: "",
+  firstname: "",
+  lastname: "",
+  email: "",
+  password: "",
+  role: "",
+  company: "",
+  create_datetime: "",
+  last_login: "",
+  active: "",
+  status: ""
+}
+
+export const DRIVER_MODEL = {
+    "firstname": "",
+    "lastname": "",
+    "position": "",
+    "title": "",
+    "employer": "",
+    "employment": "",
+    "pay_structure": "",
+    "compensation": "",
+    "phone_number": "",
+    "email": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "gender": "",
+    "dob": "",
+    "hire_date": "",
+    "cdl_num": "",
+    "cdl_state": "",
+    "cdl_exp": "",
+    "med_cert_exp": ""
+}
+
 export const INVOICE_MODEL = {
     "*InvoiceNo": "", // 2018 +
     "*Customer": "", // Broker Name

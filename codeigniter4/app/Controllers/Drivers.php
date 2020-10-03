@@ -1,11 +1,11 @@
 <?php namespace App\Controllers;
-use App\Services\UserService;
+use App\Services\DriverService;
 
-class Users extends BaseController
+class Drivers extends BaseController
 {
 	public function index()
 	{
-		$Service = new UserService();
+		$Service = new DriverService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -27,7 +27,7 @@ class Users extends BaseController
 
 	public function id($id)
 	{
-		$Service = new UserService();
+		$Service = new DriverService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -45,7 +45,7 @@ class Users extends BaseController
 
 	public function delete($id)
 	{
-		$Service = new UserService();
+		$Service = new DriverService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();

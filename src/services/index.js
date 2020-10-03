@@ -1,20 +1,23 @@
+import { getEnv } from '../config';
 import { INVOICE_DATES } from '../constants/';
 
+const env = getEnv('local'); // or prod
+
 export const get = async (type) => {
-  const response = await fetch(`http://vanguard-trucking.com/api/${type}`)
+  const response = await fetch(`${env}/${type}`)
   const json = await response.json();
   return json;
 }
 
 
 export const getByID = async (type, id) => {
-  const response = await fetch(`http://vanguard-trucking.com/api/${type}/id/${id}`);
+  const response = await fetch(`${env}/${type}/id/${id}`);
   const json = await response.json();
   return json;
 }
 
 export const save = async (type, item) => {
-  const response = await fetch(`http://vanguard-trucking.com/api/${type}`, {
+  const response = await fetch(`${env}/${type}`, {
     method: 'post',
     body: JSON.stringify(item)
   })
@@ -28,7 +31,7 @@ export const save = async (type, item) => {
 
 
 export const deleteById = async (type, id) => {
-  const response = await fetch(`http://vanguard-trucking.com/api/${type}/delete/${id}`, {
+  const response = await fetch(`${env}/${type}/delete/${id}`, {
     method: 'post'
   });
   const json = await response.json();
@@ -47,7 +50,7 @@ const formatItems = (items) => {
 
 export const exportToCSV = async (type, items) => {
   const records = formatItems(items);
-  const response = await fetch(`http://vanguard-trucking.com/api/utils/export`, {
+  const response = await fetch(`${env}/utils/export`, {
     method: 'post',
     body: JSON.stringify(items)
   })
