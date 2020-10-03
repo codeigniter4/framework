@@ -62,12 +62,6 @@ export const generateInvoiceItems = (load, broker) => {
   const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;
   // const layoverPayItem = layoverPay ? getItem(load, broker, 'LAYOVER') : false;
   const lumperItem = lumper !== "0" && lumper > 0 ? getItem(load, broker, 'LUMPER CHARGE') : false;
-  const items = [quickPayItem, detentionPayItem, lumperItem]
-  const invoiceItems = [invoiceItem]
-  items.map(item => {
-    if(item) {
-      invoiceItems.push(item);
-    }
-  })
+  const invoiceItems = [invoiceItem, detentionPayItem, lumperItem, quickPayItem];
   return invoiceItems;
 }
