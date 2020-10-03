@@ -5,7 +5,7 @@ class Utils extends BaseController
 {
 	public function index()
  {
-	echo 'Hello';
+	echo 'nothing here!';
  }
 
  public function export()
@@ -58,7 +58,6 @@ class Utils extends BaseController
 					$rows = $data->rows;
 
 					fputcsv($file, $headers);
-					// fputcsv($file, $rows[0]);
 					foreach ($rows as $key => $value)
 		 		 	{
 						fputcsv($file, $value);
