@@ -12,6 +12,8 @@ import GroupIcon from '@material-ui/icons/Group';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import PeopleIcon from '@material-ui/icons/People';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import BusinessIcon from '@material-ui/icons/Business';
 import iconLogo from '../../assets/icon.svg';
 
 
@@ -71,7 +73,7 @@ function Navigator(props) {
     {
       name: 'Brokers',
       route: 'brokers',
-      icon: (<GroupIcon />)
+      icon: (<BusinessIcon />)
     },
     {
       name: 'Invoices',
@@ -87,6 +89,11 @@ function Navigator(props) {
       name: 'Drivers',
       route: 'drivers',
       icon: (<PeopleIcon />)
+    },
+    {
+      name: 'Equipment',
+      route: 'equipment',
+      icon: (<LocalShippingIcon />)
     }
   ]
   return (
@@ -99,7 +106,7 @@ function Navigator(props) {
         <img
           src={iconLogo}
           width={100}
-          style={{"margin":"50px"}}
+          style={{"margin":"10px 50px"}}
           spacing={1}
           alt="Vanguard Trucking llc icon"
         />

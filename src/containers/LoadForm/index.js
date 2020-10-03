@@ -24,6 +24,11 @@ const getAllUsers = () => {
   return response;
 }
 
+const getAllEquipment = () => {
+  const response = get('equipment');
+  return response;
+}
+
 const addItemsToSchema = (schema, items, item, field) => {
   const newItem = schema.properties[item];
   const updatedSchema = {...schema,
@@ -64,6 +69,7 @@ function LoadForm(props) {
   const [brokers, setBrokers] = useState([]);
   const [drivers, setDrivers] = useState([]);
   const [users, setUsers] = useState([]);
+  const [equipment, setEquipment] = useState([]);
   const [invoices, setinvoices] = useState([]);
   const [disabled, setdisabled] = useState(false);
   return (
@@ -116,6 +122,10 @@ function LoadForm(props) {
           getAllUsers().then(data => {
             setUsers(data)
           })
+          getAllEquipment().then(data => {
+            setEquipment(data);
+          })
+
         }
 
         const handleLockToggle = (e) => {
@@ -126,7 +136,9 @@ function LoadForm(props) {
         const updatedSchema = {
           ...addItemsToSchema(JSONSchema, brokers, 'broker', 'name'),
           ...addItemsToSchema(JSONSchema, drivers, 'driver', 'lastname'),
-          ...addItemsToSchema(JSONSchema, users, 'user', 'username')
+          ...addItemsToSchema(JSONSchema, users, 'user', 'username'),
+          ...addItemsToSchema(JSONSchema, equipment, 'tractor', 'unit_num'),
+          ...addItemsToSchema(JSONSchema, equipment, 'trailer', 'unit_num')
         }
 
         return (

@@ -123,15 +123,15 @@ export const JSONSchema = {
     "tractor": {
       "title": "Tractor",
       "type": "string",
-      "enum": ["1001"],
-      "enumNames": ["Baby Jordyn"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "trailer": {
       "title": "Trailer",
       "type": "string",
-      "enum": ["557612"],
-      "enumNames": ["557612"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "detentionPay": {

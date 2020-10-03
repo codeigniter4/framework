@@ -65,6 +65,19 @@ export const BROKER_MODEL = {
   "tonuFee": "250"
 }
 
+export const EQUIPMENT_MODEL = {
+  "unit_num": "",
+  "type": "",
+  "sub_type": "",
+  "year": "",
+  "make": "",
+  "model": "",
+  "vin": "",
+  "plate": "",
+  "irp": "",
+  "unladen_wt": "",
+}
+
 
 export const USER_MODEL = {
   username: "",
