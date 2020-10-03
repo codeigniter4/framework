@@ -15,11 +15,16 @@ const getAllBrokers = () => {
   return response;
 }
 
+const getAllUsers = () => {
+  const response = get('users');
+  return response;
+}
 
 function Loadboard(props) {
   const table = 'loads';
   const { history } = props;
   const [brokers, setBrokers] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
@@ -32,6 +37,9 @@ function Loadboard(props) {
           });
           getAllBrokers().then(data => {
             setBrokers(data)
+          })
+          getAllUsers().then(data => {
+            setUsers(data)
           })
         }
         const actions = {
@@ -68,6 +76,12 @@ function Loadboard(props) {
           brokers.map(broker => {
             if (broker.id === row.broker) {
               newRow.broker = broker.name
+            }
+          })
+
+          users.map(user => {
+            if (user.id === row.user) {
+              newRow.user = user.username
             }
           })
 

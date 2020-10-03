@@ -13,43 +13,7 @@ export const JSONSchema = {
     },
     "lastname": {
       "type": "string",
-      "title": "First Name",
-      "default": ""
-    },
-    "position": {
-      "title": "Position",
-      "type": "string",
-      "enum": [
-        "driver"
-      ],
-      "enumNames": [
-        "Driver"
-      ],
-      "default": "select"
-    },
-    "title": {
-      "type": "string",
-      "title": "Title",
-      "default": ""
-    },
-    "employer": {
-      "type": "string",
-      "title": "Employer",
-      "default": ""
-    },
-    "employment": {
-      "type": "string",
-      "title": "Employment",
-      "default": ""
-    },
-    "pay_structure": {
-      "type": "string",
-      "title": "Pay Structure",
-      "default": ""
-    },
-    "compensation": {
-      "type": "string",
-      "title": "Compensation",
+      "title": "Last Name",
       "default": ""
     },
     "phone_number": {
@@ -82,6 +46,43 @@ export const JSONSchema = {
       "title": "Zip Code",
       "default": ""
     },
+    "position": {
+      "title": "Position",
+      "type": "string",
+      "enum": [
+        "driver"
+      ],
+      "enumNames": [
+        "Driver"
+      ],
+      "default": "select"
+    },
+    // "title": {
+    //   "type": "string",
+    //   "title": "Title",
+    //   "default": ""
+    // },
+    // "employer": {
+    //   "type": "string",
+    //   "title": "Employer",
+    //   "default": ""
+    // },
+    // "employment": {
+    //   "type": "string",
+    //   "title": "Employment",
+    //   "default": ""
+    // },
+    "pay_structure": {
+      "type": "string",
+      "title": "Pay Structure",
+      "default": ""
+    },
+    "compensation": {
+      "type": "string",
+      "title": "Compensation",
+      "default": ""
+    },
+
     "gender": {
       "title": "Gender",
       "type": "string",

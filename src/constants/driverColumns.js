@@ -1,6 +1,6 @@
 export const driverColumns = [
-  { id: 'lastname',
-    label: 'Last Name',
+  { id: 'name',
+    label: 'Name',
     align: 'center',
     numeric: false
   },

@@ -31,7 +31,9 @@ class LoadModel extends Model
       'driver',
       'lumper',
       'tonu',
-      'loadNumber'
+      'loadNumber',
+      'tractor',
+      'trailer'
     ];
 
     protected $useTimestamps = false;

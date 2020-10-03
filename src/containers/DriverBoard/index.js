@@ -48,6 +48,7 @@ function driverboard(props) {
         const updateRowData = rows.map(row => {
           const newRow = {...row};
           newRow.edit = editButton(row.id);
+          newRow.name = `${row.firstname} ${row.lastname}`;
           return newRow;
         })
         return (

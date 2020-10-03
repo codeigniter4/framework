@@ -19,7 +19,10 @@ export const LOAD_MODEL = {
   "user": "",
   "lumper": "",
   "loadNumber": "",
-  "tonu": "false"
+  "tonu": "false",
+  "driver": "",
+  "tractor": "",
+  "trailer": ""
 }
 
 

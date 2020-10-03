@@ -14,20 +14,30 @@ const getAllBrokers = () => {
   return response;
 }
 
-const addBrokersToSchema = (schema, brokers) => {
-  const { broker } = schema.properties;
+const getAllDrivers = () => {
+  const response = get('drivers');
+  return response;
+}
+
+const getAllUsers = () => {
+  const response = get('users');
+  return response;
+}
+
+const addItemsToSchema = (schema, items, item, field) => {
+  const newItem = schema.properties[item];
   const updatedSchema = {...schema,
    properties: {
      ...schema.properties,
      }
   }
-  broker.enum = []
-  broker.enumNames = []
-  brokers.map(b => {
-    broker.enum.push(b.id);
-    broker.enumNames.push(b.name);
+  newItem.enum = []
+  newItem.enumNames = []
+  items.map(b => {
+    newItem.enum.push(b.id);
+    newItem.enumNames.push(b[field]);
   });
-  updatedSchema.broker = {...broker};
+  updatedSchema[item] = {...newItem};
 
   return updatedSchema
 }
@@ -52,6 +62,8 @@ function LoadForm(props) {
   const table = 'loads';
   const { history, match } = props;
   const [brokers, setBrokers] = useState([]);
+  const [drivers, setDrivers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [invoices, setinvoices] = useState([]);
   const [disabled, setdisabled] = useState(false);
   return (
@@ -98,11 +110,23 @@ function LoadForm(props) {
           getAllBrokers().then(data => {
             setBrokers(data)
           })
+          getAllDrivers().then(data => {
+            setDrivers(data)
+          })
+          getAllUsers().then(data => {
+            setUsers(data)
+          })
         }
 
         const handleLockToggle = (e) => {
           e.preventDefault();
           setdisabled(!disabled)
+        }
+
+        const updatedSchema = {
+          ...addItemsToSchema(JSONSchema, brokers, 'broker', 'name'),
+          ...addItemsToSchema(JSONSchema, drivers, 'driver', 'lastname'),
+          ...addItemsToSchema(JSONSchema, users, 'user', 'username')
         }
 
         return (
@@ -114,7 +138,7 @@ function LoadForm(props) {
               }
             </div>
             <Form
-              schema={addBrokersToSchema(JSONSchema, brokers)}
+              schema={updatedSchema}
               uiSchema={UISchema}
               formData={formatLoadData(record)}
               onSubmit={(data) => saveLoad(data.formData)}
