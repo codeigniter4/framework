@@ -24,6 +24,7 @@ export default function RouterComponent(props) {
           <Route path="/vgdt-admin/brokers/:id" component={BrokerForm} />
           <Route exact path="/vgdt-admin/invoices" component={Invoices} />
           <Route exact path="/vgdt-admin/" component={Dashboard} />
+          <Route exact path="/" component={Dashboard} />
         </Switch>
     </Router>
   );

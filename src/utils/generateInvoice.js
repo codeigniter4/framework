@@ -29,8 +29,9 @@ const getItem = (load, broker, service) => {
   const { id, loadNumber, dropoffDate, pickupLocation, dropoffLocation} = load;
   const { name, address, Email, paymentTerms} = broker;
   const { today, tomorrow } = getTodayAndTommorrowDates();
-  const dueDate = addDaysToToday(parseInt(paymentTerms));
+  const dueDate = paymentTerms ? addDaysToToday(parseInt(paymentTerms)) : 30;
   const itemAmount = getItemAmount(load, broker, service);
+  const description = service === 'Transportation' || service === 'TONU' ? `${pickupLocation} - ${dropoffLocation}` : service;
   const item = {
     ...INVOICE_MODEL,
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
@@ -41,7 +42,7 @@ const getItem = (load, broker, service) => {
     "*InvoiceDate": today, // On Completed Load
     "*DueDate": dueDate, // *InvoiceDate + Terms
     "Terms": `NET ${paymentTerms}`, // Broker
-    "ItemDescription": `${pickupLocation} - ${dropoffLocation}`, // Load Origin - Destination
+    "ItemDescription": description,
     "ProductService": service, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
     "ItemQuantity": "1",
     "ItemRate": "",
@@ -55,24 +56,12 @@ const getItem = (load, broker, service) => {
 export const generateInvoiceItems = (load, broker) => {
   const { tonu, detentionPay, layoverPay, lumper } = load;
   const { quickPay } = broker;
-  const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'TRANSPORTATION';
+  const service = tonu !== "0" && tonu > 0 ? 'TONU' : 'Transportation';
   const invoiceItem = getItem(load, broker, service);
   const quickPayItem = quickPay !== "0" && quickPay > 0 ? getItem(load, broker, 'QUICKPAY') : false;
   const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;
   // const layoverPayItem = layoverPay ? getItem(load, broker, 'LAYOVER') : false;
   const lumperItem = lumper !== "0" && lumper > 0 ? getItem(load, broker, 'LUMPER CHARGE') : false;
-  const items = [invoiceItem, quickPayItem, detentionPayItem, lumperItem]
-
-  const invoiceItems = []
-  items.map(item => {
-    if(item) {
-      invoiceItems.push(item);
-    }
-  })
-
-
-
-
-
+  const invoiceItems = [invoiceItem, detentionPayItem, lumperItem, quickPayItem];
   return invoiceItems;
 }

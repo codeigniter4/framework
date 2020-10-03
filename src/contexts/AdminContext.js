@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { get, getByID, save, deleteById } from '../services/';
+import { get, getByID, save, deleteById, exportToCSV } from '../services/';
 
 export const AdminContext = createContext();
 
@@ -12,7 +12,8 @@ class AdminContextProvider extends Component {
       searchTerm: '',
       record: {},
       openModal: false,
-      deleteRecord: {}
+      deleteRecord: {},
+      exportToCSV: []
     }
     this.getAllRecords = this.getAllRecords.bind(this);
     this.saveRecord = this.saveRecord.bind(this);
@@ -23,6 +24,7 @@ class AdminContextProvider extends Component {
     this.getRecord = this.getRecord.bind(this);
     this.addRecord = this.addRecord.bind(this);
     this.updateRecord = this.updateRecord.bind(this);
+    this.exportRecordToCSV = this.exportRecordToCSV.bind(this);
   }
 
   async getAllRecords(table) {
@@ -31,6 +33,11 @@ class AdminContextProvider extends Component {
       records: [...response]
     })
     return response;
+  }
+
+  async exportRecordToCSV(table, records) {
+    const response = await exportToCSV(table, records);
+    return response
   }
 
   async saveRecord(table, record) {
@@ -55,16 +62,20 @@ class AdminContextProvider extends Component {
 
   filterRecords(fields, searchTerm) {
     if(fields.length) {
-      let results = [];
-      fields.map(field => {
-        results = this.state.records.filter(record => {
-          return record[field] ? record[field].toLowerCase().includes(searchTerm.toLowerCase()) : false
-        });
-        return results
+      const results = fields.map(field => {
+        return this.state.records.filter(record => record[field] && record[field].toLowerCase().includes(searchTerm.toLowerCase()));
+      })
+
+      const filteredRecords = [];
+
+      results.map(result => {
+        result.map(rec => {
+          filteredRecords.push(rec)
+        })
       })
 
       this.setState({
-        filteredRecords: [...results],
+        filteredRecords: filteredRecords,
         searchTerm
       })
     }
@@ -117,7 +128,8 @@ class AdminContextProvider extends Component {
           updateRecord: this.updateRecord,
           getAllRecords: this.getAllRecords,
           setRecord: this.setRecord,
-          setRecords: this.setRecords
+          setRecords: this.setRecords,
+          exportRecordToCSV: this.exportRecordToCSV
         }
       }>
         {this.props.children}

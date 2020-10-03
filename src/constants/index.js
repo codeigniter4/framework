@@ -77,3 +77,7 @@ export const INVOICE_MODEL = {
     "ItemRate": "", // rate - qp fee + detentionPay + layoverPay || TONU charge || lumper
     "*ItemAmount": ""
 }
+
+export const INVOICE_DATES = [
+  "ServiceDate", "*InvoiceDate", "*DueDate"
+]

@@ -8,48 +8,56 @@ import ListToolBar from '../../components/ListToolBar';
 import { invoiceColumns } from '../../constants/invoiceColumns';
 import { INVOICE_MODEL } from '../../constants';
 
-const getRows = (rows) => {
+const getRows = (rows, actions) => {
   const ids = {};
   const editButton = (id) => (
       <Button color="primary" onClick={() => actions.handleClick(id)}>Details</Button>
   );
-  const mappedInvoiceNo = rows.reduce((map, row) => {
+  const mappedInvoiceNo = [...rows].reduce((map, row) => {
     map[row['*InvoiceNo']] = map[row['*InvoiceNo']] ? [...map[row['*InvoiceNo']], row] : [row];
     return map
   },{});
 
-  const newRow = Object.keys(mappedInvoiceNo).map(id => {
-    const productServices = [];
-    mappedInvoiceNo[id].map((row, idx) => {
-       productServices.push(mappedInvoiceNo[id][idx].ProductService)
-    })
-    mappedInvoiceNo[id][0].ProductService = productServices.join(', ')
-    return mappedInvoiceNo[id][0]
+  const formatProductServices = (records) => {
+    const services = records.map(record => {
+      return record.ProductService
+    });
+    return services.join(', ');
+  }
+  const newRows = [];
+  Object.keys(mappedInvoiceNo).map(id => {
+    const productServices = formatProductServices(mappedInvoiceNo[id].reverse());
+    const mergedRow = {
+      ...mappedInvoiceNo[id][0],
+      ProductService: productServices
+    }
+    newRows.push(mergedRow)
+    return mergedRow
   })
 
-  const updateRowData = newRow.map(row => {
+  const updateRowData = newRows.map(row => {
     const newRow = {...row};
     newRow.edit = editButton(row.id);
     newRow.ServiceDate = new Date(row.ServiceDate).toLocaleString();
     return newRow;
-  })
-
+  });
   return updateRowData;
 }
+
+
 function Invoices(props) {
   const table = 'invoices';
   const { history } = props;
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord } = context;
+        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord, exportRecordToCSV } = context;
         const rows = searchTerm ? filteredRecords : [...records];
-        const updateRowData = rows.length ? getRows(rows) : [];
         const getInvoiceItemsWithIds = (ids) => {
           const idsToDelete = [];
           const invoiceId = [];
           ids.map(id => {
-            records.map(record => {
+            records.filter(record => {
               if(record.id === id) {
                 invoiceId.push(record['*InvoiceNo'])
               }
@@ -64,6 +72,7 @@ function Invoices(props) {
           })
           return idsToDelete
         }
+
         if(!rows.length){
           getAllRecords(table).then(data => {
             return data
@@ -82,9 +91,21 @@ function Invoices(props) {
           handleDelete: (ids) => {
             const idsToDelete = getInvoiceItemsWithIds(ids);
             deleteRecord(table, idsToDelete);
+          },
+          handleExport: (ids) => {
+            const idsToExport = getInvoiceItemsWithIds(ids);
+            const recordsToExport = records.filter(record => {
+              return idsToExport.includes(record.id);
+            }).reverse()
+            exportRecordToCSV(table, recordsToExport).then(data => {
+              console.log(data);
+            }).catch(e => {
+              console.log(e);
+            })
           }
-        }
+        };
 
+        const updateRowData = rows.length ? getRows(rows, actions) : [];
 
         return (
           <ListView history={history} actions={actions} rows={updateRowData} columns={invoiceColumns}/>
