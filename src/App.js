@@ -28,7 +28,7 @@ function Copyright() {
 
 function App(props) {
   const { classes } = props;
-  const showNav = useMediaQuery('(min-width:400px)');
+  const showNav = useMediaQuery('(min-width:768px)');
 
   const [state, setState] = React.useState({
     left: false

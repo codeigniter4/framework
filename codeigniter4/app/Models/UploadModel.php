@@ -2,40 +2,24 @@
 
 use CodeIgniter\Model;
 
-class LoadModel extends Model
+class UploadModel extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table      = 'loads';
+    protected $table      = 'uploads';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     // protected $useSoftDeletes = true;
     protected $allowedFields = [
+      'name',
       'type',
-      'status',
-      'pickupDate',
-      'dropoffDate',
-      'pickupLocation',
-      'dropoffLocation',
-      'loadedMiles',
-      'deadHead',
-      'weight',
-      'cargo',
-      'rate',
-      'broker',
-      'detentionPay',
-      'layoverPay',
-      'notes',
-      'user',
-      'driver',
-      'lumper',
-      'tonu',
-      'loadNumber',
-      'tractor',
-      'trailer',
-      'ratecon',
-      'uploads'
+      'recordId',
+      'path',
+      'description',
+      'title',
+      'private',
+      'encoded',
     ];
 
     protected $useTimestamps = false;

@@ -68,7 +68,7 @@ const formatLoadData = (formData) => {
   const fields_int = ['deadHead', 'loadedMiles', 'rate', 'weight', 'detentionPay', 'layoverPay', 'quickPayPercentage', 'lumper'];
 
   fields_boolean.map(field => {
-    formData[field] = formData[field] !== "0" && formData[field] > 0;
+    formData[field] = formData[field] && formData[field] !== "0";
   })
 
   fields_int.map(field => {
@@ -102,6 +102,13 @@ function LoadForm(props) {
             invoices.map(invoice => {
               saveRecord('invoices', invoice)
             })
+          }
+
+          if(load.file) {
+            const parts = load.file.split(';');
+            const file = parts[1].split('=')[1];
+            load.ratecon = file;
+            console.log('file: ', file);
           }
 
           saveRecord(table, load).then( data => {

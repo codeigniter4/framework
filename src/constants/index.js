@@ -22,7 +22,8 @@ export const LOAD_MODEL = {
   "tonu": "false",
   "driver": "",
   "tractor": "",
-  "trailer": ""
+  "trailer": "",
+  "ratecon": ""
 }
 
 

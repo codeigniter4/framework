@@ -117,7 +117,7 @@ theme = {
         overflowY: 'scroll',
         height: '100%',
         position: 'absolute',
-        width: '100%'
+        width: 240
       }
     }
   },

@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { navigation } from './menuItems';
-import iconLogo from '../../assets/icon.svg';
+import favicon from '../../assets/favicon.png';
 import './index.scss';
 
 const styles = (theme) => ({
@@ -60,7 +60,7 @@ function Navigator(props) {
   return (
       <div className="navigator_static">
         <img
-          src={iconLogo}
+          src={favicon}
           width={100}
           style={{"margin":"10px 50px"}}
           spacing={1}

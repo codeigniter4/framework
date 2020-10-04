@@ -163,6 +163,16 @@ export const JSONSchema = {
       "type": "boolean",
       "title": "TONU",
       "default": "false"
+    },
+    "ratecon": {
+      "type": "string",
+      "title": "Rate Contract",
+      "default": ""
+    },
+    "file": {
+      "type": "string",
+      "format": "data-url",
+      "title": "Rate Contract"
     }
   }
 }

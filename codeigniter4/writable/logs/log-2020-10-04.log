@@ -1,0 +1,102 @@
+CRITICAL - 2020-10-04 14:22:14 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:22:14 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('trailer')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:22:29 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:22:29 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('trailer')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:22:29 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:22:29 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('trailer')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:23:42 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:23:42 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('trailer')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:23:43 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:23:43 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('trailer')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:23:52 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:24:41 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:25:17 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:25:20 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:25:52 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->type('tractor')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:25:56 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->index()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-04 14:26:27 --> Class 'App\Services\EquipmentService' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Equipment->index()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipment))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
