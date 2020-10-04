@@ -87,7 +87,7 @@ function Loadboard(props) {
               newRow.user = user.lastname
             }
           })
-
+          newRow.rate = row.tonu === '1' ? 'TONU' : row.rate;
           newRow.pickupDate = new Date(row.pickupDate).toLocaleString();
           newRow.dropoffDate = new Date(row.dropoffDate).toLocaleString();
           return newRow;
