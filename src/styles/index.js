@@ -112,6 +112,14 @@ theme = {
         height: 32,
       },
     },
+    MuiList: {
+      root: {
+        overflowY: 'scroll',
+        height: '100%',
+        position: 'absolute',
+        width: '100%'
+      }
+    }
   },
 };
 
@@ -138,12 +146,13 @@ export const styles = {
     padding: theme.spacing(2, 2),
     background: '#eaeff1',
     textAlign: 'left',
+    width: 'calc(100% - 240px)',
     [`@media (max-width:  440px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
       width: '100%'
-    }
-
+    },
+    alignSelf: 'flex-end'
   },
   footer: {
     padding: theme.spacing(2),

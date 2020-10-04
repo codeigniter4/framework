@@ -20,5 +20,9 @@ export const paperStylesTable = makeStyles((theme) => ({
     padding: theme.spacing(0),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    [`@media (max-width:  440px)`]: {
+      width: 350,
+      margin: '0 auto'
+    }
   },
 }));

@@ -7,17 +7,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import GroupIcon from '@material-ui/icons/Group';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import PeopleIcon from '@material-ui/icons/People';
-import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import BusinessIcon from '@material-ui/icons/Business';
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import { navigation } from './menuItems';
 import iconLogo from '../../assets/icon.svg';
-
-
+import './index.scss';
 
 const styles = (theme) => ({
   categoryHeader: {
@@ -65,50 +57,8 @@ function Navigator(props) {
   const navigate = (location) => {
     history.push(`/vgdt-admin/${location}`);
   }
-  const navigation = [
-    {
-      name: 'Users',
-      route: 'users',
-      icon: (<SupervisedUserCircleIcon />)
-    },
-    {
-      name: 'LoadBoard',
-      route: 'loads',
-      icon: (<PostAddIcon />)
-    },
-    {
-      name: 'Brokers',
-      route: 'brokers',
-      icon: (<BusinessIcon />)
-    },
-    {
-      name: 'Invoices',
-      route: 'invoices',
-      icon: (<MonetizationOnIcon />)
-    },
-    {
-      name: 'Drivers',
-      route: 'drivers',
-      icon: (<PeopleIcon />)
-    },
-    {
-      name: 'Dispatch',
-      route: 'dispatch',
-      icon: (<PeopleOutlineIcon />)
-    },
-    {
-      name: 'Equipment',
-      route: 'equipment',
-      icon: (<LocalShippingIcon />)
-    }
-  ]
   return (
-    <Drawer anchor={anchor} open={open} onClose={() => toggleDrawer(anchor)}>
-      <div
-        role="presentation"
-        onClick={() => toggleDrawer(anchor)}
-        onKeyDown={() => toggleDrawer(anchor)}
-      >
+      <div className="navigator_static">
         <img
           src={iconLogo}
           width={100}
@@ -125,7 +75,6 @@ function Navigator(props) {
           ))}
         </List>
       </div>
-    </Drawer>
   );
 }
 
