@@ -38,4 +38,11 @@ class EquipmentService {
 
      return $record;
    }
+
+   public function getRecordWithAttrs($attr)
+   {
+     $model = new EquipmentModel();
+     $records = $model->where('type', $attr)->findAll();;
+     return $records;
+   }
 }

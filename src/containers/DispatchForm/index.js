@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
-import { JSONSchema, UISchema } from '../../constants/Schemas/driver';
+import { JSONSchema, UISchema } from '../../constants/Schemas/dispatch';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
 import './index.scss';
@@ -21,16 +21,16 @@ const formatData = (formData) => {
 
   return formData;
 }
-function DriverForm(props) {
+function DispatchForm(props) {
   const table = 'employees';
-  const route = 'drivers';
+  const route = 'dispatch';
   const { history, match } = props;
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
         const { record, saveRecord, getRecord} = context;
         const recordId = match.params.id;
-        const saveDriver = (record) => {
+        const saveDispatch = (record) => {
           saveRecord(table, record).then( data => {
             history.push(`/vgdt-admin/${route}`);
             return data
@@ -44,12 +44,12 @@ function DriverForm(props) {
         }
 
         return (
-          <div className="driver_Form">
+          <div className="dispatch_Form">
             <Form
               schema={JSONSchema}
               uiSchema={UISchema}
               formData={formatData(record)}
-              onSubmit={(data) => saveDriver(data.formData)}>
+              onSubmit={(data) => saveDispatch(data.formData)}>
             </Form>
           </div>
         )
@@ -59,4 +59,4 @@ function DriverForm(props) {
   )
 }
 
-export default DriverForm;
+export default DispatchForm;

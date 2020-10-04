@@ -5,40 +5,41 @@ import { Button } from '@material-ui/core';
 import { AdminContext } from '../../contexts/AdminContext';
 import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
-import { userColumns } from '../../constants/userColumns';
-import { USER_MODEL } from '../../constants';
+import { dispatchColumns } from '../../constants/dispatchColumns';
+import { DISPATCH_MODEL } from '../../constants';
 
 
-function Userboard(props) {
-  const table = 'users';
+function driverboard(props) {
+  const table = 'employees';
+  const type = 'dispatch';
   const { history } = props;
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord } = context;
+        const {records, filteredRecords, searchTerm, filterRecords, getAllRecordsByType, deleteRecord, saveRecord } = context;
         const rows = searchTerm ? filteredRecords : [...records];
 
         if(!rows.length){
-          getAllRecords(table).then(data => {
+          getAllRecordsByType(table, type).then(data => {
             return data
           });
         }
         const actions = {
           handleClick: (id) => {
-            history.push(`/vgdt-admin/${table}/${id}`);
+            history.push(`/vgdt-admin/${type}/${id}`);
           },
           handleChange: (e) => {
-            const fields = ['username'];
+            const fields = ['lastname', 'firstname'];
             filterRecords(fields, e.target.value)
           },
           handleAdd: () => {
-            saveRecord(table, USER_MODEL).then(data => {
-              history.push(`/vgdt-admin/${table}/${data.id}`);
+            saveRecord(table, DISPATCH_MODEL).then(data => {
+              history.push(`/vgdt-admin/${type}/${data.id}`);
             })
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
-            getAllRecords(table).then(data => {
+            getAllRecordsByType(table, type).then(data => {
               return data
             });
           },
@@ -51,11 +52,11 @@ function Userboard(props) {
         const updateRowData = rows.map(row => {
           const newRow = {...row};
           newRow.edit = editButton(row.id);
-          newRow.quickPay = row.quickPay === "0" ? "No" : "Yes"
+          newRow.name = `${row.firstname} ${row.lastname}`;
           return newRow;
         })
         return (
-          <ListView history={history} actions={actions} rows={updateRowData} columns={userColumns}/>
+          <ListView history={history} actions={actions} rows={updateRowData} columns={dispatchColumns}/>
         )
       }}
       </AdminContext.Consumer>
@@ -64,4 +65,4 @@ function Userboard(props) {
 }
 
 
-export default Userboard;
+export default driverboard;

@@ -3,7 +3,7 @@ import Form from '@rjsf/material-ui';
 import { JSONSchema, UISchema } from '../../constants/Schemas/load';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
-import { get } from '../../services/';
+import { get, getType } from '../../services/';
 import { generateInvoiceItems } from '../../utils/generateInvoice';
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
@@ -15,7 +15,12 @@ const getAllBrokers = () => {
 }
 
 const getAllDrivers = () => {
-  const response = get('drivers');
+  const response = getType('employees', 'driver');
+  return response;
+}
+
+const getAllDispatch = () => {
+  const response = getType('employees', 'dispatch');
   return response;
 }
 
@@ -24,8 +29,13 @@ const getAllUsers = () => {
   return response;
 }
 
-const getAllEquipment = () => {
-  const response = get('equipment');
+const getAllTractors = () => {
+  const response = getType('equipment', 'tractor');
+  return response;
+}
+
+const getAllTrailers = () => {
+  const response = getType('equipment', 'trailer');
   return response;
 }
 
@@ -68,8 +78,10 @@ function LoadForm(props) {
   const { history, match } = props;
   const [brokers, setBrokers] = useState([]);
   const [drivers, setDrivers] = useState([]);
+  const [dispatch, setDispatch] = useState([]);
   const [users, setUsers] = useState([]);
-  const [equipment, setEquipment] = useState([]);
+  const [tractors, setTractors] = useState([]);
+  const [trailers, setTrailers] = useState([]);
   const [invoices, setinvoices] = useState([]);
   const [disabled, setdisabled] = useState(false);
   return (
@@ -119,11 +131,17 @@ function LoadForm(props) {
           getAllDrivers().then(data => {
             setDrivers(data)
           })
+          getAllDispatch().then(data => {
+            setDispatch(data)
+          })
           getAllUsers().then(data => {
             setUsers(data)
           })
-          getAllEquipment().then(data => {
-            setEquipment(data);
+          getAllTractors().then(data => {
+            setTractors(data);
+          })
+          getAllTrailers().then(data => {
+            setTrailers(data);
           })
 
         }
@@ -136,9 +154,9 @@ function LoadForm(props) {
         const updatedSchema = {
           ...addItemsToSchema(JSONSchema, brokers, 'broker', 'name'),
           ...addItemsToSchema(JSONSchema, drivers, 'driver', 'lastname'),
-          ...addItemsToSchema(JSONSchema, users, 'user', 'username'),
-          ...addItemsToSchema(JSONSchema, equipment, 'tractor', 'unit_num'),
-          ...addItemsToSchema(JSONSchema, equipment, 'trailer', 'unit_num')
+          ...addItemsToSchema(JSONSchema, dispatch, 'user', 'lastname'),
+          ...addItemsToSchema(JSONSchema, tractors, 'tractor', 'unit_num'),
+          ...addItemsToSchema(JSONSchema, trailers, 'trailer', 'unit_num')
         }
 
         return (

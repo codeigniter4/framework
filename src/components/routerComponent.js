@@ -11,6 +11,8 @@ import BrokerBoard from '../containers/BrokerBoard';
 import UserBoard from '../containers/UserBoard';
 import DriverBoard from '../containers/DriverBoard';
 import DriverForm from '../containers/DriverForm';
+import DispatchBoard from '../containers/DispatchBoard';
+import DispatchForm from '../containers/DispatchForm';
 import Equipment from '../containers/Equipment';
 import EquipmentForm from '../containers/EquipmentForm';
 import Invoices from '../containers/Invoices';
@@ -30,6 +32,8 @@ export default function RouterComponent(props) {
           <Route exact path="/vgdt-admin/users" component={UserBoard} />
           <Route exact path="/vgdt-admin/drivers" component={DriverBoard} />
           <Route path="/vgdt-admin/drivers/:id" component={DriverForm} />
+          <Route exact path="/vgdt-admin/dispatch" component={DispatchBoard} />
+          <Route path="/vgdt-admin/dispatch/:id" component={DispatchForm} />
           <Route exact path="/vgdt-admin/equipment" component={Equipment} />
           <Route path="/vgdt-admin/equipment/:id" component={EquipmentForm} />
           <Route exact path="/vgdt-admin/invoices" component={Invoices} />

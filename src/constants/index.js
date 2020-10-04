@@ -65,6 +65,30 @@ export const BROKER_MODEL = {
   "tonuFee": "250"
 }
 
+export const DISPATCH_MODEL = {
+    "firstname": "",
+    "lastname": "",
+    "position": "dispatch",
+    "title": "Dispather",
+    "employer": "",
+    "employment": "",
+    "pay_structure": "",
+    "compensation": "",
+    "phone_number": "",
+    "email": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "gender": "",
+    "dob": "",
+    "hire_date": "",
+    "cdl_num": "",
+    "cdl_state": "",
+    "cdl_exp": "",
+    "med_cert_exp": ""
+}
+
 export const EQUIPMENT_MODEL = {
   "unit_num": "",
   "type": "",
@@ -96,8 +120,8 @@ export const USER_MODEL = {
 export const DRIVER_MODEL = {
     "firstname": "",
     "lastname": "",
-    "position": "",
-    "title": "",
+    "position": "driver",
+    "title": "Driver",
     "employer": "",
     "employment": "",
     "pay_structure": "",

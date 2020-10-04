@@ -1,5 +1,5 @@
 export const JSONSchema = {
-  "title": "Driver Profile",
+  "title": "Dispatch Profile",
   "description": "",
   "type": "object",
   "required": ['firstname',
@@ -50,16 +50,16 @@ export const JSONSchema = {
     //   "title": "Position",
     //   "type": "string",
     //   "enum": [
-    //     "driver"
+    //     "dispatch"
     //   ],
     //   "enumNames": [
-    //     "Driver"
+    //     "Dispatch"
     //   ],
-    //   "default": "driver"
+    //   "default": "select"
     // },
     "pay_structure": {
       "type": "string",
-      "title": "Pay Structure",
+      "title": "Pay dispatch",
       "default": ""
     },
     "compensation": {
@@ -67,7 +67,6 @@ export const JSONSchema = {
       "title": "Compensation",
       "default": ""
     },
-
     "gender": {
       "title": "Gender",
       "type": "string",
@@ -91,28 +90,6 @@ export const JSONSchema = {
     },
     "hire_date": {
       "title": "Hire Date",
-      "type": "string",
-      "format": "date",
-      "default": ""
-    },
-    "cdl_num": {
-      "type": "string",
-      "title": "CDL Number",
-      "default": ""
-    },
-    "cdl_state": {
-      "type": "string",
-      "title": "CDL State",
-      "default": ""
-    },
-    "cdl_exp": {
-      "title": "CDL Expiration",
-      "type": "string",
-      "format": "date",
-      "default": ""
-    },
-    "med_cert_exp": {
-      "title": "Med Card Expiration",
       "type": "string",
       "format": "date",
       "default": ""

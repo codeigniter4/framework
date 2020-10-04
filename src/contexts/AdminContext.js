@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { get, getByID, save, deleteById, exportToCSV } from '../services/';
+import { get, getType, getByID, save, deleteById, exportToCSV } from '../services/';
 
 export const AdminContext = createContext();
 
@@ -16,6 +16,7 @@ class AdminContextProvider extends Component {
       exportToCSV: []
     }
     this.getAllRecords = this.getAllRecords.bind(this);
+    this.getAllRecordsByType = this.getAllRecordsByType.bind(this);
     this.saveRecord = this.saveRecord.bind(this);
     this.deleteRecord = this.deleteRecord.bind(this);
     this.filterRecords = this.filterRecords.bind(this);
@@ -29,6 +30,14 @@ class AdminContextProvider extends Component {
 
   async getAllRecords(table) {
     const response = await get(table);
+    this.setState({
+      records: [...response]
+    })
+    return response;
+  }
+
+  async getAllRecordsByType(table, type) {
+    const response = await getType(table, type);
     this.setState({
       records: [...response]
     })
@@ -56,8 +65,6 @@ class AdminContextProvider extends Component {
       });
       return response;
     })
-
-    this.getAllRecords(table);
   }
 
   filterRecords(fields, searchTerm) {
@@ -123,6 +130,7 @@ class AdminContextProvider extends Component {
           addRecord: this.addRecord,
           filterRecords: this.filterRecords,
           getRecord: this.getRecord,
+          getAllRecordsByType: this.getAllRecordsByType,
           saveRecord: this.saveRecord,
           deleteRecord: this.deleteRecord,
           updateRecord: this.updateRecord,

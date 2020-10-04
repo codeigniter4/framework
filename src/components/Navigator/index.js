@@ -14,6 +14,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import BusinessIcon from '@material-ui/icons/Business';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import iconLogo from '../../assets/icon.svg';
 
 
@@ -66,6 +67,11 @@ function Navigator(props) {
   }
   const navigation = [
     {
+      name: 'Users',
+      route: 'users',
+      icon: (<SupervisedUserCircleIcon />)
+    },
+    {
       name: 'LoadBoard',
       route: 'loads',
       icon: (<PostAddIcon />)
@@ -81,14 +87,14 @@ function Navigator(props) {
       icon: (<MonetizationOnIcon />)
     },
     {
-      name: 'Users',
-      route: 'users',
-      icon: (<SupervisedUserCircleIcon />)
-    },
-    {
       name: 'Drivers',
       route: 'drivers',
       icon: (<PeopleIcon />)
+    },
+    {
+      name: 'Dispatch',
+      route: 'dispatch',
+      icon: (<PeopleOutlineIcon />)
     },
     {
       name: 'Equipment',

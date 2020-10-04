@@ -60,4 +60,22 @@ class Equipment extends BaseController
 		}
 	}
 
+	public function type($attr)
+	{
+		$Service = new EquipmentService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+		$json = $request->getJSON();
+
+		switch ($method) {
+		    case 'get':
+						$record = $Service->getRecordWithAttrs($attr);
+						return $response->setJSON($record);
+		        break;
+		    default:
+		        echo "nothing here!";
+		}
+	}
+
 }

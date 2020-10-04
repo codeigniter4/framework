@@ -2,7 +2,7 @@
 
 use CodeIgniter\Model;
 
-class DriverModel extends Model
+class EmployeeModel extends Model
 {
     protected $DBGroup = 'default';
 

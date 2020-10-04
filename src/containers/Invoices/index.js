@@ -91,6 +91,9 @@ function Invoices(props) {
           handleDelete: (ids) => {
             const idsToDelete = getInvoiceItemsWithIds(ids);
             deleteRecord(table, idsToDelete);
+            getAllRecords(table).then(data => {
+              return data
+            });
           },
           handleExport: (ids) => {
             const idsToExport = getInvoiceItemsWithIds(ids);

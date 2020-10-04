@@ -1,11 +1,11 @@
 <?php namespace App\Controllers;
-use App\Services\DriverService;
+use App\Services\EmployeeService;
 
-class Drivers extends BaseController
+class Employees extends BaseController
 {
 	public function index()
 	{
-		$Service = new DriverService();
+		$Service = new EmployeeService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -27,7 +27,7 @@ class Drivers extends BaseController
 
 	public function id($id)
 	{
-		$Service = new DriverService();
+		$Service = new EmployeeService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -45,7 +45,7 @@ class Drivers extends BaseController
 
 	public function delete($id)
 	{
-		$Service = new DriverService();
+		$Service = new EmployeeService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -57,6 +57,24 @@ class Drivers extends BaseController
 						break;
 				default:
 						echo "nothing here!";
+		}
+	}
+
+	public function type($attr)
+	{
+		$Service = new EmployeeService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+		$json = $request->getJSON();
+
+		switch ($method) {
+		    case 'get':
+						$record = $Service->getRecordWithAttrs($attr);
+						return $response->setJSON($record);
+		        break;
+		    default:
+		        echo "nothing here!";
 		}
 	}
 

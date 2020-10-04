@@ -7,7 +7,7 @@ import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
 import { loadColumns } from '../../constants/loadColumns';
 import { LOAD_MODEL } from '../../constants';
-import { get } from '../../services/';
+import { get, getType } from '../../services/';
 import { getTodayAndTommorrowDates } from '../../utils/adjustDates'
 
 const getAllBrokers = () => {
@@ -15,8 +15,8 @@ const getAllBrokers = () => {
   return response;
 }
 
-const getAllUsers = () => {
-  const response = get('users');
+const getAllDispatch = () => {
+  const response = getType('employees', 'dispatch');
   return response;
 }
 
@@ -38,7 +38,7 @@ function Loadboard(props) {
           getAllBrokers().then(data => {
             setBrokers(data)
           })
-          getAllUsers().then(data => {
+          getAllDispatch().then(data => {
             setUsers(data)
           })
         }
@@ -62,6 +62,9 @@ function Loadboard(props) {
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
+            getAllRecords(table).then(data => {
+              return data
+            });
           },
           handleExport: false
         }
@@ -81,7 +84,7 @@ function Loadboard(props) {
 
           users.map(user => {
             if (user.id === row.user) {
-              newRow.user = user.username
+              newRow.user = user.lastname
             }
           })
 

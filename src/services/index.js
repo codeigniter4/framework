@@ -1,10 +1,16 @@
 import { getEnv } from '../config';
 import { INVOICE_DATES } from '../constants/';
 
-const env = getEnv('prod'); // or prod
+const env = getEnv('local'); // or prod
 
 export const get = async (type) => {
   const response = await fetch(`${env}/${type}`)
+  const json = await response.json();
+  return json;
+}
+
+export const getType = async (table, type) => {
+  const response = await fetch(`${env}/${table}/type/${type}`)
   const json = await response.json();
   return json;
 }

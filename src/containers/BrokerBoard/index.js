@@ -38,6 +38,9 @@ function Brokerboard(props) {
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
+            getAllRecords(table).then(data => {
+              return data
+            });
           },
           handleExport: false
         }

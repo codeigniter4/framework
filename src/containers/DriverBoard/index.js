@@ -10,34 +10,39 @@ import { DRIVER_MODEL } from '../../constants';
 
 
 function driverboard(props) {
-  const table = 'drivers';
+  const table = 'employees';
+  const type = 'driver';
+  const route = 'drivers';
   const { history } = props;
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const {records, filteredRecords, searchTerm, filterRecords, getAllRecords, deleteRecord, saveRecord } = context;
+        const {records, filteredRecords, searchTerm, filterRecords, getAllRecordsByType, deleteRecord, saveRecord } = context;
         const rows = searchTerm ? filteredRecords : [...records];
 
         if(!rows.length){
-          getAllRecords(table).then(data => {
+          getAllRecordsByType(table, type).then(data => {
             return data
           });
         }
         const actions = {
           handleClick: (id) => {
-            history.push(`/vgdt-admin/${table}/${id}`);
+            history.push(`/vgdt-admin/${route}/${id}`);
           },
           handleChange: (e) => {
-            const fields = ['lastname'];
+            const fields = ['lastname', 'firstname'];
             filterRecords(fields, e.target.value)
           },
           handleAdd: () => {
             saveRecord(table, DRIVER_MODEL).then(data => {
-              history.push(`/vgdt-admin/${table}/${data.id}`);
+              history.push(`/vgdt-admin/${route}/${data.id}`);
             })
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
+            getAllRecordsByType(table, type).then(data => {
+              return data
+            });
           },
           handleExport: false
         }
