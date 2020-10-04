@@ -18,6 +18,7 @@ import EquipmentForm from '../containers/EquipmentForm';
 import Invoices from '../containers/Invoices';
 import LoadForm from '../containers/LoadForm';
 import BrokerForm from '../containers/BrokerForm';
+import AssetManager from '../containers/AssetManager';
 
 export default function RouterComponent(props) {
   const { history } = props
@@ -27,6 +28,7 @@ export default function RouterComponent(props) {
           <Route exact path="/vgdt-admin/dashboard" component={LoadBoard} />
           <Route exact path="/vgdt-admin/loads" component={LoadBoard} />
           <Route path="/vgdt-admin/loads/:id" component={LoadForm} />
+          <Route path="/vgdt-admin/files/:id" component={AssetManager} />
           <Route exact path="/vgdt-admin/brokers" component={BrokerBoard} />
           <Route path="/vgdt-admin/brokers/:id" component={BrokerForm} />
           <Route exact path="/vgdt-admin/users" component={UserBoard} />

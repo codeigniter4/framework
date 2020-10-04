@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Form from '@rjsf/material-ui';
+import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { JSONSchema, UISchema } from '../../constants/Schemas/load';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
 import { get, getType } from '../../services/';
 import { generateInvoiceItems } from '../../utils/generateInvoice';
-import LockIcon from '@material-ui/icons/Lock';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './index.scss';
 
 const getAllBrokers = () => {
@@ -120,6 +121,10 @@ function LoadForm(props) {
           }
         }
 
+        const handleUploadClick = () => {
+          history.push(`/vgdt-admin/files/${recordId}`);
+        }
+
         if(!record.id) {
           getRecord(table, recordId).then(data => {
             const isBilled = data.status === "Billed";
@@ -166,6 +171,9 @@ function LoadForm(props) {
                 <LockIcon/> :
                 <LockOpenIcon/>
               }
+            </div>
+            <div className="Load_Form_Upload" onClick={handleUploadClick}>
+              <span className="Load_Form_Upload_label">Documents</span> <CloudUploadIcon/>
             </div>
             <Form
               schema={updatedSchema}

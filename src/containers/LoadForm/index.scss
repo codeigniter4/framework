@@ -1,18 +1,36 @@
-.Load_Form{
-  padding: 25px;
-  & .MuiGrid-grid-xs-12 {
-    flex-basis: 25%;
-  }
-  &_Lock {
-    position: absolute !important;
-    right: 35px;
-    z-index: 1;
-    cursor: pointer;
-  }
-  @media screen and (min-width: 0px) and (max-width: 500px) {
+.Load{
+  &_Form{
+    padding: 25px;
     & .MuiGrid-grid-xs-12 {
-      flex-basis: 50%;
+      flex-basis: 25%;
     }
-  }
+    &_Lock {
+      position: absolute !important;
+      right: 35px;
+      z-index: 1;
+      cursor: pointer;
+    }
+    &_Upload {
+      position: absolute !important;
+      right: 85px;
+      z-index: 1;
+      cursor: pointer;
+      color: #4caf50;
+      display: flex;
+      align-items: center;
+      &_label {
+        margin-right: 5px;
+      }
+    }
+    @media screen and (min-width: 0px) and (max-width: 500px) {
+      & .MuiGrid-grid-xs-12 {
+        flex-basis: 50%;
+      }
+    }
 
+  }
+  &_Upload {
+    padding: 15px;
+    flex-basis: 50%;
+  }
 }
