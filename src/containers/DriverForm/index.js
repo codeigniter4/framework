@@ -1,8 +1,11 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { JSONSchema, UISchema } from '../../constants/Schemas/driver';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
+import { paperStyles } from '../../styles/paper';
 import './index.scss';
 
 const formatData = (formData) => {
@@ -22,6 +25,7 @@ const formatData = (formData) => {
   return formData;
 }
 function DriverForm(props) {
+  const classes = paperStyles();
   const table = 'employees';
   const route = 'drivers';
   const { history, match } = props;
@@ -44,14 +48,20 @@ function DriverForm(props) {
         }
 
         return (
-          <div className="driver_Form">
-            <Form
-              schema={JSONSchema}
-              uiSchema={UISchema}
-              formData={formatData(record)}
-              onSubmit={(data) => saveDriver(data.formData)}>
-            </Form>
-          </div>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+              <div className="driver_Form">
+                <Form
+                  schema={JSONSchema}
+                  uiSchema={UISchema}
+                  formData={formatData(record)}
+                  onSubmit={(data) => saveDriver(data.formData)}>
+                </Form>
+              </div>
+              </Paper>
+            </Grid>
+          </Grid>
         )
       }}
       </AdminContext.Consumer>

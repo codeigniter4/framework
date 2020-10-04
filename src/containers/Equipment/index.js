@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import ListView from '../../components/ListView';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { Button } from '@material-ui/core';
@@ -7,9 +9,11 @@ import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
 import { equipmentColumns } from '../../constants/equipmentColumns';
 import { EQUIPMENT_MODEL } from '../../constants';
+import { paperStylesTable } from '../../styles/paper';
 
 
 function equipment(props) {
+  const classes = paperStylesTable();
   const table = 'equipment';
   const { history } = props;
   return (
@@ -55,7 +59,14 @@ function equipment(props) {
           return newRow;
         })
         return (
-          <ListView history={history} actions={actions} rows={updateRowData} columns={equipmentColumns}/>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <ListView history={history} actions={actions} rows={updateRowData} columns={equipmentColumns}/>
+              </Paper>
+            </Grid>
+          </Grid>
+
         )
       }}
       </AdminContext.Consumer>

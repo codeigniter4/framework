@@ -29,7 +29,9 @@ function App(props) {
   const [state, setState] = React.useState({
     left: false
   });
-
+  // <Paper className={classes.paper}>
+  //   <RouterComponent history={history}/>
+  // </Paper>
   const toggleDrawer = (anchor) => {
     setState({ ...state, [anchor]: !state.left });
   };
@@ -42,9 +44,7 @@ function App(props) {
             <Header toggleDrawer={toggleDrawer} />
             <Navigator toggleDrawer={toggleDrawer} anchor="left" open={state["left"]} history={history}/>
             <main className={classes.main}>
-              <Paper className={classes.paper}>
-                <RouterComponent history={history}/>
-              </Paper>
+              <RouterComponent history={history}/>
             </main>
             <footer className={classes.footer}>
               <Copyright />

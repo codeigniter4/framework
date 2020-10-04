@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import ListView from '../../components/ListView';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { Button } from '@material-ui/core';
@@ -7,9 +9,11 @@ import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
 import { driverColumns } from '../../constants/driverColumns';
 import { DRIVER_MODEL } from '../../constants';
+import { paperStylesTable } from '../../styles/paper';
 
 
 function driverboard(props) {
+  const classes = paperStylesTable();
   const table = 'employees';
   const type = 'driver';
   const route = 'drivers';
@@ -57,7 +61,13 @@ function driverboard(props) {
           return newRow;
         })
         return (
-          <ListView history={history} actions={actions} rows={updateRowData} columns={driverColumns}/>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <ListView history={history} actions={actions} rows={updateRowData} columns={driverColumns}/>
+              </Paper>
+            </Grid>
+          </Grid>
         )
       }}
       </AdminContext.Consumer>

@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import ListView from '../../components/ListView';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { Button } from '@material-ui/core';
@@ -7,6 +9,7 @@ import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
 import { invoiceColumns } from '../../constants/invoiceColumns';
 import { INVOICE_MODEL } from '../../constants';
+import { paperStylesTable } from '../../styles/paper';
 
 const getRows = (rows, actions) => {
   const ids = {};
@@ -46,6 +49,7 @@ const getRows = (rows, actions) => {
 
 
 function Invoices(props) {
+  const classes = paperStylesTable();
   const table = 'invoices';
   const { history } = props;
   return (
@@ -111,7 +115,14 @@ function Invoices(props) {
         const updateRowData = rows.length ? getRows(rows, actions) : [];
 
         return (
-          <ListView history={history} actions={actions} rows={updateRowData} columns={invoiceColumns}/>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <ListView history={history} actions={actions} rows={updateRowData} columns={invoiceColumns}/>
+              </Paper>
+            </Grid>
+          </Grid>
+
         )
       }}
       </AdminContext.Consumer>

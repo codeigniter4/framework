@@ -148,14 +148,5 @@ export const styles = {
   footer: {
     padding: theme.spacing(2),
     background: '#eaeff1',
-  },
-  paper: {
-    margin: 'auto',
-    overflow: 'hidden',
-    [`@media (max-width:  500px)`]: {
-      paddingLeft: theme.spacing(2, 2),
-      paddingRight: theme.spacing(2, 2),
-      width: 350
-    }
-  },
+  }
 };

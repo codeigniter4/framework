@@ -1,6 +1,5 @@
 .Load{
   &_Form{
-    padding: 25px;
     & .MuiGrid-grid-xs-12 {
       flex-basis: 25%;
     }
@@ -27,10 +26,17 @@
         flex-basis: 50%;
       }
     }
-
   }
-  &_Upload {
-    padding: 15px;
-    flex-basis: 50%;
+}
+.AssetManager{
+  .dzu-dropzone {
+    border: none;
+  }
+  .dzu-inputLabel, .dzu-inputLabelWithFiles {
+    color: #666;
+  }
+  .dzu-submitButton {
+    color: #fff;
+    background-color: #009be5;
   }
 }

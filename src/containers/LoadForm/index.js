@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import Form from '@rjsf/material-ui';
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { JSONSchema, UISchema } from '../../constants/Schemas/load';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
+import FileUploader from '../../components/FileUploader/';
 import { get, getType } from '../../services/';
 import { generateInvoiceItems } from '../../utils/generateInvoice';
+import { paperStyles } from '../../styles/paper'
 import './index.scss';
+
+
 
 const getAllBrokers = () => {
   const response = get('brokers');
@@ -75,6 +80,7 @@ const formatLoadData = (formData) => {
 
 
 function LoadForm(props) {
+  const classes = paperStyles();
   const table = 'loads';
   const { history, match } = props;
   const [brokers, setBrokers] = useState([]);
@@ -121,10 +127,6 @@ function LoadForm(props) {
           }
         }
 
-        const handleUploadClick = () => {
-          history.push(`/vgdt-admin/files/${recordId}`);
-        }
-
         if(!record.id) {
           getRecord(table, recordId).then(data => {
             const isBilled = data.status === "Billed";
@@ -165,25 +167,39 @@ function LoadForm(props) {
         }
 
         return (
-          <div className="Load_Form">
-            <div className="Load_Form_Lock" onClick={handleLockToggle}>
-              {disabled ?
-                <LockIcon/> :
-                <LockOpenIcon/>
-              }
-            </div>
-            <div className="Load_Form_Upload" onClick={handleUploadClick}>
-              <span className="Load_Form_Upload_label">Documents</span> <CloudUploadIcon/>
-            </div>
-            <Form
-              schema={updatedSchema}
-              uiSchema={UISchema}
-              formData={formatLoadData(record)}
-              onSubmit={(data) => saveLoad(data.formData)}
-              onChange={handleChange}
-              disabled={disabled}>
-            </Form>
-          </div>
+          <React.Fragment>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <div className="Load_Form">
+                    <div className="Load_Form_Lock" onClick={handleLockToggle}>
+                      {disabled ?
+                        <LockIcon/> :
+                        <LockOpenIcon/>
+                      }
+                    </div>
+                    <Form
+                      schema={updatedSchema}
+                      uiSchema={UISchema}
+                      formData={formatLoadData(record)}
+                      onSubmit={(data) => saveLoad(data.formData)}
+                      onChange={handleChange}
+                      disabled={disabled}>
+                    </Form>
+                  </div>
+                </Paper>
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <div className="AssetManager">
+                    <FileUploader/>
+                  </div>
+                </Paper>
+              </Grid>
+            </Grid>
+          </React.Fragment>
         )
       }}
       </AdminContext.Consumer>
