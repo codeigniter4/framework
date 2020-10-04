@@ -28,7 +28,7 @@ function equipment(props) {
             history.push(`/vgdt-admin/${table}/${id}`);
           },
           handleChange: (e) => {
-            const fields = ['type'];
+            const fields = ['type', 'unit_num'];
             filterRecords(fields, e.target.value)
           },
           handleAdd: () => {
