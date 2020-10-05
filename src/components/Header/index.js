@@ -56,14 +56,14 @@ function Header(props) {
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
-            <Grid item xs={2} style={{"textAlign":"left"}}>
-              {showToggle ? <Tooltip title="Toggle Menu">
+            {showToggle ? <Grid item xs={2} style={{"textAlign":"left"}}>
+              <Tooltip title="Toggle Menu">
                 <IconButton color="inherit" onClick={handleToggle}>
                   <MenuIcon/>
                 </IconButton>
-              </Tooltip> : ''}
-            </Grid>
-            <Grid item xs={8}>
+              </Tooltip>
+            </Grid> : ''}
+            <Grid item xs={8} sm={10}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}
