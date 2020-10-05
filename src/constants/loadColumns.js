@@ -61,11 +61,5 @@ export const loadColumns = [
     label: '',
     align: 'center',
     numeric: false
-  },
-  {
-    id: 'upload',
-    label: '',
-    align: 'center',
-    numeric: false
-  },
+  }
 ]
