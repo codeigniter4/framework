@@ -3,7 +3,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import FileUploader from '../../components/FileUploader/';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
-import './index.scss';
+// import './index.scss';
 
 function AssetManager(props) {
   const { history, match } = props;
