@@ -74,6 +74,12 @@ const formatLoadData = (formData) => {
   fields_int.map(field => {
     formData[field] = parseInt(formData[field])
   })
+
+  Object.keys(formData).map(item => {
+    if(formData[item] === null) {
+      formData[item] = '';
+    }
+  })
   return formData
 }
 
