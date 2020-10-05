@@ -2,16 +2,16 @@ export const JSONSchema = {
   "title": "Broker Profile",
   "description": "",
   "type": "object",
-  "required": ['name', 'address', 'Email', 'detentionRate', 'tonuFee'],
+  "required": ['name', 'address', 'billingEmail', 'detentionRate', 'tonuFee', 'paymentTerms'],
   "properties": {
     "name": {
       "type": "string",
       "title": "Broker Name",
       "default": ""
     },
-    "contact": {
+    "billingContact": {
       "type": "string",
-      "title": "Main Contact",
+      "title": "Billing Contact",
       "default": ""
     },
     "address": {
@@ -24,19 +24,19 @@ export const JSONSchema = {
       "title": "Phone",
       "default": ""
     },
-    "Email": {
-      "type": "string",
-      "title": "Email",
-      "default": ""
-    },
-    "billingContact": {
-      "type": "string",
-      "title": "Billing Contact",
-      "default": ""
-    },
     "billingEmail": {
       "type": "string",
       "title": "Billing Email",
+      "default": ""
+    },
+    "contact": {
+      "type": "string",
+      "title": "Alternative Contact",
+      "default": ""
+    },
+    "Email": {
+      "type": "string",
+      "title": "Alternative Email",
       "default": ""
     },
     "quickPay": {

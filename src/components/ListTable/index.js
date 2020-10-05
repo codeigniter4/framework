@@ -199,7 +199,7 @@ export default function EnhancedTable(props) {
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(100);
   const { rows, handleDelete, handleExport } = props;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
