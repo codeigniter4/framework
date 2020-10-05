@@ -63,7 +63,7 @@ function Header(props) {
                 </IconButton>
               </Tooltip>
             </Grid> : ''}
-            <Grid item xs={8} lg={10}>
+            <Grid item xs={8} md={10}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}
