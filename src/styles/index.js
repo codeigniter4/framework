@@ -147,7 +147,7 @@ export const styles = {
     background: '#eaeff1',
     textAlign: 'left',
     width: 'calc(100% - 240px)',
-    [`@media (max-width:  440px)`]: {
+    [`@media (max-width:  1023px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
       width: '100%'

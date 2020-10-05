@@ -23,6 +23,10 @@ export const paperStylesTable = makeStyles((theme) => ({
     [`@media (max-width:  440px)`]: {
       width: 350,
       margin: '0 auto'
+    },
+    [`@media (max-width:  1024px)`]: {
+      width: 728,
+      margin: '0 auto'
     }
   },
 }));

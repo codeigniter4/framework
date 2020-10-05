@@ -16,7 +16,7 @@ const styles = (theme) => ({
   secondaryBar: {
     zIndex: 10,
     width: 'calc(100% - 240px)',
-    [`@media (max-width:  440px)`]: {
+    [`@media (max-width:  1023px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
       width: '100%'
@@ -63,7 +63,7 @@ function Header(props) {
                 </IconButton>
               </Tooltip>
             </Grid> : ''}
-            <Grid item xs={8} sm={10}>
+            <Grid item xs={8} md={10}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}
