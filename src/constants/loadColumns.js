@@ -61,5 +61,5 @@ export const loadColumns = [
     label: '',
     align: 'center',
     numeric: false
-  },
+  }
 ]

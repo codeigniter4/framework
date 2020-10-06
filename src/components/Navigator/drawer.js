@@ -7,10 +7,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import GroupIcon from '@material-ui/icons/Group';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import iconLogo from '../../assets/icon.svg';
+import { navigation } from './menuItems';
+import favicon from '../../assets/favicon.png';
 
 
 
@@ -60,23 +58,7 @@ function Navigator(props) {
   const navigate = (location) => {
     history.push(`/vgdt-admin/${location}`);
   }
-  const navigation = [
-    {
-      name: 'LoadBoard',
-      route: 'loads',
-      icon: (<PostAddIcon />)
-    },
-    {
-      name: 'Brokers',
-      route: 'brokers',
-      icon: (<GroupIcon />)
-    },
-    {
-      name: 'Invoices',
-      route: 'invoices',
-      icon: (<MonetizationOnIcon />)
-    }
-  ]
+
   return (
     <Drawer anchor={anchor} open={open} onClose={() => toggleDrawer(anchor)}>
       <div
@@ -85,9 +67,9 @@ function Navigator(props) {
         onKeyDown={() => toggleDrawer(anchor)}
       >
         <img
-          src={iconLogo}
+          src={favicon}
           width={100}
-          style={{"margin":"50px"}}
+          style={{"margin":"10px 50px"}}
           spacing={1}
           alt="Vanguard Trucking llc icon"
         />

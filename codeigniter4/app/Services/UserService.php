@@ -1,49 +1,41 @@
 <?php namespace App\Services;
 use App\Models\UserModel;
 
-// Get user info takes connection and sql query
+// Get User info takes connection and sql query
 class UserService {
   function __construct()
    {
 
    }
 
-   public function getUsers()
+   public function getRecords()
    {
-     $userModel = new UserModel();
-     $users = $userModel->findAll();
-     return $users;
+     $model = new UserModel();
+     $records = $model->findAll();
+     return $records;
    }
 
-   public function saveUser($data)
+   public function saveRecord($data)
    {
-     $userModel = new UserModel();
-     $userModel->save($data);
-     $user = $userModel->find($data);
-     return $user;
+     $model = new UserModel();
+     $model->save($data);
+     $record = $model->find($data);
+     return $record;
    }
 
-   public function getUser($user_id)
+   public function getRecord($record_id)
    {
-     $userModel = new UserModel();
-     $users = $userModel->find($user_id);
-     return $users;
+     $model = new UserModel();
+     $record = $model->find($record_id);
+     return $record;
    }
 
-   public function updateUserById($user_id, $data)
+   public function deleteRecordById($record_id)
    {
-     $userModel = new UserModel();
-     $userModel->update($user_id, $data);
-     $user = $userModel->find($user_id);
-     return $user;
-   }
+     $model = new UserModel();
+     $record = $model->find($record_id);
+     $model->delete([$record_id]);
 
-   public function deleteUserById($user_id)
-   {
-     $userModel = new UserModel();
-     $user = $userModel->find($user_id);
-     $userModel->delete([$user_id]);
-
-     return $user;
+     return $record;
    }
 }

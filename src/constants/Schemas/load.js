@@ -20,22 +20,8 @@ export const JSONSchema = {
     "user": {
       "title": "Dispatch",
       "type": "string",
-      "enum": [
-        "select",
-        "bigDuro",
-        "Dujon",
-        "KayDee",
-        "Precious",
-        "Natarlie"
-      ],
-      "enumNames": [
-        "select",
-        "bigDuro",
-        "Dujon",
-        "KayDee",
-        "Precious",
-        "Natarlie"
-      ],
+      "enum": [],
+      "enumNames": [],
       "default": "select"
     },
     "status": {
@@ -130,8 +116,22 @@ export const JSONSchema = {
     "driver": {
       "title": "Driver",
       "type": "string",
-      "enum": ["Ben"],
-      "enumNames": ["Ben"],
+      "enum": [],
+      "enumNames": [],
+      "default": ""
+    },
+    "tractor": {
+      "title": "Tractor",
+      "type": "string",
+      "enum": [],
+      "enumNames": [],
+      "default": ""
+    },
+    "trailer": {
+      "title": "Trailer",
+      "type": "string",
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "detentionPay": {
@@ -163,6 +163,16 @@ export const JSONSchema = {
       "type": "boolean",
       "title": "TONU",
       "default": "false"
+    },
+    "ratecon": {
+      "type": "string",
+      "title": "Rate Contract",
+      "default": ""
+    },
+    "file": {
+      "type": "string",
+      "format": "data-url",
+      "title": "Rate Contract"
     }
   }
 }

@@ -112,6 +112,14 @@ theme = {
         height: 32,
       },
     },
+    MuiList: {
+      root: {
+        overflowY: 'scroll',
+        height: '100%',
+        position: 'absolute',
+        width: 240
+      }
+    }
   },
 };
 
@@ -138,24 +146,16 @@ export const styles = {
     padding: theme.spacing(2, 2),
     background: '#eaeff1',
     textAlign: 'left',
-    [`@media (max-width:  440px)`]: {
+    width: 'calc(100% - 240px)',
+    [`@media (max-width:  1023px)`]: {
       paddingLeft: theme.spacing(2, 2),
       paddingRight: theme.spacing(2, 2),
       width: '100%'
-    }
-
+    },
+    alignSelf: 'flex-end'
   },
   footer: {
     padding: theme.spacing(2),
     background: '#eaeff1',
-  },
-  paper: {
-    margin: 'auto',
-    overflow: 'hidden',
-    [`@media (max-width:  500px)`]: {
-      paddingLeft: theme.spacing(2, 2),
-      paddingRight: theme.spacing(2, 2),
-      width: 350
-    }
-  },
+  }
 };

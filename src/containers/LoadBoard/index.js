@@ -1,4 +1,6 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import ListView from '../../components/ListView';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { Button } from '@material-ui/core';
@@ -7,19 +9,26 @@ import ListTable from '../../components/ListTable';
 import ListToolBar from '../../components/ListToolBar';
 import { loadColumns } from '../../constants/loadColumns';
 import { LOAD_MODEL } from '../../constants';
-import { get } from '../../services/';
-import { getTodayAndTommorrowDates } from '../../utils/adjustDates'
+import { get, getType } from '../../services/';
+import { getTodayAndTommorrowDates } from '../../utils/adjustDates';
+import { paperStylesTable } from '../../styles/paper';
 
 const getAllBrokers = () => {
   const response = get('brokers');
   return response;
 }
 
+const getAllDispatch = () => {
+  const response = getType('employees', 'dispatch');
+  return response;
+}
 
 function Loadboard(props) {
+  const classes = paperStylesTable();
   const table = 'loads';
   const { history } = props;
   const [brokers, setBrokers] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
@@ -32,6 +41,9 @@ function Loadboard(props) {
           });
           getAllBrokers().then(data => {
             setBrokers(data)
+          })
+          getAllDispatch().then(data => {
+            setUsers(data)
           })
         }
         const actions = {
@@ -54,6 +66,9 @@ function Loadboard(props) {
           },
           handleDelete: (ids) => {
             deleteRecord(table, ids);
+            getAllRecords(table).then(data => {
+              return data
+            });
           },
           handleExport: false
         }
@@ -71,12 +86,24 @@ function Loadboard(props) {
             }
           })
 
+          users.map(user => {
+            if (user.id === row.user) {
+              newRow.user = user.lastname
+            }
+          })
+          newRow.rate = row.tonu === '1' ? 'TONU' : row.rate;
           newRow.pickupDate = new Date(row.pickupDate).toLocaleString();
           newRow.dropoffDate = new Date(row.dropoffDate).toLocaleString();
           return newRow;
         })
         return (
-          <ListView history={history} actions={actions} rows={updateRowData} columns={loadColumns}/>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <ListView history={history} actions={actions} rows={updateRowData} columns={loadColumns}/>
+              </Paper>
+            </Grid>
+          </Grid>
         )
       }}
       </AdminContext.Consumer>

@@ -7,7 +7,7 @@ const ListView = (props) => {
   return (
     <React.Fragment>
       <ListToolBar handleChange={props.actions.handleChange} handleAdd={props.actions.handleAdd}/>
-      <ListTable columns={props.columns} rows={props.rows} handleDelete={props.actions.handleDelete} handleExport={props.actions.handleExport}/>
+      <ListTable columns={props.columns} rows={props.rows} handleDelete={props.actions.handleDelete} handleExport={props.actions.handleExport} order_by={props.order_by}/>
     </React.Fragment>
   )
 }

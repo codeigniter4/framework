@@ -1,8 +1,11 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { JSONSchema, UISchema } from '../../constants/Schemas/broker';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
+import { paperStyles } from '../../styles/paper';
 import './index.scss';
 
 const formatData = (formData) => {
@@ -18,10 +21,11 @@ const formatData = (formData) => {
     formData[field] = parseInt(formData[field])
     return false;
   })
-  
+
   return formData;
 }
 function BrokerForm(props) {
+  const classes = paperStyles();
   const table = 'brokers';
   const { history, match } = props;
   return (
@@ -43,14 +47,21 @@ function BrokerForm(props) {
         }
 
         return (
-          <div className="broker_Form">
-            <Form
-              schema={JSONSchema}
-              uiSchema={UISchema}
-              formData={formatData(record)}
-              onSubmit={(data) => saveBroker(data.formData)}>
-            </Form>
-          </div>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <div className="broker_Form">
+                  <Form
+                    schema={JSONSchema}
+                    uiSchema={UISchema}
+                    formData={formatData(record)}
+                    onSubmit={(data) => saveBroker(data.formData)}>
+                  </Form>
+                </div>
+              </Paper>
+            </Grid>
+          </Grid>
+
         )
       }}
       </AdminContext.Consumer>

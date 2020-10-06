@@ -5,7 +5,7 @@ class Users extends BaseController
 {
 	public function index()
 	{
-		$userService = new UserService();
+		$Service = new UserService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -13,21 +13,21 @@ class Users extends BaseController
 
 		switch ($method) {
 		    case 'post':
-						$user = $userService->saveUser($json);
-						return $response->setJSON($user);
+						$record = $Service->saveRecord($json);
+						return $response->setJSON($record);
 		        break;
 		    case 'get':
-						$users = $userService->getUsers();
-						return $response->setJSON($users);
+						$records = $Service->getRecords();
+						return $response->setJSON($records);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function id($user_id)
+	public function id($id)
 	{
-		$userService = new UserService();
+		$Service = new UserService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
@@ -35,28 +35,28 @@ class Users extends BaseController
 
 		switch ($method) {
 		    case 'get':
-						$user = $userService->getUser($user_id);
-						return $response->setJSON($user);
+						$record = $Service->getRecord($id);
+						return $response->setJSON($record);
 		        break;
 		    default:
 		        echo "nothing here!";
 		}
 	}
 
-	public function delete($user_id)
+	public function delete($id)
 	{
-		$userService = new UserService();
+		$Service = new UserService();
 		$request = $this->request;
 		$response = $this->response;
 		$method = $request->getMethod();
 
 		switch ($method) {
-		    case 'post':
-						$user = $userService->deleteUserById($user_id);
-		        return $response->setJSON($user);
-		        break;
-		    default:
-		        echo "nothing here!";
+				case 'post':
+						$record = $Service->deleteRecordById($id);
+						return $response->setJSON($record);
+						break;
+				default:
+						echo "nothing here!";
 		}
 	}
 

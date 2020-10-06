@@ -19,7 +19,11 @@ export const LOAD_MODEL = {
   "user": "",
   "lumper": "",
   "loadNumber": "",
-  "tonu": "false"
+  "tonu": "false",
+  "driver": "",
+  "tractor": "",
+  "trailer": "",
+  "ratecon": ""
 }
 
 
@@ -60,6 +64,82 @@ export const BROKER_MODEL = {
   "paymentTerms": "30",
   "detentionRate": "50",
   "tonuFee": "250"
+}
+
+export const DISPATCH_MODEL = {
+    "firstname": "",
+    "lastname": "",
+    "position": "dispatch",
+    "title": "Dispather",
+    "employer": "",
+    "employment": "",
+    "pay_structure": "",
+    "compensation": "",
+    "phone_number": "",
+    "email": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "gender": "",
+    "dob": "",
+    "hire_date": "",
+    "cdl_num": "",
+    "cdl_state": "",
+    "cdl_exp": "",
+    "med_cert_exp": ""
+}
+
+export const EQUIPMENT_MODEL = {
+  "unit_num": "",
+  "type": "",
+  "sub_type": "",
+  "year": "",
+  "make": "",
+  "model": "",
+  "vin": "",
+  "plate": "",
+  "irp": "",
+  "unladen_wt": "",
+}
+
+
+export const USER_MODEL = {
+  username: "",
+  firstname: "",
+  lastname: "",
+  email: "",
+  password: "",
+  role: "",
+  company: "",
+  create_datetime: "",
+  last_login: "",
+  active: "",
+  status: ""
+}
+
+export const DRIVER_MODEL = {
+    "firstname": "",
+    "lastname": "",
+    "position": "driver",
+    "title": "Driver",
+    "employer": "",
+    "employment": "",
+    "pay_structure": "",
+    "compensation": "",
+    "phone_number": "",
+    "email": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "gender": "",
+    "dob": "",
+    "hire_date": "",
+    "cdl_num": "",
+    "cdl_state": "",
+    "cdl_exp": "",
+    "med_cert_exp": ""
 }
 
 export const INVOICE_MODEL = {

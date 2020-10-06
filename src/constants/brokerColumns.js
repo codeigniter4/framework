@@ -16,14 +16,14 @@ export const brokerColumns = [
     numeric: false
   },
   {
-    id: 'contact',
+    id: 'billingContact',
     label: 'Contact',
     align: 'center',
     numeric: false
   },
   {
-    id: 'Email',
-    label: 'Main Email',
+    id: 'billingEmail',
+    label: 'Email',
     align: 'center',
     numeric: false
   },

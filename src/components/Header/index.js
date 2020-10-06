@@ -15,6 +15,13 @@ const lightColor = 'rgba(255, 255, 255, 0.7)';
 const styles = (theme) => ({
   secondaryBar: {
     zIndex: 10,
+    width: 'calc(100% - 240px)',
+    [`@media (max-width:  1023px)`]: {
+      paddingLeft: theme.spacing(2, 2),
+      paddingRight: theme.spacing(2, 2),
+      width: '100%'
+    },
+    alignSelf: 'flex-end'
   },
   menuButton: {
     marginLeft: -theme.spacing(1),
@@ -35,7 +42,7 @@ const styles = (theme) => ({
 });
 
 function Header(props) {
-  const { classes, toggleDrawer } = props;
+  const { classes, toggleDrawer, showToggle } = props;
   const handleToggle = (e) => {
     e.preventDefault()
     toggleDrawer('left')
@@ -49,14 +56,14 @@ function Header(props) {
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
-            <Grid item xs={2} style={{"textAlign":"left"}}>
+            {showToggle ? <Grid item xs={2} style={{"textAlign":"left"}}>
               <Tooltip title="Toggle Menu">
                 <IconButton color="inherit" onClick={handleToggle}>
                   <MenuIcon/>
                 </IconButton>
               </Tooltip>
-            </Grid>
-            <Grid item xs={8}>
+            </Grid> : ''}
+            <Grid item xs={8} md={10}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}
