@@ -1,4 +1,4 @@
-export const invoiceColumns = [
+export const invoices = [
   { id: '*InvoiceNo',
     label: 'Invoice',
     align: 'center',

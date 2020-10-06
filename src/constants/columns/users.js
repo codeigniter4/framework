@@ -1,4 +1,4 @@
-export const userColumns = [
+export const users = [
   { id: 'username',
     label: 'Username',
     align: 'center',

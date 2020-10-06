@@ -1,4 +1,4 @@
-export const brokerColumns = [
+export const brokers = [
   { id: 'name',
     label: 'Broker',
     align: 'center',

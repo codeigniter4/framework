@@ -13,7 +13,9 @@ class AdminContextProvider extends Component {
       record: {},
       openModal: false,
       deleteRecord: {},
-      exportToCSV: []
+      exportToCSV: [],
+      tableData: {},
+      table: ''
     }
     this.getAllRecords = this.getAllRecords.bind(this);
     this.getAllRecordsByType = this.getAllRecordsByType.bind(this);
@@ -26,7 +28,11 @@ class AdminContextProvider extends Component {
     this.addRecord = this.addRecord.bind(this);
     this.updateRecord = this.updateRecord.bind(this);
     this.exportRecordToCSV = this.exportRecordToCSV.bind(this);
+    this.setTableData = this.setTableData.bind(this);
+    this.setTable = this.setTable.bind(this);
   }
+
+
 
   async getAllRecords(table) {
     const response = await get(table);
@@ -67,10 +73,10 @@ class AdminContextProvider extends Component {
     })
   }
 
-  filterRecords(fields, searchTerm) {
+  filterRecords(table, fields, searchTerm) {
     if(fields.length) {
       const results = fields.map(field => {
-        return this.state.records.filter(record => record[field] && record[field].toLowerCase().includes(searchTerm.toLowerCase()));
+        return this.state.tableData[table].filter(record => record[field] && record[field].toLowerCase().includes(searchTerm.toLowerCase()));
       })
 
       const filteredRecords = [];
@@ -114,6 +120,22 @@ class AdminContextProvider extends Component {
     });
   }
 
+  setTableData(table, data) {
+    this.setState({
+      tableData: {
+        ...this.state.tableData,
+        [table]: data
+      }
+    });
+  }
+  setTable(table) {
+    console.log('setTableData:', table);
+    this.setState({
+      table,
+      records: [...this.state.tableData[table]]
+    });
+  }
+
   updateRecord(event) {
     const name = event.target.name;
     this.setState({
@@ -137,7 +159,9 @@ class AdminContextProvider extends Component {
           getAllRecords: this.getAllRecords,
           setRecord: this.setRecord,
           setRecords: this.setRecords,
-          exportRecordToCSV: this.exportRecordToCSV
+          exportRecordToCSV: this.exportRecordToCSV,
+          setTableData: this.setTableData,
+          setTable: this.setTable
         }
       }>
         {this.props.children}

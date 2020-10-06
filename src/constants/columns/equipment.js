@@ -1,4 +1,4 @@
-export const equipmentColumns = [
+export const equipment = [
   { id: 'unit_num',
     label: 'Unit Number',
     align: 'center',

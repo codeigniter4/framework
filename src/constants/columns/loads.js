@@ -1,4 +1,4 @@
-export const loadColumns = [
+export const loads = [
   { id: 'status', // should generate scheduled, live, completed based on the start and end times
     label: 'Status',
     align: 'center',

@@ -1,4 +1,4 @@
-export const dispatchColumns = [
+export const drivers = [
   { id: 'name',
     label: 'Name',
     align: 'center',
@@ -12,6 +12,19 @@ export const dispatchColumns = [
   },
   { id: 'phone_number', // should generate scheduled, live, completed based on the start and end times
     label: 'Phone',
+    align: 'center',
+    numeric: false
+  },
+
+  {
+    id: 'cdl_exp',
+    label: 'CDL Expiration',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'med_cert_exp',
+    label: 'Med Cert Expiration',
     align: 'center',
     numeric: false
   },
