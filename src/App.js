@@ -4,7 +4,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
 import RouterComponent from './components/routerComponent';
 import Navigator from './components/Navigator/drawer';
 import NavigatorStatic from './components/Navigator/static';

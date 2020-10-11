@@ -1,0 +1,16 @@
+.common_Form{
+  & .MuiGrid-grid-xs-12 {
+    flex-basis: 25%;
+  }
+
+  @media screen and (min-width: 0px) and (max-width: 500px) {
+    & .MuiGrid-grid-xs-12 {
+      flex-basis: 50%;
+    }
+  }
+}
+
+.MuiList-root.MuiMenu-list.MuiList-padding {
+    position: relative !important;
+    width: 100%;
+}

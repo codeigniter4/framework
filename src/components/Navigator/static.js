@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -53,7 +52,7 @@ const styles = (theme) => ({
 });
 
 function Navigator(props) {
-  const { toggleDrawer, anchor, open, history, classes } = props;
+  const { history, classes } = props;
   const navigate = (location) => {
     history.push(`/vgdt-admin/${location}`);
   }

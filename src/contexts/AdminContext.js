@@ -7,7 +7,6 @@ class AdminContextProvider extends Component {
   constructor(props) {
     super()
     this.state = {
-      records: [],
       filteredRecords: [],
       searchTerm: '',
       record: {},
@@ -37,7 +36,7 @@ class AdminContextProvider extends Component {
   async getAllRecords(table) {
     const response = await get(table);
     this.setState({
-      records: [...response]
+      [table]: [...response]
     })
     return response;
   }
@@ -45,7 +44,7 @@ class AdminContextProvider extends Component {
   async getAllRecordsByType(table, type) {
     const response = await getType(table, type);
     this.setState({
-      records: [...response]
+      [table]: [...response]
     })
     return response;
   }
@@ -84,7 +83,9 @@ class AdminContextProvider extends Component {
       results.map(result => {
         result.map(rec => {
           filteredRecords.push(rec)
+          return rec
         })
+        return result
       })
 
       this.setState({
@@ -94,15 +95,15 @@ class AdminContextProvider extends Component {
     }
   }
 
-  setRecord(record, callback) {
+  setRecord(table, record, callback) {
     this.setState({
       record: {...record}
     })
   }
 
-  setRecords(records, callback) {
+  setRecords(table, records, callback) {
     this.setState({
-      records: {...records}
+      [table]: {...records}
     })
   }
 
@@ -114,9 +115,9 @@ class AdminContextProvider extends Component {
     return response
   }
 
-  addRecord(record) {
+  addRecord(table, record) {
     this.setState({
-      records: [...this.state.records, {...record}]
+      [table]: [...this.state[table], {...record}]
     });
   }
 
@@ -129,14 +130,13 @@ class AdminContextProvider extends Component {
     });
   }
   setTable(table) {
-    console.log('setTableData:', table);
     this.setState({
       table,
-      records: [...this.state.tableData[table]]
+      [table]: [...this.state.tableData[table]]
     });
   }
 
-  updateRecord(event) {
+  updateRecord(table, event) {
     const name = event.target.name;
     this.setState({
       record: {
