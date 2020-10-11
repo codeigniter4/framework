@@ -95,7 +95,8 @@ class AdminContextProvider extends Component {
     }
   }
 
-  setRecord(table, record, callback) {
+  setRecord(table, record) {
+    console.log(record);
     this.setState({
       record: {...record}
     })

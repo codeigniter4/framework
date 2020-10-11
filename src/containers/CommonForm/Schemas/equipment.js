@@ -1,9 +1,9 @@
-export const TractorJSONSchema = {
-  "title": "Tractor Details",
+export const EquipmentJSONSchema = {
+  "title": "Details",
   "description": "",
   "type": "object",
-  "required": ['unit_num',
-  'type', 'vin', 'irp'
+  "required": ["unit_num",
+  "type", "vin", "irp"
   ],
   "properties": {
     "unit_num": {
@@ -67,7 +67,45 @@ export const TractorJSONSchema = {
   }
 }
 
+export const EquipmentFormData = {
+  "unit_num": "",
+  "type": "1",
+  "sub_type": "",
+  "year": "",
+  "make": "",
+  "model": "",
+  "vin": "",
+  "irp": "",
+  "unladen_wt": "",
+  "firstname": "",
+  "lastname": "",
+  "phone_number": "",
+  "email": "",
+  "address": "",
+  "city": "",
+  "state": "",
+  "zip": "",
+  "pay_structure": "",
+  "compensation": "",
+  "gender": "select",
+  "dob": "",
+  "hire_date": "",
+  "name": "",
+  "billingContact": "",
+  "phone": "",
+  "billingEmail": "",
+  "contact": "",
+  "Email": "",
+  "quickPay": "true",
+  "quickPayPercentage": "",
+  "paymentTerms": 30,
+  "detentionRate": 50,
+  "tonuFee": 250,
+  "firstName": "Chuck",
+  "lastName": "Norris",
+  "age": 75,
+  "bio": "Roundhouse kicking asses since 1940",
+  "password": "noneed"
+};
 
-export const formData = {};
-
-export const TractorUISchema = {}
+export const EquipmentUISchema = {}

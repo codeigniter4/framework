@@ -2,7 +2,7 @@ export const BrokerJSONSchema = {
   "title": "Broker Profile",
   "description": "",
   "type": "object",
-  "required": ['name', 'address', 'billingEmail', 'detentionRate', 'tonuFee', 'paymentTerms'],
+  "required": ["name", "address", "billingEmail", "detentionRate", "tonuFee", "paymentTerms"],
   "properties": {
     "name": {
       "type": "string",
@@ -67,7 +67,19 @@ export const BrokerJSONSchema = {
   }
 }
 
-
-export const formData = {};
+export const BrokerFormData = {
+  "name": "",
+  "billingContact": "",
+  "address": "",
+  "phone": "",
+  "billingEmail": "",
+  "contact": "",
+  "Email": "",
+  "quickPay": "true",
+  "quickPayPercentage": "",
+  "paymentTerms": 30,
+  "detentionRate": 50,
+  "tonuFee": 250
+};
 
 export const BrokerUISchema = {}

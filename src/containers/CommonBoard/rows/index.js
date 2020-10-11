@@ -67,7 +67,9 @@ export const getUpdatedRows = (context, table, actions) => {
     dispatch: () => getDispatchRowData(rows, actions, editButton),
     invoices: () => getInvoiceRowData(rows, actions, editButton),
     tractor: () => getEquipmentRowData(rows, actions, editButton),
-    trailer: () => getEquipmentRowData(rows, actions, editButton)
+    trailer: () => getEquipmentRowData(rows, actions, editButton),
+    equipment: () => getEquipmentRowData(rows, actions, editButton),
+    employees: () => getDriverRowData(rows, actions, editButton)
   }
 
   return types[table] ? types[table]() : common;

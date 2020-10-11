@@ -33,6 +33,12 @@ export const navigation = [
     icon: (<MonetizationOnIcon />),
     table: 'invoices'
   },
+  // {
+  //   name: 'Employees',
+  //   route: 'employees',
+  //   icon: (<LocalShippingIcon />),
+  //   table: 'employees'
+  // },
   {
     name: 'Drivers',
     route: 'employees/type/driver',

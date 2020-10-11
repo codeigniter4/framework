@@ -3,25 +3,25 @@ export const LoadJSONSchema = {
   "description": "",
   "type": "object",
   "required": [
-    'type',
-    'status',
-    'pickupDate',
-    'dropoffDate',
-    'pickupLocation',
-    'dropoffLocation',
-    'loadedMiles',
-    'deadHead',
-    'rate',
-    'user',
-    'driver',
-    'broker'
+    "type",
+    "status",
+    "pickupDate",
+    "dropoffDate",
+    "pickupLocation",
+    "dropoffLocation",
+    "loadedMiles",
+    "deadHead",
+    "rate",
+    "user",
+    "driver",
+    "broker"
   ],
   "properties": {
     "user": {
       "title": "Dispatch",
       "type": "string",
-      "enum": [],
-      "enumNames": [],
+      "enum": ["select"],
+      "enumNames": ["Select"],
       "default": "select"
     },
     "status": {
@@ -61,8 +61,8 @@ export const LoadJSONSchema = {
     "broker": {
       "title": "Broker",
       "type": "string",
-      "enum": [""],
-      "enumNames": [""],
+      "enum": ["select"],
+      "enumNames": ["Select"],
       "default": ""
     },
     "pickupLocation": {
@@ -116,22 +116,22 @@ export const LoadJSONSchema = {
     "driver": {
       "title": "Driver",
       "type": "string",
-      "enum": [],
-      "enumNames": [],
+      "enum": ["select"],
+      "enumNames": ["Select"],
       "default": ""
     },
     "tractor": {
       "title": "Tractor",
       "type": "string",
-      "enum": [],
-      "enumNames": [],
+      "enum": ["select"],
+      "enumNames": ["Select"],
       "default": ""
     },
     "trailer": {
       "title": "Trailer",
       "type": "string",
-      "enum": [],
-      "enumNames": [],
+      "enum": ["select"],
+      "enumNames": ["Select"],
       "default": ""
     },
     "detentionPay": {
@@ -177,17 +177,67 @@ export const LoadJSONSchema = {
   }
 }
 
+export const LoadFormData = {
+  "user": "select",
+  "status": "Planning",
+  "type": "1",
+  "broker": "",
+  "pickupLocation": "",
+  "pickupDate": "",
+  "dropoffLocation": "",
+  "dropoffDate": "",
+  "deadHead": 0,
+  "loadedMiles": 500,
+  "rate": 1500,
+  "weight": "",
+  "cargo": "",
+  "driver": "",
+  "tractor": "",
+  "trailer": "",
+  "detentionPay": 0,
+  "layoverPay": 0,
+  "lumper": 0,
+  "loadNumber": "",
+  "notes": "",
+  "tonu": "false",
+  "ratecon": "",
+  "unit_num": "",
+  "sub_type": "",
+  "year": "",
+  "make": "",
+  "model": "",
+  "vin": "",
+  "irp": "",
+  "unladen_wt": "",
+  "firstname": "",
+  "lastname": "",
+  "phone_number": "",
+  "email": "",
+  "address": "",
+  "city": "",
+  "state": "",
+  "zip": "",
+  "pay_structure": "",
+  "compensation": "",
+  "gender": "select",
+  "dob": "",
+  "hire_date": "",
+  "name": "",
+  "billingContact": "",
+  "phone": "",
+  "billingEmail": "",
+  "contact": "",
+  "Email": "",
+  "quickPay": "true",
+  "quickPayPercentage": "",
+  "paymentTerms": 30,
+  "detentionRate": 50,
+  "tonuFee": 250,
+  "firstName": "Chuck",
+  "lastName": "Norris",
+  "age": 75,
+  "bio": "Roundhouse kicking asses since 1940",
+  "password": "noneed"
+};
 
-export const formData = {};
-
-export const LoadUISchema = {
-  // "pickupDate": {
-  //   "ui:widget": "alt-datetime",
-  //   "ui:options": {
-  //     "yearsRange": [
-  //       1980,
-  //       2030
-  //     ]
-  //   }
-  // }
-}
+export const LoadUISchema = {}

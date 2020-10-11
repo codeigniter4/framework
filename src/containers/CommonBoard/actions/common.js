@@ -1,20 +1,19 @@
 export const getCommonActions = (context, table, db, history, filterFields) => {
   const { deleteRecord, filterRecords, setTableData } = context;
+  const store = db || table;
   return {
       handleClick: (id) => {
-        history.push(`${table}/${id}`);
+        history.push(`${store}/${id}`);
       },
       handleChange: (e) => {
         const fields = filterFields;
         filterRecords(table, fields, e.target.value)
       },
       handleAdd: () => {
-        history.push(`${table}/add`);
+        history.push(`${store}/add`);
       },
       handleRefresh: false,
       handleDelete: (ids) => {
-        const store = db || table;
-        console.log('table, db: ', table, db);
         deleteRecord(table, ids).then(data => {
           setTableData(store, data);
         });
