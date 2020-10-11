@@ -1,7 +1,11 @@
 import React from 'react';
 import Form from '@rjsf/material-ui';
+import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import LockIcon from '@material-ui/icons/Lock';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
 import { paperStyles } from '../../styles/paper';
@@ -10,6 +14,7 @@ import { addItemsToSchema } from '../../utils/addItemsToSchema';
 import { formatData } from '../../utils/formatData';
 import { requiredData } from '../../utils/requiredData';
 import { filterTables } from '../../utils/filterTables';
+import { getActions } from './actions/'
 import './index.scss';
 
 
@@ -28,26 +33,9 @@ function CommonForm(props) {
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const { record, saveRecord, getRecord, getAllRecords, tableData } = context;
+        const { record, getRecord, getAllRecords, setRecord } = context;
         const formData = record['id'] ? record : getFormData(schemaTyle).formData;
-        const save = (record) => {
-          saveRecord(table, record).then( data => {
-            history.goBack();
-            return data
-          })
-        }
-
-        const handleChange = (data) => {
-          // console.log(data.formData);
-
-
-          // if(record.status && record.status !== "Billed" && data.formData.status === "Billed" && !disabled) {
-            // const invoiceItems = generateInvoiceItems(load, broker);
-            // setdisabled(true);
-            // setRecord(load);
-            // setinvoices(invoiceItems);
-          // }
-        }
+        const actions = getActions(context, table, history);
 
         const refreshData = (config) => {
           const { route, alias, field } = config;
@@ -66,6 +54,17 @@ function CommonForm(props) {
           );
             return updated
           });
+        }
+
+        const handleLockToggle = (e) => {
+          e.preventDefault();
+          setdisabled(!disabled);
+          setRecord(table, record);
+        }
+
+        const handleBack = (e) => {
+          e.preventDefault();
+          history.goBack()
         }
 
         if(!loaded) {
@@ -88,20 +87,31 @@ function CommonForm(props) {
           }
         }
 
-        console.log(formData);
-
         return (
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
               <div className="common_Form">
+                <div className="common_Form_Toolbar">
+                  {actions && actions.hasToggle ?
+                    <Button color="primary" onClick={handleLockToggle}>
+                      {disabled ?
+                        <LockIcon/> :
+                        <LockOpenIcon/>
+                      }
+                    </Button> :
+                  ''}
+                  <Button color="primary" onClick={handleBack}>
+                    <ArrowBackIcon/>
+                  </Button>
+                </div>
                 {loaded && updatedSchema ? <Form
                   schema={updatedSchema}
                   uiSchema={schema.UISchema}
                   formData={formatData(table, formData)}
-                  onSubmit={(data) => save(data.formData)}
+                  onSubmit={(data) => actions.handleSave(data.formData)}
                   disabled={disabled}
-                  onChange={handleChange}>
+                  onChange={(data) => actions.handleChange(data.formData, disabled, setdisabled)}>
                 </Form> : 'No Form Config'}
               </div>
               </Paper>

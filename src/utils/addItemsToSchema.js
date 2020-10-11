@@ -5,7 +5,7 @@ export const addItemsToSchema = (schema, items, item, field) => {
       newItem.enum.push(b.id);
       newItem.enumNames.push(b[field]);
     }
-    
+
     return b
   });
   return newItem
