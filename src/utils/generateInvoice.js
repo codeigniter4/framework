@@ -11,7 +11,8 @@ const getItemAmount = (load, broker, service) => {
       break;
     case 'QUICKPAY':
       const fee = tonu ? tonuFee : rate
-      const quickPayFee = fee * (quickPayPercentage/100);
+      const quickPayFee = fee * quickPayPercentage * 100;
+      console.log('quickPayFee: ', quickPayFee, tonu, tonuFee);
       return -quickPayFee
       break;
     case 'DETENTION':

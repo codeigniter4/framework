@@ -1,8 +1,5 @@
-
-
-
 export const getLoadActions = (context, table, history) => {
-  const { record, saveRecord, setRecord, tableData } = context;
+  const { record, saveRecord, setRecord } = context;
   return {
     handleSave: (record) => {
       saveRecord(table, record).then( data => {
@@ -12,11 +9,9 @@ export const getLoadActions = (context, table, history) => {
     },
     handleChange: (data, disabled, setdisabled) => {
       if(data.status && data.status === "Billed" && !disabled) {
-        // const invoiceItems = generateInvoiceItems(load, broker);
+        console.log('context: ', context);
         setRecord(table, data);
         setdisabled(true);
-        console.log('generateInvoiceItems', data);
-        // setinvoices(invoiceItems);
       }
     },
     handleBack: () => {

@@ -59,7 +59,7 @@ function CommonForm(props) {
         const handleLockToggle = (e) => {
           e.preventDefault();
           setdisabled(!disabled);
-          setRecord(table, record);
+          // setRecord(table, record);
         }
 
         const handleBack = (e) => {
