@@ -1,5 +1,5 @@
 import { getEnv } from '../config';
-// import { INVOICE_DATES } from '../constants/';
+import { INVOICE_DATES } from '../constants/';
 
 const env = getEnv('prod'); // or prod
 
@@ -44,25 +44,28 @@ export const deleteById = async (type, id) => {
   return json;
 }
 
-// const formatItems = (items) => {
-//   const records = INVOICE_DATES.map(field => {
-//     return items.map(item => {
-//       item[field] = new Date(item[field]).toLocaleDateString()
-//       return item;
-//     })
-//   })
-//   return records;
-// }
+const formatItems = (items) => {
+  const records = INVOICE_DATES.map(field => {
+    return items.map(item => {
+      item[field] = new Date(item[field]).toLocaleDateString()
+      return item;
+    })
+  })
+  return records;
+}
 
 export const exportToCSV = async (type, items) => {
-  // const records = formatItems(items);
-  const response = await fetch(`${env}/utils/export`, {
-    method: 'post',
-    body: JSON.stringify(items)
-  })
-  const csv = await response.text()
-  .then(text => {
-    window.open("data:text/csv;charset=utf-8," + escape(text), true)
-  });
-  return csv;
+  const records = formatItems(items);
+  const body = JSON.stringify(records);
+  console.log('body: ', body);
+  // const response = await fetch(`${env}/utils/export`, {
+  //   method: 'post',
+  //   body
+  // })
+  // const csv = await response.text()
+  // .then(text => {
+  //   window.open("data:text/csv;charset=utf-8," + escape(text), true)
+  // });
+  // return csv;
+  return body;
 }

@@ -31,11 +31,8 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
             if(invoiceItems.length) {
               invoiceItems.map(invoice => {
                 if (invoice) {
-                  setTimeout(function () {
-                    console.log('Billed invoice: ', invoice);
-                    saveRecord('invoices', invoice)
-                  }, 10);
-
+                  console.log('Billed invoice: ', invoice);
+                  saveRecord('invoices', invoice);
                 }
               })
             }
