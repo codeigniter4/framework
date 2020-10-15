@@ -10,6 +10,12 @@ export const users = [
     numeric: false
   },
   {
+    id: 'role',
+    label: 'Role',
+    align: 'center',
+    numeric: false
+  },
+  {
     id: 'company',
     label: 'Company',
     align: 'center',

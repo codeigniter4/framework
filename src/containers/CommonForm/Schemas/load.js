@@ -20,9 +20,9 @@ export const LoadJSONSchema = {
     "user": {
       "title": "Dispatch",
       "type": "string",
-      "enum": ["select"],
-      "enumNames": ["Select"],
-      "default": "select"
+      "enum": [],
+      "enumNames": [],
+      "default": ""
     },
     "status": {
       "title": "Status",
@@ -61,8 +61,8 @@ export const LoadJSONSchema = {
     "broker": {
       "title": "Broker",
       "type": "string",
-      "enum": ["select"],
-      "enumNames": ["Select"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "pickupLocation": {
@@ -116,22 +116,22 @@ export const LoadJSONSchema = {
     "driver": {
       "title": "Driver",
       "type": "string",
-      "enum": ["select"],
-      "enumNames": ["Select"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "tractor": {
       "title": "Tractor",
       "type": "string",
-      "enum": ["select"],
-      "enumNames": ["Select"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "trailer": {
       "title": "Trailer",
       "type": "string",
-      "enum": ["select"],
-      "enumNames": ["Select"],
+      "enum": [],
+      "enumNames": [],
       "default": ""
     },
     "detentionPay": {
@@ -181,7 +181,7 @@ export const LoadFormData = {
   "user": "select",
   "status": "Planning",
   "type": "Van",
-  "broker": "",
+  "broker": "87",
   "pickupLocation": "",
   "pickupDate": "",
   "dropoffLocation": "",
@@ -191,9 +191,9 @@ export const LoadFormData = {
   "rate": 1500,
   "weight": "",
   "cargo": "",
-  "driver": "",
-  "tractor": "",
-  "trailer": "",
+  "driver": "1",
+  "tractor": "1",
+  "trailer": "2",
   "detentionPay": 0,
   "layoverPay": 0,
   "lumper": 0,

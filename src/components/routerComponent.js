@@ -23,6 +23,8 @@ export default function RouterComponent(props) {
         <Switch>
           <Route exact path="/vgdt-admin/:table" component={CommonBoard} />
           <Route exact path="/vgdt-admin/:table/type/:position" component={CommonBoard} />
+          <Route exact path="/vgdt-admin/:table/add" component={CommonForm} />
+          <Route exact path="/vgdt-admin/:table/add/:updateTable/:recordIdToUpdate" component={CommonForm} />
           <Route exact path="/vgdt-admin/:table/:id" component={CommonForm} />
           <Route exact path="/vgdt-admin/:table/type/:position/:id" component={CommonForm} />
           <Route exact path="/" component={CommonBoard} />

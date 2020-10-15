@@ -26,14 +26,19 @@ const getInvoiceItemsWithIds = (ids, records) => {
 
 
 export const getInvoiceActions = (context, table, history, filterFields) => {
-  const { tableData, deleteRecord, getAllRecords, exportRecordToCSV, filterRecords} = context;
+  const { tableData, deleteRecord, getAllRecords, exportRecordToCSV, filterRecords, setTableData} = context;
+  const refreshData = (store) => {
+    getAllRecords(store).then(data => {
+      setTableData(store, data);
+      return data
+    });
+  }
   return {
     handleAdd: false,
     handleDelete: (ids) => {
       const idsToDelete = getInvoiceItemsWithIds(ids, tableData[table]);
-      deleteRecord(table, idsToDelete);
-      getAllRecords(table).then(data => {
-        return data
+      deleteRecord(table, idsToDelete).then(data => {
+        refreshData(table)
       });
     },
     handleChange: (e) => {

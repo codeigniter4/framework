@@ -45,7 +45,7 @@ export const loads = [
     numeric: true
   },
   {
-    id: 'broker',
+    id: 'editBroker',
     label: 'Broker',
     align: 'center',
     numeric: false

@@ -1,6 +1,12 @@
 export const getCommonActions = (context, table, db, history, filterFields) => {
-  const { deleteRecord, filterRecords, setTableData } = context;
+  const { deleteRecord, filterRecords, setTableData, getAllRecords } = context;
   const store = db || table;
+  const refreshData = (store) => {
+    getAllRecords(store).then(data => {
+      setTableData(store, data);
+      return data
+    });
+  }
   return {
       handleClick: (id) => {
         history.push(`${store}/${id}`);
@@ -15,7 +21,7 @@ export const getCommonActions = (context, table, db, history, filterFields) => {
       handleRefresh: false,
       handleDelete: (ids) => {
         deleteRecord(table, ids).then(data => {
-          setTableData(store, data);
+          refreshData(store)
         });
       },
       handleExport: false

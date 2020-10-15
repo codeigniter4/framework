@@ -25,6 +25,8 @@ function CommonForm(props) {
   const recordId = match.params.id;
   const table = match.params.table;
   const position = match.params.position;
+  const updateTable = match.params.updateTable
+  const recordIdToUpdate = match.params.recordIdToUpdate
   const schemaTyle = position || table;
   const schema = getSchemaType(schemaTyle);
   const [updatedSchema, setUpdatedSchema] = React.useState({...schema.JSONSchema});
@@ -67,9 +69,13 @@ function CommonForm(props) {
           history.goBack()
         }
 
+        const handleSave = (formData) => {
+          actions.handleSave(formData, updateTable, recordIdToUpdate);
+        }
+
         if(!loaded) {
           setLoaded(true);
-          if(recordId !== 'add') {
+          if(recordId) {
             getRecord(table, recordId).then(data => {
               return data
             });
@@ -109,7 +115,7 @@ function CommonForm(props) {
                   schema={updatedSchema}
                   uiSchema={schema.UISchema}
                   formData={formatData(table, formData)}
-                  onSubmit={(data) => actions.handleSave(data.formData)}
+                  onSubmit={(data) => handleSave(data.formData)}
                   disabled={disabled}
                   onChange={(data) => actions.handleChange(data.formData, disabled, setdisabled)}>
                 </Form> : 'No Form Config'}

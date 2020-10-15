@@ -9,8 +9,8 @@ export let theme = createMuiTheme({
     },
     secondary: {
       light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      main: '#888888',
+      dark: '#4e4e4e',
     },
   },
   typography: {
