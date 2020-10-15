@@ -5,42 +5,29 @@ import {
   Route
 } from "react-router-dom";
 
-import Dashboard from '../containers/Dashboard';
-import LoadBoard from '../containers/LoadBoard';
-import BrokerBoard from '../containers/BrokerBoard';
-import UserBoard from '../containers/UserBoard';
-import DriverBoard from '../containers/DriverBoard';
-import DriverForm from '../containers/DriverForm';
-import DispatchBoard from '../containers/DispatchBoard';
-import DispatchForm from '../containers/DispatchForm';
-import Equipment from '../containers/Equipment';
-import EquipmentForm from '../containers/EquipmentForm';
-import Invoices from '../containers/Invoices';
-import LoadForm from '../containers/LoadForm';
-import BrokerForm from '../containers/BrokerForm';
-import AssetManager from '../containers/AssetManager';
+// import Dashboard from '../containers/Dashboard';
+// import DriverForm from '../containers/DriverForm';
+// import CommonForm from '../containers/CommonForm';
+// import EquipmentForm from '../containers/EquipmentForm';
+// import Invoices from '../containers/Invoices';
+// import LoadForm from '../containers/LoadForm';
+// import BrokerForm from '../containers/BrokerForm';
+// import AssetManager from '../containers/AssetManager';
+import CommonBoard from '../containers/CommonBoard';
+import CommonForm from '../containers/CommonForm';
 
 export default function RouterComponent(props) {
   const { history } = props
   return (
     <Router history={history}>
         <Switch>
-          <Route exact path="/vgdt-admin/dashboard" component={LoadBoard} />
-          <Route exact path="/vgdt-admin/loads" component={LoadBoard} />
-          <Route path="/vgdt-admin/loads/:id" component={LoadForm} />
-          <Route path="/vgdt-admin/files/:id" component={AssetManager} />
-          <Route exact path="/vgdt-admin/brokers" component={BrokerBoard} />
-          <Route path="/vgdt-admin/brokers/:id" component={BrokerForm} />
-          <Route exact path="/vgdt-admin/users" component={UserBoard} />
-          <Route exact path="/vgdt-admin/drivers" component={DriverBoard} />
-          <Route path="/vgdt-admin/drivers/:id" component={DriverForm} />
-          <Route exact path="/vgdt-admin/dispatch" component={DispatchBoard} />
-          <Route path="/vgdt-admin/dispatch/:id" component={DispatchForm} />
-          <Route exact path="/vgdt-admin/equipment" component={Equipment} />
-          <Route path="/vgdt-admin/equipment/:id" component={EquipmentForm} />
-          <Route exact path="/vgdt-admin/invoices" component={Invoices} />
-          <Route exact path="/vgdt-admin/" component={Dashboard} />
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/vgdt-admin/:table" component={CommonBoard} />
+          <Route exact path="/vgdt-admin/:table/type/:position" component={CommonBoard} />
+          <Route exact path="/vgdt-admin/:table/add" component={CommonForm} />
+          <Route exact path="/vgdt-admin/:table/add/:updateTable/:recordIdToUpdate" component={CommonForm} />
+          <Route exact path="/vgdt-admin/:table/:id" component={CommonForm} />
+          <Route exact path="/vgdt-admin/:table/type/:position/:id" component={CommonForm} />
+          <Route exact path="/" component={CommonBoard} />
         </Switch>
     </Router>
   );

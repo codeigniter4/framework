@@ -1,6 +1,6 @@
 import React from 'react';
-import Dropzone from 'react-dropzone-uploader'
-import 'react-dropzone-uploader/dist/styles.css'
+// import Dropzone from 'react-dropzone-uploader'
+// import 'react-dropzone-uploader/dist/styles.css'
 
 function FileUploader(props) {
   // const [files, setFiles] = React.useState([]);
@@ -14,12 +14,13 @@ function FileUploader(props) {
 
 
   return (
-    <Dropzone
-      getUploadParams={getUploadParams}
-      onChangeStatus={handleChangeStatus}
-      onSubmit={handleSubmit}
-      accept="image/*,audio/*,video/*"
-    />
+    // <Dropzone
+    //   getUploadParams={getUploadParams}
+    //   onChangeStatus={handleChangeStatus}
+    //   onSubmit={handleSubmit}
+    //   accept="image/*,audio/*,video/*"
+    // />
+    <div>FileUploader</div>
   )
 }
 

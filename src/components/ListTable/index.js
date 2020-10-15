@@ -17,6 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import DeleteIcon from '@material-ui/icons/Delete';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import './index.scss';
 
 function descendingComparator(a, b, orderBy) {
@@ -120,7 +121,7 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const { numSelected, handleDelete, selected, handleExport } = props;
+  const { numSelected, handleDelete, selected, handleExport, handleCreateInvoice } = props;
   const handleDeleteItems = (ids) => {
     handleDelete(ids);
     props.setSelected([]);
@@ -145,6 +146,11 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected > 0 ? (
         <React.Fragment>
+          {handleCreateInvoice && handleCreateInvoice(selected, false) ? <Tooltip title="Create Invoice">
+            <IconButton aria-label="create" onClick={() => handleCreateInvoice(selected, true)}>
+              <NoteAddIcon/>
+            </IconButton>
+          </Tooltip> : ''}
           {handleExport ?<Tooltip title="Export">
             <IconButton aria-label="export" onClick={() => handleExportItems(selected)}>
               <ImportExportIcon/>
@@ -195,7 +201,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EnhancedTable(props) {
   const classes = useStyles();
-  const { rows, handleDelete, handleExport, order_by } = props;
+  const { rows, actions, order_by } = props;
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState(order_by);
   const [selected, setSelected] = React.useState([]);
@@ -249,7 +255,7 @@ export default function EnhancedTable(props) {
 
   return (
     <div className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} handleDelete={handleDelete} handleExport={handleExport} selected={selected} setSelected={setSelected}/>
+        <EnhancedTableToolbar numSelected={selected.length} {...actions} selected={selected} setSelected={setSelected}/>
         <TableContainer className={classes.tableContainter}>
           <Table
             className={classes.table}
