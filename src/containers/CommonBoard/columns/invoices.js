@@ -1,9 +1,4 @@
 export const invoices = [
-  { id: 'view',
-    label: 'View',
-    align: 'center',
-    numeric: false
-  },
   { id: '*InvoiceNo',
     label: 'Invoice',
     align: 'center',
@@ -35,6 +30,11 @@ export const invoices = [
   {
     id: 'ProductService',
     label: 'Product Service',
+    align: 'center',
+    numeric: false
+  },
+  { id: 'view',
+    label: 'View',
     align: 'center',
     numeric: false
   }

@@ -1,10 +1,4 @@
 export const brokers = [
-  {
-    id: 'edit',
-    label: 'View',
-    align: 'center',
-    numeric: false
-  },
   { id: 'name',
     label: 'Broker',
     align: 'center',
@@ -36,6 +30,12 @@ export const brokers = [
   {
     id: 'quickPay',
     label: 'QuickPay',
+    align: 'center',
+    numeric: false
+  },
+  {
+    id: 'edit',
+    label: 'View',
     align: 'center',
     numeric: false
   }

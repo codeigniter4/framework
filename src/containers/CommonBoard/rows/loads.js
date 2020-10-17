@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 const editBrokerButton = (loadId, brokerId, actions, name) => (<Link href="#" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>{name}</Link>);
-const addBrokerButton = (loadId, brokerId, actions, name) => (<Button color="secondary" size="small" variant="contained" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>Add</Button>)
+const addBrokerButton = (loadId, brokerId, actions, name) => (<Button color="primary" size="small" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>Add</Button>)
 
 export const getLoadRowData = (context, rows, actions, editButton) => {
   const { tableData } = context;
