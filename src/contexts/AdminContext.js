@@ -1,5 +1,5 @@
 import React, { Component, createContext } from 'react';
-import { get, getType, getByID, save, deleteById, exportToCSV } from '../services/';
+import { get, getType, getByID, save, deleteById, exportToCSV, uploadAssets } from '../services/';
 
 export const AdminContext = createContext();
 
@@ -29,6 +29,7 @@ class AdminContextProvider extends Component {
     this.exportRecordToCSV = this.exportRecordToCSV.bind(this);
     this.setTableData = this.setTableData.bind(this);
     this.setTable = this.setTable.bind(this);
+    this.uploadAssets = this.uploadAssets.bind(this);
   }
 
 
@@ -51,6 +52,11 @@ class AdminContextProvider extends Component {
 
   async exportRecordToCSV(table, records) {
     const response = await exportToCSV(table, records);
+    return response
+  }
+
+  async uploadAssets(table, records, id) {
+    const response = await uploadAssets(table, records, id);
     return response
   }
 
@@ -160,7 +166,8 @@ class AdminContextProvider extends Component {
           setRecords: this.setRecords,
           exportRecordToCSV: this.exportRecordToCSV,
           setTableData: this.setTableData,
-          setTable: this.setTable
+          setTable: this.setTable,
+          uploadAssets: this.uploadAssets
         }
       }>
         {this.props.children}

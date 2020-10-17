@@ -1,7 +1,7 @@
 import { getEnv } from '../config';
 import { INVOICE_DATES } from '../constants/';
 
-const env = getEnv('prod'); // or prod
+const env = getEnv('local'); // local or prod
 
 export const get = async (type) => {
   const response = await fetch(`${env}/${type}`)
@@ -67,4 +67,34 @@ export const exportToCSV = async (type, items) => {
     window.open("data:text/csv;charset=utf-8," + escape(text), true)
   });
   return csv;
+}
+
+export const uploadAssets = async (table, records, id) => {
+  const body = {
+    "metadata": {},
+    "file": records[0],
+  }
+
+  const formData = new FormData();
+  formData.append('file', records[0])
+
+  console.log("records: ", records);
+
+  // const request = new XMLHttpRequest();
+  // request.open('POST', `${env}/utils/upload/${id}`);
+  // request.send(formData);
+
+
+  // const response = await fetch(`${env}/utils/upload/${id}`, {
+  //   method: 'POST',
+  //   body: JSON.stringify(body)
+  // })
+  // .then(response => response.json())
+  // .then(data => {
+  //   console.log(data.path)
+  // })
+  // .catch(error => {
+  //   console.error(error)
+  // })
+  return formData;
 }
