@@ -51,21 +51,20 @@ const formatItems = (items) => {
       return item;
     })
   })
-  return records;
+  return records[0];
 }
 
 export const exportToCSV = async (type, items) => {
   const records = formatItems(items);
   const body = JSON.stringify(records);
-  console.log('body: ', body);
-  // const response = await fetch(`${env}/utils/export`, {
-  //   method: 'post',
-  //   body
-  // })
-  // const csv = await response.text()
-  // .then(text => {
-  //   window.open("data:text/csv;charset=utf-8," + escape(text), true)
-  // });
-  // return csv;
-  return body;
+  // console.log('body: ', body);
+  const response = await fetch(`${env}/utils/export`, {
+    method: 'post',
+    body
+  })
+  const csv = await response.text()
+  .then(text => {
+    window.open("data:text/csv;charset=utf-8," + escape(text), true)
+  });
+  return csv;
 }

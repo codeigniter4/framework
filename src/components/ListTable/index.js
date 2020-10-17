@@ -107,12 +107,12 @@ const useToolbarStyles = makeStyles((theme) => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary.light, 0.85),
+          color: theme.palette.secondary.main,
+          backgroundColor: lighten(theme.palette.secondary.dark, 0.85),
         }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary.dark,
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.secondary.dark,
         },
   title: {
     flex: '1 1 100%',
@@ -147,7 +147,7 @@ const EnhancedTableToolbar = (props) => {
       {numSelected > 0 ? (
         <React.Fragment>
           {handleCreateInvoice && handleCreateInvoice(selected, false) ? <Tooltip title="Create Invoice">
-            <IconButton aria-label="create" onClick={() => handleCreateInvoice(selected, true)}>
+            <IconButton aria-label="create" onClick={() => {handleCreateInvoice(selected, true); props.setSelected([])}}>
               <NoteAddIcon/>
             </IconButton>
           </Tooltip> : ''}

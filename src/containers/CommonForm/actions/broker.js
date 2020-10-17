@@ -11,13 +11,11 @@ export const getBrokerActions = (context, table, history) => {
               saveRecord(updateTable, updatedLoad).then(data => {
                 history.goBack();
                 resolve(data);
-                console.log('saved load and has loadId', data.id);
               })
             })
           }else {
             history.goBack();
             resolve(data);
-            console.log('saved load only');
           }
         })
       })

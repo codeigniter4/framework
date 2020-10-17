@@ -28,7 +28,11 @@ const styles = (theme) => ({
 });
 
 function ListToolBar(props) {
-  const { classes, handleAdd, handleChange } = props;
+  const { classes, actions } = props;
+  const { handleAdd, handleChange } = actions;
+  // const handleChange = () => {
+  //   console.log('handleChange');
+  // }
 
       return (
         <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -47,7 +51,7 @@ function ListToolBar(props) {
                   onChange={handleChange}
                 />
               </Grid>
-              { handleAdd ? 
+              { handleAdd ?
               <Grid item>
                 <Button variant="contained" color="primary" className={classes.add} onClick={handleAdd}>
                   Add

@@ -1,3 +1,6 @@
+import { getTodayAndTommorrowDates } from '../../../utils/adjustDates';
+const { today, tomorrow } = getTodayAndTommorrowDates();
+
 export const LoadJSONSchema = {
   "title": "Load Details",
   "description": "",
@@ -61,8 +64,8 @@ export const LoadJSONSchema = {
     "broker": {
       "title": "Broker",
       "type": "string",
-      "enum": [],
-      "enumNames": [],
+      "enum": ["addNew"],
+      "enumNames": ["Add New"],
       "default": ""
     },
     "pickupLocation": {
@@ -181,11 +184,11 @@ export const LoadFormData = {
   "user": "select",
   "status": "Planning",
   "type": "Van",
-  "broker": "87",
+  "broker": "addNew",
   "pickupLocation": "",
-  "pickupDate": "",
+  "pickupDate": today,
   "dropoffLocation": "",
-  "dropoffDate": "",
+  "dropoffDate": tomorrow,
   "deadHead": 0,
   "loadedMiles": 500,
   "rate": 1500,

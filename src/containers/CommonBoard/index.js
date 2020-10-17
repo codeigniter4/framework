@@ -29,11 +29,9 @@ function CommonBoard(props) {
         return (
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              {rows.length ?
                 <Paper className={classes.paper}>
                   <ListView history={history} actions={actions} rows={rows} columns={columnData} order_by="name"/>
                 </Paper>
-              : ''}
             </Grid>
           </Grid>
 
