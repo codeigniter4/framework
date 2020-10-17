@@ -15,7 +15,7 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
       },
       handleBrokerClick: (e, loadId, brokerId) => {
         e.preventDefault();
-        if(brokerId !== '87'){
+        if(brokerId !== 'addNew'){
           history.push(`brokers/${brokerId}`);
         }else {
           history.push(`brokers/add/${store}/${loadId}`);
@@ -23,8 +23,9 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
 
       },
       handleChange: (e) => {
+        e.preventDefault();
         const fields = filterFields;
-        filterRecords(table, fields, e.target.value)
+        filterRecords(store, fields, e.target.value)
       },
       handleAdd: () => {
         history.push(`${store}/add`);
@@ -40,7 +41,7 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
         const billed = selected.map(id => {
           const load = loads.filter(l => l.id === id)[0];
           const broker = brokers.filter(b => b.id === load.broker)[0];
-          if(load && load.status === 'Completed') {
+          if(load && load.status === 'Completed' && load.broker !== 'addNew') {
             if(isClicked) {
               const invoiceItems = generateInvoiceItems(load, broker);
               if(invoiceItems.length) {

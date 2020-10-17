@@ -12,8 +12,9 @@ export const getCommonActions = (context, table, db, history, filterFields) => {
         history.push(`${store}/${id}`);
       },
       handleChange: (e) => {
+        e.preventDefault();
         const fields = filterFields;
-        filterRecords(table, fields, e.target.value)
+        filterRecords(store, fields, e.target.value)
       },
       handleAdd: () => {
         history.push(`${store}/add`);

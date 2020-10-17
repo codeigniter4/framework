@@ -62,8 +62,11 @@ function Header(props) {
                   <MenuIcon/>
                 </IconButton>
               </Tooltip>
-            </Grid> : ''}
-            <Grid item xs={8} md={10}>
+            </Grid> :
+            <Grid item xs={2}>
+            </Grid>
+            }
+            <Grid item xs={8}>
               <Tooltip title="Vanguard Trucking - Admin">
                 <img
                   src={mainLogo}

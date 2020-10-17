@@ -1,3 +1,8 @@
+import React from 'react';
+import { Button } from '@material-ui/core';
+import Link from '@material-ui/core/Link';
+const viewButton = (loadId, actions) => (<Button color="secondary" size="small" variant="contained" onClick={(e) => actions.handleClick(e, loadId)}>Load</Button>);
+
 export const getInvoiceRowData = (rows, actions, editButton) => {
   const formatProductServices = (records) => {
     const services = records.map(record => {
@@ -26,6 +31,7 @@ export const getInvoiceRowData = (rows, actions, editButton) => {
     const newRow = {...row};
     newRow.edit = editButton(row.id);
     newRow.ServiceDate = new Date(row.ServiceDate).toLocaleString();
+    newRow.view = viewButton(row['*InvoiceNo'].split('-')[0], actions);
     return newRow;
   });
   return updateRowData;

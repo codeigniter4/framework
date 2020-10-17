@@ -87,7 +87,6 @@ class AdminContextProvider extends Component {
         })
         return result
       })
-
       this.setState({
         filteredRecords: filteredRecords,
         searchTerm

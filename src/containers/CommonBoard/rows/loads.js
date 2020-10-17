@@ -10,7 +10,7 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
   return rows.map(row => {
     const newRow = {...row};
     newRow.edit = editButton(row.id, actions);
-    newRow.editBroker = editBrokerButton(row.broker, actions, 'Create Broker');
+    newRow.editBroker = editBrokerButton(row.id, 'addNew', actions, 'Add New');
 
     if(tableData.brokers && tableData.brokers.length) {
       tableData.brokers.map(broker => {

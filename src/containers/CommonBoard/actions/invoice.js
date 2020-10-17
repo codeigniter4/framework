@@ -1,5 +1,4 @@
 import React from 'react';
-import { JsonToCsv, useJsonToCsv } from 'react-json-csv';
 
 const getInvoiceItemsWithIds = (ids, records) => {
 
@@ -37,6 +36,10 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
     });
   }
   return {
+    handleClick: (e, id) => {
+      e.preventDefault();
+      history.push(`loads/${id}`);
+    },
     handleAdd: false,
     handleDelete: (ids) => {
       const idsToDelete = getInvoiceItemsWithIds(ids, tableData[table]);
@@ -45,6 +48,7 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
       });
     },
     handleChange: (e) => {
+      e.preventDefault();
       const fields = filterFields;
       filterRecords(table, fields, e.target.value)
     },
@@ -54,40 +58,11 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
         return idsToExport.includes(record.id);
       }).reverse()
 
-      // exportRecordToCSV(table, recordsToExport).then(data => {
-      //   console.log(data);
-      // }).catch(e => {
-      //   console.log(e);
-      // })
-      const { saveAsCsv } = useJsonToCsv();
-      const filename = 'Csv-file',
-        fields = {
-          "index": "Index",
-          "guid": "GUID"
-        },
-        style = {
-          padding: "5px"
-        },
-        data = [
-          { index: 0, guid: 'asdf231234'},
-          { index: 1, guid: 'wetr2343af'}
-        ],
-        text = "Convert Json to Csv";
-
-      return (
-        <React.Fragment>
-          <JsonToCsv
-            data={data}
-            filename={filename}
-            fields={fields}
-            style={style}
-            text={text}
-          />
-          <button onClick={saveAsCsv({ data, fields, filename })}>
-            useJsonToCsv
-          </button>
-        </React.Fragment>
-      )
+      exportRecordToCSV(table, recordsToExport).then(data => {
+        console.log(data);
+      }).catch(e => {
+        console.log(e);
+      })
     }
   }
 }

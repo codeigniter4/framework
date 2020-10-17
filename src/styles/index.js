@@ -156,6 +156,10 @@ export const styles = {
   },
   footer: {
     padding: theme.spacing(2),
+    marginLeft: 240,
     background: '#eaeff1',
+    [`@media (max-width:  1023px)`]: {
+      marginLeft: 0
+    }
   }
 };

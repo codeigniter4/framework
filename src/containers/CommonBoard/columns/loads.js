@@ -1,4 +1,10 @@
 export const loads = [
+  {
+    id: 'edit',
+    label: 'View',
+    align: 'center',
+    numeric: false
+  },
   { id: 'status', // should generate scheduled, live, completed based on the start and end times
     label: 'Status',
     align: 'center',
@@ -53,12 +59,6 @@ export const loads = [
   {
     id: 'user',
     label: 'User',
-    align: 'center',
-    numeric: false
-  },
-  {
-    id: 'edit',
-    label: '',
     align: 'center',
     numeric: false
   }
