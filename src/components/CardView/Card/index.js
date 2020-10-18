@@ -18,8 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
-    marginBottom: 10
+    margin: '10px auto'
   },
   media: {
     height: 0,
@@ -51,6 +50,8 @@ export default function ComplexCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const totalMiles = parseInt(data.loadedMiles) + parseInt(data.deadHead);
+  const ratePerMile = `$${Math.round(parseInt(data.rate)/totalMiles * 100) / 100}`;
 
   return (
     <Card className={classes.root}>
@@ -79,26 +80,19 @@ export default function ComplexCard(props) {
       />
       <CardContent>
         <Typography component="h3">
-          Status: {data.status}
+          <b>Rate:</b> ${data.rate}.00
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Broker: {data.editBroker}
+          <b>Status</b>: {data.status}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Rate: {data.rate}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Miles: {data.loadedMiles}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          DeadHead: {data.deadHead}
+          <b>Broker</b>: {data.editBroker}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="details">
           {data.edit}
         </IconButton>
-
         {data.status === 'Completed' && data.broker !== 'addNew' ?
           <IconButton aria-label="details">
             {data.genInvoice}
@@ -116,7 +110,22 @@ export default function ComplexCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Notes:</Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Load Number:</b> {data.loadNumber}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Dispatch:</b> {data.user}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Miles:</b> {data.loadedMiles}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>DeadHead:</b> {data.deadHead}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Rate Per Mile:</b> {ratePerMile}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p"><b>Notes:</b></Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {data.notes}
           </Typography>

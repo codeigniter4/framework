@@ -58,7 +58,7 @@ const getTableData = (context, table) => {
 
 export const getUpdatedRows = (context, table, actions) => {
   const rows = getTableData(context, table);
-  const editButton = (id, actions) => (<Button color="secondary" size="small" variant="contained" onClick={() => actions.handleClick(id)}>Details</Button>);
+  const editButton = (id, actions) => (<Button color="primary" size="small" variant="contained" onClick={() => actions.handleClick(id)}>Details</Button>);
   const common = getRowData(rows, actions, editButton);
   const types = {
     brokers: () => getBrokerRowData(rows, actions, editButton),
