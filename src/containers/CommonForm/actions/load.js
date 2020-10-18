@@ -2,6 +2,7 @@ export const getLoadActions = (context, table, history) => {
   const { record, saveRecord, setRecord } = context;
   return {
     handleSave: (record) => {
+      console.log(record.file);
       return new Promise((resolve, reject) => {
         saveRecord(table, record).then( data => {
           history.goBack();

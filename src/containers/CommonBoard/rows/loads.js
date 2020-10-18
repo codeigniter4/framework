@@ -2,7 +2,8 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 const editBrokerButton = (loadId, brokerId, actions, name) => (<Link href="#" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>{name}</Link>);
-const addBrokerButton = (loadId, brokerId, actions, name) => (<Button color="primary" size="small" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>Add</Button>)
+const addBrokerButton = (loadId, brokerId, actions, name) => (<Button color="primary" size="small" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>Add Broker</Button>)
+const generateInvoice = (loadId, actions) => (<Button color="secondary" size="small" variant="contained" onClick={() => actions.handleCreateInvoice([loadId], true)}>Generate Invoice</Button>)
 
 export const getLoadRowData = (context, rows, actions, editButton) => {
   const { tableData } = context;
@@ -11,6 +12,7 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
     const newRow = {...row};
     newRow.edit = editButton(row.id, actions);
     newRow.editBroker = addBrokerButton(row.id, 'addNew', actions, 'Add');
+    newRow.genInvoice = generateInvoice(row.id, actions);
 
     if(tableData.brokers && tableData.brokers.length) {
       tableData.brokers.map(broker => {
