@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ComplexCard(props) {
+export default function LoadCard(props) {
   const { data, actions, isMobile } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -69,7 +69,7 @@ export default function ComplexCard(props) {
   return (
     <Card className={classes.root}>
       <Grid container spacing={0} alignItems="center" justify="space-between">
-        <Grid item>
+        <Grid item xs={isMobile ? 12 : 0}>
             <CardHeader
             avatar={
               <Avatar aria-label="status" className={classes.status}>
@@ -77,10 +77,10 @@ export default function ComplexCard(props) {
               </Avatar>
             }
             title={`${data.status}`}
-            subheader={`${data.loadNumber}`}
+            subheader={`Load Number: ${data.loadNumber}`}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={isMobile ? 12 : 0}>
           <CardHeader
           avatar={
             <Avatar aria-label="pickup" className={classes.avatar2}>
@@ -91,7 +91,7 @@ export default function ComplexCard(props) {
           subheader={`${data.pickupDate}`}
         />
         </Grid>
-        <Grid item>
+        <Grid item xs={isMobile ? 12 : 0}>
           <CardHeader
           avatar={
             <Avatar aria-label="drop" className={classes.avatar}>
@@ -102,7 +102,7 @@ export default function ComplexCard(props) {
           subheader={`${data.dropoffDate}`}
         />
         </Grid>
-        <Grid item>
+        <Grid item xs={isMobile ? 12 : 0}>
           <CardHeader
           avatar={
             <Avatar aria-label="rate" className={classes.rate}>
@@ -141,9 +141,6 @@ export default function ComplexCard(props) {
         <Grid item xs={12}>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                <b>Load Number:</b> {data.loadNumber}
-              </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Dispatch:</b> {data.user}
               </Typography>

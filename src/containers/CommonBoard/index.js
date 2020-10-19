@@ -37,7 +37,7 @@ function CommonBoard(props) {
 
   const getCardView = (rows, actions) => {
     return (
-      <CardView history={history} actions={actions} rows={rows} columns={columnData}/>
+      <CardView history={history} actions={actions} rows={rows} columns={columnData} table={table}/>
     )
   }
 
@@ -55,11 +55,11 @@ function CommonBoard(props) {
           <Grid container spacing={3}>
             <div className="viewOptions">
                 <IconButton onClick={handleLayout}>
-                  {!showCard && table === 'loads' ? !showGrid ? <AppsIcon/> : <TocIcon/> : ''}
+                  {!showCard ? !showGrid ? <AppsIcon/> : <TocIcon/> : ''}
                 </IconButton>
             </div>
             <Grid item xs={12}>
-                {showCard && table === 'loads' || !showCard && showGrid && table === 'loads' ? getCardView(rows, actions) : getListView(rows, actions)}
+                {showCard || !showCard && showGrid ? getCardView(rows, actions) : getListView(rows, actions)}
             </Grid>
           </Grid>
 
