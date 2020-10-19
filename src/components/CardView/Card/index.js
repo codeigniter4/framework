@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.shortest,
     }),
   },
+  green: {
+    color: green[500]
+  },
   expandOpen: {
     transform: 'rotate(180deg)',
   },
@@ -40,10 +44,19 @@ const useStyles = makeStyles((theme) => ({
   avatar2: {
     backgroundColor: green[500],
   },
+  status: {
+    backgroundColor: '#009be5',
+  },
+  rate: {
+    backgroundColor: '#666',
+  },
+  cardActions: {
+    backgroundColor: '#eee'
+  }
 }));
 
 export default function ComplexCard(props) {
-  const { data, actions } = props;
+  const { data, actions, isMobile } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -55,83 +68,103 @@ export default function ComplexCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="status" className={classes.avatar2}>
-            P
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={`${data.pickupLocation}`}
-        subheader={`${data.pickupDate}`}
-      />
-      <CardHeader
-        avatar={
-          <Avatar aria-label="Driver" className={classes.avatar}>
-            D
-          </Avatar>
-        }
-        title={`${data.dropoffLocation}`}
-        subheader={`${data.dropoffDate}`}
-      />
-      <CardContent>
-        <Typography component="h3">
-          <b>Rate:</b> ${data.rate}.00
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          <b>Status</b>: {data.status}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          <b>Broker</b>: {data.editBroker}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="details">
-          {data.edit}
-        </IconButton>
-        {data.status === 'Completed' && data.broker !== 'addNew' ?
-          <IconButton aria-label="details">
-            {data.genInvoice}
-          </IconButton> : ''}
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <b>Load Number:</b> {data.loadNumber}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <b>Dispatch:</b> {data.user}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <b>Miles:</b> {data.loadedMiles}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <b>DeadHead:</b> {data.deadHead}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <b>Rate Per Mile:</b> {ratePerMile}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p"><b>Notes:</b></Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {data.notes}
-          </Typography>
+      <Grid container spacing={0} alignItems="center" justify="space-between">
+        <Grid item>
+            <CardHeader
+            avatar={
+              <Avatar aria-label="status" className={classes.status}>
+                {data.status[0]}
+              </Avatar>
+            }
+            title={`${data.status}`}
+            subheader={`${data.loadNumber}`}
+          />
+        </Grid>
+        <Grid item>
+          <CardHeader
+          avatar={
+            <Avatar aria-label="pickup" className={classes.avatar2}>
+              P
+            </Avatar>
+          }
+          title={`${data.pickupLocation}`}
+          subheader={`${data.pickupDate}`}
+        />
+        </Grid>
+        <Grid item>
+          <CardHeader
+          avatar={
+            <Avatar aria-label="drop" className={classes.avatar}>
+              D
+            </Avatar>
+          }
+          title={`${data.dropoffLocation}`}
+          subheader={`${data.dropoffDate}`}
+        />
+        </Grid>
+        <Grid item>
+          <CardHeader
+          avatar={
+            <Avatar aria-label="rate" className={classes.rate}>
+              $
+            </Avatar>
+          }
+          title={`Rate: $${data.rate}.00`}
+          subheader={data.editBroker}
+        />
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <CardActions disableSpacing className={classes.cardActions}>
+            <IconButton aria-label="details">
+              {data.edit}
+            </IconButton>
+            {data.status === 'Completed' && data.broker !== 'addNew' ?
+              <IconButton aria-label="details">
+                {data.genInvoice}
+              </IconButton> : ''}
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Load Number:</b> {data.loadNumber}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Dispatch:</b> {data.user}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Miles:</b> {data.loadedMiles}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>DeadHead:</b> {data.deadHead}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                <b>Rate Per Mile:</b> {ratePerMile}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p"><b>Notes:</b></Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {data.notes}
+              </Typography>
 
-        </CardContent>
-      </Collapse>
+            </CardContent>
+          </Collapse>
+        </Grid>
+      </Grid>
     </Card>
   );
 }

@@ -20,7 +20,7 @@ import './index.scss';
 function CommonBoard(props) {
   const classes = paperStylesTable();
   const { history, match } = props;
-  const [showGrid, setShowGrid] = React.useState(false);
+  const [showGrid, setShowGrid] = React.useState(true);
   const position = match.params.position || false;
   const table = match.params.table;
   const tableType = position || table;
