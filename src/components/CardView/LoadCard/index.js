@@ -16,6 +16,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LoadCard(props) {
-  const { data, actions, isMobile } = props;
+  const { data, actions, isMobile, selected, setSelected } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -75,6 +76,15 @@ export default function LoadCard(props) {
               <Avatar aria-label="status" className={classes.status}>
                 {data.status[0]}
               </Avatar>
+            }
+            action={
+              <IconButton aria-label="settings">
+              <Checkbox
+                checked={selected.includes(data.id)}
+                onClick={(event) => setSelected(event, data.id)}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+              </IconButton>
             }
             title={`${data.status}`}
             subheader={`Load Number: ${data.loadNumber}`}

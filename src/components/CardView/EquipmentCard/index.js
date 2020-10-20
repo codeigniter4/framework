@@ -16,6 +16,7 @@ import DetailsIcon from '@material-ui/icons/Details';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,14 +57,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EquipmentCard(props) {
-  const { data, actions, isMobile } = props;
+  const { data, actions, isMobile, selected, setSelected } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  
+
   return (
     <Card className={classes.root}>
       <Grid container spacing={0} alignItems="center" justify="space-between">
@@ -73,6 +74,15 @@ export default function EquipmentCard(props) {
               <Avatar aria-label="unit" className={classes.status}>
                 <LocalShippingIcon/>
               </Avatar>
+            }
+            action={
+              <IconButton aria-label="settings">
+              <Checkbox
+                checked={selected.includes(data.id)}
+                onClick={(event) => setSelected(event, data.id)}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+              </IconButton>
             }
             title={`Unit No: ${data.unit_num}`}
             subheader={`${data.description}`}

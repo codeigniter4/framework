@@ -16,6 +16,7 @@ import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EmployeeCard(props) {
-  const { data, actions, isMobile } = props;
+  const { data, actions, isMobile, selected, setSelected } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -74,6 +75,15 @@ export default function EmployeeCard(props) {
               <Avatar aria-label="status" className={classes.status}>
 
               </Avatar>
+            }
+            action={
+              <IconButton aria-label="settings">
+              <Checkbox
+                checked={selected.includes(data.id)}
+                onClick={(event) => setSelected(event, data.id)}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+              </IconButton>
             }
             title={`${data.firstname} ${data.lastname}`}
             subheader={`Position: ${data.position}`}

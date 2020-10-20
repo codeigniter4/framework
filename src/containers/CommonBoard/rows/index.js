@@ -26,7 +26,8 @@ const getTableData = (context, table) => {
   const {tableData, setTableData, filteredRecords, searchTerm, getAllRecords } = context;
   const rows = searchTerm ? filteredRecords : tableData[table] || [];
   const requiredData = {
-    loads: ['brokers', 'dispatch']
+    loads: ['brokers', 'dispatch'],
+    invoices: ['brokers']
   }
   const refreshData = (route, name) => {
     getAllRecords(route).then(data => {
@@ -65,7 +66,7 @@ export const getUpdatedRows = (context, table, actions) => {
     loads: () => getLoadRowData(context, rows, actions, editButton),
     driver: () => getDriverRowData(rows, actions, editButton),
     dispatch: () => getDispatchRowData(rows, actions, editButton),
-    invoices: () => getInvoiceRowData(rows, actions, editButton),
+    invoices: () => getInvoiceRowData(context, rows, actions),
     tractor: () => getEquipmentRowData(rows, actions, editButton),
     trailer: () => getEquipmentRowData(rows, actions, editButton),
     equipment: () => getEquipmentRowData(rows, actions, editButton),

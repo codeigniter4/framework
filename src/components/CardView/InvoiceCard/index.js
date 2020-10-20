@@ -11,10 +11,13 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green } from '@material-ui/core/colors';
+import { red, green, grey, lightBlue } from '@material-ui/core/colors';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Checkbox from '@material-ui/core/Checkbox';
+import DoneIcon from '@material-ui/icons/Done';
+import './index.scss';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,14 +53,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#666',
   },
   cardActions: {
-    backgroundColor: '#eee'
+    backgroundColor: grey[100]
+  },
+  billed: {
+    backgroundColor: grey[100],
+    color: green[500]
   }
 }));
 
 export default function InvoiceCard(props) {
-  const { data, actions, isMobile } = props;
+  const { data, actions, isMobile, selected, setSelected } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const isBilled = data.billed === "Yes";
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -66,15 +74,23 @@ export default function InvoiceCard(props) {
   return (
     <Card className={classes.root}>
       <Grid container spacing={0} alignItems="center" justify="space-between">
-        <Grid item xs={12}>
+        <Grid item xs={12} className={isBilled ? classes.billed : ''}>
           <CardHeader
           avatar={
             <Avatar aria-label="status" className={classes.customer}>
-
             </Avatar>
           }
+          action={
+            <IconButton aria-label="settings">
+            {!isBilled ? <Checkbox
+              checked={selected.includes(data.id)}
+              onClick={(event) => setSelected(event, data.id)}
+              inputProps={{ 'aria-label': 'primary checkbox' }}
+            /> : <DoneIcon className={classes.billed}/>}
+            </IconButton>
+          }
           title={`Customer`}
-          subheader={`${data['*Customer']}`}
+          subheader={data.broker}
         />
       </Grid>
       <Grid item xs={12}>

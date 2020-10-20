@@ -24,7 +24,9 @@ class InvoiceModel extends Model
       'ProductService',
       'ItemQuantity',
       'ItemRate',
-      '*ItemAmount'
+      '*ItemAmount',
+      'billed',
+      'brokerid'
     ];
 
     protected $useTimestamps = false;
