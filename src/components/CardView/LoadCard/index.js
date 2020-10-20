@@ -69,7 +69,7 @@ export default function LoadCard(props) {
   return (
     <Card className={classes.root}>
       <Grid container spacing={0} alignItems="center" justify="space-between">
-        <Grid item xs={isMobile ? 12 : 0}>
+        <Grid item  xs={12} sm={12} md={3}>
             <CardHeader
             avatar={
               <Avatar aria-label="status" className={classes.status}>
@@ -80,7 +80,7 @@ export default function LoadCard(props) {
             subheader={`Load Number: ${data.loadNumber}`}
           />
         </Grid>
-        <Grid item xs={isMobile ? 12 : 0}>
+        <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
             <Avatar aria-label="pickup" className={classes.avatar2}>
@@ -91,7 +91,7 @@ export default function LoadCard(props) {
           subheader={`${data.pickupDate}`}
         />
         </Grid>
-        <Grid item xs={isMobile ? 12 : 0}>
+        <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
             <Avatar aria-label="drop" className={classes.avatar}>
@@ -102,7 +102,7 @@ export default function LoadCard(props) {
           subheader={`${data.dropoffDate}`}
         />
         </Grid>
-        <Grid item xs={isMobile ? 12 : 0}>
+        <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
             <Avatar aria-label="rate" className={classes.rate}>
