@@ -1,0 +1,277 @@
+/*
+ |  tail.DateTime - A pure, vanilla JavaScript DateTime Picker
+ |  @author        SamBrishes <https://github.com/pytesNET/tail.DateTime/>
+ |                 MrGuiseppe <https://github.com/MrGuiseppe/pureJSCalendar/>
+ |  @version       0.3.4 - Alpha
+ |
+ |  @license       X11 / MIT License
+ |  @copyright     Copyright Â© 2018 - SamBrishes, pytesNET <pytes@gmx.net>
+ |                 Copyright Â© 2018 - MrGuiseppe <https://github.com/MrGuiseppe>
+ */
+
+/* @start tail.DateTime */
+.tail-datetime-calendar {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  border-collapse: separate;
+  font-family: "Open Sans", Calibri, Arial, sans-serif;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.tail-datetime-calendar:after {
+  clear: both;
+  content: "";
+  display: block;
+  font-size: 0;
+  visibility: hidden;
+}
+.tail-datetime-calendar.calendar-static {
+  margin-left: auto;
+  margin-right: auto;
+}
+.tail-datetime-calendar .calendar-navi {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  background-color: #cd283c;
+  border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
+}
+.tail-datetime-calendar .calendar-navi span {
+  cursor: pointer;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: table-cell;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.tail-datetime-calendar .calendar-navi span:first-child,
+.tail-datetime-calendar .calendar-navi span:last-child {
+  width: 35px;
+  padding: 0 0 5px 0;
+  font-size: 22px;
+}
+.tail-datetime-calendar .calendar-navi span:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.tail-datetime-calendar .calendar-navi span.button-prev {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
+    9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iT\
+    TYgMkwwIDhsNiA2VjJ6Ii8+PC9zdmc+");
+}
+.tail-datetime-calendar .calendar-navi span.button-next {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
+    9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iT\
+    TAgMTRsNi02LTYtNnYxMnoiLz48L3N2Zz4=");
+}
+.tail-datetime-calendar .calendar-navi span.button-check {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
+    9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkP\
+    SJNMTIgNWwtOCA4LTQtNCAxLjUtMS41TDQgMTBsNi41LTYuNUwxMiA1eiIvPjwvc3ZnPg==");
+}
+.tail-datetime-calendar .calendar-navi span.button-close {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
+    9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkP\
+    SJNNy40OCA4bDMuNzUgMy43NS0xLjQ4IDEuNDhMNiA5LjQ4bC0zLjc1IDMuNzUtMS40OC0xLjQ4TDQuNTIgOCAuNzcgNC4y\
+    NWwxLjQ4LTEuNDhMNiA2LjUybDMuNzUtMy43NSAxLjQ4IDEuNDhMNy40OCA4eiIvPjwvc3ZnPg==");
+}
+.tail-datetime-calendar .calendar-date {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.tail-datetime-calendar .calendar-date table {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.tail-datetime-calendar .calendar-date table thead tr > *,
+.tail-datetime-calendar .calendar-date table tbody tr > * {
+  color: #ffffff;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+  line-height: 35px;
+  border: 0;
+  background-color: #223344;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > * {
+  color: #334455;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > * > span {
+  color: inherit;
+  z-index: 10;
+  position: relative;
+}
+/* Select a Day */
+.tail-datetime-calendar .calendar-date table tbody tr > *::after {
+  top: 3px;
+  left: 3px;
+  width: 29px;
+  height: 29px;
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.today {
+  color: #3296c8;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.today:after {
+  border-color: #3296c8;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *:hover {
+  color: #cd283c;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *:hover:after {
+  border-color: #cd283c;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.empty,
+.tail-datetime-calendar .calendar-date table tbody tr > *.disable {
+  color: #8899aa;
+  cursor: not-allowed;
+  background-color: #efefef;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.empty:hover:after,
+.tail-datetime-calendar .calendar-date table tbody tr > *.disable:hover:after {
+  content: "";
+  display: none;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.current span {
+  color: #fff;
+}
+.tail-datetime-calendar .calendar-date table tbody tr > *.current:after {
+  border-color: #3296c8;
+  background-color: #3296c8;
+}
+/* Select A Month */
+.tail-datetime-calendar .calendar-date table.calendar-month tbody tr > * {
+  width: 81.66666666666667px;
+  padding: 5px;
+  line-height: 25px;
+}
+.tail-datetime-calendar .calendar-date table.calendar-month tbody tr > * span {
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.tail-datetime-calendar
+  .calendar-date
+  table.calendar-month
+  tbody
+  tr
+  > *:hover
+  span {
+  border-color: #d0d0d0;
+  box-shadow: 0 1px 0 0 #efefef;
+  -webkit-box-shadow: 0 1px 0 0 #efefef;
+}
+/* Select a Time */
+.tail-datetime-calendar .calendar-time {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: table;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 3px 3px;
+}
+.tail-datetime-calendar .calendar-date + .calendar-time {
+  border-top: 1px solid #d0d0d0;
+  background-color: #f8f8f8;
+}
+.tail-datetime-calendar .calendar-time .calendar-field {
+  width: 33.3333333333%;
+  padding: 10px 0;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+}
+.tail-datetime-calendar .calendar-time .calendar-field:first-child {
+  text-align: right;
+}
+.tail-datetime-calendar .calendar-time .calendar-field:first-child:after {
+  top: 12px;
+  right: -10px;
+  content: ":";
+  position: absolute;
+}
+.tail-datetime-calendar .calendar-time .calendar-field:last-child {
+  text-align: left;
+}
+.tail-datetime-calendar .calendar-time .calendar-field:last-child:after {
+  top: 12px;
+  left: -10px;
+  content: ":";
+  position: absolute;
+}
+.tail-datetime-calendar .calendar-time .calendar-field input[type="number"] {
+  width: 100%;
+  max-width: 50px;
+  margin: 0;
+  padding: 3px 4px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d0d0d0;
+  background-color: #ffffff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.tail-datetime-calendar
+  .calendar-time
+  .calendar-field
+  input[type="number"]:hover {
+  border-color: #a0a0a0;
+}
+.tail-datetime-calendar
+  .calendar-time
+  .calendar-field
+  input[type="number"]:focus {
+  border-color: #3296c8;
+}
+.tail-datetime-calendar .calendar-time .calendar-field label {
+  color: #778899;
+  margin: 5px 0 0 0;
+  padding: 0;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+}
+/* @end tail.DateTime */
