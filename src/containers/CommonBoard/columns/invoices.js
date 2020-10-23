@@ -33,6 +33,12 @@ export const invoices = [
     align: 'center',
     numeric: false
   },
+  {
+    id: 'billed',
+    label: 'Billed',
+    align: 'center',
+    numeric: false
+  },
   { id: 'view',
     label: 'View',
     align: 'center',

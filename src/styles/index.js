@@ -14,6 +14,9 @@ export let theme = createMuiTheme({
     },
   },
   typography: {
+    p: {
+      // fontSize: 20,
+    },
     h5: {
       fontWeight: 500,
       fontSize: 26,

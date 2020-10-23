@@ -46,7 +46,9 @@ const getItem = (load, broker, service) => {
     "ProductService": service, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
     "ItemQuantity": "1",
     "ItemRate": "",
-    "*ItemAmount": itemAmount
+    "*ItemAmount": itemAmount,
+    "billed": '0',
+    "brokerid": broker.id
   }
 
   return itemAmount ? item : false;

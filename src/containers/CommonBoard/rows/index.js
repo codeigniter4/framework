@@ -26,7 +26,8 @@ const getTableData = (context, table) => {
   const {tableData, setTableData, filteredRecords, searchTerm, getAllRecords } = context;
   const rows = searchTerm ? filteredRecords : tableData[table] || [];
   const requiredData = {
-    loads: ['brokers', 'dispatch']
+    loads: ['brokers', 'dispatch'],
+    invoices: ['brokers']
   }
   const refreshData = (route, name) => {
     getAllRecords(route).then(data => {
@@ -58,14 +59,14 @@ const getTableData = (context, table) => {
 
 export const getUpdatedRows = (context, table, actions) => {
   const rows = getTableData(context, table);
-  const editButton = (id, actions) => (<Button color="secondary" size="small" variant="contained" onClick={() => actions.handleClick(id)}>Details</Button>);
+  const editButton = (id, actions) => (<Button color="primary" size="small" variant="contained" onClick={() => actions.handleClick(id)}>Details</Button>);
   const common = getRowData(rows, actions, editButton);
   const types = {
     brokers: () => getBrokerRowData(rows, actions, editButton),
     loads: () => getLoadRowData(context, rows, actions, editButton),
     driver: () => getDriverRowData(rows, actions, editButton),
     dispatch: () => getDispatchRowData(rows, actions, editButton),
-    invoices: () => getInvoiceRowData(rows, actions, editButton),
+    invoices: () => getInvoiceRowData(context, rows, actions),
     tractor: () => getEquipmentRowData(rows, actions, editButton),
     trailer: () => getEquipmentRowData(rows, actions, editButton),
     equipment: () => getEquipmentRowData(rows, actions, editButton),

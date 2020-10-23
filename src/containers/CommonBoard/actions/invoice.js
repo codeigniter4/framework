@@ -28,7 +28,7 @@ const getInvoiceItemsWithIds = (ids, records) => {
 
 
 export const getInvoiceActions = (context, table, history, filterFields) => {
-  const { tableData, deleteRecord, getAllRecords, exportRecordToCSV, filterRecords, setTableData} = context;
+  const { tableData, deleteRecord, getAllRecords, exportRecordToCSV, filterRecords, setTableData, saveRecord} = context;
   const refreshData = (store) => {
     getAllRecords(store).then(data => {
       setTableData(store, data);
@@ -36,9 +36,14 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
     });
   }
   return {
-    handleClick: (e, id) => {
+    handleClick: false,
+    handleLoadClick: (e, id) => {
       e.preventDefault();
       history.push(`loads/${id}`);
+    },
+    handleBrokerClick: (e, id) => {
+      e.preventDefault();
+      history.push(`brokers/${id}`);
     },
     handleAdd: false,
     handleDelete: (ids) => {
@@ -59,6 +64,18 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
       }).reverse()
 
       exportRecordToCSV(table, recordsToExport).then(data => {
+        console.log('save invoice: ', table, ids);
+        ids.map(id => {
+          const record = {
+            id,
+            billed: "1"
+          };
+          saveRecord(table, record).then( data => {
+            refreshData(table);
+            return data
+          })
+        })
+
         console.log(data);
       }).catch(e => {
         console.log(e);
