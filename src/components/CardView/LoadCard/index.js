@@ -11,12 +11,20 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green } from '@material-ui/core/colors';
+import { red, green, yellow, grey } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Checkbox from '@material-ui/core/Checkbox';
+import DoneIcon from '@material-ui/icons/Done';
+import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import RoomIcon from '@material-ui/icons/Room';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,11 +47,14 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
+  dropoffLocation: {
+    backgroundColor: red[600],
   },
-  avatar2: {
+  pickupLocation: {
     backgroundColor: green[500],
+  },
+  iconStatus: {
+    backgroundColor: grey[100]
   },
   status: {
     backgroundColor: '#009be5',
@@ -51,10 +62,58 @@ const useStyles = makeStyles((theme) => ({
   rate: {
     backgroundColor: '#666',
   },
+  Planning: {
+    backgroundColor: grey[100]
+  },
+  Planning_icon: {
+    color: yellow[600],
+  },
+  Scheduled: {
+    backgroundColor: grey[100]
+  },
+  Scheduled_icon: {
+    color: '#009be5'
+  },
+  Completed: {
+    backgroundColor: grey[100],
+  },
+  Completed_icon: {
+    color: red[600],
+  },
+  Live: {
+    backgroundColor: grey[100],
+  },
+  Live_icon: {
+    color: green[500],
+  },
+  Billed: {
+    backgroundColor: grey[100]
+  },
+  Billed_icon: {
+    color: grey[500]
+  },
+  status_bg: {
+    backgroundColor: '#fff'
+  },
   cardActions: {
-    backgroundColor: '#eee'
+    backgroundColor: grey[100]
   }
 }));
+
+const icons = (type, classes) => {
+  const types = {
+    Scheduled: <WatchLaterIcon className={classes[`${type}_icon`]}/>,
+    Live: <PlayCircleFilledWhiteIcon className={classes[`${type}_icon`]}/>,
+    Billed: <CheckCircleIcon className={classes[`${type}_icon`]}/>,
+    Completed: <ErrorIcon className={classes[`${type}_icon`]}/>,
+    Planning: <PauseCircleFilledIcon className={classes[`${type}_icon`]}/>,
+    pickupLocation: <RoomIcon className={classes[`Live_icon`]}/>,
+    dropoffLocation: <RoomIcon className={classes[`Completed_icon`]}/>,
+    rate: <MonetizationOnIcon className={classes[`Live_icon`]}/>
+  }
+
+  return types[type] || false
+}
 
 export default function LoadCard(props) {
   const { data, actions, isMobile, selected, setSelected } = props;
@@ -66,24 +125,20 @@ export default function LoadCard(props) {
   };
   const totalMiles = parseInt(data.loadedMiles) + parseInt(data.deadHead);
   const ratePerMile = `$${Math.round(parseInt(data.rate)/totalMiles * 100) / 100}`;
+  const isBilled = data.status === "Billed";
 
   return (
     <Card className={classes.root}>
       <Grid container spacing={0} alignItems="center" justify="space-between">
-        <Grid item  xs={12} sm={12} md={3}>
+        <Grid item  xs={12} sm={12} md={3} className={classes[data.status]}>
             <CardHeader
             avatar={
-              <Avatar aria-label="status" className={classes.status}>
-                {data.status[0]}
+              <Avatar aria-label="status" className={classes.status_bg}>
+                {icons(data.status, classes)}
               </Avatar>
             }
             action={
               <IconButton aria-label="settings">
-              <Checkbox
-                checked={selected.includes(data.id)}
-                onClick={(event) => setSelected(event, data.id)}
-                inputProps={{ 'aria-label': 'primary checkbox' }}
-              />
               </IconButton>
             }
             title={`${data.status}`}
@@ -93,8 +148,8 @@ export default function LoadCard(props) {
         <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
-            <Avatar aria-label="pickup" className={classes.avatar2}>
-              P
+            <Avatar aria-label="pickup" className={classes.cardActions}>
+              {icons('pickupLocation', classes)}
             </Avatar>
           }
           title={`${data.pickupLocation}`}
@@ -104,8 +159,8 @@ export default function LoadCard(props) {
         <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
-            <Avatar aria-label="drop" className={classes.avatar}>
-              D
+            <Avatar aria-label="drop" className={classes.cardActions}>
+              {icons('dropoffLocation', classes)}
             </Avatar>
           }
           title={`${data.dropoffLocation}`}
@@ -115,8 +170,8 @@ export default function LoadCard(props) {
         <Grid item  xs={12} sm={4} md={3}>
           <CardHeader
           avatar={
-            <Avatar aria-label="rate" className={classes.rate}>
-              $
+            <Avatar aria-label="rate" className={classes.cardActions}>
+              {icons('rate', classes)}
             </Avatar>
           }
           title={`Rate: $${data.rate}.00`}
