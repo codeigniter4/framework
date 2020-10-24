@@ -10,7 +10,7 @@ const getItemAmount = (load, broker, service) => {
       return parseInt(tonuFee)
       break;
     case 'QUICKPAY':
-      const fee = tonu && tonu !== '0' ? tonuFee : rate
+      const fee = tonu && tonu !== '0' ? tonuFee : rate + detentionPay;
       const quickPayFee = fee * quickPayPercentage;
       return -quickPayFee
       break;
@@ -46,7 +46,9 @@ const getItem = (load, broker, service) => {
     "ProductService": service, // DETENTION, LUMPER CHARGE, QUICKPAY, TONU
     "ItemQuantity": "1",
     "ItemRate": "",
-    "*ItemAmount": itemAmount
+    "*ItemAmount": itemAmount,
+    "billed": '0',
+    "brokerid": broker.id
   }
 
   return itemAmount ? item : false;

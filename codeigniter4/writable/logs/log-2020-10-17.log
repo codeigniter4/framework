@@ -1,0 +1,552 @@
+CRITICAL - 2020-10-17 10:45:40 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 10:46:21 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 10:46:35 --> Object of class CodeIgniter\HTTP\IncomingRequest could not be converted to string
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 12:12:00 --> Cannot access protected property CodeIgniter\HTTP\IncomingRequest::$body
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 12:42:12 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:43:05 --> syntax error, unexpected '}', expecting end of file
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:43:29 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:44:34 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:44:43 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:44:53 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:45:03 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:48:28 --> Invalid argument supplied for foreach()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/Users/bigDuro/...', 79, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:49:24 --> Call to a member function isValid() on string
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 12:50:46 --> Illegal offset type
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(81): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal offset ...', '/Users/bigDuro/...', 81, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:51:07 --> Object of class CodeIgniter\HTTP\Files\UploadedFile could not be converted to int
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(81): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/Users/bigDuro/...', 81, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 12:56:49 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFileMultiple(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 76 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(76): CodeIgniter\HTTP\IncomingRequest->getFileMultiple()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:14:12 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFileMultiple(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 76 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(76): CodeIgniter\HTTP\IncomingRequest->getFileMultiple()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:15:46 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFileMultiple(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 76 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(76): CodeIgniter\HTTP\IncomingRequest->getFileMultiple()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:25:19 --> Call to a member function view() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:37:35 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFile(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 81 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(81): CodeIgniter\HTTP\IncomingRequest->getFile()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:38:41 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFile(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 80 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(80): CodeIgniter\HTTP\IncomingRequest->getFile()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:38:52 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFile(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php on line 80 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(80): CodeIgniter\HTTP\IncomingRequest->getFile()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-10-17 13:46:24 --> Call to undefined function App\Controllers\getName()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:46:52 --> Call to a member function getName() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:48:44 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:48:53 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:49:10 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:49:22 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:49:30 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:49:37 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:54:37 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:55:10 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:55:59 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 13:56:33 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('190')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:02:40 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:04:03 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:04:46 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:05:59 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:07:38 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('190')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:29:14 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:30:36 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:30:45 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:31:08 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:31:14 --> Too few arguments to function App\Controllers\Utils::upload(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:32:13 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:34:08 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/19...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/19...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:34:23 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 14:34:53 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/19...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/19...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:49:46 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/19...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/19...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:08 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:19 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:25 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:44 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:48 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:50:52 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:51:08 --> Encrypter needs a starter key.
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Encryption/Encryption.php(155): CodeIgniter\Encryption\Exceptions\EncryptionException::forNeedsStarterKey()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Config/Services.php(234): CodeIgniter\Encryption\Encryption->initialize(Object(Config\Encryption))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(4): CodeIgniter\Config\Services::encrypter()
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(575): include_once('/Users/bigDuro/...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Router/Router.php(192): CodeIgniter\Router\Router->autoRoute('utils/upload/12...')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(789): CodeIgniter\Router\Router->handle('utils/upload/12...')
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(360): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-10-17 14:54:53 --> Call to a member function isValid() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('190')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 15:10:10 --> base64_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'base64_decode()...', '/Users/bigDuro/...', 80, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(80): base64_decode(Object(stdClass))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-10-17 15:10:27 --> base64_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'base64_decode()...', '/Users/bigDuro/...', 80, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(80): base64_decode(Object(stdClass))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-10-17 15:10:40 --> base64_decode() expects parameter 1 to be string, object given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'base64_decode()...', '/Users/bigDuro/...', 80, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(80): base64_decode(Object(stdClass))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-10-17 15:11:30 --> Call to undefined method stdClass::base64_decode()
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 16:17:15 --> Call to a member function isValid() on string
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('192')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-10-17 16:38:57 --> Invalid file: demos/uploads/index#122.php
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('demos/uploads/i...')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:39:11 --> Invalid file: demos/uploads/index?item=122.php
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('demos/uploads/i...')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:39:18 --> Invalid file: demos/uploads/index?item=.php
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('demos/uploads/i...')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:40:34 --> Call to a member function getMethod() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:42:29 --> Invalid file: demos/uploads/index122.php
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('demos/uploads/i...')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:42:47 --> Invalid file: demos/uploads/index.php/$id.php
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('demos/uploads/i...')
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:43:51 --> Call to a member function getPath() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:45:23 --> Call to a member function getPath() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:45:59 --> Call to a member function getPath() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:46:00 --> Call to a member function getPath() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2020-10-17 16:52:04 --> syntax error, unexpected 'post' (T_STRING), expecting ';' or ','
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('122')
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-10-17 16:53:31 --> A non-numeric value encountered
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Views/demos/uploads/index.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', '/Users/bigDuro/...', 19, Array)
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/View/View.php(246): include('/Users/bigDuro/...')
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/Common.php(1087): CodeIgniter\View\View->render('demos/uploads/i...', Array, true)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Utils.php(84): view('demos/uploads/i...')
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Utils->upload('123')
+#5 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Utils))
+#6 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

@@ -72,6 +72,27 @@ class Utils extends BaseController
 		}
  }
 
-	//--------------------------------------------------------------------
+ function upload($id) {
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+		$file = $request->getFile('file');
+		$json = $request->getJSON();
+
+		switch ($method) {
+		case 'get':
+			 return view('demos/uploads/index');
+			 break;
+		case 'post':
+				 if ($file->isValid() && ! $file->hasMoved())
+			      {
+			          $file->move(WRITEPATH . 'uploads/'.$id);
+								return $response->setJSON($json);
+			      }
+			 break;
+		default:
+			 echo "nothing here!";
+		}
+	}
 
 }

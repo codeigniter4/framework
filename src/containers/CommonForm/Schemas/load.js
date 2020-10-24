@@ -172,11 +172,14 @@ export const LoadJSONSchema = {
       "title": "Rate Contract",
       "default": ""
     },
-    "file": {
-      "type": "string",
-      "format": "data-url",
-      "title": "Rate Contract"
-    }
+    "files": {
+      "type": "array",
+      "title": "Upload Ratecon",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+      }
+    },
   }
 }
 
