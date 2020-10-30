@@ -59,6 +59,11 @@ export const BrokerJSONSchema = {
       "title": "Detention Rate",
       "default": 50
     },
+    "layoverRate": {
+      "type": "string",
+      "title": "Layover Rate",
+      "default": "75"
+    },
     "tonuFee": {
       "type": "number",
       "title": "TONU Fee",

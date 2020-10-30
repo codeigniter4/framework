@@ -3,8 +3,8 @@ import { INVOICE_MODEL } from '../constants';
 import { getTodayAndTommorrowDates, addDaysToToday } from './adjustDates'
 
 const getItemAmount = (load, broker, service) => {
-  const { rate, detentionPay, lumper, tonu } = load;
-  const { quickPayPercentage, detentionRate, tonuFee } = broker;
+  const { rate, detentionPay, layoverPay, lumper, tonu } = load;
+  const { quickPayPercentage, detentionRate, tonuFee, layoverRate } = broker;
   switch (service) {
     case 'TONU':
       return parseInt(tonuFee)
@@ -18,6 +18,11 @@ const getItemAmount = (load, broker, service) => {
     case 'DETENTION':
       const detentionPayFee = detentionPay * detentionRate;
       return detentionPayFee
+      break;
+    case 'LAYOVER':
+    console.log('Layover: ', layoverPay, layoverRate );
+      const layoverPayFee = layoverPay * layoverRate;
+      return layoverPayFee
       break;
     case 'LUMPER CHARGE':
       return lumper;
@@ -63,8 +68,8 @@ export const generateInvoiceItems = (load, broker) => {
   const invoiceItem = getItem(load, broker, service);
   const quickPayItem = quickPay !== "0" && quickPay > 0 ? getItem(load, broker, 'QUICKPAY') : false;
   const detentionPayItem = detentionPay !== "0" && detentionPay > 0 ? getItem(load, broker, 'DETENTION') : false;
-  // const layoverPayItem = layoverPay ? getItem(load, broker, 'LAYOVER') : false;
+  const layoverPayItem = layoverPay !== "0" && layoverPay > 0 ? getItem(load, broker, 'LAYOVER') : false;
   const lumperItem = lumper !== "0" && lumper > 0 ? getItem(load, broker, 'LUMPER CHARGE') : false;
-  const invoiceItems = [invoiceItem, detentionPayItem, lumperItem, quickPayItem];
+  const invoiceItems = [invoiceItem, detentionPayItem, layoverPayItem, lumperItem, quickPayItem];
   return invoiceItems;
 }

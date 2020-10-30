@@ -23,7 +23,8 @@ class BrokerModel extends Model
       'quickPayPercentage',
       'paymentTerms',
       'detentionRate',
-      'tonuFee'
+      'tonuFee',
+      'layoverRate'
     ];
 
     protected $useTimestamps = false;

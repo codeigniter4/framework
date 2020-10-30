@@ -17,7 +17,7 @@ export const formatData = (table, formData) => {
     })
 
     formattedFields[table].fields_int.map((field) => {
-      formData[field] = parseInt(formData[field])
+      formData[field] = Math.round(formData[field])
       return false;
     })
   }
