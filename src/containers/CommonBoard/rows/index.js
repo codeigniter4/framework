@@ -26,7 +26,7 @@ const getTableData = (context, table) => {
   const {tableData, setTableData, filteredRecords, searchTerm, getAllRecords } = context;
   const rows = searchTerm ? filteredRecords : tableData[table] || [];
   const requiredData = {
-    loads: ['brokers', 'dispatch'],
+    loads: ['brokers', 'dispatch', 'driver', 'tractor'],
     invoices: ['brokers']
   }
   const refreshData = (route, name) => {

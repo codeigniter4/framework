@@ -45,16 +45,36 @@ export default function GroupByDateCard(props) {
     return  theWeek;
   }
 
-  const weeks = rows && rows.length && rows.reduce((weeks, row) => {
+  const getWeeks = (rows) => rows.reduce((weeks, row) => {
+    // console.log('tractors: ', row);
     const week = getWeek(row.dropoffDate);
     const rows = weeks[week] && weeks[week].rows || [];
     const weeksRateToDate = weeks[week] ? parseInt(weeks[week].rate) + parseInt(row.rate) : row.rate;
+    const driverWeekPayToDate = (weeksRateToDate * row.driverRate).toFixed(2);
     rows.push(row);
     return {
       ...weeks,
       [week]: {
         rate: weeksRateToDate,
+        driverPay: `$${driverWeekPayToDate}`,
+        driverName: row.driverName,
+        driverRate: `${row.driverRate * 100}%`,
         rows: [...rows]
+      }
+    }
+  }, {})
+
+  const tractors = rows && rows.length && rows.reduce((units, row) => {
+    console.log('tractors: ', row);
+    const tractor = row.tractor;
+    const tractors = units[tractor] && units[tractor].rows || []
+    // const unitNum = row.unit_num ? row.unit_num : units[tractor].unitNum;
+    tractors.push(row);
+    return {
+      ...units,
+      [tractor]: {
+        unitNum: row.unit_num,
+        rows: [...tractors]
       }
     }
   }, {})
@@ -68,22 +88,29 @@ export default function GroupByDateCard(props) {
             <ListToolBar actions={actions}/>
             <EnhancedTableToolbar numSelected={selected.length} {...actions} selected={selected} setSelected={setSelected}/>
         </Grid>
-      {rows && rows.length ?
-        Object.keys(weeks).reverse().map((week, idx) => {
-          return (
-            <Grid item xs={12} key={idx}>
-            Week {week} - Weekly Total: ${weeks[week].rate}.00
-            {
-              weeks[week].rows.map((row, indx) => {
-              return (
-                  <Grid item xs={12} key={indx}>
-                    <LoadCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
-                  </Grid>
-                )
-              })
-            }
-            </Grid>
-          )
+      {tractors && rows && rows.length ?
+        Object.keys(tractors).reverse().map((truck, i) => {
+          const weeks = getWeeks(tractors[truck].rows);
+          // console.log('weeks: ', weeks);
+          return Object.keys(weeks).reverse().map((week, idx) => {
+            return (
+              <Grid item xs={12} key={idx}>
+              {weeks[week] ?
+                <React.Fragment>
+                  Week {week} - Truck Number: {tractors[truck].unitNum} | Weekly Total: ${weeks[week].rate}.00 | Pay: {weeks[week].driverName} @ {weeks[week].driverRate} = {weeks[week].driverPay}
+                </React.Fragment> : ""}
+              {
+                weeks[week].rows.map((row, indx) => {
+                return (
+                    <Grid item xs={12} key={indx}>
+                      <LoadCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
+                    </Grid>
+                  )
+                })
+              }
+              </Grid>
+            )
+          })
         })
        : ''}
 

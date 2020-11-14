@@ -35,10 +35,30 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
       })
     }
 
+    if(tableData.driver && tableData.driver.length) {
+      tableData.driver.map(user => {
+        if (user.id === row.driver) {
+          newRow.driverName = `${user.firstname} ${user.lastname}`
+          newRow.driverRate = user.compensation
+        }
+        return user
+      })
+    }
 
-    newRow.rate = row.tonu === '1' ? 'TONU' : row.rate;
+    if(tableData.tractor && tableData.tractor.length) {
+      tableData.tractor.map(tractor => {
+        if (tractor.id === row.tractor) {
+          newRow.unit_num = tractor.unit_num
+        }
+        return tractor
+      })
+    }
+
+
+    newRow.rate = row.tonu === '1' ? 0 : row.rate;
     newRow.pickupDate = new Date(row.pickupDate).toLocaleString();
     newRow.dropoffDate = new Date(row.dropoffDate).toLocaleString();
+    console.log('newRow: ', newRow);
     return newRow;
   })
 }
