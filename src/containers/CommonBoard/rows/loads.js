@@ -17,7 +17,9 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
     if(tableData.brokers && tableData.brokers.length) {
       tableData.brokers.map(broker => {
         if (broker.id === row.broker) {
-          newRow.broker = broker.name
+          newRow.broker = broker.name;
+          newRow.hasQuickPay = broker.quickPay !== "0" && broker.quickPay > 0;
+          newRow.paymentTerms = broker.paymentTerms;
           newRow.editBroker = editBrokerButton(row.id, row.broker, actions, broker.name);
         }
         return broker

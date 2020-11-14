@@ -10,5 +10,5 @@ export const getActions = (context, table, history) => {
     brokers: getBrokerActions(context, table, history)
   }
 
-  return types[table] || common;
+  return types[table] ? {...common, ...types[table]} : common;
 }

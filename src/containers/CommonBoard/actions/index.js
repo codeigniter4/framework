@@ -11,5 +11,5 @@ export const getActions = (context, table, db, history) => {
   const types = {
     invoices, loads
   }
-  return types[table] || common;
+  return types[table] ? {...common, ...types[table]} : common;
 }

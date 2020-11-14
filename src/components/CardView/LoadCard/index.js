@@ -25,6 +25,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import RoomIcon from '@material-ui/icons/Room';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import ContactlessIcon from '@material-ui/icons/Contactless';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,6 +98,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardActions: {
     backgroundColor: grey[100]
+  },
+  quickPayIcon: {
+    position: 'absolute'
   }
 }));
 
@@ -109,7 +113,8 @@ const icons = (type, classes) => {
     Planning: <PauseCircleFilledIcon className={classes[`${type}_icon`]}/>,
     pickupLocation: <RoomIcon className={classes[`Live_icon`]}/>,
     dropoffLocation: <RoomIcon className={classes[`Completed_icon`]}/>,
-    rate: <MonetizationOnIcon className={classes[`Live_icon`]}/>
+    rate: <MonetizationOnIcon className={classes[`Scheduled_icon`]}/>,
+    qpRate: <MonetizationOnIcon className={classes[`Live_icon`]}/>
   }
 
   return types[type] || false
@@ -171,7 +176,7 @@ export default function LoadCard(props) {
           <CardHeader
           avatar={
             <Avatar aria-label="rate" className={classes.cardActions}>
-              {icons('rate', classes)}
+            {data.hasQuickPay ? icons('qpRate', classes) : icons('rate', classes)}
             </Avatar>
           }
           title={`Rate: $${data.rate}.00`}
@@ -217,6 +222,11 @@ export default function LoadCard(props) {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 <b>Rate Per Mile:</b> {ratePerMile}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {data.hasQuickPay ?
+                  <b>Quickpay Terms: {data.paymentTerms} day/s</b>: ''
+                }
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p"><b>Notes:</b></Typography>
               <Typography variant="body2" color="textSecondary" component="p">
