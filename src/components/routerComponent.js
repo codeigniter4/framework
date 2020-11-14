@@ -5,14 +5,6 @@ import {
   Route
 } from "react-router-dom";
 
-// import Dashboard from '../containers/Dashboard';
-// import DriverForm from '../containers/DriverForm';
-// import CommonForm from '../containers/CommonForm';
-// import EquipmentForm from '../containers/EquipmentForm';
-// import Invoices from '../containers/Invoices';
-// import LoadForm from '../containers/LoadForm';
-// import BrokerForm from '../containers/BrokerForm';
-// import AssetManager from '../containers/AssetManager';
 import CommonBoard from '../containers/CommonBoard';
 import CommonForm from '../containers/CommonForm';
 

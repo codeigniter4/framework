@@ -8,6 +8,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import TocIcon from '@material-ui/icons/Toc';
 import ListView from '../../components/ListView';
 import CardView from '../../components/CardView';
+import GroupByDateCard from '../../components/GroupByDateCard';
 import AdminContextProvider from '../../contexts/AdminContext';
 import { AdminContext } from '../../contexts/AdminContext';
 import { getColumnType } from './columns';
@@ -35,8 +36,9 @@ function CommonBoard(props) {
     )
   }
 
-  const getCardView = (rows, actions) => {
+  const getCardView = (rows, actions, table) => {
     return (
+      table === 'loads' ? <GroupByDateCard history={history} actions={actions} rows={rows} columns={columnData} table={table}/> :
       <CardView history={history} actions={actions} rows={rows} columns={columnData} table={table}/>
     )
   }
@@ -59,7 +61,7 @@ function CommonBoard(props) {
                 </IconButton>
             </div>
             <Grid item xs={12}>
-                {showCard || !showCard && showGrid ? getCardView(rows, actions) : getListView(rows, actions)}
+                {showCard || !showCard && showGrid ? getCardView(rows, actions, table) : getListView(rows, actions)}
             </Grid>
           </Grid>
 

@@ -121,6 +121,7 @@ const icons = (type, classes) => {
 }
 
 export default function LoadCard(props) {
+  console.log('LoadCard: ', props);
   const { data, actions, isMobile, selected, setSelected } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
