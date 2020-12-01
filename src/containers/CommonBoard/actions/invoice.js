@@ -64,7 +64,6 @@ export const getInvoiceActions = (context, table, history, filterFields) => {
       }).reverse()
 
       exportRecordToCSV(table, recordsToExport).then(data => {
-        console.log('save invoice: ', table, ids);
         ids.map(id => {
           const record = {
             id,

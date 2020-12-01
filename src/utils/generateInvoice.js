@@ -33,7 +33,7 @@ const getItemAmount = (load, broker, service) => {
 
 const getItem = (load, broker, service) => {
   const { id, loadNumber, dropoffDate, pickupLocation, dropoffLocation} = load;
-  const { name, address, Email, paymentTerms} = broker;
+  const { name, address, billingEmail, paymentTerms} = broker;
   const { today, tomorrow } = getTodayAndTommorrowDates();
   const dueDate = paymentTerms ? addDaysToToday(parseInt(paymentTerms)) : 30;
   const itemAmount = getItemAmount(load, broker, service);
@@ -43,7 +43,7 @@ const getItem = (load, broker, service) => {
     "*InvoiceNo": `${id}-${loadNumber}`, // 2018 +
     "*Customer": name, // Broker Name
     "BillingAddress": address, // Broker
-    "CustomerEmail": Email, // Broker
+    "CustomerEmail": billingEmail, // Broker
     "ServiceDate": dropoffDate, // On Drop Load
     "*InvoiceDate": today, // On Completed Load
     "*DueDate": dueDate, // *InvoiceDate + Terms
