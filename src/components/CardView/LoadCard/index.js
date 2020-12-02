@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: '10px auto'
   },
+  CardContainer: {
+    backgroundColor: grey[100]
+  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -41,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
+    ':after': {
+      content: 'Veiw Loads',
+      position: 'absolute',
+    }
   },
   green: {
     color: green[500]
@@ -200,14 +207,14 @@ export default function LoadCard(props) {
               })}
               onClick={handleExpandClick}
               aria-expanded={expanded}
-              aria-label="show more"
+              aria-label="View Loads"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
         </Grid>
       </Grid>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className={classes.CardContainer}>
         <Grid item xs={12}>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
