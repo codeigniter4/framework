@@ -20,27 +20,27 @@ const CardView = (props) => {
   const cardTypes = (type, row, indx, handleSelected) => {
     const types = {
       loads: (
-        <Grid item xs={12} key={indx}>
+        <Grid item xs={12} key={indx} id={row.id}>
           <LoadCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
       users: (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={indx}>
+        <Grid item xs={12} sm={6} md={6} lg={4} key={indx} id={row.id}>
           <UserCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
       brokers: (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={indx}>
+        <Grid item xs={12} sm={6} md={6} lg={4} key={indx} id={row.id}>
           <BrokerCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
       invoices: (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={indx}>
+        <Grid item xs={12} sm={6} md={6} lg={4} key={indx} id={row.id}>
           <InvoiceCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
       employees: (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={indx}>
+        <Grid item xs={12} sm={6} md={6} lg={4} key={indx} id={row.id}>
           <EmployeeCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
       equipment: (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={indx}>
+        <Grid item xs={12} sm={6} md={6} lg={4} key={indx} id={row.id}>
           <EquipmentCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
         </Grid>),
     }

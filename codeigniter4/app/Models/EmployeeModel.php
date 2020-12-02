@@ -32,7 +32,10 @@ class EmployeeModel extends Model
       'cdl_num',
       'cdl_state',
       'cdl_exp',
-      'med_cert_exp'
+      'med_cert_exp',
+      'detentionRate',
+      'layoverRate',
+      'breakdownRate'
     ];
 
     protected $useTimestamps = false;

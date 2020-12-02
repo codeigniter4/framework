@@ -67,7 +67,21 @@ export const DriverJSONSchema = {
       "title": "Compensation",
       "default": ""
     },
-
+    "breakdownRate": {
+      "type": "string",
+      "title": "Breakdown Rate",
+      "default": ""
+    },
+    "layoverRate": {
+      "type": "string",
+      "title": "Layover Rate",
+      "default": ""
+    },
+    "detentionRate": {
+      "type": "string",
+      "title": "Detention Rate",
+      "default": ""
+    },
     "gender": {
       "title": "Gender",
       "type": "string",

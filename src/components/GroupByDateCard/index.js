@@ -51,6 +51,7 @@ export default function GroupByDateCard(props) {
     const rows = weeks[week] && weeks[week].rows || [];
     const weeksRateToDate = weeks[week] ? parseInt(weeks[week].rate) + parseInt(row.rate) : row.rate;
     const driverWeekPayToDate = (weeksRateToDate * row.driverRate).toFixed(2);
+    const weekyDetentionPayToDate = weeks[week] ? parseInt(weeks[week].detentionPay) + parseInt(row.detentionPay) : row.detentionPay;
     rows.push(row);
     return {
       ...weeks,
@@ -59,13 +60,14 @@ export default function GroupByDateCard(props) {
         driverPay: `$${driverWeekPayToDate}`,
         driverName: row.driverName,
         driverRate: `${row.driverRate * 100}%`,
+        detentionPay: `${weekyDetentionPayToDate}`,
+        layoverPay: `$${row.layoverPay}`,
         rows: [...rows]
       }
     }
   }, {})
 
   const tractors = rows && rows.length && rows.reduce((units, row) => {
-    console.log('tractors: ', row);
     const tractor = row.tractor;
     const tractors = units[tractor] && units[tractor].rows || []
     // const unitNum = row.unit_num ? row.unit_num : units[tractor].unitNum;
@@ -94,15 +96,16 @@ export default function GroupByDateCard(props) {
           // console.log('weeks: ', weeks);
           return Object.keys(weeks).reverse().map((week, idx) => {
             return (
-              <Grid item xs={12} key={idx}>
+              <Grid item xs={12} key={idx} id={week}>
               {weeks[week] ?
                 <React.Fragment>
                   Week {week} - Truck Number: {tractors[truck].unitNum} | Weekly Total: ${weeks[week].rate}.00 | Pay: {weeks[week].driverName} @ {weeks[week].driverRate} = {weeks[week].driverPay}
+                  {weeks[week].detentionPay !== '0' ? ` | Detention Pay = $${weeks[week].detentionPay}.00` : ''}
                 </React.Fragment> : ""}
               {
                 weeks[week].rows.map((row, indx) => {
                 return (
-                    <Grid item xs={12} key={indx}>
+                    <Grid item xs={12} key={indx} id={row.id}>
                       <LoadCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>
                     </Grid>
                   )

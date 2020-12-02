@@ -40,6 +40,9 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
         if (user.id === row.driver) {
           newRow.driverName = `${user.firstname} ${user.lastname}`
           newRow.driverRate = user.compensation
+          newRow.detentionPay = parseInt(user.detentionRate) * parseInt(row.detentionPay);
+          newRow.layoverPay = parseInt(user.layoverRate) * parseInt(row.layoverPay);
+          // newRow.breakdownRate = user.breakdownRate
         }
         return user
       })
@@ -58,7 +61,6 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
     newRow.rate = row.tonu === '1' ? 0 : row.rate;
     newRow.pickupDate = new Date(row.pickupDate).toLocaleString();
     newRow.dropoffDate = new Date(row.dropoffDate).toLocaleString();
-    console.log('newRow: ', newRow);
     return newRow;
   })
 }
