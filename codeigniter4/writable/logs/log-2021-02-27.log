@@ -1,0 +1,27 @@
+CRITICAL - 2021-02-27 14:23:55 --> Too few arguments to function App\Controllers\Loads::getRecordByDate(), 0 passed in /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php on line 914 and exactly 1 expected
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Loads->getRecordByDate()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Loads))
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-02-27 14:30:00 --> Class 'App\Services\Time' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Loads.php(72): App\Services\LoadService->getRecordByDate()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Loads->getRecordByDate()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Loads))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-27 14:31:37 --> Class 'App\Services\Time' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Loads.php(72): App\Services\LoadService->getRecordByDate()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Loads->getRecordByDate()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Loads))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-02-27 14:32:23 --> Class 'App\Services\Time' not found
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Loads.php(72): App\Services\LoadService->getRecordByDate()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Loads->getRecordByDate()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Loads))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

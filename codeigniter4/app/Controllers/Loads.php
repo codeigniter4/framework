@@ -60,4 +60,21 @@ class Loads extends BaseController
 		}
 	}
 
+	public function getRecordByDate()
+	{
+		$Service = new LoadService();
+		$request = $this->request;
+		$response = $this->response;
+		$method = $request->getMethod();
+
+		switch ($method) {
+				case 'get':
+						$record = $Service->getRecordByDate();
+						return $response->setJSON($record);
+						break;
+				default:
+						echo "nothing here!";
+		}
+	}
+
 }
