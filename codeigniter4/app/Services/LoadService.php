@@ -12,7 +12,7 @@ class LoadService {
    public function getRecords()
    {
      $model = new LoadModel();
-     $records = $model->orderBy('pickupDate', 'DESC')->findAll();
+     $records = $model->orderBy('id', 'DESC')->findAll();
      return $records;
    }
 
@@ -47,7 +47,7 @@ class LoadService {
      $model = new LoadModel();
      $records = $model->orderBy('id', 'DESC')->findAll();
 
-     $userModel->where('pickupDate', 1)->findAll();
+     // $userModel->where('pickupDate', 1)->findAll();
      // echo "string";
      return $date;
    }

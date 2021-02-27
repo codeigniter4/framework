@@ -28,7 +28,7 @@ import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import ContactlessIcon from '@material-ui/icons/Contactless';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import LoadCard from '../LoadCard';
-import { getWeek } from '../../../utils/getWeeks';
+import { getMomentWeek } from '../../../utils/dates';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,15 +82,14 @@ const icons = (type, classes) => {
 }
 
 export default function WeeklyCard(props) {
-  const { data, actions, isMobile, selected, handleSelected, expand } = props;
-  const currentWeek = getWeek(new Date());
+  const { data, actions, isMobile, selected, handleSelected, expand, totals, week } = props;
+  const currentWeek = getMomentWeek(new Date());
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(data.week === currentWeek);
+  const [expanded, setExpanded] = React.useState(week === currentWeek);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
 
   return (
     <Card className={classes.root}>
@@ -106,17 +105,17 @@ export default function WeeklyCard(props) {
               <IconButton aria-label="settings">
               </IconButton>
             }
-            title={`${data.week === currentWeek ? 'Current Week: ' + data.week : data.week < currentWeek ? 'Week: ' + data.week  :  'Upcoming Week: ' + data.week}`}
+            title={`${week === currentWeek ? 'Current Week: ' + week : week < currentWeek ? 'Week: ' + week  :  'Upcoming Week: ' + week}`}
           />
           <CardContent>
            <Typography variant="body2" color="textSecondary" component="p">
-             Total: ${data.rate}.00
+             Total: ${totals.rate}.00
            </Typography>
            <Typography variant="body2" color="textSecondary" component="p">
-             Total Miles: {parseInt(data.loadedMiles) + parseInt(data.deadHead)}
+             Total Miles: {parseInt(totals.loadedMiles) + parseInt(totals.deadHead)}
            </Typography>
            <Typography variant="body2" color="textSecondary" component="p">
-             Total Rate Per Mile: ${(parseInt(data.rate) / (parseInt(data.loadedMiles) + parseInt(data.deadHead))).toFixed(2)}
+             Total Rate Per Mile: ${(parseInt(totals.rate) / (parseInt(totals.loadedMiles) + parseInt(totals.deadHead))).toFixed(2)}
            </Typography>
           </CardContent>
         </Grid>
@@ -127,17 +126,17 @@ export default function WeeklyCard(props) {
                 {icons('Driver')}
               </Avatar>
             }
-            title={`${data.driverName}`}
+            title={`${totals.driverName}`}
           />
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
-              Rate: {data.driverRate}
+              Rate: {totals.driverRate}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Pay: {data.driverPay}
+              Pay: {totals.driverPay}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Detention Pay: ${data.detentionPay}.00
+              Detention Pay: ${totals.detentionPay}.00
             </Typography>
           </CardContent>
         </Grid>
@@ -162,7 +161,7 @@ export default function WeeklyCard(props) {
         <Grid item xs={12}>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent className={classes.CardContent}>
-                {data.rows.map((row, indx) => {
+                {data.map((row, indx) => {
                 return (
                     <Grid item xs={12} key={indx} id={row.id}>
                       <LoadCard key={indx} data={row} isMobile={isMobile} selected={selected} setSelected={handleSelected}/>

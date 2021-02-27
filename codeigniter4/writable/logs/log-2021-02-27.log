@@ -25,3 +25,10 @@ CRITICAL - 2021-02-27 14:32:23 --> Class 'App\Services\Time' not found
 #3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2021-02-27 14:46:29 --> Call to a member function where() on null
+#0 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/app/Controllers/Loads.php(72): App\Services\LoadService->getRecordByDate()
+#1 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(914): App\Controllers\Loads->getRecordByDate()
+#2 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Loads))
+#3 /Users/bigDuro/Documents/gitHub/vgdt-admin/codeigniter4/system/CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/bigDuro/Documents/gitHub/vgdt-admin/public/api/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
