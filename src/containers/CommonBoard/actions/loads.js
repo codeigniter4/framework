@@ -1,7 +1,8 @@
 import { generateInvoiceItems } from '../../../utils/generateInvoice'
 
 export const getLoadsActions = (context, table, db, history, filterFields) => {
-  const { deleteRecord, filterRecords, setTableData, brokers, loads, saveRecord, getRecord, getAllRecords } = context;
+  const { deleteRecord, filterRecords, setTableData, tableData, saveRecord, getRecord, getAllRecords } = context;
+  const { loads, brokers } = tableData;
   const store = db || table;
   const refreshData = (store) => {
     getAllRecords(store).then(data => {

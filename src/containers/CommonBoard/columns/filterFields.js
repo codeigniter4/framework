@@ -1,1 +1,1 @@
-export const filterFields = ['status', 'pickupLocation', 'dropoffLocation', 'username', 'name', 'type', 'unit_num', 'lastname', 'firstname', '*Customer', '*InvoiceNo', 'loadNumber', 'user', 'broker'];
+export const filterFields = ['status', 'pickupLocation', 'dropoffLocation', 'username', 'name', 'type', 'unit_num', 'lastname', 'firstname', '*Customer', '*InvoiceNo', 'loadNumber', 'user', 'broker', 'driver'];

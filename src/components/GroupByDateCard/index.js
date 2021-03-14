@@ -80,7 +80,8 @@ export default function GroupByDateCard(props) {
             <ListToolBar actions={actions}/>
             <EnhancedTableToolbar numSelected={selected.length} {...actions} selected={selected} setSelected={setSelected}/>
         </Grid>
-        <Grid item xs={12}>Drivers</Grid>
+        {//<Grid item xs={12}>Drivers</Grid>
+        }
       {rows && rows.length ? getCards(rows) : ''}
 
      </Grid>

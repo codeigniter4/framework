@@ -46,17 +46,17 @@ export const DriverJSONSchema = {
       "title": "Zip Code",
       "default": ""
     },
-    // "position": {
-    //   "title": "Position",
-    //   "type": "string",
-    //   "enum": [
-    //     "driver"
-    //   ],
-    //   "enumNames": [
-    //     "Driver"
-    //   ],
-    //   "default": "driver"
-    // },
+    "position": {
+      "title": "Position",
+      "type": "string",
+      "enum": [
+        "driver"
+      ],
+      "enumNames": [
+        "Driver"
+      ],
+      "default": "driver"
+    },
     "pay_structure": {
       "type": "string",
       "title": "Pay Structure",
