@@ -194,13 +194,7 @@ export default function LoadCard(props) {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <CardActions disableSpacing className={classes.cardActions}>
-            <IconButton aria-label="details">
-              {data.edit}
-            </IconButton>
-            {data.status === 'Completed' && data.broker !== 'addNew' ?
-              <IconButton aria-label="details">
-                {data.genInvoice}
-              </IconButton> : ''}
+            {data.controlPanel}
             <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,

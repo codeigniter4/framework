@@ -86,10 +86,12 @@ export default function WeeklyCard(props) {
   const currentWeek = getMomentWeek(new Date());
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(week === currentWeek);
-
+  const hasDriver = true;
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const partsOfWeek = week.split('-')
 
   return (
     <Card className={classes.root}>
@@ -105,7 +107,7 @@ export default function WeeklyCard(props) {
               <IconButton aria-label="settings">
               </IconButton>
             }
-            title={`${week === currentWeek ? 'Current Week: ' + week : week < currentWeek ? 'Week: ' + week  :  'Upcoming Week: ' + week}`}
+            title={`${week === currentWeek ? 'Current Week: ' + partsOfWeek[1] + ' | Year: ' + partsOfWeek[0]: week < currentWeek ? 'Week: ' + partsOfWeek[1] + ' | Year: ' + partsOfWeek[0]  :  'Upcoming Week: ' + partsOfWeek[1] + ' | Year: ' + partsOfWeek[0]}`}
           />
           <CardContent>
            <Typography variant="body2" color="textSecondary" component="p">
@@ -120,25 +122,31 @@ export default function WeeklyCard(props) {
           </CardContent>
         </Grid>
         <Grid item  xs={12} sm={12} md={6}>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="pickup" className={""}>
-                {icons('Driver')}
-              </Avatar>
-            }
-            title={`${totals.driverName}`}
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Rate: {totals.driverRate}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Pay: {totals.driverPay}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Detention Pay: ${totals.detentionPay}.00
-            </Typography>
-          </CardContent>
+          {hasDriver ?
+            <React.Fragment>
+              <CardHeader
+                avatar={
+                  <Avatar aria-label="pickup" className={""}>
+                    {icons('Driver')}
+                  </Avatar>
+                }
+                title={`${totals.driverName}`}
+              />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Rate: {totals.driverRate}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Pay: {totals.driverPay}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Detention Pay: ${totals.detentionPay}.00
+                </Typography>
+              </CardContent>
+            </React.Fragment>
+           : ''
+        }
+
         </Grid>
       </Grid>
       <Grid container spacing={3}>

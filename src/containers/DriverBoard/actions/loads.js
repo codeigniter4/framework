@@ -70,17 +70,6 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
         })
 
         return !billed.includes(false)
-      },
-      handleStatus: (id, status) => {
-        return new Promise((resolve, reject) => {
-          const record = {
-            id, status
-          }
-          saveRecord(table, record).then( data => {
-            refreshData(store);
-            resolve(data);
-          })
-        })
-      },
+      }
     }
 }

@@ -12,6 +12,11 @@ export let theme = createMuiTheme({
       main: '#888888',
       dark: '#4e4e4e',
     },
+    action: {
+      light: '##3cf34d',
+      main: '#4CAF55',
+      dark: '#0f6f18',
+    },
   },
   typography: {
     p: {

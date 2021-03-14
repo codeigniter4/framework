@@ -31,22 +31,27 @@ export const LOAD_STATUS = [
   {
     type: 'none',
     label: 'Select Status',
+    description: ''
   },
   {
     type: 'planning',
     label: 'Planning',
+    description: ''
   },
   {
     type: 'scheduled',
-    label: 'Scheduled'
+    label: 'Scheduled',
+    description: 'Ready for pick up.'
   },
   {
     type: 'live',
-    label: 'Live'
+    label: 'Live',
+    description: 'At the Reciever'
   },
   {
     type: 'completed',
-    label: 'Completed'
+    label: 'Completed',
+    description: 'Completed Delivery'
   }
 ];
 

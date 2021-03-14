@@ -25,7 +25,6 @@ export const getCommonActions = (context, table, db, history, filterFields) => {
           refreshData(store)
         });
       },
-      handleExport: false,
-      handleStatus: false
+      handleExport: false
     }
 }
