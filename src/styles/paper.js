@@ -28,4 +28,11 @@ export const paperStylesTable = makeStyles((theme) => ({
       margin: '0 auto'
     }
   },
+  counter: {
+    top: 55,
+    position: 'fixed',
+    zIndex: 11,
+    textTransform: 'capitalize',
+    color: "#fff",
+  }
 }));

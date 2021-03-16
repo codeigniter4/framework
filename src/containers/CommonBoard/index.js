@@ -38,8 +38,11 @@ function CommonBoard(props) {
 
   const getCardView = (rows, actions, table) => {
     return (
-      table === 'loads' ? <GroupByDateCard history={history} actions={actions} rows={rows} columns={columnData} table={table}/> :
-      <CardView history={history} actions={actions} rows={rows} columns={columnData} table={table}/>
+      <React.Fragment>
+      <h4 className={classes.counter}>{rows.length} {table}</h4>
+      {table === 'loads' ? <GroupByDateCard history={history} actions={actions} rows={rows} columns={columnData} table={table}/> :
+      <CardView history={history} actions={actions} rows={rows} columns={columnData} table={table}/>}
+      </React.Fragment>
     )
   }
 
