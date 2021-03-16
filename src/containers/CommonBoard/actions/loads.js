@@ -1,7 +1,7 @@
 import { generateInvoiceItems } from '../../../utils/generateInvoice'
 
 export const getLoadsActions = (context, table, db, history, filterFields) => {
-  const { deleteRecord, filterRecords, setTableData, tableData, saveRecord, getRecord, getAllRecords } = context;
+  const { deleteRecord, filterRecords, setTableData, tableData, saveRecord, getRecord, getAllRecords, setDriver, driver } = context;
   const { loads, brokers } = tableData;
   const store = db || table;
   const refreshData = (store) => {
@@ -26,6 +26,7 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
       handleChange: (e) => {
         e.preventDefault();
         const fields = filterFields;
+        setDriver('');
         filterRecords(store, fields, e.target.value)
       },
       handleAdd: () => {
@@ -83,5 +84,12 @@ export const getLoadsActions = (context, table, db, history, filterFields) => {
           })
         })
       },
+      filterByDriver: (driver) => {
+        const fields = filterFields;
+        setDriver(driver);
+        filterRecords(store, fields, driver)
+      },
+      getDriver: () => driver,
+      getDrivers: () => tableData.driver
     }
 }

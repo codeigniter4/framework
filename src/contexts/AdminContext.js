@@ -14,7 +14,8 @@ class AdminContextProvider extends Component {
       deleteRecord: {},
       exportToCSV: [],
       tableData: {},
-      table: ''
+      table: '',
+      driver: ''
     }
     this.getAllRecords = this.getAllRecords.bind(this);
     this.getAllRecordsByType = this.getAllRecordsByType.bind(this);
@@ -22,6 +23,8 @@ class AdminContextProvider extends Component {
     this.deleteRecord = this.deleteRecord.bind(this);
     this.filterRecords = this.filterRecords.bind(this);
     this.setRecord = this.setRecord.bind(this);
+    this.setDriver = this.setDriver.bind(this);
+    this.getDriver = this.getDriver.bind(this);
     this.setRecords = this.setRecords.bind(this);
     this.getRecord = this.getRecord.bind(this);
     this.addRecord = this.addRecord.bind(this);
@@ -104,10 +107,15 @@ class AdminContextProvider extends Component {
       })
 
       const filteredRecords = [];
+      const cacheIDs = [];
 
       results.map(result => {
         result.map(rec => {
-          filteredRecords.push(rec)
+          // avoid pushing rec twice
+          if(!cacheIDs.includes(rec.id)) {
+            filteredRecords.push(rec)
+            cacheIDs.push(rec.id)
+          }
           return rec
         })
         return result
@@ -159,6 +167,15 @@ class AdminContextProvider extends Component {
       [table]: [...this.state.tableData[table]]
     });
   }
+  setDriver(driver) {
+    this.setState({
+      driver
+    });
+  }
+
+  getDriver() {
+    return this.state.driver
+  }
 
   updateRecord(table, event) {
     const name = event.target.name;
@@ -182,6 +199,8 @@ class AdminContextProvider extends Component {
           updateRecord: this.updateRecord,
           getAllRecords: this.getAllRecords,
           setRecord: this.setRecord,
+          setDriver: this.setDriver,
+          getDriver: this.getDriver,
           setRecords: this.setRecords,
           exportRecordToCSV: this.exportRecordToCSV,
           setTableData: this.setTableData,

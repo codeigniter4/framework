@@ -28,6 +28,7 @@ import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import ContactlessIcon from '@material-ui/icons/Contactless';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import LoadCard from '../LoadCard';
+import DriverWeek from './DriverWeek';
 import { getMomentWeek } from '../../../utils/dates';
 
 const useStyles = makeStyles((theme) => ({
@@ -83,10 +84,11 @@ const icons = (type, classes) => {
 
 export default function WeeklyCard(props) {
   const { data, actions, isMobile, selected, handleSelected, expand, totals, week } = props;
+  const { getDriver } = actions;
+  const driver = getDriver();
   const currentWeek = getMomentWeek(new Date());
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(week === currentWeek);
-  const hasDriver = true;
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -122,30 +124,8 @@ export default function WeeklyCard(props) {
           </CardContent>
         </Grid>
         <Grid item  xs={12} sm={12} md={6}>
-          {hasDriver ?
-            <React.Fragment>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="pickup" className={""}>
-                    {icons('Driver')}
-                  </Avatar>
-                }
-                title={`${totals.driverName}`}
-              />
-              <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Rate: {totals.driverRate}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Pay: {totals.driverPay}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Detention Pay: ${totals.detentionPay}.00
-                </Typography>
-              </CardContent>
-            </React.Fragment>
-           : ''
-        }
+        {driver !== '' ?
+          <DriverWeek driver={driver} totals={totals} icons={icons}/> : '' }
 
         </Grid>
       </Grid>

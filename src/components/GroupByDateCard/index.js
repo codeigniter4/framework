@@ -4,6 +4,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ListToolBar from '../ListToolBar';
 import EnhancedTableToolbar from '../ListActionBar';
 import WeeklyCard from '../CardView/WeeklyCard';
+import DriverSelect from './DriverSelect';
 import { getWeek } from '../../utils/getWeeks';
 import { getMomentWeeks } from '../../utils/dates';
 
@@ -64,7 +65,7 @@ export default function GroupByDateCard(props) {
       return (
         <Grid item xs={12} key={idx} id={week}>
         {weeks[week] && weeks[week].length ?
-          <WeeklyCard key={idx} expand={idx} totals={totals} data={weeks[week]} week={week} isMobile={isMobile} selected={selected} handleSelected={handleSelected}/> : ""}
+          <WeeklyCard actions={actions} key={idx} expand={idx} totals={totals} data={weeks[week]} week={week} isMobile={isMobile} selected={selected} handleSelected={handleSelected}/> : ""}
         </Grid>
       )
     })
@@ -80,8 +81,7 @@ export default function GroupByDateCard(props) {
             <ListToolBar actions={actions}/>
             <EnhancedTableToolbar numSelected={selected.length} {...actions} selected={selected} setSelected={setSelected}/>
         </Grid>
-        {//<Grid item xs={12}>Drivers</Grid>
-        }
+        <Grid item xs={12}><DriverSelect actions={actions}/></Grid>
       {rows && rows.length ? getCards(rows) : ''}
 
      </Grid>
