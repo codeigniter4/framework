@@ -30,38 +30,35 @@ const styles = (theme) => ({
 function ListToolBar(props) {
   const { classes, actions } = props;
   const { handleAdd, handleChange } = actions;
-  // const handleChange = () => {
-  //   console.log('handleChange');
-  // }
 
-      return (
-        <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
-          <Toolbar>
-            <Grid container spacing={2} alignItems="center">
-              <Grid item>
-              </Grid>
-              <Grid item xs>
-                <TextField
-                  fullWidth
-                  placeholder="Search"
-                  InputProps={{
-                    disableUnderline: true,
-                    className: classes.searchInput,
-                  }}
-                  onChange={handleChange}
-                />
-              </Grid>
-              { handleAdd ?
-              <Grid item>
-                <Button variant="contained" color="primary" className={classes.add} onClick={handleAdd}>
-                  Add
-                </Button>
-              </Grid>
-              : '' }
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      )
+  return (
+    <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+      <Toolbar>
+        <Grid container spacing={2} alignItems="center">
+          <Grid item>
+          </Grid>
+          <Grid item xs>
+            <TextField
+              fullWidth
+              placeholder="Search"
+              InputProps={{
+                disableUnderline: true,
+                className: classes.searchInput,
+              }}
+              onChange={handleChange}
+            />
+          </Grid>
+          { handleAdd ?
+          <Grid item>
+            <Button variant="contained" color="primary" className={classes.add} onClick={handleAdd}>
+              Add
+            </Button>
+          </Grid>
+          : '' }
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  )
 }
 
 ListToolBar.propTypes = {

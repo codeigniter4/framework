@@ -40,9 +40,7 @@ class AdminContextProvider extends Component {
 
   async getAllRecords(table) {
     const response = await get(table);
-    // this.setState({
-    //   [table]: [...response]
-    // })
+
     return response;
   }
 
@@ -96,7 +94,6 @@ class AdminContextProvider extends Component {
       }
       return this.results[record[field]] ? this.results[record[field]] : '';
     }
-
 
 
   filterRecords(table, fields, searchTerm) {
@@ -157,7 +154,7 @@ class AdminContextProvider extends Component {
     this.setState({
       tableData: {
         ...this.state.tableData,
-        [table]: data
+        [table]: data,
       }
     });
   }

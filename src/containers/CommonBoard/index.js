@@ -27,7 +27,8 @@ function CommonBoard(props) {
   const tableType = position || table;
   const columnData = getColumnType(tableType);
   const showCard = useMediaQuery('(max-width:1023px)');
-
+  const getTheActions = (context) => getActions(context, table, position, history);
+  const getRows =  (context, actions) => getUpdatedRows(context, tableType, actions);
   const getListView = (rows, actions) => {
     return (
       <Paper className={classes.paper}>
@@ -54,8 +55,8 @@ function CommonBoard(props) {
   return (
     <AdminContextProvider>
       <AdminContext.Consumer>{(context) => {
-        const actions = getActions(context, table, position, history);
-        const rows = getUpdatedRows(context, tableType, actions);
+        const actions = getTheActions(context);
+        const rows = getRows(context, actions);
         return (
           <Grid container spacing={3}>
             <div className="viewOptions">

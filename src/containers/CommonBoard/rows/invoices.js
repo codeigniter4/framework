@@ -33,7 +33,7 @@ export const getInvoiceRowData = (context, rows, actions) => {
     // newRow.edit = editButton(row.id);
     newRow.ServiceDate = new Date(row.ServiceDate).toLocaleString();
     newRow['*DueDate'] = new Date(row['*DueDate']).toLocaleString();
-    newRow.view = viewLoadButton(row['*InvoiceNo'].split('-')[0], actions); // get load id
+    newRow.view = row['*InvoiceNo'] ? viewLoadButton(row['*InvoiceNo'].split('-')[0], actions) : false; // get load id
     newRow.billed = row.billed === "0" ? "No" : "Yes";
 
     if(tableData.brokers && tableData.brokers.length) {

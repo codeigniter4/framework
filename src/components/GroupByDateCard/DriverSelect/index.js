@@ -42,9 +42,9 @@ export default function DriverSelect(props) {
             <em>None</em>
           </MenuItem>
           {drivers && drivers.length ?
-            drivers.map(dvr => {
+            drivers.map((dvr, index) => {
               const name = `${dvr.firstname} ${dvr.lastname}`
-              return (<MenuItem value={name}>{name}</MenuItem>)
+              return (<MenuItem key={index} value={name}>{name}</MenuItem>)
             }) : ""
           }
 
