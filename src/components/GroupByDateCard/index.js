@@ -9,7 +9,7 @@ import { getWeek } from '../../utils/getWeeks';
 import { getMomentWeeks } from '../../utils/dates';
 
 export default function GroupByDateCard(props) {
-  const { rows, actions, table } = props;
+  const { rows, table, tables, actions } = props;
   const isMobile = useMediaQuery('(max-width:1023px)');
   const [ selected, setSelected ] = React.useState([]);
   const [ week, setWeek ] = React.useState({});
@@ -42,6 +42,7 @@ export default function GroupByDateCard(props) {
       const weekyDetentionPayToDate = total.detentionPay ? parseInt(record.detentionPay) + parseInt(total.detentionPay) : record.detentionPay;
       const weeklyloadedMiles = total.loadedMiles ? parseInt(record.loadedMiles) + parseInt(total.loadedMiles) : record.loadedMiles;
       const weeklyDeadheadMiles = total.deadHead ? parseInt(record.deadHead) + parseInt(total.deadHead) : record.deadHead;
+      // const weeksAdditionalPayToDate = total.rate ? parseInt(record.rate) + parseInt(total.rate) : parseInt(record.rate);
       return {
         ...total,
         rate: weeksRateToDate,
@@ -81,7 +82,7 @@ export default function GroupByDateCard(props) {
             <ListToolBar actions={actions}/>
             <EnhancedTableToolbar numSelected={selected.length} {...actions} selected={selected} setSelected={setSelected}/>
         </Grid>
-        <Grid item xs={12}><DriverSelect actions={actions}/></Grid>
+        <Grid item xs={12}><DriverSelect employees={tables.employees} actions={actions}/></Grid>
       {rows && rows.length ? getCards(rows) : ''}
 
      </Grid>

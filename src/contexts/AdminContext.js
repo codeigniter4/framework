@@ -1,4 +1,4 @@
-import React, { Component, createContext } from 'react';
+import React, { Component, createContext, useState, useEffect } from 'react';
 import { get, getType, getByID, save, deleteById, exportToCSV, uploadAssets } from '../services/';
 
 export const AdminContext = createContext();
@@ -6,6 +6,7 @@ export const AdminContext = createContext();
 class AdminContextProvider extends Component {
   constructor(props) {
     super()
+    const { table } = props;
     this.state = {
       filteredRecords: [],
       searchTerm: '',
@@ -14,7 +15,7 @@ class AdminContextProvider extends Component {
       deleteRecord: {},
       exportToCSV: [],
       tableData: {},
-      table: '',
+      table: table,
       driver: ''
     }
     this.getAllRecords = this.getAllRecords.bind(this);
@@ -34,21 +35,62 @@ class AdminContextProvider extends Component {
     this.setTable = this.setTable.bind(this);
     this.uploadAssets = this.uploadAssets.bind(this);
     this.results = {};
+    this.dataMap = {}
+
   }
 
+  componentDidMount() {
+    this.getData(this.state.table)
+  }
 
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.table !== this.props.table){
+      this.setState({
+        table: nextProps.table
+      }, () => {
+        this.getData(this.state.table);
+      })
+
+    }
+
+    return nextProps.table === this.props.table
+  }
+
+  getData(table) {
+    const requiredData = this.getRequiredData(table);
+    const dataTables = [ table, ...requiredData ];
+
+    if(dataTables)
+    dataTables.map(async (tbl) => {
+      this.getAllRecords(tbl);
+    })
+  }
+
+  getRequiredData(table) {
+    const tables = {
+      loads: ['brokers', 'employees', 'equipment'],
+      invoices: ['brokers']
+    }
+
+    return tables[table] || []
+  }
 
   async getAllRecords(table) {
     const response = await get(table);
-
+    this.setState({
+      tableData: {
+        ...this.state.tableData,
+        [table]: [...response]
+      }
+    }, () => {
+      console.log('getAllRecords:: ', this.state.tableData);
+    })
     return response;
   }
 
   async getAllRecordsByType(table, type) {
     const response = await getType(table, type);
-    // this.setState({
-    //   [table]: [...response]
-    // })
+
     return response;
   }
 
@@ -81,7 +123,7 @@ class AdminContextProvider extends Component {
   }
 
   getValueByID(record, field) {
-    const fieldsWithRefs = ['driver'];
+    const fieldsWithRefs = ['employees'];
     let driverProfile = '';
     if(fieldsWithRefs.includes(field) && record[field]) {
       if(!this.results[record[field]]) {
@@ -150,12 +192,9 @@ class AdminContextProvider extends Component {
     });
   }
 
-  setTableData(table, data) {
+  setTableData(tableData) {
     this.setState({
-      tableData: {
-        ...this.state.tableData,
-        [table]: data,
-      }
+      tableData
     });
   }
   setTable(table) {
@@ -183,7 +222,10 @@ class AdminContextProvider extends Component {
     })
   }
 
+
+
   render() {
+
     return (
       <AdminContext.Provider
         value={{...this.state,

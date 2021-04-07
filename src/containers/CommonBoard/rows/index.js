@@ -9,68 +9,21 @@ import { getInvoiceRowData } from './invoices';
 import { getEquipmentRowData } from './equipment';
 import { navigation } from '../../../components/Navigator/menuItems';
 
-const tables = () => {
-  return navigation.map(item => {
-    return {
-      route: item.route,
-      name: item.type || item.table
-    }
-  })
-}
 
-const filterTables = (table) => tables().filter(item => {
-  return item.name === table;
-})
-
-const getTableData = (context, table) => {
-  const {tableData, setTableData, filteredRecords, searchTerm, getAllRecords } = context;
-  const rows = searchTerm ? filteredRecords : tableData[table] || [];
-  const requiredData = {
-    loads: ['brokers', 'dispatch', 'driver', 'tractor'],
-    invoices: ['brokers']
-  }
-  const refreshData = (route, name) => {
-    getAllRecords(route).then(data => {
-      setTableData(name, data);
-      return data
-    });
-  }
-
-  if(!tableData[table]){
-    setTableData(table, []);
-    tables().map(item => {
-      if(item.name === table){
-        refreshData(item.route, item.name);
-      }
-      return item
-    })
-    // ensures we get additional data for loads
-    if(requiredData[table] && requiredData[table].length) {
-      requiredData[table].map(item => {
-        const data = filterTables(item);
-        refreshData(data[0].route, data[0].name);
-        return item
-      })
-    }
-  }
-  return rows
-}
-
-
-export const getUpdatedRows = (context, table, actions) => {
-  const rows = getTableData(context, table);
+export const getUpdatedRows = (context, table, tables, actions) => {
+  const rows = tables[table];
   const editButton = (id, actions) => (<Button color="primary" size="small" variant="contained" onClick={() => actions.handleClick(id)}>Details</Button>);
   const common = getRowData(rows, actions, editButton);
   const types = {
-    brokers: () => getBrokerRowData(rows, actions, editButton),
-    loads: () => getLoadRowData(context, rows, actions, editButton),
-    driver: () => getDriverRowData(rows, actions, editButton),
-    dispatch: () => getDispatchRowData(rows, actions, editButton),
-    invoices: () => getInvoiceRowData(context, rows, actions),
-    tractor: () => getEquipmentRowData(rows, actions, editButton),
-    trailer: () => getEquipmentRowData(rows, actions, editButton),
-    equipment: () => getEquipmentRowData(rows, actions, editButton),
-    employees: () => getDriverRowData(rows, actions, editButton)
+    brokers: () => getBrokerRowData(rows, actions, editButton, tables),
+    loads: () => getLoadRowData(context, rows, actions, editButton, tables),
+    driver: () => getDriverRowData(rows, actions, editButton, tables),
+    dispatch: () => getDispatchRowData(rows, actions, editButton, tables),
+    invoices: () => getInvoiceRowData(context, rows, actions, tables),
+    tractor: () => getEquipmentRowData(rows, actions, editButton, tables),
+    trailer: () => getEquipmentRowData(rows, actions, editButton, tables),
+    equipment: () => getEquipmentRowData(rows, actions, editButton, tables),
+    employees: () => getDriverRowData(rows, actions, editButton, tables)
   }
 
   return types[table] ? types[table]() : common;

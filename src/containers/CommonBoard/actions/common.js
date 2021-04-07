@@ -1,6 +1,6 @@
-export const getCommonActions = (context, table, db, history, filterFields) => {
+export const getCommonActions = (context, table, history, filterFields) => {
   const { deleteRecord, filterRecords, setTableData, getAllRecords, resetSearch } = context;
-  const store = db || table;
+  const store = table;
   const refreshData = (store) => {
     getAllRecords(store).then(data => {
       setTableData(store, data);

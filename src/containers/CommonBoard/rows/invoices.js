@@ -4,8 +4,7 @@ import Link from '@material-ui/core/Link';
 const viewLoadButton = (loadId, actions) => (<Link color="primary" href="#" onClick={(e) => actions.handleLoadClick(e, loadId)}>Load Details</Link>);
 const viewBrokerButton = (brokerid, name, actions) => (<Link color="primary" href="#" onClick={(e) => actions.handleBrokerClick(e, brokerid)}>{name}</Link>);
 
-export const getInvoiceRowData = (context, rows, actions) => {
-  const { tableData } = context;
+export const getInvoiceRowData = (context, rows, actions, tables) => {
   const formatProductServices = (records) => {
     const services = records.map(record => {
       return record.ProductService
@@ -36,8 +35,8 @@ export const getInvoiceRowData = (context, rows, actions) => {
     newRow.view = row['*InvoiceNo'] ? viewLoadButton(row['*InvoiceNo'].split('-')[0], actions) : false; // get load id
     newRow.billed = row.billed === "0" ? "No" : "Yes";
 
-    if(tableData.brokers && tableData.brokers.length) {
-      tableData.brokers.map(broker => {
+    if(tables.brokers && tables.brokers.length) {
+      tables.brokers.map(broker => {
         if (broker.id === row.brokerid) {
           newRow.broker = viewBrokerButton(broker.id, broker.name, actions);
         }

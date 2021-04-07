@@ -1,9 +1,10 @@
 import { generateInvoiceItems } from '../../../utils/generateInvoice'
+import { filterRecords } from '../../../utils/filterTables'
 
-export const getLoadsActions = (context, table, db, history, filterFields) => {
+export const getLoadsActions = (context, table, history, filterFields) => {
   const { deleteRecord, filterRecords, setTableData, tableData, saveRecord, getRecord, getAllRecords, setDriver, driver } = context;
   const { loads, brokers } = tableData;
-  const store = db || table;
+  const store = table;
   const refreshData = (store) => {
     getAllRecords(store).then(data => {
       setTableData(store, data);

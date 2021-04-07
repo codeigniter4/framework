@@ -5,16 +5,15 @@ import ControlPanel from '../../../components/CardView/LoadCard/ControlPanel/';
 const editBrokerButton = (loadId, brokerId, actions, name) => (<Link href="#" onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>{name}</Link>);
 const addBrokerButton = (loadId, brokerId, actions, name) => (<Link href="#" style={{color:"#ff0303"}} onClick={(e) => actions.handleBrokerClick(e, loadId, brokerId)}>Add Broker!</Link>)
 
-export const getLoadRowData = (context, rows, actions, editButton) => {
-  const { tableData } = context;
+export const getLoadRowData = (context, rows, actions, editButton, tables) => {
 
   return rows.map(row => {
     const newRow = {...row};
     newRow.controlPanel = (<ControlPanel row={row} actions={actions}/>);
     newRow.editBroker = addBrokerButton(row.id, 'addNew', actions, 'Add');
 
-    if(tableData.brokers && tableData.brokers.length) {
-      tableData.brokers.map(broker => {
+    if(tables.brokers && tables.brokers.length) {
+      tables.brokers.map(broker => {
         if (broker.id === row.broker) {
           newRow.broker = broker.name;
           newRow.hasQuickPay = broker.quickPay !== "0" && broker.quickPay > 0;
@@ -25,30 +24,21 @@ export const getLoadRowData = (context, rows, actions, editButton) => {
       })
     }
 
-    if(tableData.dispatch && tableData.dispatch.length) {
-      tableData.dispatch.map(user => {
+    if(tables.employees && tables.employees.length) {
+      tables.employees.map(user => {
         if (user.id === row.user) {
           newRow.user = `${user.firstname} ${user.lastname}`
-        }
-        return user
-      })
-    }
-
-    if(tableData.driver && tableData.driver.length) {
-      tableData.driver.map(user => {
-        if (user.id === row.driver) {
           newRow.driverName = `${user.firstname} ${user.lastname}`
           newRow.driverRate = user.compensation
           newRow.detentionPay = parseInt(user.detentionRate) * parseInt(row.detentionPay);
           newRow.layoverPay = parseInt(user.layoverRate) * parseInt(row.layoverPay);
-          // newRow.breakdownRate = user.breakdownRate
         }
         return user
       })
     }
 
-    if(tableData.tractor && tableData.tractor.length) {
-      tableData.tractor.map(tractor => {
+    if(tables.equipment && tables.equipment.length) {
+      tables.equipment.map(tractor => {
         if (tractor.id === row.tractor) {
           newRow.unit_num = tractor.unit_num
         }

@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DriverSelect(props) {
   const classes = useStyles();
-  const { actions } = props;
+  const { actions, employees } = props;
   const { filterByDriver, getDriver, getDrivers } = actions;
   const driver = getDriver();
-  const drivers = getDrivers();
+  const drivers = employees && employees.length && employees.filter(person => person.position === 'driver');
   const handleChange = (event) => {
     filterByDriver(event.target.value);
   };
@@ -30,6 +30,7 @@ export default function DriverSelect(props) {
 
   return (
     <div>
+      {drivers ?
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Driver</InputLabel>
         <Select
@@ -50,6 +51,7 @@ export default function DriverSelect(props) {
 
         </Select>
       </FormControl>
+      : ''}
     </div>
   );
 }

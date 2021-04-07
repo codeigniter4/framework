@@ -1,7 +1,28 @@
+import React, { useState, useEffect } from 'react';
 import { getEnv } from '../config';
 import { INVOICE_DATES } from '../constants/';
 
 const env = getEnv('prod'); // local or prod
+
+export const useFetch = table => {
+  const [data, setData] = useState({
+    [table]: []
+  });
+  const [loading, setLoading] = useState(true);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    const makeRequest = async () => {
+      const response = await get(table);
+      setData({
+        [table]: response
+      });
+      setLoading(false);
+    }
+    makeRequest();
+  }, [table]);
+  return { ...data, loading };
+};
 
 export const get = async (type) => {
   const response = await fetch(`${env}/${type}`)
