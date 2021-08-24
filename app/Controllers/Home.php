@@ -11,13 +11,13 @@ class Home extends BaseController
 		$penyuluhModel = new PenyuluhModel();
 		$penyuluh = $penyuluhModel->findAll();
 
-		dd($penyuluh);
+		//dd($penyuluh);
 
 		$data = [
 			'title' => 'Home',
-			'users' => $users
+			'dt' => $penyuluh
 		];
 
-		return view('test_view', $data);
+		return view('welcome_message', $data);
 	}
 }
