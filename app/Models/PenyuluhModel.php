@@ -7,7 +7,8 @@ use CodeIgniter\Model;
 class PenyuluhModel extends Model
 {
 
-    protected $table      = 'penyuluh';
+    // protected $table      = 'penyuluh';
+    protected $table      = 'tbljabatan';
     //protected $primaryKey = 'id';
 
 
