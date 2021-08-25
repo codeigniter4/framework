@@ -52,7 +52,7 @@ class Page extends BaseController
     {
 
         $data = [
-            'title' => 'Profil',
+            'title' => 'Profil Lembaga',
             'name' => 'Adi'
         ];
 
