@@ -64,7 +64,7 @@ class Page extends BaseController
 
         $data = [
             'title' => 'Profil penyuluh',
-            'name' => 'Raka'
+            'name' => 'Adi'
         ];
 
         return view('profilpenyuluh', $data);
