@@ -11,7 +11,7 @@
                 <tr>
                     <td width="5" class="text-uppercase text-secondary text-xxs font-weight-bolder">No</td>
                     <td width="180" class="text-uppercase text-secondary text-xxs font-weight-bolder">Nama Lembaga</td>
-                    <td width="300" class="text-uppercase text-secondary text-xxs font-weight-bolder">Wilayah<br>(Kecamatan)</td>
+                    <td width="300" class="text-uppercase text-secondary text-xxs font-weight-bolder">Alamat</td>
                     <td width="150" class="text-uppercase text-secondary text-xxs font-weight-bolder">Nama<br>Pimpinan</td>
                     <td width="150" class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Jumlah<br>Penyuluh<br>PNS</td>
                     <td width="150" class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Jumlah<br>Penyuluh<br>THL</td>
@@ -65,13 +65,6 @@
                             </button>
                         </a>
                     </td>
-                    <td class="align-middle text-center text-sm">
-                        <a href="#">
-                            <button type="button" class="btn bg-gradient-danger">
-                                <i class="fas fa-trash"></i> Hapus
-                            </button>
-                        </a>
-                    </td>
                 </tr>
 
                 <tr>
@@ -115,13 +108,6 @@
                             </button>
                         </a>
                     </td>
-                    <td class="align-middle text-center text-sm">
-                        <a href="#">
-                            <button type="button" class="btn bg-gradient-danger">
-                                <i class="fas fa-trash"></i> Hapus
-                            </button>
-                        </a>
-                    </td>
                 </tr>
 
                 <tr>
@@ -162,13 +148,6 @@
                         <a href="#">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="btn bg-gradient-warning">
                                 <i class="fas fa-edit"></i> Ubah
-                            </button>
-                        </a>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                        <a href="#">
-                            <button type="button" class="btn bg-gradient-danger">
-                                <i class="fas fa-trash"></i> Hapus
                             </button>
                         </a>
                     </td>
