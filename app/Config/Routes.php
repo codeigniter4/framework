@@ -39,6 +39,7 @@ $routes->get('/profil', 'Page::profil');
 $routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/penyuluh', 'Page::penyuluh');
 $routes->get('/login', 'Login::index');
+$routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
 
 /*
  * --------------------------------------------------------------------
