@@ -40,6 +40,15 @@ $routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/penyuluh', 'Page::penyuluh');
 $routes->get('/login', 'Login::index');
 
+
+$routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan::gapoktan');
+$routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan::listgapoktan');
+
+$routes->get('/kelembagaanekonomipetani', 'KelembagaanPelakuUtama/KelembagaanEkonomiPetani::kelembagaanekonomipetani');
+
+$routes->get('/kelompoktani', 'KelembagaanPelakuUtama/KelompokTani::kelompoktani');
+
+$routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
