@@ -5,38 +5,6 @@ namespace App\Controllers;
 
 class Page extends BaseController
 {
-    public function about()
-    {
-        $data = [
-            'title' => 'about'
-        ];
-
-        return view('about', $data);
-    }
-
-    public function contact()
-    {
-
-        $data = [
-            'title' => 'kontak',
-            'name' => 'Adi'
-        ];
-
-        return view('contact', $data);
-    }
-
-
-    public function faqs()
-    {
-
-        $data = [
-            'title' => 'FAQ',
-            'name' => 'Adi'
-        ];
-
-        return view('faq', $data);
-    }
-
     public function dashboard()
     {
 

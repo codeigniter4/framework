@@ -53,8 +53,9 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Profil</button>
                     <button class="nav-link" id="nav-unker-tab" data-bs-toggle="tab" data-bs-target="#nav-unker" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Unit Kerja</button>
-                    <button class="nav-link" id="nav-riwayat-tab" data-bs-toggle="tab" data-bs-target="#nav-riwayat" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Riwayat Jabatan</button>
-                    <button class="nav-link" id="nav-pendidikan-tab" data-bs-toggle="tab" data-bs-target="#nav-riwayat" type="button" role="tab" aria-controls="nav-pendidikan" aria-selected="false">Pendidikan</button>
+                    <button class="nav-link" id="nav-riwayat-tab" data-bs-toggle="tab" data-bs-target="#nav-jabatan" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Riwayat Jabatan</button>
+                    <button class="nav-link" id="nav-pendidikan-tab" data-bs-toggle="tab" data-bs-target="#nav-pendidikan" type="button" role="tab" aria-controls="nav-pendidikan" aria-selected="false">Pendidikan</button>
+                    <button class="nav-link" id="nav-pelatihan-tab" data-bs-toggle="tab" data-bs-target="#nav-pelatihan" type="button" role="tab" aria-controls="nav-pelatihan" aria-selected="false">Pelatihan</button>
                 </div>
             </nav>
             <div class="tab-content " id="nav-tabContent">
@@ -68,6 +69,8 @@
                                         <div class="col-lg-12">
                                             <ul class="list-group list-group-flush">
                                                 <li class="list-group-item"><b>Nama Lengkap :</b> Nandhar Mundhy Nugroho</li>
+                                                <li class="list-group-item"><b>NIP :</b> 198908252017061001</li>
+                                                <li class="list-group-item"><b>NIK :</b> 3423435246545646</li>
                                                 <li class="list-group-item"><b>Tempat/Tanggal Lahir :</b> Brebes, 25-08-1989 </li>
                                                 <li class="list-group-item"><b>Agama :</b> Islam</li>
                                                 <li class="list-group-item"><b>Bidang Keahlian :</b> Tanaman Pangan</li>
@@ -88,9 +91,34 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-unker" role="tabpanel" aria-labelledby="nav-unker-tab">Unit Kerja</div>
+                <div class="tab-pane fade" id="nav-unker" role="tabpanel" aria-labelledby="nav-unker-tab">
+                    <div class="row">
+                        <div class="col-lg-12 mb-lg-0 mb-4">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+
+                                        <div class="col-lg-12">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><b>Unit Kerja :</b> UPTD BP4 Wilayah IV</li>
+                                                <li class="list-group-item"><b>Wilayah Kerja :</b> Tri Mulyo</li>
+                                                <li class="list-group-item"><b>Poktan Binaan :</b></li>
+
+                                            </ul>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="tab-pane fade" id="nav-riwayat" role="tabpanel" aria-labelledby="nav-riwayat-tab">Riwayat Jabatan</div>
                 <div class="tab-pane fade" id="nav-pendidikan" role="tabpanel" aria-labelledby="nav-pendidikan-tab">Pendidikan</div>
+                <div class="tab-pane fade" id="nav-pelatihan" role="tabpanel" aria-labelledby="nav-pelatihan-tab">Pelatihan</div>
             </div>
 
         </div>
