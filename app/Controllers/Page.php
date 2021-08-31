@@ -69,15 +69,4 @@ class Page extends BaseController
 
         return view('profilpenyuluh', $data);
     }
-
-    public function penyuluhan()
-    {
-
-        $data = [
-            'title' => 'Profil penyuluh',
-            'name' => 'Adil'
-        ];
-
-        return view('profilpenyuluh', $data);
-    }
 }

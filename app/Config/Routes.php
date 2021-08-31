@@ -39,6 +39,14 @@ $routes->get('/profil', 'Page::profil');
 $routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/penyuluh', 'Page::penyuluh');
 $routes->get('/login', 'Login::index');
+$routes->get('/penyuluhpns', 'Penyuluh/PenyuluhPns::penyuluhpns');
+$routes->get('/penyuluhcpns', 'Penyuluh/PenyuluhCpns::penyuluhcpns');
+$routes->get('/penyuluhthlapbn', 'Penyuluh/PenyuluhTHLAPBN::penyuluhthlAPBN');
+$routes->get('/penyuluhthlapbd', 'Penyuluh/PenyuluhTHLAPBD::penyuluhthlAPBD');
+$routes->get('/penyuluhswadaya', 'Penyuluh/PenyuluhSwadaya::penyuluhswadaya');
+$routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
+$routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
+
 
 /*
  * --------------------------------------------------------------------
