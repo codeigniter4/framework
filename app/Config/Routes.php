@@ -39,6 +39,10 @@ $routes->get('/profil', 'Page::profil');
 $routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/penyuluh', 'Page::penyuluh');
 $routes->get('/login', 'Login::index');
+$routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
+$routes->get('/desa', 'Kelembagaan/Desa::index');
+$routes->get('/daftar_posluhdes', 'Kelembagaan/DaftarPosluhdes::index');
+$routes->get('/kabupaten_kota', 'Kelembagaan/KabupatenKota::index');
 
 /*
  * --------------------------------------------------------------------
