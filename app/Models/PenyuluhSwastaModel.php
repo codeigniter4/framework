@@ -30,7 +30,7 @@ class PenyuluhSwastaModel extends Model
     public function getPenyuluhSwadayaTotal($kode_kab)
     {
         $db = Database::connect();
-        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar_swasta a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab'");
+        $query = $db->query("select count(a.id_swa) as jum, nama_dati2 as nama_kab from tbldasar_swasta a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab'");
         $row   = $query->getRow();
 
         $query   = $db->query("select a.noktp, a.nama, a.tgl_update, a.tempat_lahir, a.tgl_lahir, a.bln_lahir, a.thn_lahir from tbldasar_swasta a
