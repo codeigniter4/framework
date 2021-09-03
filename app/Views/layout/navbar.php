@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
-                                                <a href="<?= base_url('lembaga/kab'); ?>" class="nav-link text-body p-0"><span class="font-weight-bold"><?php echo session()->get('nama'); ?></span> </a>
+                                                <a href="<?= base_url('lembaga'); ?>" class="nav-link text-body p-0"><span class="font-weight-bold"><?php echo session()->get('nama'); ?></span> </a>
                                             </h6>
                                         </div>
                                     </div>
