@@ -4,7 +4,7 @@ namespace App\Controllers\Penyuluh;
 
 use App\Controllers\BaseController;
 use App\Models\PenyuluhModel;
-use App\Models\PenyuluhSwadayaModel;
+use App\Models\penyuluh\PenyuluhSwadayaModel;
 
 class PenyuluhSwadaya extends BaseController
 {

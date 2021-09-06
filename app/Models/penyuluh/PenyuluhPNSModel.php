@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\penyuluh;
 
 use CodeIgniter\Model;
 use \Config\Database;
 
-class PenyuluhPPPKModel extends Model
+class PenyuluhPNSModel extends Model
 {
     protected $table      = 'simluhtan';
     //protected $primaryKey = 'id';
@@ -27,13 +27,13 @@ class PenyuluhPPPKModel extends Model
     // protected $skipValidation     = false;
 
 
-    public function getPenyuluhSwadayaTotal($kode_kab)
+    public function getPenyuluhPNSTotal($kode_kab)
     {
         $db = Database::connect();
-        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar_p3k a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab'");
+        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab' and status !='1' and status !='2' and status !='3' and status !='7'");
         $row   = $query->getRow();
 
-        $query   = $db->query("select a.noktp, a.nip, a.nama, a.gelar_dpn, a.gelar_blk, a.tgl_update, d.nm_desa, 
+        $query   = $db->query("select a.noktp, a.nip, a.nama, a.gelar_dpn, a.gelar_blk, a.tgl_update, d.nm_desa, z.gol_ruang, 
                                 case a.kode_kab 
                                 when '3' then 
                                     case a.unit_kerja 
@@ -50,7 +50,7 @@ class PenyuluhPPPKModel extends Model
                                 when '6' then 'Tugas Belajar'
                                 else '' end status_kel,
                                 j.deskripsi as kecamatan_tugas
-                                from tbldasar_p3k a
+                                from tbldasar a
                                 left join tblsatminkal b on a.satminkal=b.kode
                                 left join tblstatus_penyuluh c on a.status='0' and a.status_kel=c.kode
                                 left join tbldesa d on a.wil_kerja=d.id_desa
@@ -75,7 +75,8 @@ class PenyuluhPPPKModel extends Model
                                 left join tbldaerah r on a.kecamatan_tugas8=r.id_daerah
                                 left join tbldaerah s on a.kecamatan_tugas9=s.id_daerah
                                 left join tbldaerah t on a.kecamatan_tugas10=t.id_daerah
-                                where a.satminkal='$kode_kab' order by nama");
+                                left join tblpp z on a.gol=z.kode
+                                where a.satminkal='$kode_kab' and status !='1' and status !='2' and status !='3' and status !='7' order by nama");
         $results = $query->getResultArray();
 
         $data =  [

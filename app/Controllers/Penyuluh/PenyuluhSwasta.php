@@ -3,7 +3,7 @@
 namespace App\Controllers\Penyuluh;
 
 use App\Controllers\BaseController;
-use App\Models\PenyuluhSwastaModel;
+use App\Models\penyuluh\PenyuluhSwastaModel;
 
 class PenyuluhSwasta extends BaseController
 {
@@ -16,12 +16,12 @@ class PenyuluhSwasta extends BaseController
 
         $kode_kab = $get_param['kode_kab'];
         $penyuluh_model = new PenyuluhSwastaModel();
-        $swadaya_data = $penyuluh_model->getPenyuluhSwadayaTotal($kode_kab);
+        $swasta_data = $penyuluh_model->getPenyuluhSwastaTotal($kode_kab);
 
         $data = [
-            'jml_data' => $swadaya_data['jum'],
-            'nama_kabupaten' => $swadaya_data['nama_kab'],
-            'tabel_data' => $swadaya_data['table_data'],
+            'jml_data' => $swasta_data['jum'],
+            'nama_kabupaten' => $swasta_data['nama_kab'],
+            'tabel_data' => $swasta_data['table_data'],
             'title' => 'Penyuluh Swasta',
             'name' => 'Swasta'
         ];
