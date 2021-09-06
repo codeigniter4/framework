@@ -76,6 +76,19 @@ $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) 
 });
 
 
+
+$routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan/Gapoktan::gapoktan');
+$routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktan::listgapoktan');
+$routes->get('/listgapoktandesa', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktanDesa::listgapoktandesa');
+
+$routes->get('/kelembagaanekonomipetani', 'KelembagaanPelakuUtama/KelembagaanEkonomiPetani::kelembagaanekonomipetani');
+
+$routes->get('/kelompoktani', 'KelembagaanPelakuUtama/KelompokTani/KelompokTani::kelompoktani');
+$routes->get('/listpoktan', 'KelembagaanPelakuUtama/KelompokTani/ListPokTan::listpoktan');
+
+$routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
+
+$routes->get('/desa', 'KelembagaanPenyuluhan/Desa/Desa::desa');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
