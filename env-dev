@@ -37,10 +37,10 @@ CI_ENVIRONMENT = development
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = 
-database.default.database = 
-database.default.username = 
-database.default.password =
+database.default.hostname = 10.12.21.91
+database.default.database = simluhtan
+database.default.username = dev1
+database.default.password = 1qazxsw2%$!(sjk_dev1
 database.default.DBDriver = MySQLi
 # database.default.DBPrefix =   
 
