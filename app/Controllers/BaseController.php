@@ -36,7 +36,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['form', 'wpu'];
+	protected $helpers = ['form', 'autentikasi'];
 
 	/**
 	 * Constructor.

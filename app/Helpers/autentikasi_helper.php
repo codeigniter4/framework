@@ -6,7 +6,7 @@ function is_logged_in()
     if (empty($session->get('kodebapel'))) {
         return redirect()->to('login');
     }
-    //return $session->get('kodebapel');
+    return $session->get('kodebapel');
 }
 
 function format_rupiah($angka)
