@@ -3,7 +3,7 @@
 namespace App\Controllers\Penyuluh;
 
 use App\Controllers\BaseController;
-use App\Models\PenyuluhPNSModel;
+use App\Models\penyuluh\PenyuluhPNSModel;
 
 class PenyuluhPns extends BaseController
 {
@@ -16,12 +16,12 @@ class PenyuluhPns extends BaseController
 
         $kode_kab = $get_param['kode_kab'];
         $penyuluh_model = new PenyuluhPNSModel();
-        $swadaya_data = $penyuluh_model->getPenyuluhSwadayaTotal($kode_kab);
+        $pns_data = $penyuluh_model->getPenyuluhPNSTotal($kode_kab);
 
         $data = [
-            'jml_data' => $swadaya_data['jum'],
-            'nama_kabupaten' => $swadaya_data['nama_kab'],
-            'tabel_data' => $swadaya_data['table_data'],
+            'jml_data' => $pns_data['jum'],
+            'nama_kabupaten' => $pns_data['nama_kab'],
+            'tabel_data' => $pns_data['table_data'],
             'title' => 'Penyuluh PNS',
             'name' => 'PNS'
         ];

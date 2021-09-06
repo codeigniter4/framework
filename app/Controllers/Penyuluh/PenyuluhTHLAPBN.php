@@ -3,7 +3,7 @@
 namespace App\Controllers\Penyuluh;
 
 use App\Controllers\BaseController;
-use App\Models\PenyuluhTHLAPBNModel;
+use App\Models\penyuluh\PenyuluhTHLAPBNModel;
 
 class PenyuluhTHLAPBN extends BaseController
 {
@@ -16,12 +16,12 @@ class PenyuluhTHLAPBN extends BaseController
 
         $kode_kab = $get_param['kode_kab'];
         $penyuluh_model = new PenyuluhTHLAPBNModel();
-        $swadaya_data = $penyuluh_model->getPenyuluhSwadayaTotal($kode_kab);
+        $thlapbn_data = $penyuluh_model->getPenyuluhTHLAPBNTotal($kode_kab);
 
         $data = [
-            'jml_data' => $swadaya_data['jum'],
-            'nama_kabupaten' => $swadaya_data['nama_kab'],
-            'tabel_data' => $swadaya_data['table_data'],
+            'jml_data' => $thlapbn_data['jum'],
+            'nama_kabupaten' => $thlapbn_data['nama_kab'],
+            'tabel_data' => $thlapbn_data['table_data'],
             'title' => 'Penyuluh THL APBN',
             'name' => 'THL APBN'
         ];
