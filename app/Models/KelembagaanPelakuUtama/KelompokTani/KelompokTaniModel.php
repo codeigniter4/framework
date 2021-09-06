@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\KelembagaanPelakuUtama;
+namespace App\Models\KelembagaanPelakuUtama\KelompokTani;
 
 use CodeIgniter\Model;
 use \Config\Database;

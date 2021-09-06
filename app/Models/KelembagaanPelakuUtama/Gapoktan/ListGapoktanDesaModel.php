@@ -5,7 +5,7 @@ namespace App\Models\KelembagaanPelakuUtama\Gapoktan;
 use CodeIgniter\Model;
 use \Config\Database;
 
-class ListGapoktanModel extends Model
+class ListGapoktanDesaModel extends Model
 {
     protected $table      = 'penyuluh';
     //protected $primaryKey = 'id';
@@ -27,34 +27,27 @@ class ListGapoktanModel extends Model
     // protected $skipValidation     = false;
 
 
-    public function getListGapoktanTotal($kode_kec)
+    public function getListGapoktanDesaTotal($kode_desa)
     {
         $db = Database::connect();
-        $query = $db->query("select deskripsi as nama_kec from tbldaerah where id_daerah='$kode_kec'");
+        $query = $db->query("select nm_desa as nama_desa from tbldesa where id_desa='$kode_desa'");
         $row   = $query->getRow();
         
-        $query2 = $db->query("SELECT count(id_gap) as jum FROM tb_gapoktan where kode_kec ='$kode_kec'");
-        $row2   = $query2->getRow();
-        
-        $query4   = $db->query("select id_gap,kode_desa,kode_kec,nama_gapoktan,ketua_gapoktan,simluh_bendahara,alamat, b.nm_desa 
-                                from tb_gapoktan a
+        $query2   = $db->query("select id_poktan,id_gap,kode_desa,kode_kec,nama_poktan,ketua_poktan,jum_anggota,alamat, b.nm_desa
+                                from tb_poktan a
                                 left join tbldesa b on a.kode_desa=b.id_desa 
-                                
-                                where kode_kec='$kode_kec'
+                                where kode_desa='$kode_desa'
                                 ORDER BY kode_desa");
 
-        $results = $query4->getResultArray();
-
-      $query3 = $db->query("SELECT count(id_poktan) as jumpok FROM tb_poktan where id_gap ='id_gap'  and id_gap !=''");
-       $row3   = $query3->getRow();
+        $results = $query2->getResultArray();
 
         
 
         $data =  [
-            'jum' => $row2->jum,
-            'nama_kec' => $row->nama_kec,
+           
+            'nama_desa' => $row->nama_desa,
             'table_data' => $results,
-            'jumpok' => $row3->jumpok,
+            
             
         ];
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\KelembagaanPelakuUtama;
+namespace App\Controllers\KelembagaanPelakuUtama\kelompoktani;
 use App\Controllers\BaseController;
-use App\Models\KelembagaanPelakuUtama\KelompokTaniModel;
+use App\Models\KelembagaanPelakuUtama\KelompokTani\KelompokTaniModel;
 
 class KelompokTani extends BaseController
 {
