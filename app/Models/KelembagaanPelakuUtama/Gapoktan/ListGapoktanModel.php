@@ -7,7 +7,7 @@ use \Config\Database;
 
 class ListGapoktanModel extends Model
 {
-    protected $table      = 'penyuluh';
+    //protected $table      = 'penyuluh';
     //protected $primaryKey = 'id';
 
 
