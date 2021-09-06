@@ -16,11 +16,7 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
 
-                    <li class="nav-item px-3 d-flex align-items-center">
-                        <a href="<?= base_url('logout'); ?>" class="nav-link text-body p-0">
-                            Keluar <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                        </a>
-                    </li>
+
                     <li class="nav-item dropdown pe-2 d-flex align-items-center">
                         <a href="" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Profil <i class="fa fa-user me-sm-1"></i>
@@ -30,19 +26,22 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="<?= base_url('assets/img/logo.png'); ?>" class="avatar avatar-sm  me-3 ">
+                                            <img src="<?= base_url('assets/img/logo.png'); ?>" class="avatar avatar-sm">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="text-sm font-weight-normal mb-1">
+                                            <h6 class="text-sm mb-1">
                                                 <a href="<?= base_url('lembaga'); ?>" class="nav-link text-body p-0"><span class="font-weight-bold"><?php echo session()->get('nama'); ?></span> </a>
                                             </h6>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-
-
                         </ul>
+                    </li>
+                    <li class="nav-item px-3 d-flex align-items-center">
+                        <a href="<?= base_url('logout'); ?>" class="nav-link text-body p-0">
+                            Keluar <i class="fas fa-sign-out-alt"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
