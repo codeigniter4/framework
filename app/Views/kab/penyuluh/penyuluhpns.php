@@ -5,7 +5,9 @@
     <div class="row">
         <!-- Map -->
         <div class="col-xs-12 col-md-12 col-lg-12 mb-4">
-            <button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
+            <button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button><br>
+            <b>Daftar Penyuluh PNS Kab <?= ucwords(strtolower($nama_kabupaten)) ?></b>
+            <p>Ditemukan <?= $jml_data ?> data</p>
             <div class="card">
                 <div class="table-responsive">
                     <table class="table align-items-center mb-0">

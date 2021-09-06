@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use \Config\Database;
 
-class PenyuluhModel extends Model
+class PenyuluhSwadayaModel extends Model
 {
     protected $table      = 'simluhtan';
     //protected $primaryKey = 'id';

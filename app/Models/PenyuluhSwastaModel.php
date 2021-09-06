@@ -7,7 +7,7 @@ use \Config\Database;
 
 class PenyuluhSwastaModel extends Model
 {
-    protected $table      = 'penyuluh';
+    protected $table      = 'simluhtan';
     //protected $primaryKey = 'id';
 
 
@@ -35,7 +35,6 @@ class PenyuluhSwastaModel extends Model
 
         $query   = $db->query("select a.noktp, a.nama, a.tgl_update, a.tempat_lahir, a.tgl_lahir, a.bln_lahir, a.thn_lahir from tbldasar_swasta a
                                 left join tblsatminkal b on a.satminkal=b.kode
-                                left join tblstatus_penyuluh c on a.status_kel=c.kode
                                 where a.satminkal='$kode_kab' order by nama");
         $results = $query->getResultArray();
 

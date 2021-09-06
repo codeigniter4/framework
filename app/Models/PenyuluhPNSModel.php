@@ -7,7 +7,7 @@ use \Config\Database;
 
 class PenyuluhPNSModel extends Model
 {
-    protected $table      = 'penyuluh';
+    protected $table      = 'simluhtan';
     //protected $primaryKey = 'id';
 
 
@@ -30,7 +30,7 @@ class PenyuluhPNSModel extends Model
     public function getPenyuluhSwadayaTotal($kode_kab)
     {
         $db = Database::connect();
-        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab'");
+        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab' and status !='1' and status !='2' and status !='3' and status !='7'");
         $row   = $query->getRow();
 
         $query   = $db->query("select a.noktp, a.nip, a.nama, a.gelar_dpn, a.gelar_blk, a.tgl_update, d.nm_desa, z.gol_ruang, 
@@ -76,7 +76,7 @@ class PenyuluhPNSModel extends Model
                                 left join tbldaerah s on a.kecamatan_tugas9=s.id_daerah
                                 left join tbldaerah t on a.kecamatan_tugas10=t.id_daerah
                                 left join tblpp z on a.gol=z.kode
-                                where a.satminkal='$kode_kab' order by nama");
+                                where a.satminkal='$kode_kab' and status !='1' and status !='2' and status !='3' and status !='7' order by nama");
         $results = $query->getResultArray();
 
         $data =  [

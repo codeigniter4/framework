@@ -4,6 +4,7 @@ namespace App\Controllers\Penyuluh;
 
 use App\Controllers\BaseController;
 use App\Models\PenyuluhModel;
+use App\Models\PenyuluhSwadayaModel;
 
 class PenyuluhSwadaya extends BaseController
 {
@@ -14,7 +15,7 @@ class PenyuluhSwadaya extends BaseController
         $get_param = $this->request->getGet();
 
         $kode_kab = $get_param['kode_kab'];
-        $penyuluh_model = new PenyuluhModel();
+        $penyuluh_model = new PenyuluhSwadayaModel();
         $swadaya_data = $penyuluh_model->getPenyuluhSwadayaTotal($kode_kab);
 
         $data = [
