@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\penyuluh;
 
 use CodeIgniter\Model;
 use \Config\Database;
 
-class PenyuluhTHLAPBDModel extends Model
+class PenyuluhTHLAPBNModel extends Model
 {
     protected $table      = 'simluhtan';
     //protected $primaryKey = 'id';
@@ -27,10 +27,10 @@ class PenyuluhTHLAPBDModel extends Model
     // protected $skipValidation     = false;
 
 
-    public function getPenyuluhSwadayaTotal($kode_kab)
+    public function getPenyuluhTHLAPBNTotal($kode_kab)
     {
         $db = Database::connect();
-        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar_thl a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab' and sumber_dana='apbd'");
+        $query = $db->query("select count(a.id) as jum, nama_dati2 as nama_kab from tbldasar_thl a left join tbldati2 b on b.id_dati2=a.satminkal where satminkal='$kode_kab' and sumber_dana='apbn'");
         $row   = $query->getRow();
 
         $query   = $db->query("select a.no_peserta, a.nama, a.tgl_update, d.nm_desa as wil_kerja, e.nm_desa as wil_kerja2,
@@ -64,7 +64,7 @@ class PenyuluhTHLAPBDModel extends Model
                                 left join tblbapel i on a.penyuluh_di='kabupaten' and a.satminkal=i.kabupaten and a.unit_kerja=i.nama_bapel
                                 left join tblbpp k on a.penyuluh_di='kecamatan' and a.unit_kerja=k.id
                                 left join tbldaerah j on a.kecamatan_tugas=j.id_daerah
-                                where a.satminkal='$kode_kab' and sumber_dana='apbd' order by nama");
+                                where a.satminkal='$kode_kab' and sumber_dana='apbn' order by nama");
         $results = $query->getResultArray();
 
         $data =  [
