@@ -46,10 +46,6 @@ $routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
 $routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
 
 $routes->get('/penyuluh', 'profil/Penyuluh::index');
-$routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
-$routes->get('/desa', 'Kelembagaan/Desa::index');
-$routes->get('/daftar_posluhdes', 'Kelembagaan/DaftarPosluhdes::index');
-$routes->get('/kabupaten_kota', 'Kelembagaan/KabupatenKota::index');
 
 
 /*
@@ -90,6 +86,8 @@ $routes->get('/listpoktan', 'KelembagaanPelakuUtama/KelompokTani/ListPokTan::lis
 $routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
 
 $routes->get('/desa', 'KelembagaanPenyuluhan/Desa/Desa::desa');
+$routes->get('/kabupaten_kota', 'KelembagaanPenyuluhan/Kabupaten/Kabupaten::kab');
+$routes->get('/kecamatan', 'KelembagaanPenyuluhan/Kecamatan/Kecamatan::kecamatan');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
