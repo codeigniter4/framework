@@ -35,7 +35,15 @@ $routes->get('/', 'auth/Login::index');
 $routes->get('/login', 'auth/Login::index');
 $routes->get('/logout', 'auth/Login::logout');
 $routes->get('/lembaga', 'profil/Lembaga::index');
-$routes->get('/dashboard', 'Page::dashboard');
+
+$routes->get('/penyuluhpns', 'Penyuluh/PenyuluhPns::penyuluhpns');
+$routes->get('/penyuluhcpns', 'Penyuluh/PenyuluhCpns::penyuluhcpns');
+$routes->get('/penyuluhthlapbn', 'Penyuluh/PenyuluhTHLAPBN::penyuluhthlAPBN');
+$routes->get('/penyuluhthlapbd', 'Penyuluh/PenyuluhTHLAPBD::penyuluhthlAPBD');
+$routes->get('/penyuluhswadaya', 'Penyuluh/PenyuluhSwadaya::penyuluhswadaya');
+$routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
+$routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
+
 $routes->get('/penyuluh', 'profil/Penyuluh::index');
 $routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
 $routes->get('/desa', 'Kelembagaan/Desa::index');
@@ -67,6 +75,20 @@ $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) 
 	$routes->post('reset-password', 'AuthController::attemptReset');
 });
 
+
+
+$routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan/Gapoktan::gapoktan');
+$routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktan::listgapoktan');
+$routes->get('/listgapoktandesa', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktanDesa::listgapoktandesa');
+
+$routes->get('/kelembagaanekonomipetani', 'KelembagaanPelakuUtama/KelembagaanEkonomiPetani::kelembagaanekonomipetani');
+
+$routes->get('/kelompoktani', 'KelembagaanPelakuUtama/KelompokTani/KelompokTani::kelompoktani');
+$routes->get('/listpoktan', 'KelembagaanPelakuUtama/KelompokTani/ListPokTan::listpoktan');
+
+$routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
+
+$routes->get('/desa', 'KelembagaanPenyuluhan/Desa/Desa::desa');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
