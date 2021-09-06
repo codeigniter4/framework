@@ -2,39 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\LembagaModel;
 
 class Page extends BaseController
 {
-    public function about()
+    protected $session;
+
+
+    function __construct()
     {
-        $data = [
-            'title' => 'about'
-        ];
-
-        return view('about', $data);
-    }
-
-    public function contact()
-    {
-
-        $data = [
-            'title' => 'kontak',
-            'name' => 'Adi'
-        ];
-
-        return view('contact', $data);
-    }
-
-
-    public function faqs()
-    {
-
-        $data = [
-            'title' => 'FAQ',
-            'name' => 'Adi'
-        ];
-
-        return view('faq', $data);
+        $this->session = \Config\Services::session();
+        $this->session->start();
     }
 
     public function dashboard()
@@ -50,9 +28,10 @@ class Page extends BaseController
 
     public function profil()
     {
+        // echo "Welcome back, " . $this->session->get('email');
 
         $data = [
-            'title' => 'Profil',
+            'title' => 'Profil Lembaga',
             'name' => 'Adi'
         ];
 

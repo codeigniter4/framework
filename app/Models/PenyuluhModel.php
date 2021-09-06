@@ -7,7 +7,11 @@ use \Config\Database;
 
 class PenyuluhModel extends Model
 {
-    protected $table      = 'simluhtan';
+
+   // protected $table      = 'simluhtan';
+    // protected $table      = 'penyuluh';
+   // protected $table      = 'tbljabatan';
+
     //protected $primaryKey = 'id';
 
 

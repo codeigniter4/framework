@@ -1,7 +1,8 @@
 <?= $this->extend('layout/main_template') ?>
 
 <?= $this->section('content') ?>
-
+<?php $sessnama = session()->get('nama');
+?>
 <div class="container-fluid py-4">
     <div class="row">
         <!-- Page Heading -->
@@ -113,16 +114,16 @@
                                         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
                                         <div class="col-lg-12">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Nama Kelembagaan</li>
-                                                <li class="list-group-item">Tanggal Pembentukan </li>
-                                                <li class="list-group-item">Alamat</li>
-                                                <li class="list-group-item">Provinsi</li>
-                                                <li class="list-group-item">No Telepon/Fax</li>
-                                                <li class="list-group-item">Alamat Email</li>
-                                                <li class="list-group-item">Alamat Website</li>
-                                                <li class="list-group-item">Nama Pimpinan</li>
-                                                <li class="list-group-item">No HP Pimpinan</li>
-                                                <li class="list-group-item">Nama Koordinator PP</li>
+                                                <li class="list-group-item">Nama Kelembagaan : <?= $dt['deskripsi_lembaga_lain']; ?> <?= $sessnama; ?> </li>
+                                                <li class="list-group-item">Tanggal Pembentukan : <?= $dt['tgl_berdiri'] . '-' . $dt['bln_berdiri'] . '-' . $dt['thn_berdiri']; ?> </li>
+                                                <li class="list-group-item">Alamat : <?= $dt['alamat']; ?></li>
+                                                <li class="list-group-item">Provinsi : <?= $dt['kode_prop']; ?></li>
+                                                <li class="list-group-item">No Telepon/Fax : <?= $dt['telp_kantor']; ?></li>
+                                                <li class="list-group-item">Alamat Email: <?= $dt['email']; ?></li>
+                                                <li class="list-group-item">Alamat Website <?= $dt['website']; ?></li>
+                                                <li class="list-group-item">Nama Pimpinan <?= $dt['nama_kabid']; ?></li>
+                                                <li class="list-group-item">No HP Pimpinan <?= $dt['hp_kabid']; ?></li>
+                                                <li class="list-group-item">Nama Koordinator PP <?= $dt['nama_koord_penyuluh']; ?></li>
                                             </ul>
                                         </div>
 

@@ -31,14 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
-$routes->get('/about', 'Page::about');
-$routes->get('/contact', 'Page::contact');
-$routes->get('/faqs', 'Page::faqs');
-$routes->get('/profil', 'Page::profil');
-$routes->get('/dashboard', 'Page::dashboard');
-$routes->get('/penyuluh', 'Page::penyuluh');
-$routes->get('/login', 'Login::index');
+$routes->get('/', 'auth/Login::index');
+$routes->get('/login', 'auth/Login::index');
+$routes->get('/logout', 'auth/Login::logout');
+$routes->get('/lembaga', 'profil/Lembaga::index');
+
 $routes->get('/penyuluhpns', 'Penyuluh/PenyuluhPns::penyuluhpns');
 $routes->get('/penyuluhcpns', 'Penyuluh/PenyuluhCpns::penyuluhcpns');
 $routes->get('/penyuluhthlapbn', 'Penyuluh/PenyuluhTHLAPBN::penyuluhthlAPBN');
@@ -46,6 +43,37 @@ $routes->get('/penyuluhthlapbd', 'Penyuluh/PenyuluhTHLAPBD::penyuluhthlAPBD');
 $routes->get('/penyuluhswadaya', 'Penyuluh/PenyuluhSwadaya::penyuluhswadaya');
 $routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
 $routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
+
+$routes->get('/penyuluh', 'profil/Penyuluh::index');
+$routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
+$routes->get('/desa', 'Kelembagaan/Desa::index');
+$routes->get('/daftar_posluhdes', 'Kelembagaan/DaftarPosluhdes::index');
+$routes->get('/kabupaten_kota', 'Kelembagaan/KabupatenKota::index');
+
+
+/*
+ * Myth:Auth routes file.
+ */
+$routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
+	// Login/out
+	$routes->get('login', 'AuthController::login', ['as' => 'login']);
+	$routes->post('login', 'AuthController::attemptLogin');
+	$routes->get('logout', 'AuthController::logout');
+
+	// Registration
+	$routes->get('register', 'AuthController::register', ['as' => 'register']);
+	$routes->post('register', 'AuthController::attemptRegister');
+
+	// Activation
+	$routes->get('activate-account', 'AuthController::activateAccount', ['as' => 'activate-account']);
+	$routes->get('resend-activate-account', 'AuthController::resendActivateAccount', ['as' => 'resend-activate-account']);
+
+	// Forgot/Resets
+	$routes->get('forgot', 'AuthController::forgotPassword', ['as' => 'forgot']);
+	$routes->post('forgot', 'AuthController::attemptForgot');
+	$routes->get('reset-password', 'AuthController::resetPassword', ['as' => 'reset-password']);
+	$routes->post('reset-password', 'AuthController::attemptReset');
+});
 
 
 /*

@@ -33,9 +33,9 @@
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Nama</th>
-					<th scope="col">Alamat</th>
-					<th scope="col">Telepon</th>
+					<th scope="col">id</th>
+					<th scope="col">Jabatan</th>
+					<!-- <th scope="col">Telepon</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -44,9 +44,8 @@
 				foreach ($dt as $row) : ?>
 					<tr>
 						<th scope="row"><?= $no++; ?></th>
-						<td><?= $row['nama']; ?></td>
-						<td><?= $row['alamat']; ?></td>
-						<td><?= $row['telpon']; ?></td>
+						<td><?= $row['id_jab']; ?></td>
+						<td><?= $row['nama_jab']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
