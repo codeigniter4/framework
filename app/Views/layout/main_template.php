@@ -201,6 +201,67 @@
 
         }); // end am4core.ready()
     </script>
+
+    <script>
+        $("#lokasikerja").change(function() {
+            if ($(this).val() == "kabupaten") {
+                $('#kecamatan1Div').show();
+                $('#kecamatan1').attr('required', '');
+                $('#kecamatan1').attr('data-error', 'This field is required.');
+                $('#kecamatan2Div').show();
+                $('#kecamatan2').attr('required', '');
+                $('#kecamatan2').attr('data-error', 'This field is required.');
+
+                // } else if ($(this).val() == "selasa") {
+                //     $('#selasaDiv').show();
+                //     $('#selasa').attr('required', '');
+                //     $('#selasa').attr('data-error', 'This field is required.');
+                // } else if ($(this).val() == "rabu") {
+                //     $('#rabuDiv').show();
+                //     $('#rabu').attr('required', '');
+                //     $('#rabu').attr('data-error', 'This field is required.');
+                // } else if ($(this).val() == "kamis") {
+                //     $('#kamisDiv').show();
+                //     $('#kamis').attr('required', '');
+                //     $('#kamis').attr('data-error', 'This field is required.');
+                // } else if ($(this).val() == "jumat") {
+                //     $('#jumatDiv').show();
+                //     $('#jumat').attr('required', '');
+                //     $('#jumat').attr('data-error', 'This field is required.');
+                // } else if ($(this).val() == "sabtu") {
+                //     $('#sabtuDiv').show();
+                //     $('#sabtu').attr('required', '');
+                //     $('#sabtu').attr('data-error', 'This field is required.');
+                // } else if ($(this).val() == "minggu") {
+                //     $('#mingguDiv').show();
+                //     $('#minggu').attr('required', '');
+                //     $('#minggu').attr('data-error', 'This field is required.');
+            } else {
+                $('#kecamatan1Div').hide();
+                $('#kecamatan1').removeAttr('required');
+                $('#kecamatan1').removeAttr('data-error');
+                $('#kecamatan2Div').hide();
+                $('#kecamatan2').removeAttr('required');
+                $('#kecamatan2').removeAttr('data-error');
+                // $('#rabuDiv').hide();
+                // $('#rabu').removeAttr('required');
+                // $('#rabu').removeAttr('data-error');
+                // $('#kamisDiv').hide();
+                // $('#kamis').removeAttr('required');
+                // $('#kamis').removeAttr('data-error');
+                // $('#jumatDiv').hide();
+                // $('#jumat').removeAttr('required');
+                // $('#jumat').removeAttr('data-error');
+                // $('#sabtuDiv').hide();
+                // $('#sabtu').removeAttr('required');
+                // $('#sabtu').removeAttr('data-error');
+                // $('#mingguDiv').hide();
+                // $('#minggu').removeAttr('required');
+                // $('#minggu').removeAttr('data-error');
+            }
+        });
+        $("#lokasikerja").trigger("change");
+    </script>
 </body>
 
 </html>
