@@ -5,7 +5,7 @@
 
 <button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
 <br>
-<b>Daftar Penyuluh Swadaya Kab <?= ucwords(strtolower($nama_kabupaten)) ?></b>
+<b>Kecamatan <?= $nama_kecamatan ?></b>
 <p>Ditemukan <?= $jml_data ?> data</p>
 <div class="card">
     <div class="table-responsive">

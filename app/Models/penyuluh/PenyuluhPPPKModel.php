@@ -49,6 +49,16 @@ class PenyuluhPPPKModel extends Model
                                 when '0' then 'Aktif'
                                 when '6' then 'Tugas Belajar'
                                 else '' end status_kel,
+                                case a.kode_kab when '3' then j.deskripsi when '4' then d.nm_desa else '' end as wilker,
+                                case a.kode_kab when '3' then l.deskripsi when '4' then e.nm_desa else '' end as wilker2,
+                                case a.kode_kab when '3' then m.deskripsi when '4' then f.nm_desa else '' end as wilker3,
+                                case a.kode_kab when '3' then n.deskripsi when '4' then g.nm_desa else '' end as wilker4,
+                                case a.kode_kab when '3' then o.deskripsi when '4' then h.nm_desa else '' end as wilker5,
+                                case a.kode_kab when '3' then p.deskripsi when '4' then u.nm_desa else '' end as wilker6,
+                                case a.kode_kab when '3' then q.deskripsi when '4' then v.nm_desa else '' end as wilker7,
+                                case a.kode_kab when '3' then r.deskripsi when '4' then w.nm_desa else '' end as wilker8,
+                                case a.kode_kab when '3' then s.deskripsi when '4' then x.nm_desa else '' end as wilker9,
+                                case a.kode_kab when '3' then t.deskripsi when '4' then y.nm_desa else '' end as wilker10,
                                 j.deskripsi as kecamatan_tugas
                                 from tbldasar_p3k a
                                 left join tblsatminkal b on a.satminkal=b.kode
