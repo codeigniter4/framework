@@ -18,7 +18,7 @@ class ListGapoktan extends BaseController
             
             'nama_kecamatan' => $listgapoktan_data['nama_kec'],
             'jum' => $listgapoktan_data['jum'],
-            'jumpok' => $listgapoktan_data['jumpok'],
+          //  'jumpok' => $listgapoktan_data['jumpok'],
             'tabel_data' => $listgapoktan_data['table_data'],
             'title' => 'List Gabungan Kelompok Tani',
             'name' => 'List Gabungan Kelompok Tani'

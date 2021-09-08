@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\KelembagaanPelakuUtama;
+namespace App\Controllers\KelembagaanPelakuUtama\KelembagaanPetaniLainnya;
 use App\Controllers\BaseController;
-use App\Models\KelembagaanPelakuUtama\KelembagaanPetaniLainnyaModel;
+use App\Models\KelembagaanPelakuUtama\KelembagaanPetaniLainnya\KelembagaanPetaniLainnyaModel;
 
 class KelembagaanPetaniLainnya extends BaseController
 {
@@ -26,12 +26,5 @@ class KelembagaanPetaniLainnya extends BaseController
         return view('KelembagaanPelakuUtama/KelembagaanPetaniLainnya/kelembagaanpetanilainnya', $data);
     }
   
-    public function listgapoktan()
-    {
-        $data = [
-            'title' => 'Gapoktan'
-        ];
-
-        return view('KelembagaanPelakuUtama/Gapoktan/listgapoktan', $data);
-    }
+   
 }

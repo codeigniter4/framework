@@ -26,14 +26,5 @@ class Gapoktan extends BaseController
         return view('KelembagaanPelakuUtama/Gapoktan/gapoktan', $data);
     }
   
-    public function listgapoktan()
-    {
-     
-        $data = [
-            
-           
-            'name' => 'Gapoktan'
-        ];
-        return view('KelembagaanPelakuUtama/Gapoktan/listgapoktan', $data);
-    }
+ 
 }

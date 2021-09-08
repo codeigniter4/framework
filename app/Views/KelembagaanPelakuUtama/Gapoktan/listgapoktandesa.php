@@ -2,9 +2,9 @@
 
 <?= $this->section('content') ?>
 
-<button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
-<center><h2> Daftar Gapoktan di Desa <?= ucwords(strtolower($nama_desa)) ?> </h2></center>
 
+<center><h2> Daftar Kelompok Tani di Desa <?= ucwords(strtolower($nama_desa)) ?> </h2></center>
+<button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
 <div class="card">
     <div class="table-responsive">
         <table class="table align-items-center mb-0">
@@ -38,16 +38,20 @@
                     <td class="align-middle text-center text-sm">
                         <p class="text-xs font-weight-bold mb-0"><?= $row['ketua_poktan'] ?></p>
                     </td>
-                  
-                   
-                    
-                    
-                        <td class="align-middle text-center text-sm">
-                        <a href="/gapoktan/list"></a><button type="button" class="btn btn-info btn-sm">
-                             Detail
-                        </button>
-                        </a>
+                    <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['jum'] ?></p>
                     </td>
+                    <td class="align-middle text-center text-sm">
+                            <a href="#">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="btn bg-gradient-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Ubah
+                                </button>
+                            </a>
+                            <button type="button" class="btn bg-gradient-danger btn-sm">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                            </a>
+                        </td>
                 </tr>
             <?php
             }

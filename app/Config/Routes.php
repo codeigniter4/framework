@@ -45,7 +45,6 @@ $routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
 $routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
 
 $routes->get('/penyuluh', 'profil/Penyuluh::index');
-$routes->get('/kecamatan', 'Kelembagaan/Kecamatan::index');
 $routes->get('/desa', 'Kelembagaan/Desa::index');
 $routes->get('/daftar_posluhdes', 'Kelembagaan/DaftarPosluhdes::index');
 $routes->get('/kabupaten_kota', 'Kelembagaan/KabupatenKota::index');
@@ -76,19 +75,27 @@ $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) 
 });
 
 
-
+//KelembagaanPelakuUtamaRoutes
 $routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan/Gapoktan::gapoktan');
 $routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktan::listgapoktan');
 $routes->get('/listgapoktandesa', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktanDesa::listgapoktandesa');
 
+$routes->get('/gapoktanbersama', 'KelembagaanPelakuUtama/GapoktanBersama/GapoktanBersama::gapoktanbersama');
+
 $routes->get('/kelembagaanekonomipetani', 'KelembagaanPelakuUtama/KelembagaanEkonomiPetani::kelembagaanekonomipetani');
+$routes->get('/listkep', 'KelembagaanPelakuUtama/KelembagaanEkonomiPetani/ListKEP::listkep');
 
 $routes->get('/kelompoktani', 'KelembagaanPelakuUtama/KelompokTani/KelompokTani::kelompoktani');
+$routes->get('/kelompoktanikec', 'KelembagaanPelakuUtama/KelompokTani/KelompokTaniKec::kelompoktanikec');
 $routes->get('/listpoktan', 'KelembagaanPelakuUtama/KelompokTani/ListPokTan::listpoktan');
+$routes->get('/listpoktananggota', 'KelembagaanPelakuUtama/KelompokTani/ListPoktanAnggota::listpoktananggota');
 
-$routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
+$routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
+$routes->get('/listkep2l', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya/ListKEP2L::listkep2l');
 
+//
 $routes->get('/desa', 'KelembagaanPenyuluhan/Desa/Desa::desa');
+$routes->get('/kecamatan', 'KelembagaanPenyuluhan/Kecamatan/Kecamatan::kecamatan');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
