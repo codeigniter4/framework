@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\KelembagaanPelakuUtama;
+namespace App\Models\KelembagaanPelakuUtama\KelembagaanPetaniLainnya;
 
 use CodeIgniter\Model;
 use \Config\Database;
 
 class KelembagaanPetaniLainnyaModel extends Model
 {
-    protected $table      = 'penyuluh';
+    //protected $table      = 'penyuluh';
     //protected $primaryKey = 'id';
 
 

@@ -18,7 +18,7 @@ class ListPoktan extends BaseController
             
             'nama_kecamatan' => $listpoktan_data['nama_kec'],
             'jum' => $listpoktan_data['jum'],
-            'jumangg' => $listpoktan_data['jumangg'],
+           // 'jumangg' => $listpoktan_data['jumangg'],
            // 'jup' => $listpoktan_data['jup'],
             'tabel_data' => $listpoktan_data['table_data'],
             'title' => 'List Kelompok Tani',

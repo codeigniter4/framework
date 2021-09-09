@@ -43,8 +43,12 @@
                         <td class="align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0"><?= $row['deskripsi'] ?></p>
                         </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['nm_desa'] ?></p>
+                        <td class="align-middle text-sm">
+                            <p class="text-xs font-weight-bold mb-0">1. <?= $row['wil_ker'] ?><br>
+                                2. <?= $row['wil_ker2'] ?><br>
+                                3. <?= $row['wil_ker3'] ?><br>
+                                4. <?= $row['wil_ker4'] ?><br>
+                                5. <?= $row['wil_ker5'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0"><?= $row['tgl_update'] ?></p>

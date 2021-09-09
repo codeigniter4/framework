@@ -3,23 +3,22 @@
 <?= $this->section('content') ?>
 
 
-<button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
+<button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button><br>
+<b>Daftar Penyuluh THL APBD Kab <?= ucwords(strtolower($nama_kecamatan)) ?></b>
+<p>Ditemukan <?= $jml_data ?> data</p>
 <div class="card">
     <div class="table-responsive">
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">No</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">NIK</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">NIP</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Nama</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Unit<br>Kerja</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Tempat<br>Tugas</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Wilayah<br>Kerja</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Jabatan<br>Terakhir</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">No</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">No Peserta</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Unit Kerja</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Tempat Tugas<br>(Kecamatan)</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Wilayah Kerja</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Terakhir<br>Update</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Data<br>Dasar</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,46 +28,35 @@
                 ?>
                     <tr>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $i++ ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= $i++ ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['noktp'] ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= $row['no_peserta'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['nip'] ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= $row['nama'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['gelar_dpn'] ?> <?= $row['nama'] ?> <?= $row['gelar_blk'] ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= $row['nama_bpp'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['nama_bapel'] ?></p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0">Kec.<?= ucwords(strtolower($row['kecamatan_tugas'])) ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= ucwords(strtolower($row['kecamatan_tugas'])) ?></p>
                         </td>
                         <td class="align-middle text-sm">
-                            <p class="text-xs font-weight-bold mb-0">
-                                1. <?= $row['wilker'] ?> <br>
-                                2. <?= $row['wilker2'] ?> <br>
-                                3. <?= $row['wilker3'] ?> <br>
-                                4. <?= $row['wilker4'] ?> <br>
-                                5. <?= $row['wilker5'] ?> <br>
-                                6. <?= $row['wilker6'] ?> <br>
-                                7. <?= $row['wilker7'] ?> <br>
-                                8. <?= $row['wilker8'] ?> <br>
-                                9. <?= $row['wilker9'] ?> <br>
-                                10. <?= $row['wilker10'] ?>
-                            </p>
+                            <p class="text-xs font-weight-bold mb-0">1. <?= $row['wil_kerja'] ?><br>
+                                2. <?= $row['wil_kerja2'] ?><br>
+                                3. <?= $row['wil_kerja3'] ?><br>
+                                4. <?= $row['wil_kerja4'] ?><br>
+                                5. <?= $row['wil_kerja5'] ?><br>
+                                6. <?= $row['wil_kerja6'] ?><br>
+                                7. <?= $row['wil_kerja7'] ?><br>
+                                8. <?= $row['wil_kerja8'] ?><br>
+                                9. <?= $row['wil_kerja9'] ?><br>
+                                10. <?= $row['wil_kerja10'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['status_kel'] ?></p>
+                            <p class="text-xs font-weight-bold mb-8"><?= $row['tgl_update'] ?></p>
                         </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0">17</p>
-                        </td>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['tgl_update'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
                             <a href="#">
@@ -87,9 +75,10 @@
                 ?>
             </tbody>
         </table>
+
         <!-- Modal -->
         <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-body p-0">
                         <div class="card card-plain">
@@ -100,13 +89,31 @@
                                 <form role="form text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <label>NIP (18 Digit)</label>
+                                            <label>Status Penyuluh</label>
                                             <div class="input-group mb-3">
-                                                <input type="number" class="form-control" placeholder="Penulisan NIP disambung (tanpa tanda pemisah)" aria-label="Email" aria-describedby="email-addon">
+                                                <input type="text" class="form-control" placeholder="Status Penyuluh" aria-label="Email" aria-describedby="email-addon" disabled>
                                             </div>
-                                            <label>NIK (16 Digit)</label>
+                                            <label>No. KTP</label>
                                             <div class="input-group mb-3">
-                                                <input type="number" class="form-control" placeholder="Penulisan NIK disambung (tanpa tanda pemisah)" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="text" class="form-control" placeholder="No. KTP" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <label>No Peserta</label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="No Peserta" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <label>Angkatan</label>
+                                            <div class="input-group mb-3">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Pilih Angkatan</option>
+                                                    <option value="I (2007)">I (2007)</option>
+                                                    <option value="II (2008)">II (2008)</option>
+                                                    <option value="III (2009)">III (2009)</option>
+                                                    <option value="2010">2010</option>
+                                                    <option value="2011">2011</option>
+                                                    <option value="2012">2012</option>
+                                                    <option value="2013">2013</option>
+                                                    <option value="2014">2014</option>
+                                                </select>
                                             </div>
                                             <label>Nama Penyuluh</label>
                                             <div class="input-group mb-3">
@@ -124,6 +131,7 @@
                                                 <input type="text" class="form-control" placeholder="Tempat" aria-label="Password" aria-describedby="password-addon">
                                                 <input type="date" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                             </div>
+
                                             <label>Jenis Kelamin</label>
                                             <div class="input-group mb-3">
                                                 <div class="form-check form-check-inline">
@@ -135,6 +143,18 @@
                                                     <label class="form-check-label" for="inlineRadio2">Perempuan</label>
                                                 </div>
                                             </div>
+                                            <label>Status Perkawinan</label>
+                                            <div class="input-group mb-3">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Pilih Status Perkawinan</option>
+                                                    <option value="Nikah">Nikah</option>
+                                                    <option value="Belum Nikah">Belum Nikah</option>
+                                                    <option value="Janda">Janda</option>
+                                                    <option value="Duda">Duda</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
                                             <label>Agama</label>
                                             <div class="input-group mb-3">
                                                 <select class="form-select" aria-label="Default select example">
@@ -147,15 +167,47 @@
                                                     <option value="Lainnya">Lainnya</option>
                                                 </select>
                                             </div>
-                                            <label>Bidang Keahlian</label>
+
+                                            <label>Keahlian Bidang Teknis</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Pilih Bidang Keahlian</option>
-                                                    <option value="Tanaman Pangan">Tanaman Pangan</option>
-                                                    <option value="Peternakan">Peternakan</option>
-                                                    <option value="Perkebunan">Perkebunan</option>
-                                                    <option value="Horikultura">Horikultura</option>
-                                                </select>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Tanaman Pangan" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Tanaman Pangan
+                                                    </label>
+                                                </div> &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" class="form-control" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Peternakan" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Peternakan
+                                                    </label>
+                                                </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; <input type="text" class="form-control" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Perkebunan" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Perkebunan
+                                                    </label>
+                                                </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<input type="text" class="form-control" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Hortikultura" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Hortikultura
+                                                    </label>
+                                                </div> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; <input type="text" class="form-control" aria-label="Password" aria-describedby="password-addon">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Lainnya" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Lainnya
+                                                    </label>
+                                                </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" class="form-control" aria-label="Password" aria-describedby="password-addon">
                                             </div>
                                             <label>Tingkat Pendidikan Akhir</label>
                                             <div class="input-group mb-3">
@@ -190,76 +242,16 @@
                                             <div class="input-group mb-3">
                                                 <input type="text" class="form-control" placeholder="Nama Sekolah/Universitas" aria-label="Password" aria-describedby="password-addon">
                                             </div>
-                                        </div>
-                                        <!-- <div class="col">
-                                                    <label for="lokasikerja">Lokasi Kerja</label>
-                                                    <div class="input-group mb-3" id="lokasikerja">
-                                                        <select class="form-control" aria-label="Default select example" id="lokasikerja">
-                                                            <option selected>Pilih Hari</option>
-                                                            <option value="kabupaten">Kabupaten</option>
-                                                            <option value="selasa">Selasa</option>
-                                                        </select>
-                                                    </div>
 
-                                                    <div class="input-group mb-3" id="kecamatan1DIV">
-                                                        <select class="form-select" aria-label="Default select example" id="kecamatan1">
-                                                            <option selected>Pilih Kecamatan 1</option>
-                                                            <option value="Arjosari">Arjosari</option>
-                                                            <option value="Bandar">Bandar</option>
-                                                            <option value="Donorojo">Donorojo</option>
-                                                            <option value="Kebonagung">Kebonagung</option>
-                                                            <option value="Nawangan">Nawangan</option>
-                                                            <option value="Ngadirojo">Ngadirojo</option>
-                                                            <option value="Pacitan">Pacitan</option>
-                                                            <option value="Pringkuku">Pringkuku</option>
-                                                            <option value="Sudimoro">Sudimoro</option>
-                                                            <option value="Tulakan">Tulakan</option>
-                                                            <option value="Tegalombo">Tegalombo</option>
-                                                            <option value="Punung">Punung</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="input-group mb-3" id="kecamatan2DIV">
-                                                        <select class="form-select" aria-label="Default select example" id="kecamatan2">
-                                                            <option selected>Pilih Kecamatan 2</option>
-                                                            <option value="Arjosari">Arjosari</option>
-                                                            <option value="Bandar">Bandar</option>
-                                                            <option value="Donorojo">Donorojo</option>
-                                                            <option value="Kebonagung">Kebonagung</option>
-                                                            <option value="Nawangan">Nawangan</option>
-                                                            <option value="Ngadirojo">Ngadirojo</option>
-                                                            <option value="Pacitan">Pacitan</option>
-                                                            <option value="Pringkuku">Pringkuku</option>
-                                                            <option value="Sudimoro">Sudimoro</option>
-                                                            <option value="Tulakan">Tulakan</option>
-                                                            <option value="Tegalombo">Tegalombo</option>
-                                                            <option value="Punung">Punung</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
+                                        </div>
                                         <div class="col">
-                                            <label>Tgl SK PPPK</label>
-                                            <div class="input-group mb-3">
-                                                <input type="date" class="form-control" placeholder="Tgl SK PPPK" aria-label="Password" aria-describedby="password-addon">
-                                            </div>
-                                            <label>Tgl SPMT</label>
-                                            <div class="input-group mb-3">
-                                                <input type="date" class="form-control" placeholder="Tgl SPMT" aria-label="Password" aria-describedby="password-addon">
-                                            </div>
-                                            <label>Jabatan</label>
-                                            <div class="input-group mb-3">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Pilih Jabatan</option>
-                                                    <option value="PP.TERAMPIL">PP.TERAMPIL</option>
-                                                    <option value="PP.AHLI">PP.AHLI</option>
-                                                </select>
-                                            </div>
                                             <label>Alamat Rumah</label>
                                             <div class="input-group mb-3">
                                                 <textarea class="form-control" placeholder="Alamat Rumah" id="floatingTextarea"></textarea>
                                             </div>
-                                            <label>Kabupaten</label>
+                                            <label>Kab/Kota</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Kabupaten" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="text" class="form-control" placeholder="Kab/Kota" aria-label="Password" aria-describedby="password-addon">
 
                                                 <input type="text" class="form-control" placeholder="| Kode Pos" aria-label="Password" aria-describedby="password-addon">
                                             </div>
@@ -302,20 +294,18 @@
                                                     <option value="SUMATERA UTARA">SUMATERA UTARA</option>
                                                 </select>
                                             </div>
-                                            <label>No.Telepon rumah</label>
+                                            <label>No.Telepon/HP</label>
                                             <div class="input-group mb-3">
-                                                <input type="number" class="form-control" placeholder="No.Telepon rumah" aria-label="Password" aria-describedby="password-addon">
-                                                <input type="number" class="form-control" placeholder="| HP" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="number" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                             </div>
-                                            <label>Alamat Email</label>
+                                            <label>Email</label>
                                             <div class="input-group mb-3">
                                                 <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-round bg-gradient-warning btn-sm">Simpan Data</button>
+                                            <button type="button" class="btn btn-round bg-gradient-warning btn-sm w-100 mt-4 mb-0">Simpan Data</button>
                                         </div>
-                                    </div>
                                 </form>
                             </div>
 
