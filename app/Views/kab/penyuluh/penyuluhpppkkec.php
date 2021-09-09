@@ -4,13 +4,14 @@
 
 
 <button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
+<b>Daftar Penyuluh PPPK BP3K <?= $nama_kecamatan ?></b>
+<p>Ditemukan <?= $jml_data ?> penyuluh aktif dan tugas belajar </p>
 <div class="card">
     <div class="table-responsive">
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">No</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">NIK</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">NIP</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Nama</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Unit<br>Kerja</th>
@@ -32,32 +33,29 @@
                             <p class="text-xs font-weight-bold mb-0"><?= $i++ ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['noktp'] ?></p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['nip'] ?></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['nip'] ?> / <?= $row['nip_lama'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0"><?= $row['gelar_dpn'] ?> <?= $row['nama'] ?> <?= $row['gelar_blk'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"><?= $row['nama_bapel'] ?></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['nama_bpp'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0">Kec.<?= ucwords(strtolower($row['kecamatan_tugas'])) ?></p>
                         </td>
                         <td class="align-middle text-sm">
                             <p class="text-xs font-weight-bold mb-0">
-                                1. <?= $row['wilker'] ?> <br>
-                                2. <?= $row['wilker2'] ?> <br>
-                                3. <?= $row['wilker3'] ?> <br>
-                                4. <?= $row['wilker4'] ?> <br>
-                                5. <?= $row['wilker5'] ?> <br>
-                                6. <?= $row['wilker6'] ?> <br>
-                                7. <?= $row['wilker7'] ?> <br>
-                                8. <?= $row['wilker8'] ?> <br>
-                                9. <?= $row['wilker9'] ?> <br>
-                                10. <?= $row['wilker10'] ?>
+                                1. <?= $row['wil_kerja'] ?><br>
+                                2. <?= $row['wil_kerja2'] ?><br>
+                                3. <?= $row['wil_kerja3'] ?><br>
+                                4. <?= $row['wil_kerja4'] ?><br>
+                                5. <?= $row['wil_kerja5'] ?><br>
+                                6. <?= $row['wil_kerja6'] ?><br>
+                                7. <?= $row['wil_kerja7'] ?><br>
+                                8. <?= $row['wil_kerja8'] ?><br>
+                                9. <?= $row['wil_kerja9'] ?><br>
+                                10. <?= $row['wil_kerja10'] ?></p>
                             </p>
                         </td>
                         <td class="align-middle text-center text-sm">
