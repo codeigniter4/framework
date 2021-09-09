@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\penyuluh;
 
 use CodeIgniter\Model;
 use \Config\Database;
@@ -8,9 +8,9 @@ use \Config\Database;
 class PenyuluhModel extends Model
 {
 
-   // protected $table      = 'simluhtan';
+    // protected $table      = 'simluhtan';
     // protected $table      = 'penyuluh';
-   // protected $table      = 'tbljabatan';
+    // protected $table      = 'tbljabatan';
 
     //protected $primaryKey = 'id';
 

@@ -34,6 +34,7 @@ class KecamatanModel extends Model
         $row   = $query->getRow();
         $query2 = $db->query("SELECT count(idpos) as jum_des FROM tb_posluhdes where kode_kab ='$kode_kab'");
         $row2   = $query2->getRow();
+
         $query3  = $db->query("select * , b.nama, c.deskripsi, a.alamat,f.jumgap,f.kode_bp3k,g.jumkep,d.jumpok,e.jumthl,h.jumpns,i.unit_kerja
                                 from tblbpp a
                                 left join tbldasar b on a.nama_koord_penyuluh=b.nip
@@ -45,8 +46,7 @@ class KecamatanModel extends Model
                                 left join (select unit_kerja,count(id) as jumpns from tbldasar GROUP BY unit_kerja) h on a.id=h.unit_kerja and kode_kab='4' and status !='1' and status !='2' and status !='3'
                                 left join(select unit_kerja,count(id_swa) as jumswa from tbldasar_swa GROUP BY unit_kerja) i on a.id=i.unit_kerja
                                 
-                                where a.satminkal='$kode_kab' and a.kecamatan !='0'  
-                                order by nama_bpp");
+       
         $results = $query3->getResultArray();
 
         $data =  [
@@ -57,4 +57,6 @@ class KecamatanModel extends Model
 
         return $data;
     }
+
 }
+

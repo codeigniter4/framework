@@ -144,7 +144,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhcpns">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -164,7 +164,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhthlapbn">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -184,7 +184,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhthlapbd">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -204,7 +204,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhswadaya">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -224,7 +224,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhswasta">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -244,7 +244,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="<?= base_url(); ?>">
+                <a class="nav-link  " href="penyuluhpppk">
+
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>office</title>
@@ -260,14 +261,18 @@
                             </g>
                         </svg>
                     </div>
+
                     <span class="nav-link-text ms-1">PPPK</span>
+
                 </a>
             </li>
+
 
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Kelembagaan Pelaku Utama</h6>
             </li>
+
 
             <li class="nav-item">
                 <a class="nav-link  " href="/kelompoktani">
@@ -287,9 +292,25 @@
                         </svg>
                     </div>
 
+
                     <span class="nav-link-text ms-1">Kelompok Tani</span>
                 </a>
             </li>
+
+
+                    <span class="nav-link-text ms-1">Kelompok Tani</span>
+
+                    <span class="nav-link-text ms-1">CPNS</span>
+
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+
+                <a class="nav-link" href="/gapoktan">
+
+                <a class="nav-link  " href="<?= base_url(); ?>">
 
            
             <li class="nav-item">
@@ -309,10 +330,29 @@
                             </g>
                         </svg>
                     </div>
+
                     <span class="nav-link-text ms-1" >Gapoktan </span>
                 </a>
             </li>
           
+
+
+                    <span class="nav-link-text ms-1">Gapoktan </span>
+
+                    <span class="nav-link-text ms-1">Kelompok Tani</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/gapoktan">
+
+                    <span class="nav-link-text ms-1">PNS</span>
+
+                </a>
+            </li>
+
+
+
             <li class="nav-item">
                 <a class="nav-link" href="/gapoktanbersama">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -330,7 +370,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1" >Gapoktan Bersama</span>
+                    <span class="nav-link-text ms-1">Gapoktan Bersama</span>
                 </a>
             </li>
 
@@ -351,7 +391,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1" >Kelembagaan Ekonomi<br> Petani </span>
+                    <span class="nav-link-text ms-1">Kelembagaan Ekonomi<br> Petani </span>
                 </a>
             </li>
 
@@ -372,11 +412,11 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1" >Kelembagaan Petani<br> Lainnya </span>
+                    <span class="nav-link-text ms-1">Kelembagaan Petani<br> Lainnya </span>
                 </a>
             </li>
 
-            
+
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Lain-lain</h6>
