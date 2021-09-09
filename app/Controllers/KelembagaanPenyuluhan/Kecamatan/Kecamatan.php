@@ -16,11 +16,13 @@ class Kecamatan extends BaseController
         $kec_data = $kec_model->getKecTotal($kode_kab);
 
         $data = [
-            //'jum_des' => $desa_data['jum_des'],
+
+            //'jumpns' => $kec_data['jumpns'],
             'nama_kabupaten' => $kec_data['nama_kab'],
             'tabel_data' => $kec_data['table_data'],
-            'title' => 'Kabupaten',
-            'name' => 'Kabupaten'
+            'title' => 'Kecamatan',
+            'name' => 'Kecamatan'
+
         ];
 
         return view('KelembagaanPenyuluhan/Kecamatan/kecamatan', $data);
@@ -36,4 +38,6 @@ class Kecamatan extends BaseController
     //     ];
     //     return view('KelembagaanPenyuluhan/Desa/listdesa', $data);
     // }
+
 }
+

@@ -43,31 +43,35 @@
                             <p class="text-xs font-weight-bold mb-0"><?= $row['alamat'] ?></p>
                         </td>
                         <td>
+
                             <p class="text-xs font-weight-bold mb-0">- <?= $row['deskripsi'] ?>.</p>
+
                         </td>
                         <td>
                             <p class="text-xs font-weight-bold mb-0"><?= $row['ketua'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumpns'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumthl'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumswa'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumpok'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumgap'] ?></p>
                         </td>
                         <td class="align-middle text-center text-sm">
+                            <p class="text-xs font-weight-bold mb-0"><?= $row['jumkep'] ?></p>
+
                             <p class="text-xs font-weight-bold mb-0"></p>
                         </td>
-                        <td class="align-middle text-center text-sm">
-                            <p class="text-xs font-weight-bold mb-0"></p>
+
                         </td>
                         <td class="align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0"><?= $row['tgl_update'] ?></p>

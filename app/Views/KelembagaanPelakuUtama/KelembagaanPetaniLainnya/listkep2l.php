@@ -3,9 +3,8 @@
 <?= $this->section('content') ?>
 
 
-<center><h2> Daftar Gapoktan di Kecamatan <?= ucwords(strtolower($nama_kecamatan)) ?> </h2></center>
-<center><h2>Data ditemukan <?= ucwords(strtolower($jum)) ?> </h2></center>
-<button type="button" class="btn bg-gradient-primary btn-sm">+ Tambah Data</button>
+<center><h2> Daftar Kelompok P2L di Kec <?= ucwords(strtolower($nama_kecamatan)) ?> </h2></center>
+<center>Data ditemukan <?= ucwords(strtolower($jum)) ?> </center>
 <div class="card">
     <div class="table-responsive">
         <table class="table align-items-center mb-0">
@@ -13,11 +12,16 @@
                 <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">No</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Desa</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Gapoktan</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Kelompok</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Ketua</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Sekretaris</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Nama Bendahara</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Alamat Sekretariat</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Anggota Poktan</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Tanggal Pembentukan</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Komodias Yang <br> Diusahakan</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder" style="text-align: center;">Status</th>
+                  
+                   
                     <th class="text-secondary opacity-7"></th>
                 </tr>
             </thead>
@@ -35,21 +39,29 @@
                         <p class="text-xs font-weight-bold mb-0"><?= $row['nm_desa'] ?></p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0"><?= $row['nama_gapoktan'] ?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['nama_poktan'] ?></p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0"><?= $row['ketua_gapoktan'] ?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['nama_ketua'] ?></p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0"><?= $row['simluh_bendahara'] ?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['nama_sekretaris'] ?></p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0"><?= $row['alamat'] ?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['nama_bendahara'] ?></p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0"><?= $row['jumpok'] ?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['alamat_sekretariat'] ?></p>
                     </td>
-                    
+                    <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['tanggal_bentuk'] ?></p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['kode_komoditas_hor'] ?></p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0"><?= $row['status'] ?></p>
+                    </td>
                     <td class="align-middle text-center text-sm">
                             <a href="#">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#modal-form" class="btn bg-gradient-warning btn-sm">
@@ -67,7 +79,7 @@
             ?>
 
             </tbody>
-     
+           
         </table>
                
     </div>

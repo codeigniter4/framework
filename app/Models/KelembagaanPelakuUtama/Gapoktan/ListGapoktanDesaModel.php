@@ -33,9 +33,10 @@ class ListGapoktanDesaModel extends Model
         $query = $db->query("select nm_desa as nama_desa from tbldesa where id_desa='$kode_desa'");
         $row   = $query->getRow();
         
-        $query2   = $db->query("select id_poktan,id_gap,kode_desa,kode_kec,nama_poktan,ketua_poktan,jum_anggota,alamat, b.nm_desa
+        $query2   = $db->query("select a.id_poktan,a.id_gap,a.kode_desa,a.kode_kec,a.nama_poktan,a.ketua_poktan,a.jum_anggota,a.alamat, b.nm_desa,c.jum,c.id_poktan
                                 from tb_poktan a
                                 left join tbldesa b on a.kode_desa=b.id_desa 
+                                left join(select id_poktan, count(id_poktan) as jum from tb_poktan_anggota GROUP BY id_poktan) c on a.id_poktan=c.id_poktan
                                 where kode_desa='$kode_desa'
                                 ORDER BY kode_desa");
 

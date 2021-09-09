@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\KelembagaanPelakuUtama;
+namespace App\Controllers\KelembagaanPelakuUtama\KelembagaanEkonomiPetani;
 use App\Controllers\BaseController;
-use App\Models\KelembagaanPelakuUtama\KelembagaanEkonomiPetaniModel;
+use App\Models\KelembagaanPelakuUtama\KelembagaanEkonomiPetani\KelembagaanEkonomiPetaniModel;
 
 class KelembagaanEkonomiPetani extends BaseController
 {
@@ -25,12 +25,5 @@ class KelembagaanEkonomiPetani extends BaseController
         return view('KelembagaanPelakuUtama/KelembagaanEkonomiPetani/kelembagaanekonomipetani', $data);
     }
   
-    public function list()
-    {
-        $data = [
-            'title' => 'Kelembagaan Ekonomi Petani'
-        ];
-
-        return view('KelembagaanPelakuUtama/KelembagaanEkonomiPetani/listgapoktan', $data);
-    }
+   
 }
