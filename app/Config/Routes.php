@@ -31,8 +31,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'auth/Login::index');
-$routes->get('/login', 'auth/Login::index');
+// $routes->get('/', 'auth/Login::index');
+// $routes->get('/login', 'auth/Login::index');
 $routes->get('/logout', 'auth/Login::logout');
 $routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/lembaga', 'profil/Lembaga::index');
@@ -46,33 +46,6 @@ $routes->get('/penyuluhswasta', 'Penyuluh/PenyuluhSwasta::penyuluhswasta');
 $routes->get('/penyuluhpppk', 'Penyuluh/PenyuluhPPPK::penyuluhpppk');
 
 $routes->get('/penyuluh', 'profil/Penyuluh::index');
-
-
-/*
- * Myth:Auth routes file.
- */
-$routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
-	// Login/out
-	$routes->get('login', 'AuthController::login', ['as' => 'login']);
-	$routes->post('login', 'AuthController::attemptLogin');
-	$routes->get('logout', 'AuthController::logout');
-
-	// Registration
-	$routes->get('register', 'AuthController::register', ['as' => 'register']);
-	$routes->post('register', 'AuthController::attemptRegister');
-
-	// Activation
-	$routes->get('activate-account', 'AuthController::activateAccount', ['as' => 'activate-account']);
-	$routes->get('resend-activate-account', 'AuthController::resendActivateAccount', ['as' => 'resend-activate-account']);
-
-	// Forgot/Resets
-	$routes->get('forgot', 'AuthController::forgotPassword', ['as' => 'forgot']);
-	$routes->post('forgot', 'AuthController::attemptForgot');
-	$routes->get('reset-password', 'AuthController::resetPassword', ['as' => 'reset-password']);
-	$routes->post('reset-password', 'AuthController::attemptReset');
-});
-
-
 
 $routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan/Gapoktan::gapoktan');
 $routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktan::listgapoktan');
