@@ -13,20 +13,25 @@ class Lembaga extends BaseController
     {
         $this->session = \Config\Services::session();
         $this->session->start();
+        helper('autentikasi');
     }
 
     public function index()
     {
-        // echo "Welcome back, " . $this->session->get('email');
+        //is_logged_in();
         $lembagaModel = new LembagaModel();
-        $dtlembaga = $lembagaModel->getProfil($this->session->get('kodebapel'));
-        // echo $this->session->get('kodebapel');
-        //dd($dtlembaga);
-        $data = [
-            'title' => 'Profil Lembaga',
-            'dt' => $dtlembaga
-        ];
+        if (empty($this->session->get('kodebapel'))) {
+            return redirect()->to('login');
+        } else {
+            $dtlembaga = $lembagaModel->getProfil($this->session->get('kodebapel'));
 
-        return view('profil/profillembaga', $data);
+
+            $data = [
+                'title' => 'Profil Lembaga',
+                'dt' => $dtlembaga
+            ];
+
+            return view('profil/profillembaga', $data);
+        }
     }
 }

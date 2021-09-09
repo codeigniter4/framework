@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'auth/Login::index');
 $routes->get('/login', 'auth/Login::index');
 $routes->get('/logout', 'auth/Login::logout');
+$routes->get('/dashboard', 'Page::dashboard');
 $routes->get('/lembaga', 'profil/Lembaga::index');
 
 $routes->get('/penyuluhpns', 'Penyuluh/PenyuluhPns::penyuluhpns');
@@ -51,6 +52,7 @@ $routes->get('/penyuluhpnskec', 'Penyuluh/PenyuluhPNSKec::penyuluhpnskec');
 $routes->get('/penyuluhpppkkec', 'Penyuluh/PenyuluhPPPKKec::penyuluhpppkkec');
 
 $routes->get('/penyuluh', 'profil/Penyuluh::index');
+
 
 $routes->get('/desa', 'Kelembagaan/Desa::index');
 $routes->get('/daftar_posluhdes', 'Kelembagaan/DaftarPosluhdes::index');
@@ -84,6 +86,7 @@ $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) 
 
 
 //KelembagaanPelakuUtamaRoutes
+
 $routes->get('/gapoktan', 'KelembagaanPelakuUtama/Gapoktan/Gapoktan::gapoktan');
 $routes->get('/listgapoktan', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktan::listgapoktan');
 $routes->get('/listgapoktandesa', 'KelembagaanPelakuUtama/Gapoktan/ListGapoktanDesa::listgapoktandesa');
@@ -101,7 +104,6 @@ $routes->get('/listpoktananggota', 'KelembagaanPelakuUtama/KelompokTani/ListPokt
 $routes->get('/kelembagaanpetanilainnya', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya/KelembagaanPetaniLainnya::kelembagaanpetanilainnya');
 $routes->get('/listkep2l', 'KelembagaanPelakuUtama/KelembagaanPetaniLainnya/ListKEP2L::listkep2l');
 
-//
 $routes->get('/desa', 'KelembagaanPenyuluhan/Desa/Desa::desa');
 $routes->get('/kabupaten_kota', 'KelembagaanPenyuluhan/Kabupaten/Kabupaten::kab');
 $routes->get('/kecamatan', 'KelembagaanPenyuluhan/Kecamatan/Kecamatan::kecamatan');

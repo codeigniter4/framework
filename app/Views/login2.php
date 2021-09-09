@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('assets/img/apple-icon.png'); ?>">
     <link rel="icon" type="image/png" href="<?= base_url('assets/img/favicon.ico'); ?>">
     <title>
-        Login
+        <?= $title; ?>
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -47,19 +47,19 @@
                                         Dashboard
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link me-2" href="<?= base_url('profil '); ?>">
                                         <i class="fa fa-user opacity-6 text-dark me-1"></i>
                                         Profile
                                     </a>
-                                </li> -->
+                                </li>
 
-                                <!-- <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link me-2" href="<?= base_url(); ?>pages/sign-in.html">
                                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                                         Masuk
                                     </a>
-                                </li> -->
+                                </li>
                             </ul>
 
                         </div>
@@ -81,13 +81,11 @@
                                     <p class="mb-0">Masukkan akun anda untuk login</p>
                                 </div>
                                 <div class="card-body">
-                                    <?php if (session()->getFlashdata('msg')) : ?>
-                                        <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
-                                    <?php endif; ?>
-                                    <form class="user" method="post" action="<?= base_url('auth/login/proses'); ?>">
+                                    <form class="user" method="post" action="<?= base_url('auth/act_login'); ?>">
                                         <label>Username</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Email" aria-describedby="email-addon">
+
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
@@ -100,7 +98,7 @@
                                             <label class="form-check-label" for="rememberMe">Ingat saya</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Masuk</button>
+                                            <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Masuk</button>
                                         </div>
                                     </form>
                                 </div>

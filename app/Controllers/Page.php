@@ -20,7 +20,7 @@ class Page extends BaseController
 
         $data = [
             'title' => 'Dashboard',
-            'name' => 'Adi'
+            'name' => 'dashboard'
         ];
 
         return view('dashboard', $data);
