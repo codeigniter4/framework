@@ -781,35 +781,46 @@ class RouteCollection implements RouteCollectionInterface
             }
         }
 
+        $as = (isset($options['as'])) ? $options['as'] : null;
+
         if (in_array('index', $methods, true)) {
+        	$options['as'] = (isset($options['as'])) ? $as . '.index' : null ;
             $this->get($name, $newName . '::index', $options);
         }
         if (in_array('show', $methods, true)) {
+			$options['as'] = (isset($options['as'])) ? $as . '.show' : null;
             $this->get($name . '/show/' . $id, $newName . '::show/$1', $options);
         }
         if (in_array('new', $methods, true)) {
-            $this->get($name . '/new', $newName . '::new', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.new' : null;
+			$this->get($name . '/new', $newName . '::new', $options);
         }
         if (in_array('create', $methods, true)) {
-            $this->post($name . '/create', $newName . '::create', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.create' : null;
+			$this->post($name . '/create', $newName . '::create', $options);
         }
         if (in_array('edit', $methods, true)) {
-            $this->get($name . '/edit/' . $id, $newName . '::edit/$1', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.edit' : null;
+			$this->get($name . '/edit/' . $id, $newName . '::edit/$1', $options);
         }
         if (in_array('update', $methods, true)) {
-            $this->post($name . '/update/' . $id, $newName . '::update/$1', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.update' : null;
+			$this->post($name . '/update/' . $id, $newName . '::update/$1', $options);
         }
         if (in_array('remove', $methods, true)) {
-            $this->get($name . '/remove/' . $id, $newName . '::remove/$1', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.remove' : null;
+			$this->get($name . '/remove/' . $id, $newName . '::remove/$1', $options);
         }
         if (in_array('delete', $methods, true)) {
-            $this->post($name . '/delete/' . $id, $newName . '::delete/$1', $options);
+			$options['as'] = (isset($options['as'])) ? $as . '.delete' : null;
+			$this->post($name . '/delete/' . $id, $newName . '::delete/$1', $options);
         }
+        unset($options['as']);
         if (in_array('show', $methods, true)) {
-            $this->get($name . '/' . $id, $newName . '::show/$1', $options);
+			$this->get($name . '/' . $id, $newName . '::show/$1', $options);
         }
         if (in_array('create', $methods, true)) {
-            $this->post($name, $newName . '::create', $options);
+			$this->post($name, $newName . '::create', $options);
         }
 
         return $this;
