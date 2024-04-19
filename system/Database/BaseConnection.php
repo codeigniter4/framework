@@ -359,6 +359,7 @@ abstract class BaseConnection implements ConnectionInterface
     protected array $dateFormat = [
         'date'        => 'Y-m-d',
         'datetime'    => 'Y-m-d H:i:s',
+        'datetime-oci8'    => 'd-M-y h.i.s.u A',
         'datetime-ms' => 'Y-m-d H:i:s.v',
         'datetime-us' => 'Y-m-d H:i:s.u',
         'time'        => 'H:i:s',
