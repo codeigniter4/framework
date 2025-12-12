@@ -11,12 +11,9 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace CodeIgniter\Entity\Cast;
-
-class ObjectCast extends BaseCast
-{
-    public static function get($value, array $params = []): object
-    {
-        return (object) $value;
-    }
-}
+// Honeypot language settings
+return [
+    'noTemplate'      => 'The HTML template for the Honeypot is not configured.',
+    'noNameField'     => 'The name of the Honeypot field is not set.',
+    'theClientIsABot' => 'The Honeypot client may be a bot.',
+];
