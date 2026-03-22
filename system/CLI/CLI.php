@@ -1129,7 +1129,35 @@ class CLI
     /**
      * Testing purpose only
      *
-     * @testTag
+     * @internal
+     */
+    public static function reset(): void
+    {
+        static::$initialized = false;
+        static::$segments    = [];
+        static::$options     = [];
+        static::$lastWrite   = null;
+        static::$height      = null;
+        static::$width       = null;
+        static::$isColored   = static::hasColorSupport(STDOUT);
+
+        static::resetInputOutput();
+    }
+
+    /**
+     * Testing purpose only
+     *
+     * @internal
+     */
+    public static function resetLastWrite(): void
+    {
+        static::$lastWrite = null;
+    }
+
+    /**
+     * Testing purpose only
+     *
+     * @internal
      */
     public static function setInputOutput(InputOutput $io): void
     {
@@ -1139,7 +1167,7 @@ class CLI
     /**
      * Testing purpose only
      *
-     * @testTag
+     * @internal
      */
     public static function resetInputOutput(): void
     {

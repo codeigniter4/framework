@@ -178,6 +178,15 @@ class Validation implements ValidationInterface
                     ARRAY_FILTER_USE_KEY,
                 );
 
+                // Emit null for every leaf path that is structurally reachable
+                // but whose key is absent from the data. This mirrors the
+                // non-wildcard behaviour where a missing key is treated as null,
+                // so that all rules behave consistently regardless of whether
+                // the field uses a wildcard or not.
+                foreach ($this->walkForAllPossiblePaths(explode('.', $field), $data, '') as $path) {
+                    $values[$path] = null;
+                }
+
                 // if keys not found
                 $values = $values !== [] ? $values : [$field => null];
             } else {
@@ -985,6 +994,86 @@ class Validation implements ValidationInterface
         }
 
         return array_unique($rules);
+    }
+
+    /**
+     * Entry point: allocates a single accumulator and delegates to the
+     * recursive collector, so no intermediate arrays are built or unpacked.
+     *
+     * @param list<string>                  $segments
+     * @param array<array-key, mixed>|mixed $current
+     *
+     * @return list<string>
+     */
+    private function walkForAllPossiblePaths(array $segments, mixed $current, string $prefix): array
+    {
+        $result = [];
+        $this->collectMissingPaths($segments, 0, count($segments), $current, $prefix, $result);
+
+        return $result;
+    }
+
+    /**
+     * Recursively walks the data structure, expanding wildcard segments over
+     * all array keys, and appends to $result by reference. Only concrete leaf
+     * paths where the key is genuinely absent are recorded - intermediate
+     * missing segments are silently skipped so `*` never appears in a result.
+     *
+     * @param list<string>                  $segments
+     * @param int<0, max>                   $segmentCount
+     * @param array<array-key, mixed>|mixed $current
+     * @param list<string>                  $result
+     */
+    private function collectMissingPaths(
+        array $segments,
+        int $index,
+        int $segmentCount,
+        mixed $current,
+        string $prefix,
+        array &$result,
+    ): void {
+        if ($index >= $segmentCount) {
+            // Successfully navigated every segment - the path exists in the data.
+            return;
+        }
+
+        $segment   = $segments[$index];
+        $nextIndex = $index + 1;
+
+        if ($segment === '*') {
+            if (! is_array($current)) {
+                return;
+            }
+
+            foreach ($current as $key => $value) {
+                $keyPrefix = $prefix !== '' ? $prefix . '.' . $key : (string) $key;
+
+                // Non-array elements with remaining segments are a structural
+                // mismatch (e.g. the DBGroup sentinel, scalar siblings) - skip.
+                if (! is_array($value) && $nextIndex < $segmentCount) {
+                    continue;
+                }
+
+                $this->collectMissingPaths($segments, $nextIndex, $segmentCount, $value, $keyPrefix, $result);
+            }
+
+            return;
+        }
+
+        $newPrefix = $prefix !== '' ? $prefix . '.' . $segment : $segment;
+
+        if (! is_array($current) || ! array_key_exists($segment, $current)) {
+            // Only record a missing path for the leaf key. When an intermediate
+            // segment is absent there is nothing to validate in that branch,
+            // so skip it to avoid false-positive errors.
+            if ($nextIndex === $segmentCount) {
+                $result[] = $newPrefix;
+            }
+
+            return;
+        }
+
+        $this->collectMissingPaths($segments, $nextIndex, $segmentCount, $current[$segment], $newPrefix, $result);
     }
 
     /**

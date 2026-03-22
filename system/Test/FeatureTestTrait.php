@@ -15,8 +15,8 @@ namespace CodeIgniter\Test;
 
 use Closure;
 use CodeIgniter\Events\Events;
+use CodeIgniter\Exceptions\RuntimeException;
 use CodeIgniter\HTTP\Exceptions\RedirectException;
-use CodeIgniter\HTTP\Header;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\Method;
 use CodeIgniter\HTTP\Request;
@@ -36,7 +36,7 @@ use ReflectionException;
  * against your application in trait format.
  *
  * @property array<int|string, mixed>           $session
- * @property array<string, Header|list<Header>> $headers
+ * @property array<string, list<string>|string> $headers
  * @property RouteCollection|null               $routes
  *
  * @mixin CIUnitTestCase
@@ -77,11 +77,16 @@ trait FeatureTestTrait
                     );
                 }
 
-                /**
-                 * @TODO For backward compatibility. Remove strtolower() in the future.
-                 * @deprecated 4.5.0
-                 */
-                $method = strtolower($route[0]);
+                // @todo v4.7.1 Remove the strtoupper() and use 'add' in v4.8.0
+                if (! in_array(strtoupper($route[0]), ['ADD', 'CLI', ...Method::all()], true)) {
+                    throw new RuntimeException(sprintf(
+                        'Invalid HTTP method "%s" provided for route "%s".',
+                        $route[0],
+                        $route[1],
+                    ));
+                }
+
+                $method = strtolower($route[0]); // convert to method of RouteCollection
 
                 if (isset($route[3])) {
                     $collection->{$method}($route[1], $route[2], $route[3]);
@@ -115,10 +120,11 @@ trait FeatureTestTrait
      *
      * Example of use
      * withHeaders([
-     *  'Authorization' => 'Token'
+     *     'Authorization' => 'Token',
+     *     'Cache-Control' => ['no-cache', 'no-store'],
      * ])
      *
-     * @param array<string, Header|list<Header>> $headers Array of headers
+     * @param array<string, list<string>|string> $headers Array of headers
      *
      * @return $this
      */

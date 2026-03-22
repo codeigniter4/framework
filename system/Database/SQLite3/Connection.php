@@ -55,7 +55,7 @@ class Connection extends BaseConnection
      *
      * @see https://www.php.net/manual/en/sqlite3.busytimeout
      */
-    protected $busyTimeout;
+    protected ?int $busyTimeout = null;
 
     /**
      * The setting of the "synchronous" flag
@@ -115,7 +115,7 @@ class Connection extends BaseConnection
 
             return $sqlite;
         } catch (Exception $e) {
-            throw new DatabaseException('SQLite3 error: ' . $e->getMessage());
+            throw new DatabaseException('SQLite3 error: ' . $e->getMessage(), $e->getCode(), $e);
         }
     }
 
