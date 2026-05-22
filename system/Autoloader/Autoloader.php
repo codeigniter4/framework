@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace CodeIgniter\Autoloader;
 
+use Closure;
 use CodeIgniter\Exceptions\ConfigException;
 use CodeIgniter\Exceptions\InvalidArgumentException;
 use CodeIgniter\Exceptions\RuntimeException;
@@ -94,6 +95,18 @@ class Autoloader
     protected $helpers = ['url'];
 
     /**
+     * Stores the closures registered with spl_autoload_register()
+     * so that unregister() can remove the exact same instances.
+     *
+     * @var list<Closure(string): void>
+     */
+    private array $registeredClosures = [];
+
+    public function __construct(private readonly string $composerPath = COMPOSER_PATH)
+    {
+    }
+
+    /**
      * Reads in the configuration array (described above) and stores
      * the valid parts that we'll need.
      *
@@ -127,7 +140,7 @@ class Autoloader
             $this->helpers = [...$this->helpers, ...$config->helpers];
         }
 
-        if (is_file(COMPOSER_PATH)) {
+        if (is_file($this->composerPath)) {
             $this->loadComposerAutoloader($modules);
         }
 
@@ -139,11 +152,11 @@ class Autoloader
         // The path to the vendor directory.
         // We do not want to enforce this, so set the constant if Composer was used.
         if (! defined('VENDORPATH')) {
-            define('VENDORPATH', dirname(COMPOSER_PATH) . DIRECTORY_SEPARATOR);
+            define('VENDORPATH', dirname($this->composerPath) . DIRECTORY_SEPARATOR);
         }
 
         /** @var ClassLoader $composer */
-        $composer = include COMPOSER_PATH;
+        $composer = include $this->composerPath;
 
         // Should we load through Composer's namespaces, also?
         if ($modules->discoverInComposer) {
@@ -166,8 +179,17 @@ class Autoloader
      */
     public function register()
     {
-        spl_autoload_register($this->loadClassmap(...), true);
-        spl_autoload_register($this->loadClass(...), true);
+        // Store the exact Closure instances so unregister() can remove them.
+        // First-class callable syntax (e.g. $this->loadClass(...)) creates a
+        // new Closure object on every call, so we must reuse the same instances.
+        $loadClassmap = $this->loadClassmap(...);
+        $loadClass    = $this->loadClass(...);
+
+        $this->registeredClosures[] = $loadClassmap;
+        $this->registeredClosures[] = $loadClass;
+
+        spl_autoload_register($loadClassmap, true);
+        spl_autoload_register($loadClass, true);
 
         foreach ($this->files as $file) {
             $this->includeFile($file);
@@ -179,8 +201,11 @@ class Autoloader
      */
     public function unregister(): void
     {
-        spl_autoload_unregister($this->loadClass(...));
-        spl_autoload_unregister($this->loadClassmap(...));
+        foreach ($this->registeredClosures as $closure) {
+            spl_autoload_unregister($closure);
+        }
+
+        $this->registeredClosures = [];
     }
 
     /**
@@ -451,14 +476,12 @@ class Autoloader
      */
     protected function discoverComposerNamespaces()
     {
-        if (! is_file(COMPOSER_PATH)) {
+        if (! is_file($this->composerPath)) {
             return;
         }
 
-        /**
-         * @var ClassLoader $composer
-         */
-        $composer = include COMPOSER_PATH;
+        /** @var ClassLoader $composer */
+        $composer = include $this->composerPath;
         $paths    = $composer->getPrefixesPsr4();
         $classes  = $composer->getClassMap();
 

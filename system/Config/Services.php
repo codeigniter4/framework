@@ -698,7 +698,6 @@ class Services extends BaseService
             ));
         }
 
-        /** @var SessionBaseHandler $driver */
         $driver = new $driverName($config, AppServices::get('request')->getIPAddress());
         $driver->setLogger($logger);
 

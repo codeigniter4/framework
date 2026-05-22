@@ -255,6 +255,7 @@ class CLI
         }
 
         static::fwrite(STDOUT, $field . (trim($field) !== '' ? ' ' : '') . $extraOutput . ': ');
+        static::$lastWrite = 'write';
 
         // Read the input from keyboard.
         $input = trim(static::$io->input());
@@ -458,7 +459,8 @@ class CLI
         }
 
         if (static::$lastWrite !== 'write') {
-            $text              = PHP_EOL . $text;
+            $text = PHP_EOL . $text;
+
             static::$lastWrite = 'write';
         }
 
@@ -473,11 +475,18 @@ class CLI
     public static function error(string $text, string $foreground = 'light_red', ?string $background = null)
     {
         // Check color support for STDERR
-        $stdout            = static::$isColored;
+        $stdout = static::$isColored;
+
         static::$isColored = static::hasColorSupport(STDERR);
 
         if ($foreground !== '' || (string) $background !== '') {
             $text = static::color($text, $foreground, $background);
+        }
+
+        if (static::$lastWrite !== 'write') {
+            $text = PHP_EOL . $text;
+
+            static::$lastWrite = 'write';
         }
 
         static::fwrite(STDERR, $text . PHP_EOL);
@@ -769,12 +778,12 @@ class CLI
                         static::$width  = (int) $matches[2];
                     }
                 }
-            } elseif (($size = exec('stty size')) && preg_match('/(\d+)\s+(\d+)/', $size, $matches)) {
+            } elseif (($size = exec('stty size 2>/dev/null')) && preg_match('/(\d+)\s+(\d+)/', $size, $matches)) {
                 static::$height = (int) $matches[1];
                 static::$width  = (int) $matches[2];
             } else {
-                static::$height = (int) exec('tput lines');
-                static::$width  = (int) exec('tput cols');
+                static::$height = (int) exec('tput lines 2>/dev/null');
+                static::$width  = (int) exec('tput cols 2>/dev/null');
             }
         } catch (Throwable $e) {
             // Reset the dimensions so that the default values will be returned later.
